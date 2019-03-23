@@ -153,21 +153,20 @@ class SpellingMeasure():
             # work with already
             try:
                 with open('participants session progress.json') as jsonFile:
-                    worksheetsUsedAllUsers = json.load(jsonFile)
-                    worksheetsUsedUser = worksheetsUsedAllUsers.get(
+                    progressAllUsers = json.load(jsonFile)
+                    progressUser = progressAllUsers.get(
                         str(self.participantCode),
                         []
                     )
             except (FileNotFoundError):
-                worksheetsUsedUser = []
-                print('File Not Found. Closing the app')
+                progressUser = []
 
             # Make sure the participant has not worked on the
             # selected worksheet already
             while True:
-                worksheetName = random.choice(worksheetNames)
-                if worksheetName not in worksheetsUsedUser:
-                    worksheet = '{}{}'.format(worksheetPath, worksheetName)
+                worksheet = random.choice(worksheetNames)
+                worksheet = '{}{}'.format(worksheetPath, worksheet)
+                if worksheet not in progressUser:
                     break
 
         return worksheet
@@ -238,21 +237,17 @@ class SpellingMeasure():
         filename = 'participants session progress.json'
         if filename in listdir('.'):
             with open(filename) as jsonFile:
-                worksheetUsedAllUsers = json.load(jsonFile)
-                worksheetUsedAllUsers.setdefault(
+                progress = json.load(jsonFile)
+                progress.setdefault(
                     str(self.participantCode),
                     []).append(
                         self.worksheetName
                     )
-                print(worksheetUsedAllUsers)
-                json.dump(worksheetUsedAllUsers, jsonFile)
         else:
-            with open(filename, 'w') as jsonFile:
-                participantsProgress = {
-                    self.participantCode: [self.worksheetName]
-                }
-                print(participantsProgress)
-                json.dump(participantsProgress, jsonFile)
+            progress = {self.participantCode: [self.worksheetName]}
+
+        with open(filename, 'w') as jsonFile:
+            json.dump(progress, jsonFile)
 
     def save_results(self):
         """Save the participant's results for this session."""
