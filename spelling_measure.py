@@ -53,7 +53,7 @@ class MainApp(tk.Frame):
             self.mainFrame,
             font=appFont,
             fg=fontColor,
-            text="Codigo: ",
+            text="Código: ",
             bg=backgroundColor,
         )
         self.participantCodeLabel.pack()
@@ -97,7 +97,7 @@ class MainApp(tk.Frame):
             font=appFont,
             fg=fontColor,
             bg=backgroundColor,
-            text="Comencemos",
+            text="¡Comencemos!",
             justify=tk.CENTER,
             pady=2
         )
@@ -119,7 +119,8 @@ class SpellingMeasure():
         # Config
         self.root = root
         self.participantCode = participantCode
-        self.worksheetName = self.get_current_worksheet_name()
+        self.worksheetName, self.sessionNumber = \
+            self.get_current_worksheet_name_and_session_number()
         self.worksheet = pd.read_excel(self.worksheetName)
         # Shuffles the worksheet so participants get different orders
         self.worksheet.reindex(np.random.permutation(self.worksheet.index))
@@ -133,7 +134,7 @@ class SpellingMeasure():
 
         self.present_next_item()
 
-    def get_current_worksheet_name(self):
+    def get_current_worksheet_name_and_session_number(self):
         """Get the worksheet number the user should work on for this session.
         It has to be worksheet that the participant has not worked on before.
         """
@@ -169,7 +170,12 @@ class SpellingMeasure():
                 if worksheet not in progressUser:
                     break
 
-        return worksheet
+        if 'practice' in worksheet:
+            progressUser = 'practice'
+        else:
+            progressUser = len(progressUser) + 1
+
+        return worksheet, progressUser
 
     def get_current_word(self):
         """Randomly select a row from the worksheet and drop it from the
@@ -184,10 +190,15 @@ class SpellingMeasure():
             self.erase_content()
             if self.worksheetName != 'Stimuli/words/practice.xlsx':
                 self.save_participant_progress()
-            self.save_results()
+                self.save_results()
+            else:
+                self.end_practice()
 
     def present_audio(self, word):
-        pass
+        mixer.init(44100)
+        soundPath = "Stimuli/audio/{}.wav".format(word.strip())
+        sound = mixer.Sound(soundPath)
+        sound.play()
 
     def present_next_item(self):
         self.erase_content()
@@ -221,7 +232,15 @@ class SpellingMeasure():
         self.present_audio(current_word.word)
 
     def update_results(self, word, difficulty_level):
-        self.results.append([word, self.userResponse.get(), difficulty_level])
+        self.results.append(
+            [
+                self.participantCode,
+                self.sessionNumber,
+                word.strip(),
+                self.userResponse.get(),
+                difficulty_level
+            ]
+        )
         self.present_next_item()
 
     def erase_content(self):
@@ -252,8 +271,9 @@ class SpellingMeasure():
     def save_results(self):
         """Save the participant's results for this session."""
 
+        self.erase_content()
         # goodbye message while results are saved
-        message = "Terminamos! \n Guardando los resultados..."
+        message = "¡Terminamos! \n Guardando los resultados..."
         goodbye_message = tk.Label(
             self.mainFrame,
             font=appFont,
@@ -266,13 +286,38 @@ class SpellingMeasure():
         goodbye_message.pack(pady=200)
         results_formatted = pd.DataFrame(
             self.results,
-            columns=['word', 'response', 'difficulty_level']
+            columns=[
+                'participant id',
+                'session',
+                'word',
+                'response',
+                'difficulty_level']
         )
-        results_path = 'results/results_{}_{}.xlsx'.format(
+        results_path = 'results/results_p{}_s{}_{}.xlsx'.format(
             self.participantCode,
+            self.sessionNumber,
             datetime.datetime.now().strftime('%Y-%m-%d')
         )
         results_formatted.to_excel(results_path, index=False)
+        self.root.after(2000, self.root.destroy)
+
+    def end_practice(self):
+        """End the practice session without saving the results."""
+
+        self.erase_content()
+
+        # goodbye message
+        message = "¡Terminamos la práctica! \n"
+        goodbye_message = tk.Label(
+            self.mainFrame,
+            font=appFont,
+            fg=fontColor,
+            bg=backgroundColor,
+            text=message,
+            justify=tk.CENTER,
+            pady=2
+        )
+        goodbye_message.pack(pady=200)
         self.root.after(2000, self.root.destroy)
 
 
