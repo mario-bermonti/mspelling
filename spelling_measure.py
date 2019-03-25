@@ -147,8 +147,8 @@ class SpellingMeasure():
             worksheetNames = [fname for fname in listdir(worksheetPath)
                               if isfile(join(worksheetPath, fname))]
 
-            # Clean practice trials from list of worksheets
-            worksheetNames.remove('practice.xlsx')
+            # Clean other system files and practice file from list
+            worksheetNames = [fname for fname in worksheetNames if fname.startswith('worksheet_')]
 
             # File that specifies which worksheets has this participant
             # work with already
@@ -228,7 +228,6 @@ class SpellingMeasure():
         nextButton.pack()
 
         current_word = self.get_current_word()
-        print(current_word)
         self.present_audio(current_word.word)
 
     def update_results(self, word, difficulty_level):
