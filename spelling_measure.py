@@ -266,7 +266,6 @@ class SpellingMeasure():
     def save_results(self):
         """Save the participant's results for this session."""
 
-        self.erase_content()
         # goodbye message while results are saved
         message = "¡Terminamos! \n Guardando los resultados..."
         goodbye_message = tk.Label(
@@ -293,13 +292,12 @@ class SpellingMeasure():
             self.sessionNumber,
             datetime.datetime.now().strftime('%Y-%m-%d')
         )
+        print(self.results)
         results_formatted.to_excel(results_path, index=False)
         self.root.after(2000, self.root.destroy)
 
     def end_practice(self):
         """End the practice session without saving the results."""
-
-        self.erase_content()
 
         # goodbye message
         message = "¡Terminamos la práctica! \n"
@@ -317,6 +315,7 @@ class SpellingMeasure():
 
     def close_app(self):
         """Saves the participant's progress and closes the app."""
+
         self.erase_content()
         if self.worksheetName != 'Stimuli/words/practice.xlsx':
             self.save_participant_progress()
