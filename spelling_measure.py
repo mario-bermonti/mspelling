@@ -132,6 +132,7 @@ class SpellingMeasure():
         self.mainFrame = tk.Frame(root, bg=backgroundColor)
         self.mainFrame.pack(expand=tk.YES, fill=tk.BOTH)
 
+        self.root.after(600000, self.close_app)
         self.present_next_item()
 
     def get_current_worksheet_name_and_session_number(self):
@@ -187,12 +188,7 @@ class SpellingMeasure():
             self.worksheet = self.worksheet.iloc[1:]
             return currentWord
         except IndexError:
-            self.erase_content()
-            if self.worksheetName != 'Stimuli/words/practice.xlsx':
-                self.save_participant_progress()
-                self.save_results()
-            else:
-                self.end_practice()
+            self.close_app()
 
     def present_audio(self, word):
         mixer.init(44100)
@@ -318,6 +314,15 @@ class SpellingMeasure():
         )
         goodbye_message.pack(pady=200)
         self.root.after(2000, self.root.destroy)
+
+    def close_app(self):
+        """Saves the participant's progress and closes the app."""
+        self.erase_content()
+        if self.worksheetName != 'Stimuli/words/practice.xlsx':
+            self.save_participant_progress()
+            self.save_results()
+        else:
+            self.end_practice()
 
 
 if __name__ == "__main__":
