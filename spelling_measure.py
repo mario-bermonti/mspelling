@@ -164,7 +164,7 @@ class SpellingMeasure():
                         str(self.participantCode),
                         []
                     )
-            except (FileNotFoundError):
+            except FileNotFoundError:
                 progressUser = []
 
             # Make sure the participant has not worked on the
@@ -228,7 +228,7 @@ class SpellingMeasure():
         nextButton.pack()
 
         current_word = self.get_current_word()
-        self.present_audio(current_word.word)
+        self.root.after(500, self.present_audio, current_word.word)
 
     def update_results(self, word, difficulty_level):
         self.results.append(
@@ -296,7 +296,6 @@ class SpellingMeasure():
             self.sessionNumber,
             datetime.datetime.now().strftime('%Y-%m-%d')
         )
-        print(self.results)
         results_formatted.to_excel(results_path, index=False)
         self.root.after(2000, self.root.destroy)
 
