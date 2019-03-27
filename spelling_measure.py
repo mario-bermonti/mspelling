@@ -123,7 +123,11 @@ class SpellingMeasure():
             self.get_current_worksheet_name_and_session_number()
         self.worksheet = pd.read_excel(self.worksheetName)
         # Shuffles the worksheet so participants get different orders
-        self.worksheet.reindex(np.random.permutation(self.worksheet.index))
+        self.worksheet = self.worksheet.reindex(
+            np.random.permutation(
+                self.worksheet.index
+            )
+        )
 
         # Results
         self.results = []
