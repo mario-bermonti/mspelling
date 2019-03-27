@@ -12,15 +12,14 @@ options just change the colors of the app.
 
 import tkinter as tk
 import time
-import pandas as pd
-import numpy as np
-from pygame import mixer
 import random
 import datetime
 from os import listdir
 from os.path import isfile, join
 import json
-
+import pandas as pd
+import numpy as np
+from pygame import mixer
 import settings
 
 settings = settings.Settings()
