@@ -146,10 +146,11 @@ class SpellingMeasure():
         It has to be worksheet that the participant has not worked on before.
         """
 
-        worksheetPath = 'Stimuli/words/'
+        worksheetPath = ['Stimuli', 'words']
+        worksheetPath = join(*worksheetPath)
         # Present practice trials if participant's code is left blank
         if not self.participantCode:
-            worksheet = '{}practice.xlsx'.format(worksheetPath)
+            worksheet = join(worksheetPath, 'practice.xlsx')
         else:
             worksheetNames = [fname for fname in listdir(worksheetPath)
                               if isfile(join(worksheetPath, fname))]
@@ -173,7 +174,7 @@ class SpellingMeasure():
             # selected worksheet already
             while True:
                 worksheet = random.choice(worksheetNames)
-                worksheet = '{}{}'.format(worksheetPath, worksheet)
+                worksheet = join(worksheetPath, worksheet)
                 if worksheet not in progressUser:
                     break
 
@@ -198,7 +199,7 @@ class SpellingMeasure():
 
     def present_audio(self, word):
         mixer.init(44100)
-        soundPath = "Stimuli/audio/{}.wav".format(word.strip())
+        soundPath = join("Stimuli", "audio", "{}.wav".format(word.strip()))
         sound = mixer.Sound(soundPath)
         sound.play()
 
@@ -293,10 +294,13 @@ class SpellingMeasure():
                 'response',
                 'difficulty_level']
         )
-        results_path = 'results/results_p{}_s{}_{}.xlsx'.format(
-            self.participantCode,
-            self.sessionNumber,
-            datetime.datetime.now().strftime('%Y-%m-%d')
+        results_path = join(
+            'results',
+            'results_p{}_s{}_{}.xlsx'.format(
+                self.participantCode,
+                self.sessionNumber,
+                datetime.datetime.now().strftime('%Y-%m-%d')
+            )
         )
         results_formatted.to_excel(results_path, index=False)
         self.root.after(2000, self.root.destroy)
@@ -322,7 +326,7 @@ class SpellingMeasure():
         """Saves the participant's progress and closes the app."""
 
         self.erase_content()
-        if self.worksheetName != 'Stimuli/words/practice.xlsx':
+        if self.worksheetName != join('Stimuli', 'words', 'practice.xlsx'):
             self.save_participant_progress()
             self.save_results()
         else:
