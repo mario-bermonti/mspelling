@@ -110,7 +110,10 @@ class MainApp(tk.Frame):
 
     def start_spelling_measure(self):
         self.erase_content()
-        spelling_measure = SpellingMeasure(self.participantCode.get(), self.root)
+        spelling_measure = SpellingMeasure(
+            self.participantCode.get().strip(),
+            self.root
+        )
 
 
 class SpellingMeasure():
