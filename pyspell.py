@@ -24,7 +24,7 @@ import settings
 
 settings = settings.Settings()
 
-# Configure things
+# Configure settings 
 appFont = settings.appFont
 fontColor = settings.fontColor
 buttonColor = settings.buttonColor
