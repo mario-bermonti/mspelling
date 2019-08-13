@@ -35,7 +35,7 @@ class MainApp(tk.Frame):
     def __init__(self, root):
         tk.Frame.__init__(self)
         self.root = root
-        root.attributes('-fullscreen', True)
+        # root.attributes('-fullscreen', True)
 
         self.root.configure(bg=backgroundColor)
         self.root.title("Deletreo")
