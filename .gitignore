@@ -1,2 +1,5 @@
 /.DS_Store
 /results/.DS_Store
+/Stimuli/audio/.DS_Store
+/Stimuli/words/.DS_Store
+/*.pyc
