@@ -14,8 +14,8 @@ import tkinter as tk
 import time
 import random
 import datetime
-from os import listdir
-from os.path import isfile, join
+from os import listdir, mkdir
+from os.path import isfile, join, isdir 
 import json
 import pandas as pd
 import numpy as np
@@ -302,6 +302,10 @@ class SpellingMeasure():
                 datetime.datetime.now().strftime('%Y-%m-%d')
             )
         )
+
+        if not isdir('results/'):
+            mkdir('results/')
+
         results_formatted.to_excel(results_path, index=False)
         self.root.after(2000, self.root.destroy)
 
