@@ -136,7 +136,6 @@ class SpellingMeasure():
         self.mainFrame = tk.Frame(root, bg=backgroundColor)
         self.mainFrame.pack(expand=tk.YES, fill=tk.BOTH)
 
-        self.root.after(600000, self.close_app)
         self.present_next_item()
 
     def is_practice_session(self):
