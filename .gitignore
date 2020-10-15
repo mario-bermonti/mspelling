@@ -1,6 +1,6 @@
 /.DS_Store
 /results/.DS_Store
-/stimuli/audio/.DS_Store
+/stimuli/audio/
 /stimuli/words/.DS_Store
 /*.pyc
 *.pyc
