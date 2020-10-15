@@ -1,8 +1,18 @@
+# ignore system files
 /.DS_Store
 /results/.DS_Store
-/stimuli/audio/
 /stimuli/words/.DS_Store
 /*.pyc
 *.pyc
-/results/
+
+# ignore app data that should be provided by user
 /stimuli/words/experimental.xlsx
+/results/
+/stimuli/audio/
+#Except practice files for audio
+!/stimuli/audio/al.wav
+!/stimuli/audio/da.wav
+!/stimuli/audio/de.wav
+!/stimuli/audio/del.wav
+!/stimuli/audio/dos.wav
+Stimuli/.DS_Store
