@@ -4,3 +4,5 @@
 /stimuli/words/.DS_Store
 /*.pyc
 *.pyc
+/results/
+/stimuli/words/experimental.xlsx
