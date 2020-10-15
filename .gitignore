@@ -1,6 +1,8 @@
 /.DS_Store
 /results/.DS_Store
-/Stimuli/audio/.DS_Store
-/Stimuli/words/.DS_Store
+/stimuli/audio/.DS_Store
+/stimuli/words/.DS_Store
 /*.pyc
 *.pyc
+/results/
+/stimuli/words/experimental.xlsx

@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """This module creates the main window. The windows size is automatically
@@ -14,8 +13,7 @@ import tkinter as tk
 import time
 import random
 import datetime
-from os import listdir, mkdir
-from os.path import isfile, join, isdir 
+import os 
 import json
 import pandas as pd
 import numpy as np
@@ -121,9 +119,9 @@ class SpellingMeasure():
         # Config
         self.root = root
         self.participantCode = participantCode
-        self.worksheetName, self.sessionNumber = \
-            self.get_current_worksheet_name_and_session_number()
-        self.worksheet = pd.read_excel(self.worksheetName)
+        self.practice = self.is_practice_session()
+        self.cwd = os.getcwd() 
+        self.worksheet = self.get_worksheet()
         # Shuffles the worksheet so participants get different orders
         self.worksheet = self.worksheet.reindex(
             np.random.permutation(
@@ -141,49 +139,34 @@ class SpellingMeasure():
         self.root.after(600000, self.close_app)
         self.present_next_item()
 
-    def get_current_worksheet_name_and_session_number(self):
-        """Get the worksheet number the user should work on for this session.
-        It has to be worksheet that the participant has not worked on before.
+    def is_practice_session(self):
+        """Returns True if this is a practice session. Else returns False."""
+
+        if (self.participantCode is False) or (len(self.participantCode) == 0):
+            return True
+        else:
+            return False
+
+    def get_worksheet(self):
+        """
+        Determines if this is a practice or experimental session,
+        reads the stimuli from a file and returns them.
+
+        Returns
+        -------
+        stim (pandas.DataFrame): stimuli with any additional data
+            contained in the stim file.
         """
 
-        worksheetPath = ['Stimuli', 'words']
-        worksheetPath = join(*worksheetPath)
-        # Present practice trials if participant's code is left blank
-        if not self.participantCode:
-            worksheet = join(worksheetPath, 'practice.xlsx')
+        if self.practice:
+            filename = "practice.xlsx"
         else:
-            worksheetNames = [fname for fname in listdir(worksheetPath)
-                              if isfile(join(worksheetPath, fname))]
+            filename = "experimental.xlsx"
 
-            # Clean other system files and practice file from list
-            worksheetNames = [fname for fname in worksheetNames if fname.startswith('worksheet_')]
+        file_path = os.path.join("stimuli", "words", filename)
+        worksheet = pd.read_excel(file_path)
 
-            # File that specifies which worksheets has this participant
-            # work with already
-            try:
-                with open('participants session progress.json') as jsonFile:
-                    progressAllUsers = json.load(jsonFile)
-                    progressUser = progressAllUsers.get(
-                        str(self.participantCode),
-                        []
-                    )
-            except FileNotFoundError:
-                progressUser = []
-
-            # Make sure the participant has not worked on the
-            # selected worksheet already
-            while True:
-                worksheet = random.choice(worksheetNames)
-                worksheet = join(worksheetPath, worksheet)
-                if worksheet not in progressUser:
-                    break
-
-        if 'practice' in worksheet:
-            progressUser = 'practice'
-        else:
-            progressUser = len(progressUser) + 1
-
-        return worksheet, progressUser
+        return worksheet
 
     def get_current_word(self):
         """Randomly select a row from the worksheet and drop it from the
@@ -199,7 +182,7 @@ class SpellingMeasure():
 
     def present_audio(self, word):
         mixer.init(44100)
-        soundPath = join("Stimuli", "audio", "{}.wav".format(word.strip()))
+        soundPath = os.path.join("stimuli", "audio", "{}.wav".format(word.strip()))
         sound = mixer.Sound(soundPath)
         sound.play()
 
@@ -237,7 +220,6 @@ class SpellingMeasure():
         self.results.append(
             [
                 self.participantCode,
-                self.sessionNumber,
                 word.strip(),
                 self.userResponse.get(),
                 difficulty_level
@@ -249,26 +231,6 @@ class SpellingMeasure():
         self.mainFrame.destroy()
         self.mainFrame = tk.Frame(root, bg=backgroundColor)
         self.mainFrame.pack(expand=tk.YES, fill=tk.BOTH)
-
-    def save_participant_progress(self):
-        """Record and save to file the identifier of the worksheet the
-        participant worked on. This is done in order to avoid repeating them.
-        """
-
-        filename = 'participants session progress.json'
-        if filename in listdir('.'):
-            with open(filename) as jsonFile:
-                progress = json.load(jsonFile)
-                progress.setdefault(
-                    str(self.participantCode),
-                    []).append(
-                        self.worksheetName
-                    )
-        else:
-            progress = {self.participantCode: [self.worksheetName]}
-
-        with open(filename, 'w') as jsonFile:
-            json.dump(progress, jsonFile)
 
     def save_results(self):
         """Save the participant's results for this session."""
@@ -289,22 +251,20 @@ class SpellingMeasure():
             self.results,
             columns=[
                 'participant id',
-                'session',
                 'word',
                 'response',
                 'difficulty_level']
         )
-        results_path = join(
+        results_path = os.path.join(
             'results',
-            'results_p{}_s{}_{}.xlsx'.format(
+            'results_p{}_{}.xlsx'.format(
                 self.participantCode,
-                self.sessionNumber,
                 datetime.datetime.now().strftime('%Y-%m-%d')
             )
         )
 
-        if not isdir('results/'):
-            mkdir('results/')
+        if not os.path.isdir('results/'):
+            os.mkdir('results/')
 
         results_formatted.to_excel(results_path, index=False)
         self.root.after(2000, self.root.destroy)
@@ -327,14 +287,13 @@ class SpellingMeasure():
         self.root.after(2000, self.root.destroy)
 
     def close_app(self):
-        """Saves the participant's progress and closes the app."""
+        """Saves the participant's results and closes the app."""
 
         self.erase_content()
-        if self.worksheetName != join('Stimuli', 'words', 'practice.xlsx'):
-            self.save_participant_progress()
-            self.save_results()
-        else:
+        if self.practice:
             self.end_practice()
+        else:
+            self.save_results()
 
 
 if __name__ == "__main__":
