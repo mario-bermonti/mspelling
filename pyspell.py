@@ -122,6 +122,7 @@ class SpellingMeasure():
         self.practice = self.is_practice_session()
         self.cwd = os.getcwd() 
         self.worksheet = self.get_worksheet()
+        self.trial = None
         # Shuffles the worksheet so participants get different orders
         self.worksheet = self.worksheet.reindex(
             np.random.permutation(
@@ -129,7 +130,6 @@ class SpellingMeasure():
             )
         )
 
-        # Results
         self.results = []
 
         # Main frame where everything else goes.
@@ -168,20 +168,20 @@ class SpellingMeasure():
 
         return worksheet
 
-    def get_current_word(self):
+    def get_trial(self):
         """Randomly select a row from the worksheet and drop it from the
         worksheet.
         """
 
         try:
-            currentWord = self.worksheet.iloc[0]
+            self.trial = self.worksheet.iloc[0]
             self.worksheet = self.worksheet.iloc[1:]
-            return currentWord
         except IndexError:
             self.close_app()
 
-    def present_audio(self, word):
+    def present_audio(self):
         mixer.init(44100)
+        word = self.trial.word
         soundPath = os.path.join("stimuli", "audio", "{}.wav".format(word.strip()))
         sound = mixer.Sound(soundPath)
         sound.play()
@@ -206,26 +206,35 @@ class SpellingMeasure():
             text="Listo",
             width=8,
             bg=buttonColor,
-            command=lambda: self.update_results(
-                current_word.word,
-                current_word['difficulty level']
-            )
-        )
+            command=self.update_results)
         nextButton.pack()
 
-        current_word = self.get_current_word()
-        self.root.after(500, self.present_audio, current_word.word)
+        self.get_trial()
+        self.root.after(500, self.present_audio)
 
-    def update_results(self, word, difficulty_level):
-        self.results.append(
-            [
-                self.participantCode,
-                word.strip(),
-                self.userResponse.get(),
-                difficulty_level
-            ]
-        )
+    def update_results(self):
+        results_trial = self.format_trial_results()
+        self.results.append(results_trial)
         self.present_next_item()
+
+    def format_trial_results(self):
+        """Formats the results of the current trial. This is important
+        to be able to handle arbitrary data provided with the stimuli.
+
+        Returns
+        _______
+        results_trial (list): formatted trial results
+        """
+
+        other_data = self.trial[1:].values.tolist()
+        results_trial = [
+            self.participantCode,
+            self.trial.word,
+            self.userResponse.get(),
+        ]
+        results_trial.extend(other_data)
+
+        return results_trial
 
     def erase_content(self):
         self.mainFrame.destroy()
@@ -247,14 +256,15 @@ class SpellingMeasure():
             pady=2
         )
         goodbye_message.pack(pady=200)
+
+        header = self.format_results_header()
+
+
         results_formatted = pd.DataFrame(
             self.results,
-            columns=[
-                'participant id',
-                'word',
-                'response',
-                'difficulty_level']
+            columns=header
         )
+
         results_path = os.path.join(
             'results',
             'results_p{}_{}.xlsx'.format(
@@ -268,6 +278,20 @@ class SpellingMeasure():
 
         results_formatted.to_excel(results_path, index=False)
         self.root.after(2000, self.root.destroy)
+
+    def format_results_header(self):
+        """Determines what should be the header of the results.
+
+        Returns
+        -------
+        header (list): list of strings with the headers of the results file
+        """
+
+        header_worksheet_data = self.trial[1:].index.tolist()
+        header = ['participant id', 'word', 'response']
+        header.extend(header_worksheet_data)
+
+        return header
 
     def end_practice(self):
         """End the practice session without saving the results."""
