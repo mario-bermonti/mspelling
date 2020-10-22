@@ -164,7 +164,7 @@ class SpellingMeasure():
 
         return worksheet
 
-    def get_trial(self):
+    def set_trial(self):
         """Randomly selects a row from the worksheet, assigns it as the
         current one and drops it from the worksheet.
 
@@ -211,8 +211,8 @@ class SpellingMeasure():
             command=self.update_results)
         nextButton.pack()
 
-        self.get_trial()
         self.root.after(500, self.present_audio)
+        self.set_trial()
 
     def update_results(self):
         """Updates the general results object after each trial."""
