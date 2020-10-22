@@ -135,7 +135,7 @@ class SpellingMeasure():
         self.mainFrame = tk.Frame(root, bg=backgroundColor)
         self.mainFrame.pack(expand=tk.YES, fill=tk.BOTH)
 
-        self.present_next_item()
+        self.root.after(500, self.present_next_item)
 
     def is_practice_session(self):
         """Returns True if this is a practice session. Else returns False."""
@@ -192,37 +192,38 @@ class SpellingMeasure():
         """
 
         self.erase_content()
-
-        # Draw input box
-        self.userResponse = tk.StringVar()
-        self.userResponseEntry = tk.Entry(
-            self.mainFrame,
-            textvariable=self.userResponse,
-            width=20,
-            font=appFont
-        )
-        self.userResponseEntry.pack()
-        self.userResponseEntry.focus_set()
-
-        nextButton = tk.Button(
-            self.mainFrame,
-            font=("Arial", 24),
-            text="Listo",
-            width=8,
-            bg=buttonColor,
-            command=self.update_results)
-        nextButton.pack()
-
         self.set_trial()
         if self.active_session:
-            self.root.after(500, self.present_audio)
+            self.present_audio()
+            self.root.after(1000, self.draw_response_screen)
+
+    def draw_response_screen(self):
+            # Draw input box
+            self.userResponse = tk.StringVar()
+            self.userResponseEntry = tk.Entry(
+                self.mainFrame,
+                textvariable=self.userResponse,
+                width=20,
+                font=appFont,
+            )
+            self.userResponseEntry.pack()
+            self.userResponseEntry.focus_set()
+
+            nextButton = tk.Button(
+                self.mainFrame,
+                font=("Arial", 24),
+                text="Listo",
+                width=8,
+                bg=buttonColor,
+                command=self.update_results)
+            nextButton.pack()
 
     def update_results(self):
         """Updates the general results object after each trial."""
 
         results_trial = self.format_trial_results()
         self.results.append(results_trial)
-        self.present_next_item()
+        self.root.after(500, self.present_next_item)
 
     def format_trial_results(self):
         """Formats the results of the current trial. This is important
