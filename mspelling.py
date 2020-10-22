@@ -127,6 +127,7 @@ class SpellingMeasure():
                 self.worksheet.index
             )
         )
+        self.active_session = True
 
         self.results = []
 
@@ -175,6 +176,7 @@ class SpellingMeasure():
             self.trial = self.worksheet.iloc[0]
             self.worksheet = self.worksheet.iloc[1:]
         except IndexError:
+            self.active_session = False
             self.close_app()
 
     def present_audio(self):
@@ -211,8 +213,9 @@ class SpellingMeasure():
             command=self.update_results)
         nextButton.pack()
 
-        self.root.after(500, self.present_audio)
         self.set_trial()
+        if self.active_session:
+            self.root.after(500, self.present_audio)
 
     def update_results(self):
         """Updates the general results object after each trial."""
