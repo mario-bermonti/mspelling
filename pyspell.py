@@ -268,7 +268,7 @@ class SpellingMeasure():
             'results',
             'results_p{}_{}.xlsx'.format(
                 self.participantCode,
-                datetime.datetime.now().strftime('%Y-%m-%d')
+                datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
             )
         )
 
