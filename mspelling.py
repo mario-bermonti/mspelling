@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 
-"""This module creates the main window. The windows size is automatically
-selected using built-in functions. It displays a button that starts the program
-it then asks the user's name and greets the user.
-
-It also creates a menubar that brings the user back to the mainmenu, offers
-administrative options y offers help to the user. The administrative
-options just change the colors of the app.
+"""
+Entry point for the app.
 """
 
 import tkinter as tk
@@ -30,6 +25,8 @@ backgroundColor = settings.backgroundColor
 
 
 class MainApp(tk.Frame):
+    """Basic app. It configures everything and starts the spelling activity."""
+
     def __init__(self, root):
         tk.Frame.__init__(self)
         self.root = root
@@ -71,11 +68,11 @@ class MainApp(tk.Frame):
             text="Listo",
             width=8,
             bg=buttonColor,
-            command= self.greetingStudent
+            command= self.display_welcome_message
         )
         self.readyButton.pack()
 
-    def greetingStudent(self):
+    def display_welcome_message(self):
         """Creates a label that greets the user using his name."""
 
         self.erase_content()
@@ -115,6 +112,7 @@ class MainApp(tk.Frame):
 
 
 class SpellingMeasure():
+    """Presents the actual spelling activity."""
     def __init__(self, participantCode, root):
         # Config
         self.root = root
@@ -148,8 +146,7 @@ class SpellingMeasure():
 
     def get_worksheet(self):
         """
-        Determines if this is a practice or experimental session,
-        reads the stimuli from a file and returns them.
+        Reads the stimuli from a file and returns them. 
 
         Returns
         -------
@@ -168,8 +165,10 @@ class SpellingMeasure():
         return worksheet
 
     def get_trial(self):
-        """Randomly select a row from the worksheet and drop it from the
-        worksheet.
+        """Randomly selects a row from the worksheet, assigns it as the
+        current one and drops it from the worksheet.
+
+        The app will be closed if there are no words left.
         """
 
         try:
@@ -186,6 +185,10 @@ class SpellingMeasure():
         sound.play()
 
     def present_next_item(self):
+        """Erase current content, allow responses and present
+        the audio for the current trial.
+        """
+
         self.erase_content()
 
         # Draw input box
@@ -212,6 +215,8 @@ class SpellingMeasure():
         self.root.after(500, self.present_audio)
 
     def update_results(self):
+        """Updates the general results object after each trial."""
+
         results_trial = self.format_trial_results()
         self.results.append(results_trial)
         self.present_next_item()
@@ -241,7 +246,7 @@ class SpellingMeasure():
         self.mainFrame.pack(expand=tk.YES, fill=tk.BOTH)
 
     def save_results(self):
-        """Save the participant's results for this session."""
+        """Save the participant's results to a file and closes the app."""
 
         # goodbye message while results are saved
         message = "¡Terminamos! \n Guardando los resultados..."
@@ -279,7 +284,7 @@ class SpellingMeasure():
         self.root.after(2000, self.root.destroy)
 
     def format_results_header(self):
-        """Determines what should be the header of the results.
+        """Determines what should be the header of the results and returns it.
 
         Returns
         -------
