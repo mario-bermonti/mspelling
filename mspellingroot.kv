@@ -1,13 +1,25 @@
 #:include welcomescreen.kv
 #:include loginscreen.kv
 #:include startscreen.kv
+#:include spellingactivity.kv
+#:include goodbyescreen.kv
 
-BoxLayout:
+<MSpellingRoot>:
+  orientation: 'vertical'
   ScreenManager:
-    id: screen_manager
-    WelcomeScreen:
-      name: "welcome_screen"
-    LoginScreen:
-      name: "login_screen"
-    StartScreen:
-      name: "start_screen"
+      id: screen_manager
+      WelcomeScreen:
+          id: welcome_screen
+          name: "welcome_screen"
+      LoginScreen:
+          id: login_screen
+          name: "login_screen"
+      StartScreen:
+          id: start_screen
+          name: "start_screen"
+      SpellingActivityScreen:
+          id: spelling_activity_screen
+          name: "spelling_activity_screen"
+      GoodbyeScreen:
+          id: goodbye_screen
+          name: "goodbye_screen"
