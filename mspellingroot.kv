@@ -1,0 +1,13 @@
+#:include welcomescreen.kv
+#:include loginscreen.kv
+#:include startscreen.kv
+
+BoxLayout:
+  ScreenManager:
+    id: screen_manager
+    WelcomeScreen:
+      name: "welcome_screen"
+    LoginScreen:
+      name: "login_screen"
+    StartScreen:
+      name: "start_screen"
