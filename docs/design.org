@@ -1,0 +1,78 @@
+* Components
+** Activity/Screens
+**** Welcome screen
+***** Actions
+     - display message
+     - go to login screen
+**** Login screen
+     - Purpose: Collect the participant's code
+***** Fields
+     - code
+       Note: need to be shared among many components
+***** Actions
+     - display message
+     - get participant code
+     - store participant code "globally"
+     - go to start message screen
+**** Start message screen
+***** Actions
+     - display message
+     - go to spelling activity screen
+**** Spelling activity screen
+     - Purpose: Measure the participant's spelling ability by presenting
+       words by audio and having the participant write them.
+***** Fields
+     - worksheet
+     - trial
+     - participant code (or needs to be available)
+     - practice flag
+     - results
+     - response
+     - results for trial
+     - flag for ending session
+***** Actions
+     - check if its a practice session
+     - get stimuli worksheets
+     - set new trial
+     - present new trial
+       + present audio for words
+       + collect response from keyboard
+     - update results
+     - clean/reset screen
+     - determine if session has ended
+     - go to final message screen
+**** Final message screen
+     - Purpose: Save results and end session
+***** Practice session
+****** Actions
+      - present message
+***** Experimental session
+****** Fields
+      - results
+****** Actions
+      - present message
+      - save results
+** Results
+   - Purpose: Store, manage, format and save the participant's results.
+*** Fields
+   - results
+   - variable names/headers
+*** Actions
+   - update results
+   - format trial data
+   - format results
+     + format columns/variables
+     + format data
+   - save results to file
+*** Notes
+    - It needs to be shared among many components
+** Worksheets
+     - Purpose: Construct worksheets for spelling tests from simple items based
+       on specifications from user.
+*** Fields
+   - worksheet
+*** Actions
+   - read stimuli from file
+   - randomize order of stimuli
+   Should be done at creation time. Doing it later (e.g., formatted) may result in errors.
+   
