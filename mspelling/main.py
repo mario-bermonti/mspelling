@@ -5,17 +5,19 @@ from kivy.uix.boxlayout import BoxLayout
 
 # needs to be imported or kivy won't find them
 # at least the first screen
-from welcomescreen import WelcomeScreen
-from loginscreen import LoginScreen
-from startscreen import StartScreen
-from mspellingroot import MSpellingRoot
-from spellingactivity import SpellingActivityScreen
-from goodbyescreen import GoodbyeScreen
-from mspellingroot import MSpellingRoot
+from ui.welcomescreen import WelcomeScreen
+from ui.loginscreen import LoginScreen
+from ui.startscreen import StartScreen
+from ui.spellingactivity import SpellingActivityScreen
+from ui.goodbyescreen import GoodbyeScreen
 
+
+class MSpellingRoot(BoxLayout):
+    pass
 
 class MSpellingApp(App):
     title = "mDeletreo"
+    kv_directory = "ui"
 
     def build(self):
         return MSpellingRoot()
