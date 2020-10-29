@@ -4,8 +4,10 @@
     Label:
       text: "Código participante"
     TextInput:
+      id: code_input
       multiline: False
     Button:
       text: "Next"
       on_press:
+        root.set_participant_code(code_input.text)
         root.manager.current = "start_screen"
