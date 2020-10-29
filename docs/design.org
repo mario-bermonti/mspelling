@@ -6,13 +6,10 @@
      - go to login screen
 **** Login screen
      - Purpose: Collect the participant's code
-***** Fields
-     - code
-       Note: need to be shared among many components
 ***** Actions
      - display message
      - get participant code
-     - store participant code "globally"
+     - pass the participant code to the app's root widget to make it "globally" accessible
      - go to start message screen
 **** Start message screen
 ***** Actions
@@ -40,6 +37,7 @@
      - update results
      - clean/reset screen
      - determine if session has ended
+     - save results
      - go to final message screen
 **** Final message screen
      - Purpose: Save results and end session
@@ -48,10 +46,12 @@
       - present message
 ***** Experimental session
 ****** Fields
-      - results
 ****** Actions
       - present message
-      - save results
+**** MSpelling Root widget
+***** Fields
+      - participant code: str
+***** Actions
 ** Results
    - Purpose: Store, manage, format and save the participant's results.
 *** Fields
@@ -75,4 +75,5 @@
    - read stimuli from file
    - randomize order of stimuli
    Should be done at creation time. Doing it later (e.g., formatted) may result in errors.
+   
    
