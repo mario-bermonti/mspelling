@@ -3,6 +3,7 @@ kivy.require('1.11.1')
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
+from kivy.properties import BooleanProperty
 
 # needs to be imported or kivy won't find them
 # at least the first screen
@@ -15,6 +16,7 @@ from ui.goodbyescreen import GoodbyeScreen
 
 class MSpellingRoot(BoxLayout):
     participant_code = StringProperty("")
+    is_practice = BooleanProperty(False)
 
 class MSpellingApp(App):
     title = "mDeletreo"
