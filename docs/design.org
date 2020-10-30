@@ -50,7 +50,8 @@
       - present message
 **** MSpelling Root widget
 ***** Fields
-      - participant code: str
+      - participant code: str; used to identify the data
+      - is practice: str; flag to indicate whether this is a practice session
 ***** Actions
 ** Results
    - Purpose: Store, manage, format and save the participant's results.
