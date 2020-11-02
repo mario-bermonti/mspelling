@@ -72,10 +72,15 @@
      - Purpose: Construct worksheets for spelling tests from simple items based
        on specifications from user.
 *** Fields
-   - worksheet
+    - worksheet: Data. Needs to be protected
 *** Actions
    - read stimuli from file
+     + Notes
+       * the filename provided by the user
+       * done when worksheet is instantiated
    - randomize order of stimuli
-   Should be done at creation time. Doing it later (e.g., formatted) may result in errors.
-   
-   
+     + Notes
+       * done when worksheet is instantiated. Doing it later (e.g., formatted) may result in errors.
+   - provide the worksheet
+     + Notes
+       * The internal representation needs to be protected
