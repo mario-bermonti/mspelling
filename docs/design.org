@@ -29,7 +29,8 @@
      - flag for ending session
 ***** Actions
      - check if its a practice session
-     - get stimuli worksheets
+     - get stimuli worksheet
+     - determine stimuli filename based on if it's a practice session
      - set new trial
      - present new trial
        + present audio for words
