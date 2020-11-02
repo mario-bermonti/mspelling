@@ -16,6 +16,22 @@ class SpellingActivityScreen(Screen):
             self.app.root.is_practice = True
         else:
             self.app.root.is_practice = False
-        else:
-            app.root.is_practice = False
+    def determine_stimuli_filename(self):
+        """Determines the filename for the stimuli. The filename depends
+        on whether this is a practice session.
 
+        Returns
+        -------
+        path_stimuli (str): path to stimuli
+        """
+
+        is_practice = self.app.root.is_practice
+
+        if is_practice:
+            filename = "practice.xlsx"
+        else:
+            filename = "experimental.xlsx"
+
+        path_stimuli = os.path.join("stimuli", "words", filename)
+
+        return path_stimuli
