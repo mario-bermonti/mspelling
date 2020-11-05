@@ -108,6 +108,8 @@ class SpellingActivityScreen(Screen):
         """Enable or disable user's response."""
 
         self.ids.response_input.disabled = disable_response
+    def go_to_goodbye_screen(self):
+        self.manager.current = "goodbye_screen"
     def reset_everything(self):
         self.clear_screen()
         self.toggle_disable_response(disable_response=True)
