@@ -8,6 +8,7 @@ import worksheet
 
 class SpellingActivityScreen(Screen):
     worksheet = ObjectProperty(None)
+    trial = ObjectProperty(None)
 
     def on_enter(self):
         self.app = App.get_running_app()
@@ -64,3 +65,16 @@ class SpellingActivityScreen(Screen):
         path_stimuli = os.path.join("stimuli", "words", filename)
 
         return path_stimuli
+
+    def set_trial(self):
+        """Removes a row from the worksheet and assigns it as the
+        current one.
+
+        The app will be closed if there are no words left.
+        """
+
+        try:
+            self.trial = self.worksheet.iloc[0]
+            self.worksheet = self.worksheet.iloc[1:]
+        except IndexError:
+            print("out of trials")
