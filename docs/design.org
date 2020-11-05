@@ -49,20 +49,25 @@
      - save results
        - Note: should be different for experimental vs practice sessions
      - go to final message screen
-**** Final message screen
-     - Purpose: Save results and end session
-***** Practice session
-****** Actions
-      - present message
-***** Experimental session
-****** Fields
-****** Actions
-      - present message
+**** Save results screen
+     - Purpose: Present message and save results (calls appropriate methods)
+***** Actions
+     - present message
+     - call roots method for saving results
+**** End message screen
+     - Purpose: present message and end
+***** Actions
+     - present message
+     - calls the app's methods to close it
 **** MSpelling Root widget
 ***** Fields
       - participant code: str; used to identify the data
       - is practice: str; flag to indicate whether this is a practice session
+      - results: pd.DataFrame; stores the results
 ***** Actions
+      - save results
+      - present the end screen
+
 ** Results
    - Purpose: Store, manage, format and save the participant's results.
 *** Fields
