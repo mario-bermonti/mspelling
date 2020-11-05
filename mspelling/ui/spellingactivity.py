@@ -1,6 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.app import App
 from kivy.properties import ObjectProperty
+from kivy.properties import BooleanProperty
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
