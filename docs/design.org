@@ -35,6 +35,8 @@
        + clear screen
        + present audio
        + allow responses
+       + Notes:
+         * Responses are enabled and disabled for each trial manually.
      - collect response from keyboard
      - update results
      - clean/reset screen
