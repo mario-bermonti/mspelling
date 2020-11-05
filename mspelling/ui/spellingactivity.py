@@ -82,7 +82,8 @@ class SpellingActivityScreen(Screen):
             self.trial = self.worksheet.iloc[0]
             self.worksheet = self.worksheet.iloc[1:]
         except IndexError:
-            print("out of trials")
+            self.end_spelling_activity()
+
     def present_trial(self):
         """Setup and present the trial.
 
