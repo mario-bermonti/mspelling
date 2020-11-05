@@ -95,9 +95,15 @@ class SpellingActivityScreen(Screen):
 
         self.set_trial()
         self.clear_screen()
-        self.toggle_disable_response(disable_response=True)
+        self.toggle_disabling_response(disable_response=True)
         self.present_audio()
-        Clock.schedule_once(partial(self.toggle_disable_response, disable_response=False), 1)
+        Clock.schedule_once(
+            partial(
+                self.toggle_disabling_response,
+                disable_response=False
+            ),
+            1
+        )
 
     def present_audio(self):
         word = self.trial.word
@@ -107,7 +113,7 @@ class SpellingActivityScreen(Screen):
         sound = SoundLoader.load(path_stimuli_audio)
         sound.play()
 
-    def toggle_disable_response(self, *args, disable_response=True):
+    def toggle_disabling_response(self, *args, disable_response=True):
         """Enable or disable user's response."""
 
         self.ids.response_input.disabled = disable_response
@@ -119,7 +125,8 @@ class SpellingActivityScreen(Screen):
         self.manager.current = "goodbye_screen"
     def reset_everything(self):
         self.clear_screen()
-        self.toggle_disable_response(disable_response=True)
+        self.toggle_disabling_response(disable_response=True)
+
     def clear_screen(self):
         """Clear screen to allow next response."""
 
