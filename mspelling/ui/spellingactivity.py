@@ -22,7 +22,8 @@ class SpellingActivityScreen(Screen):
 
     def submit(self, response):
         # process response
-        self.present_trial()
+        if self.active_session:
+            self.present_trial()
 
     def check_if_practice_session(self):
         """Checks whether this is a practice session and sets a flag in
