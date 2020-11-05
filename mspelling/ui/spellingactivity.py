@@ -14,6 +14,10 @@ class SpellingActivityScreen(Screen):
         self.check_if_practice_session()
         self.worksheet = self.get_stimuli()
 
+    def submit(self, response):
+        # process response
+        self.set_trial()
+        self.clear_screen()
     def check_if_practice_session(self):
         """Checks whether this is a practice session and sets a flag in
         the app's root to indicate it.
