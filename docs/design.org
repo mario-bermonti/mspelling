@@ -35,13 +35,19 @@
        + clear screen
        + present audio
        + disable responses
-       + Notes:
-         * Responses are enabled and disabled for each trial manually.
-     - collect response from keyboard
+         * Notes:
+           1. Responses are enabled and disabled for each trial manually.
+           2. If there are no more words, end session
+     - response from keyboard
      - update results
      - clean/reset screen
-     - determine if session has ended
+     - end spelling activity
+       + flag as ended
+       + clear everything
+       + don't allow responses
+       + go to next screen
      - save results
+       - Note: should be different for experimental vs practice sessions
      - go to final message screen
 **** Final message screen
      - Purpose: Save results and end session
