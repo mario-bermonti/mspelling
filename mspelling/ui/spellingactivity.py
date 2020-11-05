@@ -1,8 +1,10 @@
 from kivy.uix.screenmanager import Screen
 from kivy.app import App
 from kivy.properties import ObjectProperty
+from kivy.clock import Clock
 
 import os
+from functools import partial
 
 import worksheet
 
@@ -88,7 +90,10 @@ class SpellingActivityScreen(Screen):
 
         self.set_trial()
         self.clear_screen()
+        self.toggle_disable_response(disable_response=True)
         self.present_audio()
+        Clock.schedule_once(partial(self.toggle_disable_response, disable_response=False), 1)
+
     def present_audio(self):
         word = self.trial.word
         word = word.strip()
