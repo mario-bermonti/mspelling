@@ -78,6 +78,17 @@ class SpellingActivityScreen(Screen):
             self.worksheet = self.worksheet.iloc[1:]
         except IndexError:
             print("out of trials")
+    def present_trial(self):
+        """Setup and present the trial.
+
+        The user's response is delayed to avoid him/her providing
+        their response while the audio is still being played. Otherwise
+        the response would be contaminated by that cue.
+        """
+
+        self.set_trial()
+        self.clear_screen()
+        self.present_audio()
     def present_audio(self):
         word = self.trial.word
         word = word.strip()
