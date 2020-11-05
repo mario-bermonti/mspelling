@@ -85,6 +85,11 @@ class SpellingActivityScreen(Screen):
 
         sound = SoundLoader.load(path_stimuli_audio)
         sound.play()
+
+    def toggle_disable_response(self, *args, disable_response=True):
+        """Enable or disable user's response."""
+
+        self.ids.response_input.disabled = disable_response
     def clear_screen(self):
         """Clear screen to allow next response."""
 
