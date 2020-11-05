@@ -34,7 +34,7 @@
        + set new trial
        + clear screen
        + present audio
-       + allow responses
+       + disable responses
        + Notes:
          * Responses are enabled and disabled for each trial manually.
      - collect response from keyboard
