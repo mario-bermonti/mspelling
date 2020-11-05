@@ -20,8 +20,8 @@ class SpellingActivityScreen(Screen):
 
     def submit(self, response):
         # process response
-        self.set_trial()
-        self.clear_screen()
+        self.present_trial()
+
     def check_if_practice_session(self):
         """Checks whether this is a practice session and sets a flag in
         the app's root to indicate it.
