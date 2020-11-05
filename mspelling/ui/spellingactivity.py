@@ -16,6 +16,7 @@ class SpellingActivityScreen(Screen):
         self.app = App.get_running_app()
         self.check_if_practice_session()
         self.worksheet = self.get_stimuli()
+        self.present_trial()
 
     def submit(self, response):
         # process response
