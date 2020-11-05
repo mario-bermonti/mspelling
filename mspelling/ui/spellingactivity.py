@@ -78,3 +78,10 @@ class SpellingActivityScreen(Screen):
             self.worksheet = self.worksheet.iloc[1:]
         except IndexError:
             print("out of trials")
+    def present_audio(self):
+        word = self.trial.word
+        word = word.strip()
+        path_stimuli_audio = os.path.join("stimuli", "audio", "{}.wav".format(word))
+
+        sound = SoundLoader.load(path_stimuli_audio)
+        sound.play()
