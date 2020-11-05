@@ -120,9 +120,11 @@ class SpellingActivityScreen(Screen):
     def end_spelling_activity(self):
         self.active_session = False
         self.reset_everything()
-        self.go_to_goodbye_screen()
-    def go_to_goodbye_screen(self):
-        self.manager.current = "goodbye_screen"
+        self.go_to_save_screen()
+
+    def go_to_save_screen(self):
+        self.manager.current = "save_screen"
+
     def reset_everything(self):
         self.clear_screen()
         self.toggle_disabling_response(disable_response=True)

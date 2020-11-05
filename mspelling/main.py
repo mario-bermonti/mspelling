@@ -11,7 +11,8 @@ from ui.welcomescreen import WelcomeScreen
 from ui.loginscreen import LoginScreen
 from ui.startscreen import StartScreen
 from ui.spellingactivity import SpellingActivityScreen
-from ui.goodbyescreen import GoodbyeScreen
+from ui.savescreen import SaveScreen
+from ui.endscreen import EndScreen
 
 
 class MSpellingRoot(BoxLayout):

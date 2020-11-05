@@ -2,7 +2,8 @@
 #:include ui/loginscreen.kv
 #:include ui/startscreen.kv
 #:include ui/spellingactivity.kv
-#:include ui/goodbyescreen.kv
+#:include ui/savescreen.kv
+#:include ui/endscreen.kv
 
 <MSpellingRoot>:
     orientation: 'vertical'
@@ -20,6 +21,9 @@
         SpellingActivityScreen:
             id: spelling_activity_screen
             name: "spelling_activity_screen"
-        GoodbyeScreen:
-            id: goodbye_screen
-            name: "goodbye_screen"
+        SaveScreen:
+            id: save_screen
+            name: "save_screen"
+        EndScreen:
+            id: end_screen
+            name: "end_screen"
