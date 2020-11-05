@@ -12,6 +12,7 @@ import worksheet
 class SpellingActivityScreen(Screen):
     worksheet = ObjectProperty(None)
     trial = ObjectProperty(None)
+    active_session = BooleanProperty(True)
 
     def on_enter(self):
         self.app = App.get_running_app()
@@ -108,6 +109,10 @@ class SpellingActivityScreen(Screen):
         """Enable or disable user's response."""
 
         self.ids.response_input.disabled = disable_response
+    def end_spelling_activity(self):
+        self.active_session = False
+        self.reset_everything()
+        self.go_to_goodbye_screen()
     def go_to_goodbye_screen(self):
         self.manager.current = "goodbye_screen"
     def reset_everything(self):
