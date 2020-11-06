@@ -118,6 +118,8 @@ class SpellingActivityScreen(Screen):
         """Enable or disable user's response."""
 
         self.ids.response_input.disabled = disable_response
+        self.ids.response_input.focus = True
+
     def end_spelling_activity(self):
         self.active_session = False
         self.reset_everything()

@@ -2,6 +2,9 @@ from kivy.uix.screenmanager import Screen
 from kivy.app import App
 
 class LoginScreen(Screen):
+    def on_enter(self):
+        self.ids.code_input.focus = True
+
     def submit_participant_code(self, code):
         """Set the participant's code as an atttibute of the app's root.
 
