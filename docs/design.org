@@ -70,18 +70,23 @@
 
 ** Results
    - Purpose: Store, manage, format and save the participant's results.
+   - Will be an attribute of the root so it can be easily shared by all
+     components
 *** Fields
    - results
    - variable names/headers
 *** Actions
    - update results
-   - format trial data
-   - format results
-     + format columns/variables
-     + format data
+     General function that calls others
+     + separate stim from additional (arbitrary) data
+     + format trial data
+       Integrates everything
+     + append to the results
    - save results to file
-*** Notes
-    - It needs to be shared among many components
+     General function that calls others
+     + format results header
+     + format results data
+     + save data to file
 ** Worksheets
      - Purpose: Construct worksheets for spelling tests from simple items based
        on specifications from user.
