@@ -74,16 +74,21 @@
      components
 *** Fields
    - results
-   - variable names/headers
 *** Actions
    - update results
-     General function that calls others
-     + separate stim from additional (arbitrary) data
+     Description: General function that calls others
      + format trial data
-       Integrates everything
+       Description: Inserts response to trial data and organizes data. Calls
+                    function that determines the order.
+       Note: Needs to handle when the user doesn't pass additional data
+             in the stim file
+       * determine trial data order
+         Description: Build a list specifying the order of the index
+         Note: Needs to handle when the user doesn't pass additional data
+               in the stim file
      + append to the results
    - save results to file
-     General function that calls others
+     Description: General function that calls others
      + format results header
      + format results data
      + save data to file
