@@ -14,10 +14,12 @@ from ui.spellingactivity import SpellingActivityScreen
 from ui.savescreen import SaveScreen
 from ui.endscreen import EndScreen
 
+import results
 
 class MSpellingRoot(BoxLayout):
     participant_code = StringProperty("")
     is_practice = BooleanProperty(False)
+    results = results.Results()
 
 class MSpellingApp(App):
     title = "mDeletreo"

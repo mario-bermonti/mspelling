@@ -19,10 +19,15 @@ class SpellingActivityScreen(Screen):
         self.app = App.get_running_app()
         self.check_if_practice_session()
         self.worksheet = self.get_stimuli()
+        self.trial = None
         self.present_trial()
+        self.results = self.app.root.results
 
     def submit(self, response):
-        # process response
+        self.results.update_results(
+            response=response,
+            trial_data=self.trial, 
+            )
         if self.active_session:
             self.present_trial()
 
