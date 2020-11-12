@@ -1,3 +1,4 @@
+from kivy.app import App
 import pandas as pd
 
 class Results(object):
@@ -74,6 +75,10 @@ class Results(object):
         trial_data_extended = trial_data.copy()
         trial_data_extended["response"] = response
 
+        app = App.get_running_app()
+        participant_id = app.root.participant_id
+        trial_data_extended["participant_id"] = participant_id
+
         return trial_data_extended
 
     def organize_trial_data_index(self, trial_data):
@@ -99,7 +104,7 @@ class Results(object):
         other_data = trial_data.drop(labels="word")
 
         index_other_data = other_data.index
-        index_main_data = pd.Index(["word", "response"])
+        index_main_data = pd.Index(["participant_id", "word", "response"])
 
         index_trial = index_main_data.append(index_other_data)
 
