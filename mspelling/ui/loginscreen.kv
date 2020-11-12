@@ -5,10 +5,8 @@
     orientation: "vertical"
     ThemedLabel:
       text: "Código participante"
-    TextInput:
+    ThemedTextInput:
       id: code_input
-      multiline: False
-    ThemedButton
       text: "Next"
       on_press:
         root.submit_participant_id(code_input.text)
