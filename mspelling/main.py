@@ -23,6 +23,7 @@ class MSpellingRoot(BoxLayout):
 
 
     def save_results(self):
+        self.results.save_results()
         self.present_end_screen()
 
 
