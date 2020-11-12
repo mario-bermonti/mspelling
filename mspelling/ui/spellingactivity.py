@@ -24,6 +24,15 @@ class SpellingActivityScreen(Screen):
         self.results = self.app.root.results
 
     def submit(self, response):
+        """Pass the participant's response to the appropriate function
+        so results can be updated and schedule next trial.
+
+        Parameters
+        ----------
+        response: str
+            User's response
+        """
+
         self.results.update_results(
             response=response,
             trial_data=self.trial, 
