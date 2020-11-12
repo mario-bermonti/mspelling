@@ -46,12 +46,35 @@ class Results(object):
             Formatted trial results and arbitrary which includes arbitrary data.
         """
 
-        trial_data_formatted = trial_data.copy()
-        trial_data_formatted["response"] = response
+        trial_data_extended = self.add_additional_data(response, trial_data)
         trial_data_order = self.organize_trial_data_index(trial_data)
-        trial_data_formatted = trial_data_formatted[trial_data_order]
+        trial_data_formatted = trial_data_extended[trial_data_order]
 
         return trial_data_formatted
+
+    def add_additional_data(self, response, trial_data):
+        """Adds additional data to the trial's data.
+
+        Note
+        ----
+        Makes a copy of the trial_data (pandas.Series)
+
+        Parameters
+        ----------
+        trial_data: pandas.Series
+            Data included in the stimuli file by the user. It includes
+            the stimuli. 
+
+        Returns
+        -------
+        pandas.Series
+            trial data with additional data from the session.
+        """
+
+        trial_data_extended = trial_data.copy()
+        trial_data_extended["response"] = response
+
+        return trial_data_extended
 
     def organize_trial_data_index(self, trial_data):
         """Determine the order of the trial_data.
