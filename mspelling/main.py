@@ -10,6 +10,7 @@ from kivy.properties import BooleanProperty
 from ui.welcomescreen import WelcomeScreen
 from ui.loginscreen import LoginScreen
 from ui.startscreen import StartScreen
+from ui.beginmessagescreen import BeginMessageScreen
 from ui.spellingactivity import SpellingActivityScreen
 from ui.savescreen import SaveScreen
 from ui.endscreen import EndScreen

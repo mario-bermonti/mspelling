@@ -1,13 +1,9 @@
 <StartScreen>:
   BoxLayout:
     orientation: "vertical"
-    Label:
-      text: "¡Comencemos!"
-      #size_hint: .9,.1
-      #pos_hint: {"center_x": .5, "top": .9}
     Button:
-      text: "Seguir"
+      text: "Presiona para comenzar"
       #size_hint: .9,.1
       #pos_hint: {"center_x": .5, "top": .8}
       on_press:
-        root.manager.current = "spelling_activity_screen"
+        root.manager.current = "begin_message_screen"
