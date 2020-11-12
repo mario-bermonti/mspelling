@@ -11,7 +11,11 @@
      - get participant code
      - pass the participant code to the app's root widget to make it "globally" accessible
      - go to start message screen
-**** Start message screen
+**** Start screen
+***** Actions
+     - display message
+     - go to Begin message screen 
+**** Begin message screen (fixation cross)
 ***** Actions
      - display message
      - go to spelling activity screen
