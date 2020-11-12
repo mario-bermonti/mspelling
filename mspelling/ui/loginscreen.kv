@@ -1,12 +1,14 @@
+#:include ui/elements.kv
+
 <LoginScreen>:
   BoxLayout:
     orientation: "vertical"
-    Label:
+    ThemedLabel:
       text: "Código participante"
     TextInput:
       id: code_input
       multiline: False
-    Button:
+    ThemedButton
       text: "Next"
       on_press:
         root.submit_participant_id(code_input.text)

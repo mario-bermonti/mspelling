@@ -5,9 +5,9 @@
       id: response_input
       multiline: False
       disabled: True
-    Button:
-      text: "Seguir"
       #size_hint: .9,.1
       #pos_hint: {"center_x": .5, "top": .8}
-      on_press:
-        root.submit(response_input.text)
+        ThemedButton
+            text: "Seguir"
+            on_press:
+                root.submit(response_input.text)

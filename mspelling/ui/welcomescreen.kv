@@ -1,11 +1,13 @@
+#:include ui/elements.kv
+
 <WelcomeScreen>:
   BoxLayout:
     orientation: "vertical"
-    Label:
+    ThemedLabel:
       text: "¡Bienvenido!"
       #size_hint: .9,.1
       #pos_hint: {"center_x": .5, "top": .9}
-    Button:
+    ThemedButton:
       text: "Seguir"
       #size_hint: .9,.1
       #pos_hint: {"center_x": .5, "top": .8}
