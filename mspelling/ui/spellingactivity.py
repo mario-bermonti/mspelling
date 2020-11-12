@@ -36,7 +36,7 @@ class SpellingActivityScreen(Screen):
         the app's root to indicate it.
         """
 
-        code = self.app.root.participant_code
+        code = self.app.root.participant_id
 
         if len(code) == 0:
             self.app.root.is_practice = True

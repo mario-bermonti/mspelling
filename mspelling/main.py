@@ -17,7 +17,7 @@ from ui.endscreen import EndScreen
 import results
 
 class MSpellingRoot(BoxLayout):
-    participant_code = StringProperty("")
+    participant_id = StringProperty("")
     is_practice = BooleanProperty(False)
     results = results.Results()
 
