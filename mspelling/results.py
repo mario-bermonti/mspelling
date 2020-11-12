@@ -136,7 +136,7 @@ class Results(object):
 
 
     def save_results_file(self, results):
-        """Save results to file.
+        """Save results to file, creating the dir if it doesn't exist.
 
         Parameters
         ----------
@@ -156,7 +156,14 @@ class Results(object):
             )
         )
 
+        self.create_results_dir_if_necessary()
+        results.to_excel(results_path, index=False)
+
+    def create_results_dir_if_necessary(self):
+        """Creates the dir where the results will be saved in if it
+        doesn't already exist.
+        """
+
         if not os.path.isdir('results/'):
             os.mkdir('results/')
 
-        results.to_excel(results_path, index=False)
