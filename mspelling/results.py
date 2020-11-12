@@ -1,5 +1,7 @@
 from kivy.app import App
 import pandas as pd
+import datetime
+import os
 
 class Results(object):
     """Manages, stores and saves results from the session."""
@@ -109,3 +111,52 @@ class Results(object):
         index_trial = index_main_data.append(index_other_data)
 
         return index_trial
+
+    def save_results(self):
+        """Save the participant's results to a file."""
+
+        results = self.format_results_data()
+        self.save_results_file(results)
+
+    def format_results_data(self):
+        """Formats the results to a better format.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        pandas.DataFrame
+            Formatted results
+        """
+
+        results_formatted = pd.DataFrame(self._results)
+
+        return results_formatted
+
+
+    def save_results_file(self, results):
+        """Save results to file.
+
+        Parameters
+        ----------
+        results: pandas.DataFrame
+            Participant's results for the session
+        """
+
+        app = App.get_running_app()
+        participant_id = app.root.participant_id
+
+        date = datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
+        results_path = os.path.join(
+            'results',
+            'results_p{}_{}.xlsx'.format(
+                participant_id,
+                date,
+            )
+        )
+
+        if not os.path.isdir('results/'):
+            os.mkdir('results/')
+
+        results.to_excel(results_path, index=False)
