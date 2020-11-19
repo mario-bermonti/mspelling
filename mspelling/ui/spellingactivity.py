@@ -54,7 +54,8 @@ class SpellingActivityScreen(Screen):
 
 
     def get_stimuli(self):
-        """Create a new worksheet and return it.
+        """Get the stimuli that will be used by the spelling activity.
+        It calls other functions to get the stimuli.
 
         Returns
         -------
