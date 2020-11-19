@@ -170,3 +170,26 @@ class Results(object):
         if not os.path.isdir('results/'):
             os.mkdir('results/')
 
+    def get_participant_id(self, testing=False):
+        """Get participant id.
+        
+        Parameters
+        ----------
+        testing : bool 
+            Flags whether this is a real session or just running tests.
+
+        Returns
+        -------
+        str
+            participant's id
+        """
+
+        # todo: improve how to handle this when running tests
+        if testing: 
+            participant_id = ""
+        else:
+            app = App.get_running_app()
+            participant_id = app.root.participant_id 
+
+        return participant_id
+
