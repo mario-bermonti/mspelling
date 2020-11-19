@@ -4,46 +4,43 @@ import numpy as np
 
 
 class Worksheet(object):
-    def __init__(self, filename, randomize=False, **kwargs):
-        """
+    def __init__(self, data, randomize=False):
+        """Creates the worksheet object.
+
         Parameters
         ----------
-        filename (str): Specifies the name of the file with he stimuli
-        randomize (bool): Specified whether the stimuli should be randomized.
-             It randomizes files with multiple columns (additional data)
-             correctly.
+        data : pandas.DataFrame
+            Data that will be used to construct the worksheet.
+
+        randomize (bool): Specifies if the data should be randomized.
+            It assumes that each row is a piece of data and keeps columns
+            together.
         """
 
-        self._worksheet = self.get_worksheet(filename)
         if randomize:
-            self._worksheet = self.randomize_stimuli()
+            self._data = self.randomize_stimuli(data)
+        else:
+            self._data = data
 
-    def randomize_stimuli(self):
-        randomized_data = self._worksheet.reindex(
-            np.random.permutation(
-                self._worksheet.index
-            )
-        )
-
-        return randomized_data
-
-    def get_worksheet(self, filename):
-        """
-        Reads the stimuli from a file and returns them. 
+    def randomize_stimuli(self, data):
+        """Randomizes the stim and returns a new version.
 
         Parameters
         ----------
-        filename (str): Specifies the path to the file with the stimuli.
-             Only supports Excel files currently.
+        data : pandas.DataFrame
+            Stimuli with any additional data.
 
         Returns
         -------
-        stim (pandas.DataFrame): stimuli with any additional data
-            contained in the stim file.
+        data : pandas.DataFrame
+            Stimuli with any additional data.
         """
 
-        return pd.read_excel(filename)
+        new_index = np.random.permutation(data.index)
+        randomized_data = data.reindex(new_index)
+
+        return randomized_data
 
     @property
-    def worksheet(self):
-        return self._worksheet
+    def data(self):
+        return self._data
