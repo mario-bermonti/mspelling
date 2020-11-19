@@ -64,6 +64,9 @@ class Results(object):
 
         Parameters
         ----------
+        response : str
+            User's response for the current trial.
+
         trial_data: pandas.Series
             Data included in the stimuli file by the user. It includes
             the stimuli. 
