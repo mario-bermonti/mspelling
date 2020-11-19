@@ -63,8 +63,9 @@ class SpellingActivityScreen(Screen):
         """
 
         filename = self.determine_stimuli_filename()
-        stimuli = worksheet.Worksheet(filename, randomize=True)
-        stimuli = stimuli.worksheet
+        data = pd.read_excel(filename)
+        worksheet = worksheet.Worksheet(data, randomize=True)
+        stimuli = worksheet.data
 
         return stimuli
 
