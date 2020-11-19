@@ -6,8 +6,11 @@ import os
 class Results(object):
     """Manages, stores and saves results from the session."""
 
-    def __init__(self):
-       self._results = [] 
+    def __init__(self, testing=False):
+        # the testing param not documented on purpose
+        # is just for testing the code
+        self._results = [] 
+        self.participant_id = self.get_participant_id(testing)
 
     def update_results(self, response, trial_data):
         """Calls all the functions that format and store results.
@@ -80,9 +83,7 @@ class Results(object):
         trial_data_extended = trial_data.copy()
         trial_data_extended["response"] = response
 
-        app = App.get_running_app()
-        participant_id = app.root.participant_id
-        trial_data_extended["participant_id"] = participant_id
+        trial_data_extended["participant_id"] = self.participant_id
 
         return trial_data_extended
 
@@ -147,14 +148,10 @@ class Results(object):
             Participant's results for the session
         """
 
-        app = App.get_running_app()
-        participant_id = app.root.participant_id
-
-        date = datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
         results_path = os.path.join(
             'results',
             'results_p{}_{}.xlsx'.format(
-                participant_id,
+                self.participant_id,
                 date,
             )
         )
@@ -169,6 +166,7 @@ class Results(object):
 
         if not os.path.isdir('results/'):
             os.mkdir('results/')
+
 
     def get_participant_id(self, testing=False):
         """Get participant id.
