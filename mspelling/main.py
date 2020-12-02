@@ -4,6 +4,7 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
 from kivy.properties import BooleanProperty
+from kivy.properties import ObjectProperty
 
 # needs to be imported or kivy won't find them
 # at least the first screen
