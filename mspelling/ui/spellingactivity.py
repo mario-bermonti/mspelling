@@ -7,6 +7,7 @@ from kivy.clock import Clock
 
 import os
 from functools import partial
+import pandas as pd
 
 import worksheet
 
