@@ -6,11 +6,8 @@ import os
 class Results(object):
     """Manages, stores and saves results from the session."""
 
-    def __init__(self, testing=False):
-        # the testing param not documented on purpose
-        # is just for testing the code
+    def __init__(self):
         self._results = [] 
-        self.participant_id = self.get_participant_id(testing)
 
     def update_results(self, response, trial_data):
         """Calls all the functions that format and store results.
@@ -58,7 +55,7 @@ class Results(object):
 
         return trial_data_formatted
 
-    def add_additional_data(self, response, trial_data):
+    def add_additional_data(self, response, trial_data, testing=False):
         """Adds additional data to the trial's data.
 
         Note
@@ -83,7 +80,8 @@ class Results(object):
         trial_data_extended = trial_data.copy()
         trial_data_extended["response"] = response
 
-        trial_data_extended["participant_id"] = self.participant_id
+        participant_id = self.get_participant_id(testing)
+        trial_data_extended["participant_id"] = participant_id
 
         return trial_data_extended
 
@@ -139,7 +137,7 @@ class Results(object):
         return results_formatted
 
 
-    def save_results_file(self, results):
+    def save_results_file(self, results, testing=False):
         """Save results to file, creating the dir if it doesn't exist.
 
         Parameters
@@ -148,10 +146,13 @@ class Results(object):
             Participant's results for the session
         """
 
+        date = datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
+
+        participant_id = self.get_participant_id(testing)
         results_path = os.path.join(
             'results',
             'results_p{}_{}.xlsx'.format(
-                self.participant_id,
+                participant_id,
                 date,
             )
         )
@@ -187,7 +188,7 @@ class Results(object):
             participant_id = ""
         else:
             app = App.get_running_app()
-            participant_id = app.root.participant_id 
+            participant_id = app.participant_id 
 
         return participant_id
 

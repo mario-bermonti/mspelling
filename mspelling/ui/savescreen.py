@@ -8,5 +8,6 @@ class SaveScreen(Screen):
         Clock.schedule_once(self.save_results, 2)
 
     def save_results(self, *args):
-        self.app.root.save_results()
+        self.app.save_results()
+        self.manager.current = "end_screen"
 

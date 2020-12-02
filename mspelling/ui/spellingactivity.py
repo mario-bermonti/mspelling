@@ -7,6 +7,7 @@ from kivy.clock import Clock
 
 import os
 from functools import partial
+import pandas as pd
 
 import worksheet
 
@@ -21,7 +22,7 @@ class SpellingActivityScreen(Screen):
         self.worksheet = self.get_stimuli()
         self.trial = None
         self.present_trial()
-        self.results = self.app.root.results
+        self.results = self.app.results
 
     def submit(self, response):
         """Pass the participant's response to the appropriate function
@@ -45,12 +46,12 @@ class SpellingActivityScreen(Screen):
         the app's root to indicate it.
         """
 
-        code = self.app.root.participant_id
+        code = self.app.participant_id
 
         if len(code) == 0:
-            self.app.root.is_practice = True
+            self.app.is_practice = True
         else:
-            self.app.root.is_practice = False
+            self.app.is_practice = False
 
 
     def get_stimuli(self):
@@ -78,7 +79,7 @@ class SpellingActivityScreen(Screen):
         path_stimuli (str): path to stimuli
         """
 
-        is_practice = self.app.root.is_practice
+        is_practice = self.app.is_practice
 
         if is_practice:
             filename = "practice.xlsx"

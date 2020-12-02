@@ -18,25 +18,24 @@ from ui.endscreen import EndScreen
 import results
 
 class MSpellingRoot(BoxLayout):
-    participant_id = StringProperty("")
-    is_practice = BooleanProperty(False)
-    results = results.Results()
-
-
-    def save_results(self):
-        self.results.save_results()
-        self.present_end_screen()
-
-
-    def present_end_screen(self):
-        self.ids.mspelling_screen_manager.current = "end_screen"
+    pass
 
 class MSpellingApp(App):
     title = "mDeletreo"
     kv_directory = "ui"
+    participant_id = StringProperty("")
+    is_practice = BooleanProperty(False)
+    results = ObjectProperty(None)
+
+    def on_start(self):
+        self.results = results.Results()
+
 
     def build(self):
         return MSpellingRoot()
-    
+
+    def save_results(self):
+        self.results.save_results()
+
 if __name__ == "__main__":
     MSpellingApp().run()
