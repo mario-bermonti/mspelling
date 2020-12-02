@@ -9,7 +9,7 @@ import os
 from functools import partial
 import pandas as pd
 
-import worksheet
+from worksheet import Worksheet
 
 class SpellingActivityScreen(Screen):
     worksheet = ObjectProperty(None)
@@ -65,7 +65,7 @@ class SpellingActivityScreen(Screen):
 
         filename = self.determine_stimuli_filename()
         data = pd.read_excel(filename)
-        worksheet = worksheet.Worksheet(data, randomize=True)
+        worksheet = Worksheet(data, randomize=True)
         stimuli = worksheet.data
 
         return stimuli
