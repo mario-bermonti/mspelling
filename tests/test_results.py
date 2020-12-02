@@ -14,10 +14,11 @@ class TestResults(object):
         data_incomplete = {"stim": data["stim"]}
         trial_data_incomplete = pd.Series(data_incomplete)
 
-        results = Results(testing=True)
+        results = Results()
         trial_data_returned = results.add_additional_data(
             response=data["response"],
-            trial_data=trial_data_incomplete
+            trial_data=trial_data_incomplete,
+            testing=True
         )
 
         trial_data_complete = pd.Series(data)
@@ -31,7 +32,7 @@ class TestResults(object):
             ["participant_id", "word", "response", "other_data"]
         )
 
-        results = Results(testing=True)
+        results = Results()
         trial_data_index_returned = results.organize_trial_data_index(trial_data)
         print(trial_data_index_returned)
 
