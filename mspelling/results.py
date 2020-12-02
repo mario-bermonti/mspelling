@@ -188,7 +188,7 @@ class Results(object):
             participant_id = ""
         else:
             app = App.get_running_app()
-            participant_id = app.root.participant_id 
+            participant_id = app.participant_id 
 
         return participant_id
 

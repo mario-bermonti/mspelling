@@ -15,4 +15,4 @@ class LoginScreen(Screen):
 
         app = App.get_running_app()
         code = code.strip()
-        app.root.participant_id = code
+        app.participant_id = code
