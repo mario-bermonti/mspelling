@@ -148,6 +148,7 @@ class Results(object):
             Participant's results for the session
         """
 
+        date = datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
         results_path = os.path.join(
             'results',
             'results_p{}_{}.xlsx'.format(
