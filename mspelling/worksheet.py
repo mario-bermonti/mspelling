@@ -36,9 +36,18 @@ class Worksheet(object):
             Stimuli with any additional data.
         """
 
-        new_index = np.random.permutation(data.index)
-        randomized_data = data.reindex(new_index)
+        original_index = data.index
+        new_index = data.index.copy()
+        while True:
+            new_order = np.random.permutation(new_index)
+            new_index = pd.Index(new_order)
+            if original_index.equals(new_index):
+                new_index = np.random.permutation(new_index)
+            else:
+                break
 
+        randomized_data = data.reindex(new_index)
+                
         return randomized_data
 
     @property
