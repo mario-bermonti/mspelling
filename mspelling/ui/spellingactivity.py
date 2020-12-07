@@ -111,17 +111,9 @@ class SpellingActivityScreen(Screen):
         the response would be contaminated by that cue.
         """
 
-        self.set_trial()
         self.clear_screen()
         self.toggle_disabling_response(disable_response=True)
-        self.present_audio()
-        Clock.schedule_once(
-            partial(
-                self.toggle_disabling_response,
-                disable_response=False
-            ),
-            1
-        )
+        self.set_trial()
         if self.active_session:
             self.present_audio()
             Clock.schedule_once(
