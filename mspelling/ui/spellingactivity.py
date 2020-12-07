@@ -64,7 +64,7 @@ class SpellingActivityScreen(Screen):
         """
 
         filename = self.determine_stimuli_filename()
-        data = pd.read_excel(filename)
+        data = pd.read_csv(filename)
         worksheet = Worksheet(data, randomize=True)
         stimuli = worksheet.data
 
@@ -82,9 +82,9 @@ class SpellingActivityScreen(Screen):
         is_practice = self.app.is_practice
 
         if is_practice:
-            filename = "practice.xlsx"
+            filename = "practice.csv"
         else:
-            filename = "experimental.xlsx"
+            filename = "experimental.csv"
 
         path_stimuli = os.path.join("stimuli", "words", filename)
 

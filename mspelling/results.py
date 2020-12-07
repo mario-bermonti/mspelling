@@ -151,14 +151,14 @@ class Results(object):
         participant_id = self.get_participant_id(testing)
         results_path = os.path.join(
             'results',
-            'results_p{}_{}.xlsx'.format(
+            'results_p{}_{}.csv'.format(
                 participant_id,
                 date,
             )
         )
 
         self.create_results_dir_if_necessary()
-        results.to_excel(results_path, index=False)
+        results.to_csv(results_path, index=False)
 
     def create_results_dir_if_necessary(self):
         """Creates the dir where the results will be saved in if it
