@@ -6,7 +6,7 @@
 *.pyc
 
 # ignore app data that should be provided by user
-/mspelling/stimuli/words/experimental.xlsx
+/mspelling/stimuli/words/experimental*
 /mspelling/results/
 /stimuli/audio/
 #Except practice files for audio
