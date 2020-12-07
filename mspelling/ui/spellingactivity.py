@@ -122,6 +122,15 @@ class SpellingActivityScreen(Screen):
             ),
             1
         )
+        if self.active_session:
+            self.present_audio()
+            Clock.schedule_once(
+                partial(
+                    self.toggle_disabling_response,
+                    disable_response=False
+                ),
+                1
+            )
 
     def present_audio(self):
         word = self.trial.word
