@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "mspelling"
+version = "0.1.0"
+authors = ["Mario E. Bermonti Pérez"]
+
+description = "Program to measure spelling skills in Spanish"
+readme = "README.md"
+repository = "https://github.com/mario-bermonti/mspelling"
+license = "GPL-3"
+
+keywords = ["research", "spelling", "assessment", "science"]
+
+classifiers=["Intended Audience :: Science/Research"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Kivy = "^1.11.1"
+pandas = "^1.1.5"
+numpy = "^1.19.4"
+xlrd = "^1.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
