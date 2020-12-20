@@ -1,0 +1,15 @@
+#:include ui/elements.kv
+
+<WelcomeScreen>:
+  BoxLayout:
+    orientation: "vertical"
+    ThemedLabel:
+      text: "¡Bienvenido!"
+      #size_hint: .9,.1
+      #pos_hint: {"center_x": .5, "top": .9}
+    ThemedButton:
+      text: "Seguir"
+      #size_hint: .9,.1
+      #pos_hint: {"center_x": .5, "top": .8}
+      on_press:
+        root.manager.current = "login_screen"

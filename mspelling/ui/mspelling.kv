@@ -1,0 +1,33 @@
+#:include ui/welcomescreen.kv
+#:include ui/loginscreen.kv
+#:include ui/startscreen.kv
+#:include ui/beginmessagescreen.kv
+#:include ui/spellingactivity.kv
+#:include ui/savescreen.kv
+#:include ui/endscreen.kv
+
+<MSpellingRoot>:
+    orientation: 'vertical'
+    ScreenManager:
+        id: mspelling_screen_manager
+        WelcomeScreen:
+            id: welcome_screen
+            name: "welcome_screen"
+        LoginScreen:
+            id: login_screen
+            name: "login_screen"
+        StartScreen:
+            id: start_screen
+            name: "start_screen"
+        BeginMessageScreen:
+            id: begin_message_screen
+            name: "begin_message_screen"
+        SpellingActivityScreen:
+            id: spelling_activity_screen
+            name: "spelling_activity_screen"
+        SaveScreen:
+            id: save_screen
+            name: "save_screen"
+        EndScreen:
+            id: end_screen
+            name: "end_screen"

@@ -1,0 +1,116 @@
+* Components
+** Activity/Screens
+**** Welcome screen
+***** Actions
+     - display message
+     - go to login screen
+**** Login screen
+     - Purpose: Collect the participant's code
+***** Actions
+     - display message
+     - get participant code
+     - pass the participant code to the app's root widget to make it "globally" accessible
+     - go to start message screen
+**** Start screen
+***** Actions
+     - display message
+     - go to Begin message screen 
+**** Begin message screen (fixation cross)
+***** Actions
+     - display message
+     - go to spelling activity screen
+**** Spelling activity screen
+     - Purpose: Measure the participant's spelling ability by presenting
+       words by audio and having the participant write them.
+***** Fields
+     - worksheet
+     - trial
+     - participant code (or needs to be available)
+     - practice flag
+     - results
+     - results for trial
+     - flag for ending session
+***** Actions
+     - check if its a practice session
+     - get stimuli worksheet
+     - determine stimuli filename based on if it's a practice session
+     - present new trial (audio)
+       + set new trial
+       + clear screen
+       + present audio
+       + disable responses
+         * Notes:
+           1. Responses are enabled and disabled for each trial manually.
+           2. If there are no more words, end session
+     - response from keyboard
+     - update results
+     - clean/reset screen
+     - end spelling activity
+       + flag as ended
+       + clear everything
+       + don't allow responses
+       + go to next screen
+     - save results
+       - Note: should be different for experimental vs practice sessions
+     - go to final message screen
+**** Save results screen
+     - Purpose: Present message and save results (calls appropriate methods)
+***** Actions
+     - present message
+     - call roots method for saving results
+**** End message screen
+     - Purpose: present message and end
+***** Actions
+     - present message
+     - calls the app's methods to close it
+**** MSpelling Root widget
+***** Fields
+      - participant code: str; used to identify the data
+      - is practice: str; flag to indicate whether this is a practice session
+      - results: pd.DataFrame; stores the results
+***** Actions
+      - save results
+      - present the end screen
+
+** Results
+   - Purpose: Store, manage, format and save the participant's results.
+   - Will be an attribute of the root so it can be easily shared by all
+     components
+*** Fields
+   - results
+*** Actions
+   - update results
+     Description: General function that calls others
+     + format trial data
+       Description: Inserts response to trial data and organizes data. Calls
+                    function that determines the order.
+       Note: Needs to handle when the user doesn't pass additional data
+             in the stim file
+       * determine trial data order
+         Description: Build a list specifying the order of the index
+         Note: Needs to handle when the user doesn't pass additional data
+               in the stim file
+       * add additional data
+         Description: data like the participant id and response
+       * reorganize trial data
+     + append to the results
+   - save results to file
+     Description: General function that calls others
+     + format results data
+     + save data to file
+** Worksheets
+     - Purpose: Construct worksheets for spelling tests from simple items based
+       on specifications from user.
+*** Fields
+    - worksheet: Data. Needs to be protected
+*** Actions
+   - read stimuli from file
+     + Notes
+       * the filename provided by the user
+       * done when worksheet is instantiated
+   - randomize order of stimuli
+     + Notes
+       * done when worksheet is instantiated. Doing it later (e.g., formatted) may result in errors.
+   - provide the worksheet
+     + Notes
+       * The internal representation needs to be protected
