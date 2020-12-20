@@ -1,25 +1,24 @@
 
 # Table of Contents
 
--   [This is mspelling!](#org4a53585)
--   [Installation](#org01d64e6)
--   [Description](#org50efb99)
--   [Usage](#org651842b)
--   [Contributing to this project](#orgb2b165a)
--   [Author](#orgdd6ae9c)
--   [License](#org8715b1b)
+-   [This is mspelling!](#orgda17aa2)
+-   [Installation](#org4543420)
+-   [Description](#org16394ff)
+-   [Usage](#orgf7f9c86)
+-   [Contributing to this project](#org75f3421)
+-   [Author](#orgf7779b5)
+-   [License](#org4c6368b)
 
 
-<a id="org4a53585"></a>
+<a id="orgda17aa2"></a>
 
 # This is mspelling!
 
 mspelling is a Spanish spelling test developed for research on spelling
-skills. 
+skills. mSpelling was design to be as easy to administer and as flexible as possible
+to facilitate conducting research on spelling skills.
 
-mSpelling was design to be as easy to administer and as flexible as possible
-to facilitate conducting research on spelling skills. It presents the words
-to be spelled by playing audio files and the participant writes the word
+It presents the words to be spelled by playing audio files and the participant writes the word
 using the keyboard.
 
 At the end of the session, mspelling saves the results to a CSV file, which is supported
@@ -27,33 +26,33 @@ by most popular spreadsheet software these days like Excel.
 
 The software is developed using the Python programming language v3.
 
-Feel free to use this software. It is distributed under the
-GPL (see the LICENSE.md file included for details).
-
 **Better documentation is coming very soon!**
 
 **Note:** Because mspelling is used mostly for research with elementary-school
         children the interface is adapted in a format appropriate for them and
-        may not be appropriate for your other age groups.
+        may not be appropriate for other age groups. However, you can customize
+        how mspelling looks and "feel" very easy if you know a little about python
+        and the Kivy framework (python library).
 
 
-<a id="org01d64e6"></a>
+<a id="org4543420"></a>
 
 # Installation
 
 1.  Install poetry ([instructions](https://python-poetry.org/docs/))
 2.  [Download mspelling](https://github.com/mario-bermonti/mspelling/archive/master.zip) or clone it into your computer using git
 3.  Open mspelling's directory using terminal or cmd ([check this cheatsheet](https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/) for more info)
-4.  Run `poetry install`
+4.  Run `poetry install` to install mspelling and all its dependencies. You can see the list
+    in the `pyproject.toml` file
 
-**That is all! Everything ready!**
+**That is it! mspelling is ready to be used!**
 
 
-<a id="org50efb99"></a>
+<a id="org16394ff"></a>
 
 # Description
 
--   mspelling has a very simple interface and walks the user trough a series of
+-   mspelling has a very simple interface and walks the user through a series of
     screens. The sequence is as follows:
     -   Welcome message
     -   Login screen: Participants enter the id assigned to them
@@ -64,22 +63,22 @@ GPL (see the LICENSE.md file included for details).
         end the session.
 
 
-<a id="org651842b"></a>
+<a id="orgf7f9c86"></a>
 
 # Usage
 
--   Just run the main.py file (`python3 main.py`) and mspelling will start
+-   run the main.py file using python (`python3 main.py`) and mspelling will start
 -   There are two types of sessions in mspelling: practice and experimental sessions
     -   The session is considered practice if no participant id is provided.
-        In this cases, mspelling will read the words from
+        In this case, mspelling will read the words from
         `stimuli/words/practice.csv`.
     -   The session is considered an experimental session if a participant id is provided.
-        The id can contain letters, numbers, and symbols. In this cases,
+        The id can contain letters, numbers, and symbols. In this case,
         mspelling will read the words from `mspelling/stimuli/words/experimental.csv`.
 -   In both cases, mspelling expects:
     -   the audio for each word to be in the `mspelling/stimuli/audio/` folder.
         All audio files must be in `wav` format.
-    -   The text stimuli must be words in a column named `word` of the CSV file.
+    -   The text stimuli must be in a column named `word` of the CSV file.
 -   At the end of the session, mSpelling stores the results in the
     `mspelling/results` folder. The name of the file will be identified with
     the participant's code (blank for practice sessions) and the current
@@ -89,7 +88,7 @@ GPL (see the LICENSE.md file included for details).
     try it! Just use mspelling like a practice session (no user id).**
 
 
-<a id="orgb2b165a"></a>
+<a id="org75f3421"></a>
 
 # Contributing to this project
 
@@ -102,16 +101,16 @@ and submit a pull request. Be sure to run the tests or provided a test-case
 if adding new functionality.
 
 
-<a id="orgdd6ae9c"></a>
+<a id="orgf7779b5"></a>
 
 # Author
 
-This project was developed by Mario E. Bermonti-Perez as part of
+This project was developed by Mario E. Bermonti-Pérez as part of
 his academic research. Feel free to contact me at [mbermonti@psm.edu](mailto:mbermonti@psm.edu) or
 [mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com)
 
 
-<a id="org8715b1b"></a>
+<a id="org4c6368b"></a>
 
 # License
 
