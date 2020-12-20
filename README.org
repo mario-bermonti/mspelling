@@ -17,8 +17,8 @@
   *Note:* Because mspelling is used mostly for research with elementary-school
           children the interface is adapted in a format appropriate for them and
           may not be appropriate for other age groups. However, you can customize
-          how mspelling looks and "feel" very easy if you know a little about python
-          and the Kivy framework (python library).
+          how mspelling looks and "feel" very easy if you know a little about [[https://www.python.org/doc/][python]]
+          and the [[https://kivy.org/doc/stable/][Kivy]] framework (python library).
 
 * Installation
  1. Install poetry ([[https://python-poetry.org/docs/][instructions]])

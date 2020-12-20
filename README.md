@@ -1,16 +1,16 @@
 
 # Table of Contents
 
--   [This is mspelling!](#orgda17aa2)
--   [Installation](#org4543420)
--   [Description](#org16394ff)
--   [Usage](#orgf7f9c86)
--   [Contributing to this project](#org75f3421)
--   [Author](#orgf7779b5)
--   [License](#org4c6368b)
+-   [This is mspelling!](#org8505cb6)
+-   [Installation](#org5ec14c9)
+-   [Description](#orgd73b154)
+-   [Usage](#orgbc46109)
+-   [Contributing to this project](#org1940749)
+-   [Author](#orgb8794a3)
+-   [License](#orgf35e6a9)
 
 
-<a id="orgda17aa2"></a>
+<a id="org8505cb6"></a>
 
 # This is mspelling!
 
@@ -31,11 +31,11 @@ The software is developed using the Python programming language v3.
 **Note:** Because mspelling is used mostly for research with elementary-school
         children the interface is adapted in a format appropriate for them and
         may not be appropriate for other age groups. However, you can customize
-        how mspelling looks and "feel" very easy if you know a little about python
-        and the Kivy framework (python library).
+        how mspelling looks and "feel" very easy if you know a little about [python](https://www.python.org/doc/)
+        and the [Kivy](https://kivy.org/doc/stable/) framework (python library).
 
 
-<a id="org4543420"></a>
+<a id="org5ec14c9"></a>
 
 # Installation
 
@@ -48,7 +48,7 @@ The software is developed using the Python programming language v3.
 **That is it! mspelling is ready to be used!**
 
 
-<a id="org16394ff"></a>
+<a id="orgd73b154"></a>
 
 # Description
 
@@ -63,7 +63,7 @@ The software is developed using the Python programming language v3.
         end the session.
 
 
-<a id="orgf7f9c86"></a>
+<a id="orgbc46109"></a>
 
 # Usage
 
@@ -88,7 +88,7 @@ The software is developed using the Python programming language v3.
     try it! Just use mspelling like a practice session (no user id).**
 
 
-<a id="org75f3421"></a>
+<a id="org1940749"></a>
 
 # Contributing to this project
 
@@ -101,7 +101,7 @@ and submit a pull request. Be sure to run the tests or provided a test-case
 if adding new functionality.
 
 
-<a id="orgf7779b5"></a>
+<a id="orgb8794a3"></a>
 
 # Author
 
@@ -110,7 +110,7 @@ his academic research. Feel free to contact me at [mbermonti@psm.edu](mailto:mbe
 [mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com)
 
 
-<a id="org4c6368b"></a>
+<a id="orgf35e6a9"></a>
 
 # License
 
