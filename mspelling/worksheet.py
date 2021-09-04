@@ -37,6 +37,7 @@ class Worksheet(object):
         """
 
         original_index = data.index
+        # TODO Check if this is necessary; np.random.permutation creates copy
         new_index = data.index.copy()
         while True:
             new_order = np.random.permutation(new_index)
@@ -47,7 +48,7 @@ class Worksheet(object):
                 break
 
         randomized_data = data.reindex(new_index)
-                
+
         return randomized_data
 
     @property
