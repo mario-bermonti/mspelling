@@ -5,11 +5,13 @@ from kivy.properties import BooleanProperty
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
-import os
+from pathlib import Path
 from functools import partial
 import pandas as pd
 
 from worksheet import Worksheet
+
+PATH_PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 class SpellingActivityScreen(Screen):
     worksheet = ObjectProperty(None)
@@ -36,7 +38,7 @@ class SpellingActivityScreen(Screen):
 
         self.results.update_results(
             response=response,
-            trial_data=self.trial, 
+            trial_data=self.trial,
             )
         if self.active_session:
             self.present_trial()
@@ -60,7 +62,7 @@ class SpellingActivityScreen(Screen):
 
         Returns
         -------
-        stimuli (pandas.DataFrame): Stimuli worksheet 
+        stimuli (pandas.DataFrame): Stimuli worksheet
         """
 
         filename = self.determine_stimuli_filename()
@@ -86,7 +88,7 @@ class SpellingActivityScreen(Screen):
         else:
             filename = "experimental.csv"
 
-        path_stimuli = os.path.join("stimuli", "words", filename)
+        path_stimuli = PATH_PROJECT_ROOT / "stimuli" / "words" / filename
 
         return path_stimuli
 
@@ -127,9 +129,9 @@ class SpellingActivityScreen(Screen):
     def present_audio(self):
         word = self.trial.word
         word = word.strip()
-        path_stimuli_audio = os.path.join("stimuli", "audio", "{}.wav".format(word))
+        path_stimuli_audio = PATH_PROJECT_ROOT / "stimuli" / "audio" / f"{word}.wav"
 
-        sound = SoundLoader.load(path_stimuli_audio)
+        sound = SoundLoader.load(str(path_stimuli_audio))
         sound.play()
 
     def toggle_disabling_response(self, *args, disable_response=True):
