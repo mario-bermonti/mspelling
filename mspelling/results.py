@@ -1,13 +1,15 @@
 from kivy.app import App
 import pandas as pd
 import datetime
-import os
+from pathlib import Path
+
+PATH_PROJECT_ROOT = Path(__file__).resolve().parent
 
 class Results(object):
     """Manages, stores and saves results from the session."""
 
     def __init__(self):
-        self._results = [] 
+        self._results = []
 
     def update_results(self, response, trial_data):
         """Calls all the functions that format and store results.
@@ -69,7 +71,7 @@ class Results(object):
 
         trial_data: pandas.Series
             Data included in the stimuli file by the user. It includes
-            the stimuli. 
+            the stimuli.
 
         Returns
         -------
@@ -96,7 +98,7 @@ class Results(object):
         ----------
         trial_data: pandas.Series
             Data included in the stimuli file by the user. It includes
-            the stimuli. 
+            the stimuli.
 
         Returns
         _______
@@ -149,32 +151,28 @@ class Results(object):
         date = datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
 
         participant_id = self.get_participant_id(testing)
-        results_path = os.path.join(
-            'results',
-            'results_p{}_{}.csv'.format(
-                participant_id,
-                date,
-            )
-        )
+
+        path_results = PATH_PROJECT_ROOT / "results" / f"results_p{participant_id}_{date}.csv"
 
         self.create_results_dir_if_necessary()
-        results.to_csv(results_path, index=False)
+        results.to_csv(path_results, index=False)
 
     def create_results_dir_if_necessary(self):
         """Creates the dir where the results will be saved in if it
         doesn't already exist.
         """
 
-        if not os.path.isdir('results/'):
-            os.mkdir('results/')
+        path_results = PATH_PROJECT_ROOT / 'results'
+        if not path_results.exists():
+            path_results.mkdir()
 
 
     def get_participant_id(self, testing=False):
         """Get participant id.
-        
+
         Parameters
         ----------
-        testing : bool 
+        testing : bool
             Flags whether this is a real session or just running tests.
 
         Returns
@@ -184,11 +182,10 @@ class Results(object):
         """
 
         # todo: improve how to handle this when running tests
-        if testing: 
+        if testing:
             participant_id = ""
         else:
             app = App.get_running_app()
-            participant_id = app.participant_id 
+            participant_id = app.participant_id
 
         return participant_id
-
