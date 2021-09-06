@@ -66,6 +66,7 @@ class SpellingActivityScreen(Screen):
         path_stimuli (str): path to stimuli
         """
 
+        # TODO: don't use intermediate vars (clean up)
         session_name = self.app.session_name
 
         if session_name == "practice":
@@ -74,6 +75,7 @@ class SpellingActivityScreen(Screen):
             filename = "experimental.csv"
 
         path_stimuli = self.app.PATH_PROJECT_ROOT / "stimuli" / "words" / filename
+        # TODO: Don't separate text stim from audio files to avoid too many dir
 
         return path_stimuli
 
