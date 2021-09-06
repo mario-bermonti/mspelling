@@ -29,7 +29,6 @@ class MSpellingApp(App):
     participant_id = StringProperty("")
     session_name = StringProperty("")
     results = ObjectProperty(None)
-    PATH_PROJECT_ROOT = Path(__file__).resolve().parent
 
     def on_start(self):
         self.results = results.Results()
@@ -50,6 +49,21 @@ class MSpellingApp(App):
             self.session_name = "practice"
         else:
             self.session_name = "experimental"
+
+    def get_base_path(self):
+        """Determine the path to use as base.
+
+        Use the project's root as the base path if this is a demo session, otherwise
+        use the cwd.
+        """
+
+        if self.session_name == "demo":
+            base_path = PATH_PROJECT_ROOT = Path(__file__).resolve().parent
+        else:
+            base_path = PATH_PROJECT_ROOT = Path().cwd().resolve()
+
+        return base_path
+
 
 if __name__ == "__main__":
     MSpellingApp().run()

@@ -19,6 +19,7 @@ class SpellingActivityScreen(Screen):
     def on_enter(self):
         self.app = App.get_running_app()
         self.app.determine_session_name()
+        self.BASE_PATH = self.app.get_base_path()
         self.worksheet = self.get_stimuli()
         self.trial = None
         self.present_trial()
@@ -69,13 +70,15 @@ class SpellingActivityScreen(Screen):
         # TODO: don't use intermediate vars (clean up)
         session_name = self.app.session_name
 
-        if session_name == "practice":
+        if session_name == "demo":
+            filename = "demo.csv"
+        elif session_name == "practice":
             filename = "practice.csv"
         elif session_name == "experimental":
             filename = "experimental.csv"
 
-        path_stimuli = self.app.PATH_PROJECT_ROOT / "stimuli" / "words" / filename
         # TODO: Don't separate text stim from audio files to avoid too many dir
+        path_stimuli = self.BASE_PATH / "stimuli" / "words" / filename
 
         return path_stimuli
 
@@ -116,7 +119,7 @@ class SpellingActivityScreen(Screen):
     def present_audio(self):
         word = self.trial.word
         word = word.strip()
-        path_stimuli_audio = self.app.PATH_PROJECT_ROOT / "stimuli" / "audio" / f"{word}.wav"
+        path_stimuli_audio = self.BASE_PATH / "stimuli" / "audio" / f"{word}.wav"
 
         sound = SoundLoader.load(str(path_stimuli_audio))
         sound.play()
