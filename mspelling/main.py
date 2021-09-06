@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import kivy
 kivy.require('1.11.1')
 from kivy.app import App
@@ -27,6 +29,7 @@ class MSpellingApp(App):
     participant_id = StringProperty("")
     is_practice = BooleanProperty(False)
     results = ObjectProperty(None)
+    PATH_PROJECT_ROOT = Path(__file__).resolve().parent
 
     def on_start(self):
         self.results = results.Results()

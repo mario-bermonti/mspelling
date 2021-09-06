@@ -5,13 +5,11 @@ from kivy.properties import BooleanProperty
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
-from pathlib import Path
 from functools import partial
 import pandas as pd
 
 from worksheet import Worksheet
 
-PATH_PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 class SpellingActivityScreen(Screen):
     worksheet = ObjectProperty(None)
@@ -88,7 +86,7 @@ class SpellingActivityScreen(Screen):
         else:
             filename = "experimental.csv"
 
-        path_stimuli = PATH_PROJECT_ROOT / "stimuli" / "words" / filename
+        path_stimuli = self.app.PATH_PROJECT_ROOT / "stimuli" / "words" / filename
 
         return path_stimuli
 
@@ -129,7 +127,7 @@ class SpellingActivityScreen(Screen):
     def present_audio(self):
         word = self.trial.word
         word = word.strip()
-        path_stimuli_audio = PATH_PROJECT_ROOT / "stimuli" / "audio" / f"{word}.wav"
+        path_stimuli_audio = self.app.PATH_PROJECT_ROOT / "stimuli" / "audio" / f"{word}.wav"
 
         sound = SoundLoader.load(str(path_stimuli_audio))
         sound.play()
