@@ -1,6 +1,9 @@
+from pathlib import Path
 from kivy.app import App
 import pandas as pd
 import datetime
+
+PATH_CWD = Path().cwd()
 
 class Results(object):
     """Manages, stores and saves results from the session."""
@@ -150,7 +153,7 @@ class Results(object):
 
         participant_id = self.get_participant_id(testing)
 
-        path_results = self.app.PATH_PROJECT_ROOT / "results" / f"results_p{participant_id}_{date}.csv"
+        path_results = PATH_CWD / "results" / f"results_p{participant_id}_{date}.csv"
 
         self.create_results_dir_if_necessary()
         results.to_csv(path_results, index=False)
@@ -160,7 +163,7 @@ class Results(object):
         doesn't already exist.
         """
 
-        path_results = self.app.PATH_PROJECT_ROOT / 'results'
+        path_results = PATH_CWD / 'results'
         if not path_results.exists():
             path_results.mkdir()
 
