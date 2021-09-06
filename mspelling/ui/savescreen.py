@@ -9,6 +9,6 @@ class SaveScreen(Screen):
 
     # TODO: Only show data saving screen if not in demo
     def save_results(self, *args):
-        self.app.save_results()
+        if self.app.session_name != "demo":
+            self.app.save_results()
         self.manager.current = "end_screen"
-
