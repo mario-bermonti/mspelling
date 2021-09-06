@@ -27,13 +27,12 @@ class MSpellingApp(App):
     title = "mDeletreo"
     kv_directory = "ui"
     participant_id = StringProperty("")
-    is_practice = BooleanProperty(False)
+    session_name = StringProperty("")
     results = ObjectProperty(None)
     PATH_PROJECT_ROOT = Path(__file__).resolve().parent
 
     def on_start(self):
         self.results = results.Results()
-
 
     def build(self):
         return MSpellingRoot()
@@ -41,15 +40,16 @@ class MSpellingApp(App):
     def save_results(self):
         self.results.save_results()
 
-    def determine_if_practice_session(self):
-        """Checks whether this is a practice session and sets a flag in
-        the app's root to indicate it.
+    def determine_session_name(self):
+        """Determine the kind of session. Options are 'demo', 'practice', 'experimental'.
         """
 
-        if len(self.participant_id) == 0:
-            self.is_practice = True
+        if self.participant_id == "demo":
+            self.session_name = "demo"
+        elif len(self.participant_id) == 0:
+            self.session_name = "practice"
         else:
-            self.is_practice = False
+            self.session_name = "experimental"
 
 if __name__ == "__main__":
     MSpellingApp().run()

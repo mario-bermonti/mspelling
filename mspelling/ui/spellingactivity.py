@@ -18,7 +18,7 @@ class SpellingActivityScreen(Screen):
 
     def on_enter(self):
         self.app = App.get_running_app()
-        self.app.determine_if_practice_session()
+        self.app.determine_session_name()
         self.worksheet = self.get_stimuli()
         self.trial = None
         self.present_trial()
@@ -66,11 +66,11 @@ class SpellingActivityScreen(Screen):
         path_stimuli (str): path to stimuli
         """
 
-        is_practice = self.app.is_practice
+        session_name = self.app.session_name
 
-        if is_practice:
+        if session_name == "practice":
             filename = "practice.csv"
-        else:
+        elif session_name == "experimental":
             filename = "experimental.csv"
 
         path_stimuli = self.app.PATH_PROJECT_ROOT / "stimuli" / "words" / filename
