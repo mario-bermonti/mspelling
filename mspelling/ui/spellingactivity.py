@@ -18,7 +18,7 @@ class SpellingActivityScreen(Screen):
 
     def on_enter(self):
         self.app = App.get_running_app()
-        self.check_if_practice_session()
+        self.app.determine_if_practice_session()
         self.worksheet = self.get_stimuli()
         self.trial = None
         self.present_trial()
@@ -40,19 +40,6 @@ class SpellingActivityScreen(Screen):
             )
         if self.active_session:
             self.present_trial()
-
-    def check_if_practice_session(self):
-        """Checks whether this is a practice session and sets a flag in
-        the app's root to indicate it.
-        """
-
-        code = self.app.participant_id
-
-        if len(code) == 0:
-            self.app.is_practice = True
-        else:
-            self.app.is_practice = False
-
 
     def get_stimuli(self):
         """Get the stimuli that will be used by the spelling activity.

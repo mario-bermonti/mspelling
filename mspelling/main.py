@@ -41,5 +41,15 @@ class MSpellingApp(App):
     def save_results(self):
         self.results.save_results()
 
+    def determine_if_practice_session(self):
+        """Checks whether this is a practice session and sets a flag in
+        the app's root to indicate it.
+        """
+
+        if len(self.participant_id) == 0:
+            self.is_practice = True
+        else:
+            self.is_practice = False
+
 if __name__ == "__main__":
     MSpellingApp().run()
