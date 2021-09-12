@@ -65,7 +65,7 @@ class MSpellingApp(App):
         if self.session_name == "demo":
             base_path = PATH_PROJECT_ROOT = Path(__file__).resolve().parent
         else:
-            base_path = PATH_PROJECT_ROOT = Path().cwd().resolve() / "mspelling"
+            base_path = PATH_PROJECT_ROOT = Path().cwd().resolve()
 
         return base_path
 
