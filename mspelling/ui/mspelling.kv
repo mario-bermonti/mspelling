@@ -1,12 +1,12 @@
-#:include ui/welcomescreen.kv
-#:include ui/loginscreen.kv
-#:include ui/startscreen.kv
-#:include ui/beginmessagescreen.kv
-#:include ui/spellingactivity.kv
-#:include ui/savescreen.kv
-#:include ui/endscreen.kv
+#:include mspelling/ui/welcomescreen.kv
+#:include mspelling/ui/loginscreen.kv
+#:include mspelling/ui/startscreen.kv
+#:include mspelling/ui/beginmessagescreen.kv
+#:include mspelling/ui/spellingactivity.kv
+#:include mspelling/ui/savescreen.kv
+#:include mspelling/ui/endscreen.kv
 
-<MSpellingRoot>:
+<MSpellingRoot@BoxLayout>:
     orientation: 'vertical'
     ScreenManager:
         id: mspelling_screen_manager

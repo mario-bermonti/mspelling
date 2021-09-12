@@ -8,7 +8,7 @@ from kivy.clock import Clock
 from functools import partial
 import pandas as pd
 
-from worksheet import Worksheet
+from ..worksheet import Worksheet
 
 
 class SpellingActivityScreen(Screen):
