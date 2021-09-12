@@ -7,18 +7,20 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
 from kivy.properties import BooleanProperty
 from kivy.properties import ObjectProperty
+from kivy.lang import Builder
+from kivy.uix.label import Label
 
 # needs to be imported or kivy won't find them
 # at least the first screen
-from ui.welcomescreen import WelcomeScreen
-from ui.loginscreen import LoginScreen
-from ui.startscreen import StartScreen
-from ui.beginmessagescreen import BeginMessageScreen
-from ui.spellingactivity import SpellingActivityScreen
-from ui.savescreen import SaveScreen
-from ui.endscreen import EndScreen
+from .ui.welcomescreen import WelcomeScreen
+from .ui.loginscreen import LoginScreen
+from .ui.startscreen import StartScreen
+from .ui.beginmessagescreen import BeginMessageScreen
+from .ui.spellingactivity import SpellingActivityScreen
+from .ui.savescreen import SaveScreen
+from .ui.endscreen import EndScreen
 
-import results
+from .results import Results
 
 class MSpellingRoot(BoxLayout):
     pass
@@ -31,9 +33,12 @@ class MSpellingApp(App):
     results = ObjectProperty(None)
 
     def on_start(self):
-        self.results = results.Results()
+        self.results = Results()
 
     def build(self):
+        path_root = Path(__file__).resolve().parent / "ui" / "mspelling.kv"
+        self.root = Builder.load_file(str(path_root))
+
         return MSpellingRoot()
 
     def save_results(self):
@@ -60,10 +65,10 @@ class MSpellingApp(App):
         if self.session_name == "demo":
             base_path = PATH_PROJECT_ROOT = Path(__file__).resolve().parent
         else:
-            base_path = PATH_PROJECT_ROOT = Path().cwd().resolve()
+            base_path = PATH_PROJECT_ROOT = Path().cwd().resolve() / "mspelling"
 
         return base_path
 
 
-if __name__ == "__main__":
+def main():
     MSpellingApp().run()
