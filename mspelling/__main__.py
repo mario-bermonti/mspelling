@@ -28,6 +28,11 @@ class MSpellingApp(MDApp):
     session_name = StringProperty("")
     results = ObjectProperty(None)
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # self.theme_cls.theme_style = "Dark"
+        # self.theme_cls.primary_palette = "Teal"
+
     def on_start(self):
         self.results = Results()
 
