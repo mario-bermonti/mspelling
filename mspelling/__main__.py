@@ -3,12 +3,10 @@ from pathlib import Path
 import kivy
 kivy.require('1.11.1')
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
 from kivy.properties import BooleanProperty
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
-from kivy.uix.label import Label
 
 # needs to be imported or kivy won't find them
 # at least the first screen
@@ -22,8 +20,6 @@ from .ui.endscreen import EndScreen
 
 from .results import Results
 
-class MSpellingRoot(BoxLayout):
-    pass
 
 class MSpellingApp(App):
     title = "mDeletreo"
@@ -39,7 +35,7 @@ class MSpellingApp(App):
         path_root = Path(__file__).resolve().parent / "ui" / "mspelling.kv"
         self.root = Builder.load_file(str(path_root))
 
-        return MSpellingRoot()
+        return self.root
 
     def save_results(self):
         self.results.save_results()
