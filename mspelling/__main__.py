@@ -2,7 +2,7 @@ from pathlib import Path
 
 import kivy
 kivy.require('1.11.1')
-from kivy.app import App
+from kivymd.app import MDApp
 from kivy.properties import StringProperty
 from kivy.properties import BooleanProperty
 from kivy.properties import ObjectProperty
@@ -21,12 +21,17 @@ from .ui.endscreen import EndScreen
 from .results import Results
 
 
-class MSpellingApp(App):
+class MSpellingApp(MDApp):
     title = "mDeletreo"
     kv_directory = "ui"
     participant_id = StringProperty("")
     session_name = StringProperty("")
     results = ObjectProperty(None)
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Teal"
 
     def on_start(self):
         self.results = Results()

@@ -1,7 +1,7 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 from kivy.app import App
 
-class LoginScreen(Screen):
+class LoginScreen(MDScreen):
     def on_enter(self):
         self.ids.code_input.focus = True
 

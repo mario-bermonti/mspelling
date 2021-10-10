@@ -1,3 +1,4 @@
+#:include mspelling/ui/elements.kv
 #:include mspelling/ui/welcomescreen.kv
 #:include mspelling/ui/loginscreen.kv
 #:include mspelling/ui/startscreen.kv
@@ -6,8 +7,8 @@
 #:include mspelling/ui/savescreen.kv
 #:include mspelling/ui/endscreen.kv
 
-<MSpellingRoot@BoxLayout>:
-    orientation: 'vertical'
+<MSpellingRoot@MDBoxLayout>:
+    orientation: "vertical"
     ScreenManager:
         id: mspelling_screen_manager
         WelcomeScreen:

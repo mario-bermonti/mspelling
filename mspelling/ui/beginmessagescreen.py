@@ -1,7 +1,7 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 from kivy.clock import Clock
 
-class BeginMessageScreen(Screen):
+class BeginMessageScreen(MDScreen):
     def on_enter(self):
         Clock.schedule_once(self.go_to_next_screen, 2)
 
