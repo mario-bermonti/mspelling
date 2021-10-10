@@ -2,15 +2,18 @@
 
 <SpellingActivityScreen>:
     ThemedLayout:
-        orientation: "vertical"
         ThemedLabel:
             text: "Escribe la palabra"
+            size_hint: (1, .1)
+            pos_hint: {"center_x": .5, "y": .3}
+            halign: "center"
         ThemedTextInput:
             id: response_input
             disabled: True
+            size_hint: (1, .03)
         ThemedButton:
             text: "Seguir"
-            #size_hint: .9,.1
-            #pos_hint: {"center_x": .5, "top": .8}
             on_press:
                 root.submit(response_input.text)
+            size_hint: (1, .03)
+            pos_hint: {"center_x": .5, "center_y": .3}
