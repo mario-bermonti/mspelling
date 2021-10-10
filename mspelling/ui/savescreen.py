@@ -1,8 +1,8 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 from kivy.app import App
 from kivy.clock import Clock
 
-class SaveScreen(Screen):
+class SaveScreen(MDScreen):
     def on_enter(self):
         self.app = App.get_running_app()
         Clock.schedule_once(self.save_results, 2)

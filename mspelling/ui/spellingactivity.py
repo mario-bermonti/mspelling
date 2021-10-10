@@ -1,4 +1,4 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.properties import BooleanProperty
@@ -11,7 +11,7 @@ import pandas as pd
 from ..worksheet import Worksheet
 
 
-class SpellingActivityScreen(Screen):
+class SpellingActivityScreen(MDScreen):
     worksheet = ObjectProperty(None)
     trial = ObjectProperty(None)
     active_session = BooleanProperty(True)

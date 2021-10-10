@@ -1,4 +1,4 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 
-class WelcomeScreen(Screen):
+class WelcomeScreen(MDScreen):
     pass
