@@ -1,0 +1,36 @@
+#:include src/mspelling/ui/elements.kv
+#:include src/mspelling/ui/welcomescreen.kv
+#:include src/mspelling/ui/loginscreen.kv
+#:include src/mspelling/ui/startscreen.kv
+#:include src/mspelling/ui/beginmessagescreen.kv
+#:include src/mspelling/ui/spellingactivity.kv
+#:include src/mspelling/ui/savescreen.kv
+#:include src/mspelling/ui/endscreen.kv
+
+<MSpellingRoot@MDBoxLayout>:
+    orientation: "vertical"
+    ScreenManager:
+        id: mspelling_screen_manager
+        WelcomeScreen:
+            id: welcome_screen
+            name: "welcome_screen"
+        LoginScreen:
+            id: login_screen
+            name: "login_screen"
+        StartScreen:
+            id: start_screen
+            name: "start_screen"
+        BeginMessageScreen:
+            id: begin_message_screen
+            name: "begin_message_screen"
+        SpellingActivityScreen:
+            id: spelling_activity_screen
+            name: "spelling_activity_screen"
+        SaveScreen:
+            id: save_screen
+            name: "save_screen"
+        EndScreen:
+            id: end_screen
+            name: "end_screen"
+
+MSpellingRoot:
