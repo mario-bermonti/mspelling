@@ -27,12 +27,11 @@ jobs:
           virtualenvs-create: true
           virtualenvs-in-project: false
 
-      - name: Run mypy with nox
-        shell: bash
-        run: nox --force-color -s mypy
+      # - name: Run mypy with nox
+      #   shell: bash
+      #   run: nox --force-color -s mypy
 
-      - name: Run pre-commit hooks
-        run: |
-          pip install pre-commit
-          pre-commit run --all-files
-
+      # - name: Run pre-commit hooks
+      #   run: |
+      #     pip install pre-commit
+      #     pre-commit run --all-files
