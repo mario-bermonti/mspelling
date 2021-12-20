@@ -11,6 +11,7 @@ homepage = "https://github.com/mario-bermonti/mspelling"
 repository = "https://github.com/mario-bermonti/mspelling"
 documentation = "https://mspelling.readthedocs.io"
 keywords = ["mspelling"]
+license = "GNU General Public License v3.0"
 classifiers=[
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
