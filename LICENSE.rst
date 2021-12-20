@@ -1,11 +1,5 @@
-GNU GENERAL PUBLIC LICENSE
-==========================
-
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
-
-                  Measure of Spanish spelling skills
-                  Copyright (C) 2021  Mario E. Bermonti Pérez
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
