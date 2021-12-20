@@ -1,0 +1,11 @@
+#:include src/mspelling/ui/elements.kv
+#:set message_size dp(35)
+
+<StartScreen>:
+    MDRaisedButton:
+        text: "Presiona para comenzar"
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        font_size: message_size
+        size_hint: (.5, 0.15)
+        on_press:
+            root.manager.current = "begin_message_screen"
