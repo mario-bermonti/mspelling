@@ -32,65 +32,7 @@ by most popular spreadsheet software these days (e.g., Excel).
 mSpelling is developed using the Python programming language v3.
 
 ## Getting Started
-### Installation
-1.  Install poetry ([instructions](https://python-poetry.org/docs/))
-2.  [Download mspelling](https://github.com/mario-bermonti/mspelling/archive/master.zip) or clone it into your computer using git
-3.  Open mspelling's directory using terminal or cmd ([check this cheatsheet](https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/) for more info)
-4.  Run `poetry install` to install mspelling and all its dependencies. You can see the list
-    in the `pyproject.toml` file
-
-**That is it! mspelling is ready to be used!**
-
-**Better documentation is coming very soon!**
-
-
-<a id="orgbc46109"></a>
-
--   run the main.py file using python (`python3 main.py`) and mspelling will start
--   There are two types of sessions in mspelling: practice and experimental sessions
-    -   The session is considered practice if no participant id is provided.
-        In this case, mspelling will read the words from
-        `stimuli/words/practice.csv`.
-    -   The session is considered an experimental session if a participant id is provided.
-        The id can contain letters, numbers, and symbols. In this case,
-        mspelling will read the words from `mspelling/stimuli/words/experimental.csv`.
--   In both cases, mspelling expects:
-    -   the audio for each word to be in the `mspelling/stimuli/audio/` folder.
-        All audio files must be in `wav` format.
-    -   The text stimuli must be in a column named `word` of the CSV file.
--   At the end of the session, mSpelling stores the results in the
-    `mspelling/results` folder. The name of the file will be identified with
-    the participant's code (blank for practice sessions) and the current
-    date and time.
-
-    **mspelling comes with a short demo version of 5 Spanish words. Go ahead and
-    try it! Just use mspelling like a practice session (no user id).**
-
-
-<a id="org1940749"></a>
-
-### Usage
--   run the main.py file using python (`python3 main.py`) and mspelling will start
--   There are two types of sessions in mspelling: practice and experimental sessions
-    -   The session is considered practice if no participant id is provided.
-        In this case, mspelling will read the words from
-        `stimuli/words/practice.csv`.
-    -   The session is considered an experimental session if a participant id is provided.
-        The id can contain letters, numbers, and symbols. In this case,
-        mspelling will read the words from `mspelling/stimuli/words/experimental.csv`.
--   In both cases, mspelling expects:
-    -   the audio for each word to be in the `mspelling/stimuli/audio/` folder.
-        All audio files must be in `wav` format.
-    -   The text stimuli must be in a column named `word` of the CSV file.
--   At the end of the session, mSpelling stores the results in the
-    `mspelling/results` folder. The name of the file will be identified with
-    the participant's code (blank for practice sessions) and the current
-    date and time.
-
-    **mspelling comes with a short demo version of 5 Spanish words. Go ahead and
-    try it! Just use mspelling like a practice session (no user id).**
-
-Check [the documentation][project_docs] for more details.
+Please see [mSpelling documentation][project_docs] for details about how to install and use mSpelling.
 
 ## Contributing to this project
   All contributions are welcome!
