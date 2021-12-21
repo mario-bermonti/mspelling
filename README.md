@@ -16,9 +16,11 @@ Measure of Spanish spelling skills
 * Free software: GNU General Public License v3
 
 ## Features
-
-* TODO
-
+- Developed specifically for research on spelling skills
+- Easy to administer
+- Flexible and easy to extend
+- Supports multiple platforms: MacOS, Windows, Linux
+- Results are saved to a CSV file
 
 ## Description
 mspelling is a Spanish spelling test developed for research on spelling
