@@ -1,11 +1,7 @@
-
 # mSpelling
-
-
 
 [![PyPI - Version](https://img.shields.io/pypi/v/mspelling.svg)](https://pypi.python.org/pypi/mspelling)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mspelling.svg)](https://pypi.python.org/pypi/mspelling)
-
 ![GitHub](https://img.shields.io/github/license/mario-bermonti/mspelling)
 [![Tests](https://github.com/mario-bermonti/mspelling/workflows/tests/badge.svg)](https://github.com/mario-bermonti/mspelling/actions?workflow=tests)
 [![Codecov](https://codecov.io/gh/mario-bermonti/mspelling/branch/master/graph/badge.svg?token=YOURTOKEN)](https://codecov.io/gh/mario-bermonti/mspelling)
