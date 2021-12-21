@@ -7,21 +7,19 @@ Welcome to mSpelling's documentation!
    readme
    installation
    usage
-   modules
    changelog
    contributing
    Code of Conduct <CODE_OF_CONDUCT>
 
-Indices and tables
-==================
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+..
+   Indices and tables
+   ==================
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`
 
 
 .. toctree::
    :hidden:
 
    License <license>
-
-
