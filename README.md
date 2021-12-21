@@ -23,18 +23,13 @@ Measure of Spanish spelling skills
 - Results are saved to a CSV file
 
 ## Description
-mspelling is a Spanish spelling test developed for research on spelling
-skills. mSpelling was design to be as easy to administer and as flexible as possible
-to facilitate conducting research on spelling skills.
-
-It presents the words to be spelled by playing audio files and the participant writes the word
+Words are presented by the computer one at a time and the participant types the word
 using the keyboard.
 
 At the end of the session, mspelling saves the results to a CSV file, which is supported
-by most popular spreadsheet software these days like Excel.
+by most popular spreadsheet software these days (e.g., Excel).
 
-The software is developed using the Python programming language v3.
-
+mSpelling is developed using the Python programming language v3.
 
 ## Getting Started
 ### Installation
