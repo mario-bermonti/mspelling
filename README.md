@@ -23,6 +23,9 @@ Measure of Spanish spelling skills
 - Results are saved to a CSV file
 
 ## Description
+
+![demo](./mspelling_gif.gif)
+
 Words are presented by the computer one at a time and the participant types the word
 using the keyboard.
 
