@@ -49,7 +49,7 @@ kivymd = "^0.104.2"
 pytest = "^6.2.4"
 pytest-cov = "^2.10.1"
 xdoctest = "^0.15.4"
-coverage = {version = "^5.3", extras = ["toml"]}
+coverage = {version = "^6.2", extras = ["toml"]}
 
 # linting
 flake8 = "^3.8.4"
