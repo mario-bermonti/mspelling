@@ -1,7 +1,7 @@
 
 [tool.poetry]
 name = "mspelling"
-version = "0.2.1"
+version = "0.2.2"
 description = "Measure of Spanish spelling skills"
 authors = ["Mario E. Bermonti Pérez <mbermonti1132@gmail.com>"]
 
