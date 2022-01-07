@@ -18,7 +18,7 @@ To install mspelling:
        $ poetry install
 
 .. _poetry's documentation: https://python-poetry.org/
-.. _mspelling's latest version: https://github.com/mario-bermonti/mspelling/archive/refs/tags/v0.2.1.zip
+.. _mspelling's latest version: https://github.com/mario-bermonti/mspelling/archive/refs/tags/v0.2.2.zip
 .. _cheatsheet: https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/
 .. _pip: https://pip.pypa.io
 .. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
