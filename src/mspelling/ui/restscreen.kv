@@ -1,0 +1,15 @@
+#:include src/mspelling/ui/elements.kv
+#:set message_size dp(35)
+
+<RestPeriodScreen>:
+    ThemedLayout:
+        ThemedLabel:
+            text: "¡Toma un descanso!"
+            size_hint: (1, .1)
+            pos_hint: {"center_x": .5, "y": .3}
+            halign: "center"
+        ThemedButton:
+            size_hint: (1, .03)
+            text: "Pressiona para comenzar"
+            on_press:
+                root.manager.current = "spelling_activity_screen"
