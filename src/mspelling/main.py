@@ -17,6 +17,7 @@ from .ui.beginmessagescreen import BeginMessageScreen
 from .ui.spellingactivity import SpellingActivityScreen
 from .ui.savescreen import SaveScreen
 from .ui.endscreen import EndScreen
+from .ui.restscreen import RestPeriodScreen
 
 from .results import Results
 

@@ -27,7 +27,7 @@ Measure of Spanish spelling skills
 ![demo](./mspelling_gif.gif)
 
 Words are presented by the computer one at a time and the participant types the word
-using the keyboard.
+using the keyboard. Participants have a rest period after every 5 trials.
 
 At the end of the session, mspelling saves the results to a CSV file, which is supported
 by most popular spreadsheet software these days (e.g., Excel).

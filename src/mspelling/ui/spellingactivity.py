@@ -2,6 +2,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.properties import BooleanProperty
+from kivy.properties import NumericProperty
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
@@ -12,18 +13,26 @@ from ..worksheet import Worksheet
 
 
 class SpellingActivityScreen(MDScreen):
+    new_session = BooleanProperty(True)
+    active_session = BooleanProperty(True)
     worksheet = ObjectProperty(None)
     trial = ObjectProperty(None)
-    active_session = BooleanProperty(True)
+    trial_number = NumericProperty(0)
+    rest_period_active = BooleanProperty(False)
+    rest_interval = NumericProperty(5)
 
     def on_enter(self):
-        self.app = App.get_running_app()
-        self.app.determine_session_name()
-        self.BASE_PATH = self.app.get_base_path()
-        self.worksheet = self.get_stimuli()
-        self.trial = None
+        if self.new_session:
+            # TODO: integrate into method (init)
+            self.app = App.get_running_app()
+            self.app.determine_session_name()
+            self.BASE_PATH = self.app.get_base_path()
+            self.worksheet = self.get_stimuli()
+            self.trial = None
+            self.results = self.app.results
+            self.new_session = False
+        self.rest_period_active = False
         self.present_trial()
-        self.results = self.app.results
 
     def submit(self, response):
         """Pass the participant's response to the appropriate function
@@ -39,7 +48,8 @@ class SpellingActivityScreen(MDScreen):
             response=response,
             trial_data=self.trial,
             )
-        if self.active_session:
+        self.trial_number += 1        
+        if self.active_session and not self.rest_period_active:
             self.present_trial()
 
     def get_stimuli(self):
@@ -137,7 +147,7 @@ class SpellingActivityScreen(MDScreen):
 
     def go_to_save_screen(self):
         self.manager.current = "save_screen"
-
+    
     def reset_everything(self):
         self.clear_screen()
         self.toggle_disabling_response(disable_response=True)
@@ -146,3 +156,21 @@ class SpellingActivityScreen(MDScreen):
         """Clear screen to allow next response."""
 
         self.ids.response_input.text = ""
+
+    def on_trial_number(self, instance, value):
+        """Go to rest period screen if appropriate."""
+        
+        if self.present_rest_period:
+            self.go_to_rest_screen()
+    
+    @property
+    def present_rest_period(self):
+        """Determine if it is time for a rest period."""
+
+        return not self.trial_number % self.rest_interval
+        
+    def go_to_rest_screen(self):
+        """Present the rest period screen."""
+
+        self.rest_period_active = True
+        self.manager.current = "rest_period_screen"
