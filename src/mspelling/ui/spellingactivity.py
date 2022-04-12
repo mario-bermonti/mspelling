@@ -17,6 +17,7 @@ class SpellingActivityScreen(MDScreen):
     active_session = BooleanProperty(True)
 
     def on_enter(self):
+        self.reset_everything()
         self.app = App.get_running_app()
         self.app.determine_session_name()
         self.BASE_PATH = self.app.get_base_path()
@@ -39,6 +40,7 @@ class SpellingActivityScreen(MDScreen):
             response=response,
             trial_data=self.trial,
             )
+        self.reset_everything()
         if self.active_session:
             Clock.schedule_once(self.present_trial, 1)
 
@@ -103,8 +105,6 @@ class SpellingActivityScreen(MDScreen):
         the response would be contaminated by that cue.
         """
 
-        self.clear_screen()
-        self.toggle_disabling_response(disable_response=True)
         self.set_trial()
         if self.active_session:
             self.present_audio()
