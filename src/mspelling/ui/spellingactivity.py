@@ -56,7 +56,7 @@ class SpellingActivityScreen(MDScreen):
             response=response,
             trial_data=self.trial,
             )
-
+        self.reset_everything()
         self.trial_number += 1        
         if self.active_session and not self.rest_period_active:
             Clock.schedule_once(self.present_trial, 1)
