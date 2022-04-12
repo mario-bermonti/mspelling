@@ -1,24 +1,23 @@
 from pathlib import Path
 
 import kivy
-kivy.require('1.11.1')
-from kivymd.app import MDApp
-from kivy.properties import StringProperty
-from kivy.properties import BooleanProperty
-from kivy.properties import ObjectProperty
+
+kivy.require("1.11.1")
 from kivy.lang import Builder
+from kivy.properties import BooleanProperty, ObjectProperty, StringProperty
+from kivymd.app import MDApp
+
+from .results import Results
+from .ui.beginmessagescreen import BeginMessageScreen
+from .ui.endscreen import EndScreen
+from .ui.loginscreen import LoginScreen
+from .ui.savescreen import SaveScreen
+from .ui.spellingactivity import SpellingActivityScreen
+from .ui.startscreen import StartScreen
 
 # needs to be imported or kivy won't find them
 # at least the first screen
 from .ui.welcomescreen import WelcomeScreen
-from .ui.loginscreen import LoginScreen
-from .ui.startscreen import StartScreen
-from .ui.beginmessagescreen import BeginMessageScreen
-from .ui.spellingactivity import SpellingActivityScreen
-from .ui.savescreen import SaveScreen
-from .ui.endscreen import EndScreen
-
-from .results import Results
 
 
 class MSpellingApp(MDApp):
@@ -46,8 +45,7 @@ class MSpellingApp(MDApp):
         self.results.save_results()
 
     def determine_session_name(self):
-        """Determine the kind of session. Options are 'demo', 'practice', 'experimental'.
-        """
+        """Determine the kind of session. Options are 'demo', 'practice', 'experimental'."""
 
         if self.participant_id == "demo":
             self.session_name = "demo"

@@ -1,12 +1,11 @@
-from kivymd.uix.screen import MDScreen
-from kivy.app import App
-from kivy.properties import ObjectProperty
-from kivy.properties import BooleanProperty
-from kivy.core.audio import SoundLoader
-from kivy.clock import Clock
-
 from functools import partial
+
 import pandas as pd
+from kivy.app import App
+from kivy.clock import Clock
+from kivy.core.audio import SoundLoader
+from kivy.properties import BooleanProperty, ObjectProperty
+from kivymd.uix.screen import MDScreen
 
 from ..worksheet import Worksheet
 
@@ -39,7 +38,7 @@ class SpellingActivityScreen(MDScreen):
         self.results.update_results(
             response=response,
             trial_data=self.trial,
-            )
+        )
         self.reset_everything()
         if self.active_session:
             Clock.schedule_once(self.present_trial, 1)
@@ -109,11 +108,7 @@ class SpellingActivityScreen(MDScreen):
         if self.active_session:
             self.present_audio()
             Clock.schedule_once(
-                partial(
-                    self.toggle_disabling_response,
-                    disable_response=False
-                ),
-                1
+                partial(self.toggle_disabling_response, disable_response=False), 1
             )
 
     def present_audio(self):

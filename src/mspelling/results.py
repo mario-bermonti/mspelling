@@ -1,9 +1,11 @@
-from pathlib import Path
-from kivy.app import App
-import pandas as pd
 import datetime
+from pathlib import Path
+
+import pandas as pd
+from kivy.app import App
 
 PATH_CWD = Path().cwd()
+
 
 class Results(object):
     """Manages, stores and saves results from the session."""
@@ -24,10 +26,7 @@ class Results(object):
             the stimuli.
         """
 
-        results_trial = self.format_trial_results(
-            response,
-            trial_data
-        )
+        results_trial = self.format_trial_results(response, trial_data)
         self._results.append(results_trial)
 
     def format_trial_results(self, response, trial_data):
@@ -107,7 +106,7 @@ class Results(object):
             Index specifying the order of the trial's data.
         """
 
-        trial_data = trial_data.copy() # don't modify original data
+        trial_data = trial_data.copy()  # don't modify original data
         other_data = trial_data.drop(labels="word")
 
         index_other_data = other_data.index
@@ -139,7 +138,6 @@ class Results(object):
 
         return results_formatted
 
-
     def save_results_file(self, results, testing=False):
         """Save results to file, creating the dir if it doesn't exist.
 
@@ -149,7 +147,7 @@ class Results(object):
             Participant's results for the session
         """
 
-        date = datetime.datetime.now().strftime('%Y-%m-%d-h%H-m%M')
+        date = datetime.datetime.now().strftime("%Y-%m-%d-h%H-m%M")
 
         participant_id = self.get_participant_id(testing)
 
@@ -163,10 +161,9 @@ class Results(object):
         doesn't already exist.
         """
 
-        path_results = PATH_CWD / 'results'
+        path_results = PATH_CWD / "results"
         if not path_results.exists():
             path_results.mkdir()
-
 
     def get_participant_id(self, testing=False):
         """Get participant id.

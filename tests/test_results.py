@@ -1,5 +1,7 @@
 import pandas as pd
+
 from mspelling.results import Results
+
 
 class TestResults(object):
     """Test results object."""
@@ -16,9 +18,7 @@ class TestResults(object):
 
         results = Results()
         trial_data_returned = results.add_additional_data(
-            response=data["response"],
-            trial_data=trial_data_incomplete,
-            testing=True
+            response=data["response"], trial_data=trial_data_incomplete, testing=True
         )
 
         trial_data_complete = pd.Series(data)
