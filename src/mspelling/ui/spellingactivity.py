@@ -22,8 +22,8 @@ class SpellingActivityScreen(MDScreen):
         self.BASE_PATH = self.app.get_base_path()
         self.worksheet = self.get_stimuli()
         self.trial = None
-        self.present_trial()
         self.results = self.app.results
+        self.present_trial()
 
     def submit(self, response):
         """Pass the participant's response to the appropriate function
