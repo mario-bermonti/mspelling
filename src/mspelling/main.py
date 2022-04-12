@@ -8,16 +8,17 @@ from kivy.properties import BooleanProperty, ObjectProperty, StringProperty
 from kivymd.app import MDApp
 
 from .results import Results
+# needs to be imported or kivy won't find them
+# at least the first screen
 from .ui.beginmessagescreen import BeginMessageScreen
 from .ui.endscreen import EndScreen
 from .ui.loginscreen import LoginScreen
 from .ui.savescreen import SaveScreen
 from .ui.spellingactivity import SpellingActivityScreen
 from .ui.startscreen import StartScreen
-
-# needs to be imported or kivy won't find them
-# at least the first screen
 from .ui.welcomescreen import WelcomeScreen
+from .ui.restscreen import RestPeriodScreen
+
 
 
 class MSpellingApp(MDApp):
