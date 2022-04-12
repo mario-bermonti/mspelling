@@ -7,7 +7,13 @@ from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
 from functools import partial
+
 import pandas as pd
+from kivy.app import App
+from kivy.clock import Clock
+from kivy.core.audio import SoundLoader
+from kivy.properties import BooleanProperty, ObjectProperty
+from kivymd.uix.screen import MDScreen
 
 from ..worksheet import Worksheet
 
@@ -20,10 +26,12 @@ class SpellingActivityScreen(MDScreen):
     trial_number = NumericProperty(0)
     rest_period_active = BooleanProperty(False)
     rest_interval = NumericProperty(5)
+    active_session = BooleanProperty(True)
 
     def on_enter(self):
         if self.new_session:
             # TODO: integrate into method (init)
+            self.reset_everything()
             self.app = App.get_running_app()
             self.app.determine_session_name()
             self.BASE_PATH = self.app.get_base_path()
@@ -48,9 +56,10 @@ class SpellingActivityScreen(MDScreen):
             response=response,
             trial_data=self.trial,
             )
+        self.reset_everything()
         self.trial_number += 1        
         if self.active_session and not self.rest_period_active:
-            self.present_trial()
+            Clock.schedule_once(self.present_trial, 1)
 
     def get_stimuli(self):
         """Get the stimuli that will be used by the spelling activity.
@@ -105,7 +114,7 @@ class SpellingActivityScreen(MDScreen):
         except IndexError:
             self.end_spelling_activity()
 
-    def present_trial(self):
+    def present_trial(self, *args):
         """Setup and present the trial.
 
         The user's response is delayed to avoid him/her providing
@@ -113,17 +122,11 @@ class SpellingActivityScreen(MDScreen):
         the response would be contaminated by that cue.
         """
 
-        self.clear_screen()
-        self.toggle_disabling_response(disable_response=True)
         self.set_trial()
         if self.active_session:
             self.present_audio()
             Clock.schedule_once(
-                partial(
-                    self.toggle_disabling_response,
-                    disable_response=False
-                ),
-                1
+                partial(self.toggle_disabling_response, disable_response=False), 1
             )
 
     def present_audio(self):
@@ -138,6 +141,7 @@ class SpellingActivityScreen(MDScreen):
         """Enable or disable user's response."""
 
         self.ids.response_input.disabled = disable_response
+        self.ids.submit_button.disabled = disable_response
         self.ids.response_input.focus = True
 
     def end_spelling_activity(self):

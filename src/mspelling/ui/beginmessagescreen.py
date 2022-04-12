@@ -1,5 +1,6 @@
-from kivymd.uix.screen import MDScreen
 from kivy.clock import Clock
+from kivymd.uix.screen import MDScreen
+
 
 class BeginMessageScreen(MDScreen):
     def on_enter(self):

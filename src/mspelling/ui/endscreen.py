@@ -1,6 +1,7 @@
-from kivymd.uix.screen import MDScreen
-from kivy.core.window import Window
 from kivy.app import App
+from kivy.core.window import Window
+from kivymd.uix.screen import MDScreen
+
 
 class EndScreen(MDScreen):
     def on_enter(self):

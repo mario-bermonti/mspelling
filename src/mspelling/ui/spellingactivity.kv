@@ -12,8 +12,9 @@
             disabled: True
             size_hint: (1, .03)
         ThemedButton:
+            id: submit_button
             text: "Seguir"
-            on_press:
+            on_release:
                 root.submit(response_input.text)
             size_hint: (1, .03)
             pos_hint: {"center_x": .5, "center_y": .3}

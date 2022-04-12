@@ -14,6 +14,6 @@
         ThemedButton:
             size_hint: (1, .03)
             text: "Seguir"
-            on_press:
+            on_release:
                 root.submit_participant_id(code_input.text)
                 root.manager.current = "start_screen"
