@@ -40,7 +40,7 @@ class SpellingActivityScreen(MDScreen):
             trial_data=self.trial,
             )
         if self.active_session:
-            self.present_trial()
+            Clock.schedule_once(self.present_trial, 1)
 
     def get_stimuli(self):
         """Get the stimuli that will be used by the spelling activity.
@@ -95,7 +95,7 @@ class SpellingActivityScreen(MDScreen):
         except IndexError:
             self.end_spelling_activity()
 
-    def present_trial(self):
+    def present_trial(self, *args):
         """Setup and present the trial.
 
         The user's response is delayed to avoid him/her providing
