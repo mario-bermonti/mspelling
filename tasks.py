@@ -174,7 +174,7 @@ def docs(c, serve=True, open_browser=True):
     if open_browser:
         webbrowser.open(DOCS_INDEX.absolute().as_uri())
     if serve:
-        options = "shell-command -p '*.rst;*.md' -c '{build_docs}' -R -D ."
+        options = f"shell-command -p '*.rst;*.md' -c '{build_docs}' -R -D ."
         _run(
             c,
             f"poetry run watchmedo {options}",
