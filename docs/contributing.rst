@@ -115,7 +115,7 @@ In order to run anything inside the virtual environment every command has to be 
 
 For example, to run python inside the virtual environment you would run `poetry run python`.
 
-We have most of our development tasks pre-configured to run automatically with invoke.  :grin:
+We have most of our development tasks pre-configured to run automatically with invoke.  |:grin:|
 
 The most important tasks are:
 
