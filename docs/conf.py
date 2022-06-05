@@ -40,7 +40,7 @@ extensions = [
     "recommonmark",
     "sphinx_rtd_theme",
     "autodocsumm",  # generate summary of class attributes
-    "sphinx_markdown_tables",  # format md tables correctly
+    # "sphinx_markdown_tables",  # format md tables correctly
 ]
 
 # Config for extensions
