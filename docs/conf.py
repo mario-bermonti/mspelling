@@ -41,6 +41,7 @@ extensions = [
     "sphinx_rtd_theme",
     "autodocsumm",  # generate summary of class attributes
     # "sphinx_markdown_tables",  # format md tables correctly
+    "sphinxemoji.sphinxemoji"
 ]
 
 # Config for extensions
