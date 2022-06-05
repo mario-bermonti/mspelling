@@ -24,7 +24,7 @@ Measure of Spanish spelling skills
 
 ## Description
 
-![demo](./mspelling_gif.gif)
+![demo](../mspelling_gif.gif)
 
 Words are presented by the computer one at a time and the participant types the word
 using the keyboard. Participants have a rest period after every 5 trials.
