@@ -167,6 +167,12 @@ conflicts and long-living branches.
 In this method, the `master` branch always has the latest working version of the software, is 
 stable, and is working.
 
+If you are planning to add or change existing functionality, please take a look at the docs 
+explaining the design of the software (i.e., :doc:`/design/design`). Before making changes,
+you need to identify how does the change fit into the structure of the 
+software (i.e., architecture) and make sure you integrate it in a way that makes sense given
+the current artchitecture and all other components.
+
 How to make changes
 ^^^^^^^^^^^^^^^^^^^
 
