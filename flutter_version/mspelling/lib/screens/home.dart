@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Id :',
+              'Id participante:',
             ),
             const TextField(
               decoration: InputDecoration(
