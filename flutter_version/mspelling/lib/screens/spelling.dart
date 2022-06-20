@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mspelling/styles.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key, required this.title}) : super(key: key);
@@ -25,10 +26,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
               'Escribe la palabra:',
             ),
             const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Palabra",
-              ),
+              decoration: textFieldStyle,
             ),
             ElevatedButton(
               onPressed: () {

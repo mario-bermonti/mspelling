@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mspelling/styles.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -24,9 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
               'Id participante:',
             ),
             const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-              ),
+              decoration: textFieldStyle,
             ),
             ElevatedButton(
               onPressed: () {
