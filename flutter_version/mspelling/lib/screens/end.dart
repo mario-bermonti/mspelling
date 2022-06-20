@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mspelling/constants.dart';
 
 class EndScreen extends StatefulWidget {
   const EndScreen({Key? key, required this.title}) : super(key: key);
@@ -14,7 +15,7 @@ class _EndScreenState extends State<EndScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
       body: Center(

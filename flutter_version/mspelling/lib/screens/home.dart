@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/styles.dart';
+import '../constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text(appBarTitle),
       ),
       body: Center(
         child: Column(

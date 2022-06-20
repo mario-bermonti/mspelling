@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mspelling/constants.dart';
 
 class BeginScreen extends StatefulWidget {
   const BeginScreen({Key? key, required this.title}) : super(key: key);
@@ -14,7 +15,7 @@ class _BeginScreenState extends State<BeginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text(appBarTitle),
       ),
       body: Center(
         child: Column(

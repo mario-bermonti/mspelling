@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/styles.dart';
+import 'package:mspelling/constants.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key, required this.title}) : super(key: key);
@@ -15,7 +16,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
       body: Center(
