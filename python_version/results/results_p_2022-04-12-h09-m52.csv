@@ -1,0 +1,3 @@
+participant_id,word,response,length,silent_letters,shared_phonemes,total_difficulty
+,hilo,w,4,1,0,5
+,fiel,,4,0,0,4

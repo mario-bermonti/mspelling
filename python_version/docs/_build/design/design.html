@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design &mdash; mspelling 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> mspelling
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">mSpelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mspelling</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Design</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/design/design.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline"></a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<div class="section" id="general-basic-app">
+<h3>General - basic app<a class="headerlink" href="#general-basic-app" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Present various screens with messages to the user so he or she knows
+what is happening at each moment.</p></li>
+<li><p>Collect participant’s id</p></li>
+<li><p>Allow configuration through config files and gui</p></li>
+</ul>
+</div>
+<div class="section" id="spelling-activity">
+<h3>Spelling activity<a class="headerlink" href="#spelling-activity" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Allow practice and experimental sessions</p></li>
+<li><p>Present audio stimuli</p></li>
+<li><p>Allow response from keyboard</p></li>
+<li><p>Don’t allow responses until 1s after stimuli presentation</p></li>
+<li><p>Users need to provide the stimuli</p></li>
+<li><p>Read stimuli from file</p></li>
+<li><p>Allow users to select where the stimuli are stored</p></li>
+<li><p>Allow users to select if stimuli should be presented sequentially or randomly</p></li>
+</ul>
+</div>
+<div class="section" id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Don’t save partial data; only data from completed sessions</p></li>
+<li><p>Use the participant’s id to identify participants data</p></li>
+<li><p>Collect data about trials, session, and device</p></li>
+<li><p>Integrate all data into a single table</p></li>
+<li><p>Save data to disk as CSV file</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="components-responsibilities">
+<h2>Components’ responsibilities<a class="headerlink" href="#components-responsibilities" title="Permalink to this headline"></a></h2>
+<img alt="../_images/Responsibilities.svg" src="../_images/Responsibilities.svg" /></div>
+<div class="section" id="components-entities-and-attributies">
+<h2>Components’ entities and attributies<a class="headerlink" href="#components-entities-and-attributies" title="Permalink to this headline"></a></h2>
+<img alt="../_images/Attributes.svg" src="../_images/Attributes.svg" /></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mario E. Bermonti Pérez.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
