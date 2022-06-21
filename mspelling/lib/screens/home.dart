@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/styles.dart';
 import 'package:mspelling/constants.dart';
 import 'components/centeredbox.dart';
+import 'components/default_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -23,8 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
         column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Id participante:',
+            const DefaultText(
+              text: 'Id participante:',
             ),
             const TextField(
               decoration: textFieldStyle,
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, '/begin');
               },
-              child: const Text('Seguir'),
+              child: const DefaultText(text: 'Seguir'),
             ),
           ],
         ),

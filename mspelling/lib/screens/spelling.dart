@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/styles.dart';
 import 'package:mspelling/constants.dart';
 import 'components/centeredbox.dart';
+import 'components/default_text.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key, required this.title}) : super(key: key);
@@ -24,8 +25,8 @@ class _SpellingScreenState extends State<SpellingScreen> {
         column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Escribe la palabra:',
+            const DefaultText(
+              text: 'Escribe la palabra:',
             ),
             const TextField(
               decoration: textFieldStyle,
@@ -34,7 +35,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, '/end');
               },
-              child: const Text('Seguir'),
+              child: const DefaultText(text: 'Seguir'),
             ),
           ],
         ),

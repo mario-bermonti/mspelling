@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 
+import 'components/default_text.dart';
+
 class BeginScreen extends StatefulWidget {
   const BeginScreen({Key? key, required this.title}) : super(key: key);
 
@@ -21,14 +23,14 @@ class _BeginScreenState extends State<BeginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Comencemos',
+            const DefaultText(
+              text: 'Comencemos',
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/spelling');
               },
-              child: const Text('Seguir'),
+              child: const DefaultText(text: 'Seguir'),
             ),
           ],
         ),

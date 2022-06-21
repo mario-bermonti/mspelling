@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 
+import 'components/default_text.dart';
+
 class EndScreen extends StatefulWidget {
   const EndScreen({Key? key, required this.title}) : super(key: key);
 
@@ -22,8 +24,8 @@ class _EndScreenState extends State<EndScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
-            Text(
-              '¡Terminamos!',
+            DefaultText(
+              text: '¡Terminamos!',
             ),
           ],
         ),
