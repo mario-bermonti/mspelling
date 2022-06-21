@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/styles.dart';
-import '../constants.dart';
+import 'package:mspelling/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
