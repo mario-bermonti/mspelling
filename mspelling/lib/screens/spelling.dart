@@ -20,8 +20,8 @@ class _SpellingScreenState extends State<SpellingScreen> {
         title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Column(
+      body: CenteredBox(
+        column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
