@@ -19,22 +19,28 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text(appBarTitle),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Id participante:',
-            ),
-            const TextField(
-              decoration: textFieldStyle,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/begin');
-              },
-              child: const Text('Seguir'),
-            ),
-          ],
+        // TODO move the sizedbox out
+        // to use in all screens
+        child: SizedBox(
+          width: 250.0,
+          height: 300.0,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'Id participante:',
+              ),
+              const TextField(
+                decoration: textFieldStyle,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/begin');
+                },
+                child: const Text('Seguir'),
+              ),
+            ],
+          ),
         ),
       ),
     );
