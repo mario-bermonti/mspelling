@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 
 import 'components/default_text.dart';
+import 'components/spacing_holder.dart';
 
 class BeginScreen extends StatefulWidget {
   const BeginScreen({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _BeginScreenState extends State<BeginScreen> {
             const DefaultText(
               text: 'Comencemos',
             ),
+            const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/spelling');

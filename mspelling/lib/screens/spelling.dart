@@ -4,6 +4,7 @@ import 'package:mspelling/constants.dart';
 import 'components/centeredbox.dart';
 import 'components/default_text.dart';
 import 'components/default_textfield.dart';
+import 'components/spacing_holder.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key}) : super(key: key);
@@ -27,7 +28,9 @@ class _SpellingScreenState extends State<SpellingScreen> {
             const DefaultText(
               text: 'Escribe la palabra:',
             ),
+            const SpacingHolder(),
             const DefaultTextField(),
+            const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/end');

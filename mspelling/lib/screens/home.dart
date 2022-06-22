@@ -3,6 +3,7 @@ import 'package:mspelling/constants.dart';
 import 'components/centeredbox.dart';
 import 'components/default_text.dart';
 import 'components/default_textfield.dart';
+import 'components/spacing_holder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,7 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
             const DefaultText(
               text: 'Id participante:',
             ),
+            const SpacingHolder(),
             const DefaultTextField(),
+            const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/begin');
