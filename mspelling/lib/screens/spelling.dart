@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
-
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
