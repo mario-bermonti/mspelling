@@ -10,6 +10,7 @@ class DefaultTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return const TextField(
       decoration: textFieldStyle,
+      autofocus: true,
     );
   }
 }
