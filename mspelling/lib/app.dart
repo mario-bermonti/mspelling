@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => const HomeScreen(title: 'mSpelling'),
-        '/begin': (context) => const BeginScreen(title: 'mSpelling'),
-        '/spelling': (context) => const SpellingScreen(title: 'mSpelling'),
-        '/end': (context) => const EndScreen(title: 'mSpelling'),
+        '/': (context) => const HomeScreen(),
+        '/begin': (context) => const BeginScreen(),
+        '/spelling': (context) => const SpellingScreen(),
+        '/end': (context) => const EndScreen(),
       },
     );
   }

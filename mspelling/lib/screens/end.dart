@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
-
 import 'components/default_text.dart';
 
 class EndScreen extends StatefulWidget {
-  const EndScreen({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const EndScreen({Key? key}) : super(key: key);
 
   @override
   State<EndScreen> createState() => _EndScreenState();

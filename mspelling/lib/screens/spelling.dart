@@ -6,9 +6,7 @@ import 'components/default_text.dart';
 import 'components/default_textfield.dart';
 
 class SpellingScreen extends StatefulWidget {
-  const SpellingScreen({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const SpellingScreen({Key? key}) : super(key: key);
 
   @override
   State<SpellingScreen> createState() => _SpellingScreenState();

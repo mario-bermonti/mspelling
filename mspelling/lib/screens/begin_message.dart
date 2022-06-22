@@ -4,9 +4,7 @@ import 'package:mspelling/constants.dart';
 import 'components/default_text.dart';
 
 class BeginScreen extends StatefulWidget {
-  const BeginScreen({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const BeginScreen({Key? key}) : super(key: key);
 
   @override
   State<BeginScreen> createState() => _BeginScreenState();
