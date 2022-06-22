@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/styles.dart';
 import 'package:mspelling/constants.dart';
 import 'components/centeredbox.dart';
 import 'components/default_text.dart';
+import 'components/default_textfield.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -27,9 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const DefaultText(
               text: 'Id participante:',
             ),
-            const TextField(
-              decoration: textFieldStyle,
-            ),
+            const DefaultTextField(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/begin');
