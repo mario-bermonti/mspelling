@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
-import 'components/default_text.dart';
+import 'package:mspelling/components/default_text.dart';
 
 class EndScreen extends StatefulWidget {
   const EndScreen({Key? key}) : super(key: key);

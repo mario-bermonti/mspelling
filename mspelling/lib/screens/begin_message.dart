@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
-
-import 'components/default_text.dart';
-import 'components/spacing_holder.dart';
+import 'package:mspelling/components/default_text.dart';
+import 'package:mspelling/components/spacing_holder.dart';
 
 class BeginScreen extends StatefulWidget {
   const BeginScreen({Key? key}) : super(key: key);

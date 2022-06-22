@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
-import 'components/centeredbox.dart';
-import 'components/default_text.dart';
-import 'components/default_textfield.dart';
-import 'components/spacing_holder.dart';
+import 'package:mspelling/components/centeredbox.dart';
+import 'package:mspelling/components/default_text.dart';
+import 'package:mspelling/components/default_textfield.dart';
+import 'package:mspelling/components/spacing_holder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
