@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/styles.dart';
 import 'package:mspelling/constants.dart';
 
 import 'package:mspelling/components/centeredbox.dart';
