@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mspelling/styles.dart';
 
 class DefaultText extends StatelessWidget {
   final String text;
@@ -7,6 +8,9 @@ class DefaultText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text);
+    return Text(
+      text,
+      style: textStyle,
+    );
   }
 }
