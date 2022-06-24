@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
@@ -6,7 +9,9 @@ import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 
 class TrialScreen extends StatefulWidget {
-  const TrialScreen({Key? key}) : super(key: key);
+  final String word;
+
+  const TrialScreen({Key? key, required this.word}) : super(key: key);
 
   @override
   State<TrialScreen> createState() => _TrialScreenState();
@@ -32,13 +37,20 @@ class _TrialScreenState extends State<TrialScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/end');
+                goBackReturnResponse(context);
               },
               child: const DefaultText(text: 'Seguir'),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void goBackReturnResponse(BuildContext context) {
+    Navigator.pop(
+      context,
+      'response',
     );
   }
 }
