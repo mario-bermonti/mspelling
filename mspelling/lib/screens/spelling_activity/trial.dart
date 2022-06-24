@@ -52,7 +52,7 @@ class _TrialScreenState extends State<TrialScreen> {
   void goBackReturnResponse(BuildContext context) {
     Navigator.pop(
       context,
-      'response',
+      controller.text,
     );
   }
 }
