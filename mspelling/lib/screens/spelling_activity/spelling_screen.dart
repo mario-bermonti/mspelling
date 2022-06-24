@@ -12,6 +12,17 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
+  String word = 'gato';
+
+  void trial() async {
+    final res = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TrialScreen(word: word),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +36,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TrialScreen(word: word),
-                  ),
-                );
+                trial();
               },
               child: const DefaultText(text: 'Comenzar'),
             ),
