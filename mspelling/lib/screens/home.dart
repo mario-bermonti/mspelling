@@ -5,6 +5,8 @@ import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 
+import 'begin_message.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -31,7 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/begin');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BeginScreen(),
+                  ),
+                );
               },
               child: const DefaultText(text: 'Seguir'),
             ),
