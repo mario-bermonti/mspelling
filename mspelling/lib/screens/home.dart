@@ -15,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               text: 'Id participante:',
             ),
             const SpacingHolder(),
-            const DefaultTextField(),
+            DefaultTextField(controller: controller),
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
