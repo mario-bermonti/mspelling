@@ -24,17 +24,11 @@ class _SpellingScreenState extends State<SpellingScreen> {
         column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const DefaultText(
-              text: 'Escribe la palabra:',
-            ),
-            const SpacingHolder(),
-            const DefaultTextField(),
-            const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/end');
+                Navigator.pushNamed(context, '/trial');
               },
-              child: const DefaultText(text: 'Seguir'),
+              child: const DefaultText(text: 'Comenzar'),
             ),
           ],
         ),
