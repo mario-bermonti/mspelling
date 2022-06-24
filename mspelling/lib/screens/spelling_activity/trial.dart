@@ -18,6 +18,8 @@ class TrialScreen extends StatefulWidget {
 }
 
 class _TrialScreenState extends State<TrialScreen> {
+  var controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +35,7 @@ class _TrialScreenState extends State<TrialScreen> {
               text: 'Escribe la palabra:',
             ),
             const SpacingHolder(),
-            const DefaultTextField(),
+            DefaultTextField(controller: controller),
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
