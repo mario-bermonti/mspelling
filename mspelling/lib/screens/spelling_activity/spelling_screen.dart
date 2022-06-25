@@ -13,7 +13,7 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
-  String word = 'gato';
+  List<String> words = <String>['del', 'dos'];
   bool restActive = false;
 
   void run() {
@@ -22,6 +22,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void presentTrial() async {
+    final word = words.removeLast();
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
