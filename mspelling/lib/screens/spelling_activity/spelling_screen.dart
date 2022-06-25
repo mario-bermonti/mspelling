@@ -16,16 +16,21 @@ class _SpellingScreenState extends State<SpellingScreen> {
   String word = 'gato';
   bool restActive = false;
 
-  // TODO Create new general function that wraps everything (sync)
-  void trial() async {
-    final res = await Navigator.push(
+  void run() {
+    presentTrial();
+    presentRestCond();
+  }
+
+  void presentTrial() async {
+    final result = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => TrialScreen(word: word),
       ),
     );
+  }
 
-    // TODO move to neww function
+  void presentRestCond() {
     if (restActive) {
       Navigator.push(
         context,
@@ -49,7 +54,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                trial();
+                run();
               },
               child: const DefaultText(text: 'Comenzar'),
             ),
