@@ -56,7 +56,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
               onPressed: () {
                 run();
               },
-              child: const DefaultText(text: 'Comenzar'),
+              child: const DefaultText(text: 'Seguir'),
             ),
           ],
         ),
