@@ -5,6 +5,8 @@ import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial.dart';
+import 'package:mspelling/screens/spelling_activity/trial/trial_response.dart';
+import 'package:mspelling/screens/spelling_activity/trial/trial_stim.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key}) : super(key: key);
@@ -17,12 +19,12 @@ class _SpellingScreenState extends State<SpellingScreen> {
   List<String> words = <String>['del', 'dos'];
   bool restActive = false;
 
-  void run() {
+  void run(context) {
     if (words.isEmpty) {
       endSession();
       return;
     }
-    presentTrial();
+    presentTrial(context);
     presentRestCond();
   }
 
@@ -42,6 +44,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
         builder: (context) => const TrialResponseScreen(),
       ),
     );
+    debugPrint(result);
   }
 
   void presentRestCond() {
@@ -77,7 +80,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                run();
+                run(context);
               },
               child: const DefaultText(text: 'Seguir'),
             ),
