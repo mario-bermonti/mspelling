@@ -1,3 +1,4 @@
+// TODO remove this file and contents
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
@@ -7,7 +8,6 @@ import 'package:mspelling/components/spacing_holder.dart';
 
 class TrialScreen extends StatefulWidget {
   final String word;
-
   const TrialScreen({Key? key, required this.word}) : super(key: key);
 
   @override
@@ -16,6 +16,7 @@ class TrialScreen extends StatefulWidget {
 
 class _TrialScreenState extends State<TrialScreen> {
   var controller = TextEditingController();
+  bool allowResponse = true;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +36,8 @@ class _TrialScreenState extends State<TrialScreen> {
             DefaultTextField(controller: controller),
             const SpacingHolder(),
             ElevatedButton(
-              onPressed: () {
-                goBackReturnResponse(context);
-              },
+              onPressed:
+                  allowResponse ? () => goBackReturnResponse(context) : null,
               child: const DefaultText(text: 'Seguir'),
             ),
           ],
