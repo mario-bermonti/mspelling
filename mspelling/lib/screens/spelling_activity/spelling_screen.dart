@@ -42,6 +42,15 @@ class _SpellingScreenState extends State<SpellingScreen> {
     }
   }
 
+  void endSession() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const EndScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
