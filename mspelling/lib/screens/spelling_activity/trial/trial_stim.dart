@@ -16,6 +16,20 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   var controller = TextEditingController();
   bool allowResponse = true;
 
+  _TrialStimScreenState() {
+    run();
+  }
+
+  void run() {
+    goBack();
+  }
+
+  void goBack() {
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.pop(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
