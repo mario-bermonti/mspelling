@@ -26,12 +26,20 @@ class _SpellingScreenState extends State<SpellingScreen> {
     presentRestCond();
   }
 
-  void presentTrial() async {
+  void presentTrial(context) async {
     final word = words.removeLast();
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TrialStimScreen(word: word),
+      ),
+    );
+
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TrialScreen(word: word),
+        builder: (context) => const TrialResponseScreen(),
       ),
     );
   }
