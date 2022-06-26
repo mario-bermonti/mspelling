@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
+import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial.dart';
 
@@ -17,6 +18,10 @@ class _SpellingScreenState extends State<SpellingScreen> {
   bool restActive = false;
 
   void run() {
+    if (words.isEmpty) {
+      endSession();
+      return;
+    }
     presentTrial();
     presentRestCond();
   }
