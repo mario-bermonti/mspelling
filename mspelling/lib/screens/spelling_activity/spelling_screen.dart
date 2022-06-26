@@ -4,7 +4,6 @@ import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
-import 'package:mspelling/screens/spelling_activity/trial.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim.dart';
 
