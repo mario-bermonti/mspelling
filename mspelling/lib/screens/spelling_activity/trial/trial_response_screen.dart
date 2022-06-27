@@ -16,6 +16,12 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
   var controller = TextEditingController();
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
