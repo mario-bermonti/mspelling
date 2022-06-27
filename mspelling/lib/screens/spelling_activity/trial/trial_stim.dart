@@ -13,22 +13,17 @@ class TrialStimScreen extends StatefulWidget {
   // This is not recommended but it was the only way to have access to word
   // from the state.
   // Using $widget.word causes errors; this just causes a warning.
-  State<TrialStimScreen> createState() => _TrialStimScreenState(word);
+  State<TrialStimScreen> createState() => _TrialStimScreenState();
 }
 
 class _TrialStimScreenState extends State<TrialStimScreen> {
   final audioplayer = AudioPlayer();
-  final String word;
 
-  _TrialStimScreenState(this.word) {
+  @override
+  void initState() {
+    super.initState();
     run();
   }
-
-  // // @override
-  // // void initState() {
-  // //   super.initState();
-  // //   // audioplayer = AudioPlayer();
-  // // }
 
   // @override
   // void dispose() {
@@ -42,6 +37,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   }
 
   void playStim() async {
+    String word = widget.word;
     AssetSource source = AssetSource('audio/$word.wav');
     await audioplayer.setSource(source);
     await audioplayer.play(source);
