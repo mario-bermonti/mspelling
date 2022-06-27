@@ -21,11 +21,11 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
     run();
   }
 
-  // @override
-  // void dispose() {
-  //   audioplayer.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    audioplayer.dispose();
+    super.dispose();
+  }
 
   void run() {
     playStim();
