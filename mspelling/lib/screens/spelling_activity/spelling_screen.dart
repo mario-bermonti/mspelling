@@ -4,8 +4,8 @@ import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
-import 'package:mspelling/screens/spelling_activity/trial/trial_response.dart';
-import 'package:mspelling/screens/spelling_activity/trial/trial_stim.dart';
+import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
+import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key}) : super(key: key);
