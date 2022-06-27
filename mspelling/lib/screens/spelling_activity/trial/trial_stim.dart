@@ -64,11 +64,8 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
         // TODO check if structure can be simplified
         column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            // TODO Use image instead of text
-            DefaultText(
-              text: 'Escucha',
-            ),
+          children: <Widget>[
+            Image.asset('assets/images/listen.jpeg'),
           ],
         ),
       ),
