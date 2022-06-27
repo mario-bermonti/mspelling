@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
-import 'package:mspelling/components/default_text.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class TrialStimScreen extends StatefulWidget {
@@ -10,9 +9,6 @@ class TrialStimScreen extends StatefulWidget {
   const TrialStimScreen({Key? key, required this.word}) : super(key: key);
 
   @override
-  // This is not recommended but it was the only way to have access to word
-  // from the state.
-  // Using $widget.word causes errors; this just causes a warning.
   State<TrialStimScreen> createState() => _TrialStimScreenState();
 }
 
