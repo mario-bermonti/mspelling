@@ -15,11 +15,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
+
     super.dispose();
   }
 
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
               text: 'Id participante:',
             ),
             const SpacingHolder(),
-            DefaultTextField(controller: controller),
+            DefaultTextField(controller: _controller),
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {

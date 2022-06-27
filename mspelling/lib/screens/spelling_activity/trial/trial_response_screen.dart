@@ -13,11 +13,11 @@ class TrialResponseScreen extends StatefulWidget {
 }
 
 class _TrialResponseScreenState extends State<TrialResponseScreen> {
-  var controller = TextEditingController();
+  final _controller = TextEditingController();
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -36,7 +36,7 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
               text: 'Escribe la palabra:',
             ),
             const SpacingHolder(),
-            DefaultTextField(controller: controller),
+            DefaultTextField(controller: _controller),
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
@@ -53,7 +53,7 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
   void goBackReturnResponse(BuildContext context) {
     Navigator.pop(
       context,
-      controller.text,
+      _controller.text,
     );
   }
 }
