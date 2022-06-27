@@ -43,7 +43,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
         builder: (context) => const TrialResponseScreen(),
       ),
     );
-    debugPrint(result);
   }
 
   void presentRestCond() {
