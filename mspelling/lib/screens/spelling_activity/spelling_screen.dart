@@ -15,11 +15,11 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
-  List<String> words = <String>['del', 'dos'];
-  bool restActive = false;
+  final List<String> _words = <String>['del', 'dos'];
+  final bool _restActive = false;
 
   void run(context) {
-    if (words.isEmpty) {
+    if (_words.isEmpty) {
       endSession();
       return;
     }
@@ -28,7 +28,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void presentTrial(context) async {
-    final word = words.removeLast();
+    final word = _words.removeLast();
 
     await Navigator.push(
       context,
@@ -46,7 +46,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void presentRestCond() {
-    if (restActive) {
+    if (_restActive) {
       Navigator.push(
         context,
         MaterialPageRoute(

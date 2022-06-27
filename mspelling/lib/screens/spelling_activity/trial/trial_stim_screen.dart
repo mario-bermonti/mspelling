@@ -13,7 +13,7 @@ class TrialStimScreen extends StatefulWidget {
 }
 
 class _TrialStimScreenState extends State<TrialStimScreen> {
-  final audioplayer = AudioPlayer();
+  final _audioplayer = AudioPlayer();
 
   @override
   void initState() {
@@ -23,7 +23,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
 
   @override
   void dispose() {
-    audioplayer.dispose();
+    _audioplayer.dispose();
     super.dispose();
   }
 
@@ -35,8 +35,8 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   void playStim() async {
     String word = widget.word;
     AssetSource source = AssetSource('audio/$word.wav');
-    await audioplayer.setSource(source);
-    await audioplayer.play(source);
+    await _audioplayer.setSource(source);
+    await _audioplayer.play(source);
   }
 
   void goBack() {
