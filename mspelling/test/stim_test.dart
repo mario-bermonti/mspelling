@@ -3,17 +3,12 @@ import 'package:mspelling/stim.dart';
 
 void main() {
   group(
-    'Stim',
+    'Build from text file',
     () {
-      group(
-        'Build from text file',
-        () {
-          testWidgets('Assets folder', (tester) async {
-            final s = await Stimuli.fromFile('assets/words/words.txt');
-            expect(s.stimuli, ['del', 'dos']);
-          });
-        },
-      );
+      testWidgets('Assets folder', (tester) async {
+        final s = await Stimuli.fromFile('assets/words/words.txt');
+        expect(s.stimuli, ['del', 'dos']);
+      });
     },
   );
 }
