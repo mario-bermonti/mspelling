@@ -1,8 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mspelling/stim.dart';
 
-void main() {
-  group(
+void main() async {
+  await stimFromFileTest();
+}
+
+Future<void> stimFromFileTest() async {
+  return group(
     'Build from text file',
     () {
       testWidgets('Assets folder', (tester) async {
