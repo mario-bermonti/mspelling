@@ -29,5 +29,8 @@ class Stimuli {
   void next() {
     currentStim = stimuli.removeAt(0);
   }
+
+  void randomize() {
+    stimuli.shuffle();
   }
 }
