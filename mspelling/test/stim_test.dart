@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mspelling/stim.dart';
 
 void main() async {
   stimFromFileTest();
   nextStimTest();
+  randomizeTest();
 }
 
 stimFromFileTest() async {
@@ -45,4 +47,17 @@ nextStimTest() async {
       });
     },
   );
+}
+
+randomizeTest() async {
+  testWidgets('compare lists', (tester) async {
+    final stimOriginal = <String>['a', 'b', 'c'];
+    final stimList = <String>['a', 'b', 'c'];
+    Stimuli stimuli = Stimuli(stimuli: stimList);
+
+    stimuli.randomize();
+    final equal = listEquals(stimOriginal, stimuli.stimuli);
+
+    expect(equal, false);
+  });
 }
