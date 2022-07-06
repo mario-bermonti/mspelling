@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 class Stimuli {
   late var stimuli = <String>[];
 
+  Stimuli({required this.stimuli});
+
   // Build Stim from a text file specified by
   // the path filePath
   Stimuli.fromFile(String filePath) {
