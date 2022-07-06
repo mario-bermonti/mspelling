@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 
 class Stimuli {
-  List<String> stimuli = [];
+  late var stimuli = <String>[];
 
   // Build Stim from a text file specified by
   // the path filePath
