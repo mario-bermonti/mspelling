@@ -26,8 +26,8 @@ class Stimuli {
   }
 
   /// Get the next stim from stimuli.
-  String next() {
+  void next() {
     currentStim = stimuli.removeAt(0);
-    return currentStim;
+  }
   }
 }

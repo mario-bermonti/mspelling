@@ -27,7 +27,8 @@ nextStimTest() async {
         Stimuli stimuli = Stimuli(stimuli: stimList);
 
         String exp = 'a';
-        String actual = stimuli.next();
+        stimuli.next();
+        String actual = stimuli.currentStim;
 
         expect(actual, exp);
       });
@@ -37,7 +38,8 @@ nextStimTest() async {
 
         String exp = 'b';
         stimuli.next();
-        String actual = stimuli.next();
+        stimuli.next();
+        String actual = stimuli.currentStim;
 
         expect(actual, exp);
       });
