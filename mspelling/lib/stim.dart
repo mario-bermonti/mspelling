@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 
 class Stimuli {
   late var stimuli = <String>[];
+  late String currentStim;
 
   Stimuli({required this.stimuli});
 
@@ -18,5 +19,10 @@ class Stimuli {
     String wordsString = await rootBundle.loadString(filePath);
     List<String> wordsList = wordsString.split('\n');
     stimuli = wordsList;
+  }
+
+  String next() {
+    currentStim = stimuli.removeAt(0);
+    return currentStim;
   }
 }
