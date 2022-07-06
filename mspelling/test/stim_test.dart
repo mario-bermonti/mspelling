@@ -9,15 +9,10 @@ void main() async {
 }
 
 stimFromFileTest() async {
-  group(
-    'Build from text file',
-    () {
-      testWidgets('Assets folder', (tester) async {
-        final s = await Stimuli.fromFile('assets/words/words.txt');
-        expect(s.stimuli, ['del', 'dos']);
-      });
-    },
-  );
+  testWidgets('Assets folder', (tester) async {
+    final s = await Stimuli.fromFile('assets/words/words.txt');
+    expect(s.stimuli, ['del', 'dos']);
+  });
 }
 
 nextStimTest() async {
