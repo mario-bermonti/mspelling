@@ -47,7 +47,7 @@ nextStimTest() async {
 }
 
 randomizeTest() async {
-  testWidgets('compare lists', (tester) async {
+  testWidgets('Compare lists', (tester) async {
     /// There are 2 lists because they are passed
     /// by referenced when passed as parameters
     final stimOriginal = <String>['a', 'b', 'c'];
@@ -62,7 +62,7 @@ randomizeTest() async {
 }
 
 originalStimCountTest() async {
-  testWidgets('Original stim size doesn\'t change', (tester) async {
+  testWidgets('Original stim count doesn\'t change', (tester) async {
     final stimList = <String>['a', 'b', 'c'];
     Stimuli stimuli = Stimuli(stimuli: stimList);
 
