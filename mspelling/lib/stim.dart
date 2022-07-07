@@ -24,6 +24,9 @@ class Stimuli {
 
   int get stimCountRemaining => stimuli.length;
 
+  /// Number of stim that have been used
+  int get stimCountUsed => originalStimCount - stimCountRemaining;
+
   /// Helper method to build Stim from a text file.
   /// This needs to happen in an async method and
   /// constructors can't be async.
