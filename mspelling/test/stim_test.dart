@@ -8,6 +8,7 @@ void main() async {
   randomizeTest();
   originalStimCountTest();
   stimCountRemainingTest();
+  stimCountUsedTest();
 }
 
 stimFromFileTest() async {
@@ -90,6 +91,28 @@ stimCountRemainingTest() async {
       stimuli.next();
       stimuli.next();
       int actual = stimuli.stimCountRemaining;
+
+      expect(actual, 1);
+    });
+  });
+}
+
+stimCountUsedTest() async {
+  group('Used stim count', () {
+    testWidgets('Non used', (tester) async {
+      final stimList = <String>['a', 'b', 'c'];
+      Stimuli stimuli = Stimuli(stimuli: stimList);
+
+      int actual = stimuli.stimCountUsed;
+
+      expect(actual, 0);
+    });
+    testWidgets('Stim used', (tester) async {
+      final stimList = <String>['a', 'b', 'c'];
+      Stimuli stimuli = Stimuli(stimuli: stimList);
+
+      stimuli.next();
+      int actual = stimuli.stimCountUsed;
 
       expect(actual, 1);
     });
