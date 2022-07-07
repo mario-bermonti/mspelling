@@ -7,13 +7,19 @@ class Stimuli {
   /// Current stimuli after running the [next] method.
   late String currentStim;
 
+  /// Size of original stim list.
+  late int originalStimCount;
+
   /// Default constructor requires a list of stimuli.
-  Stimuli({required this.stimuli});
+  Stimuli({required this.stimuli}) {
+    originalStimCount = stimuli.length;
+  }
 
   /// Build Stim from a text file specified by
   /// the path filePath.
   Stimuli.fromFile(String filePath) {
     _buildFromTxt(filePath);
+    originalStimCount = stimuli.length;
   }
 
   /// Helper method to build Stim from a text file.
