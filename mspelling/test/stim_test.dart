@@ -6,7 +6,7 @@ void main() async {
   stimFromFileTest();
   nextStimTest();
   randomizeTest();
-  originalStimCountTest();
+  stimCountOriginalTest();
   stimCountRemainingTest();
   stimCountUsedTest();
 }
@@ -62,13 +62,13 @@ randomizeTest() async {
   });
 }
 
-originalStimCountTest() async {
+stimCountOriginalTest() async {
   testWidgets('Original stim count doesn\'t change', (tester) async {
     final stimList = <String>['a', 'b', 'c'];
     Stimuli stimuli = Stimuli(stimuli: stimList);
 
     stimuli.next();
-    int actual = stimuli.originalStimCount;
+    int actual = stimuli.stimCountOriginal;
 
     expect(actual, 3);
   });

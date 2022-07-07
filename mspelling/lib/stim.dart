@@ -8,25 +8,25 @@ class Stimuli {
   late String currentStim;
 
   /// Size of original stim list.
-  late int originalStimCount;
+  late int stimCountOriginal;
 
   /// Default constructor requires a list of stimuli.
   Stimuli({required this.stimuli}) {
-    originalStimCount = stimuli.length;
+    stimCountOriginal = stimuli.length;
   }
 
   /// Build Stim from a text file specified by
   /// the path filePath.
   Stimuli.fromFile(String filePath) {
     _buildFromTxt(filePath);
-    originalStimCount = stimuli.length;
+    stimCountOriginal = stimuli.length;
   }
 
   /// Number of stim that remain to be used
   int get stimCountRemaining => stimuli.length;
 
   /// Number of stim that have been used
-  int get stimCountUsed => originalStimCount - stimCountRemaining;
+  int get stimCountUsed => stimCountOriginal - stimCountRemaining;
 
   /// Helper method to build Stim from a text file.
   /// This needs to happen in an async method and
