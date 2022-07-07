@@ -6,6 +6,7 @@ void main() async {
   stimFromFileTest();
   nextStimTest();
   randomizeTest();
+  originalStimCountTest();
 }
 
 stimFromFileTest() async {
@@ -54,5 +55,17 @@ randomizeTest() async {
     final equal = listEquals(stimOriginal, stimuli.stimuli);
 
     expect(equal, false);
+  });
+}
+
+originalStimCountTest() async {
+  testWidgets('Original stim size doesn\'t change', (tester) async {
+    final stimList = <String>['a', 'b', 'c'];
+    Stimuli stimuli = Stimuli(stimuli: stimList);
+
+    stimuli.next();
+    int actual = stimuli.originalStimCount;
+
+    expect(actual, 3);
   });
 }
