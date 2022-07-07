@@ -47,6 +47,8 @@ nextStimTest() async {
 
 randomizeTest() async {
   testWidgets('compare lists', (tester) async {
+    /// There are 2 lists because they are passed
+    /// by referenced when passed as parameters
     final stimOriginal = <String>['a', 'b', 'c'];
     final stimList = <String>['a', 'b', 'c'];
     Stimuli stimuli = Stimuli(stimuli: stimList);

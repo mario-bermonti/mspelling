@@ -36,6 +36,7 @@ class Stimuli {
     currentStim = stimuli.removeAt(0);
   }
 
+  /// Randomize the order of the stimuli.
   void randomize() {
     stimuli.shuffle();
   }
