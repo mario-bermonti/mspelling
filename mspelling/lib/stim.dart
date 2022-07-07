@@ -22,6 +22,7 @@ class Stimuli {
     originalStimCount = stimuli.length;
   }
 
+  /// Number of stim that remain to be used
   int get stimCountRemaining => stimuli.length;
 
   /// Number of stim that have been used

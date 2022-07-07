@@ -84,7 +84,7 @@ stimCountRemainingTest() async {
 
       expect(actual, 3);
     });
-    testWidgets('After stim used', (tester) async {
+    testWidgets('stim used', (tester) async {
       final stimList = <String>['a', 'b', 'c'];
       Stimuli stimuli = Stimuli(stimuli: stimList);
 
