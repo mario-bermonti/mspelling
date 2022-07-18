@@ -49,14 +49,13 @@ nextStimTest() async {
 
 randomizeTest() async {
   testWidgets('Compare lists', (tester) async {
-    /// There are 2 lists because they are passed
-    /// by referenced when passed as parameters
-    final stimOriginal = <String>['a', 'b', 'c'];
     final stimList = <String>['a', 'b', 'c'];
-    Stimuli stimuli = Stimuli(stimuli: stimList);
+    // Required so a copy of [stimList] is passed,
+    // instead of being passed by reference.
+    Stimuli stimuli = Stimuli(stimuli: List.from(stimList));
 
     stimuli.randomize();
-    final equal = listEquals(stimOriginal, stimuli.stimuli);
+    final equal = listEquals(stimList, stimuli.stimuli);
 
     expect(equal, false);
   });
