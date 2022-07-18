@@ -47,17 +47,39 @@ nextStimTest() async {
   );
 }
 
+/// The rationale behind this test is that if the stimuli is actually
+/// randomized, it is highly unlikely that it will yield the orinal order
+/// 5 times in a row. Only the first item of each Stimuli are compared because
+/// it should be enough.
 randomizeTest() async {
   testWidgets('Compare lists', (tester) async {
     final stimList = <String>['a', 'b', 'c'];
-    // Required so a copy of [stimList] is passed,
+
+    // List.from() is used so a copy of [stimList] is passed,
     // instead of being passed by reference.
-    Stimuli stimuli = Stimuli(stimuli: List.from(stimList));
+    Stimuli stimuli1 = Stimuli(stimuli: List.from(stimList));
+    Stimuli stimuli2 = Stimuli(stimuli: List.from(stimList));
+    Stimuli stimuli3 = Stimuli(stimuli: List.from(stimList));
+    Stimuli stimuli4 = Stimuli(stimuli: List.from(stimList));
+    Stimuli stimuli5 = Stimuli(stimuli: List.from(stimList));
 
-    stimuli.randomize();
-    final equal = listEquals(stimList, stimuli.stimuli);
+    stimuli1.randomize();
+    stimuli2.randomize();
+    stimuli3.randomize();
+    stimuli4.randomize();
+    stimuli5.randomize();
 
-    expect(equal, false);
+    final firstStimulusEachStimuli = <String>[
+      stimuli1.stimuli.first,
+      stimuli2.stimuli.first,
+      stimuli3.stimuli.first,
+      stimuli4.stimuli.first,
+      stimuli5.stimuli.first,
+    ];
+
+    bool obs = firstStimulusEachStimuli.every(((element) => element == 'a'));
+
+    expect(obs, false);
   });
 }
 
