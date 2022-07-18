@@ -13,7 +13,7 @@ void main() async {
 
 stimFromFileTest() async {
   testWidgets('Assets folder', (tester) async {
-    final s = await Stimuli.fromFile('assets/words/words.txt');
+    final s = await Stimuli.fromFile('assets/words/words_tests.txt');
     expect(s.stimuli, ['del', 'dos']);
   });
 }
