@@ -6,6 +6,7 @@ import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
+import 'package:mspelling/stim.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({Key? key}) : super(key: key);
@@ -15,12 +16,18 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
-  final List<String> _words = <String>['del', 'dos'];
+  late final Stimuli _words;
   final bool _restActive = false;
+
+  @override
+  initState() {
+    super.initState();
+    getStimuli();
+  }
 
   /// TODO Rename words to stimuli
   void run(context) {
-    if (_words.isEmpty) {
+    if (_words.stimuli.isEmpty) {
       endSession();
       return;
     }
@@ -28,13 +35,18 @@ class _SpellingScreenState extends State<SpellingScreen> {
     presentRestCond();
   }
 
+  getStimuli() async {
+    Stimuli stimuli = await createStimFromFile('assets/words/words.txt');
+    _words = stimuli;
+  }
+
   void presentTrial(context) async {
-    final word = _words.removeLast();
+    _words.next();
 
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TrialStimScreen(word: word),
+        builder: (context) => TrialStimScreen(word: _words.currentStim),
       ),
     );
 
