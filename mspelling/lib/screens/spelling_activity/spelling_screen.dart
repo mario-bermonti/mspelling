@@ -18,6 +18,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   final List<String> _words = <String>['del', 'dos'];
   final bool _restActive = false;
 
+  /// TODO Rename words to stimuli
   void run(context) {
     if (_words.isEmpty) {
       endSession();
