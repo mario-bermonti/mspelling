@@ -15,27 +15,11 @@ class Stimuli {
     stimCountOriginal = stimuli.length;
   }
 
-  /// Build Stim from a text file specified by
-  /// the path filePath.
-  Stimuli.fromFile(String filePath) {
-    _buildFromTxt(filePath);
-    stimCountOriginal = stimuli.length;
-  }
-
   /// Number of stim that remain to be used
   int get stimCountRemaining => stimuli.length;
 
   /// Number of stim that have been used
   int get stimCountUsed => stimCountOriginal - stimCountRemaining;
-
-  /// Helper method to build Stim from a text file.
-  /// This needs to happen in an async method and
-  /// constructors can't be async.
-  _buildFromTxt(String filePath) async {
-    String wordsString = await rootBundle.loadString(filePath);
-    List<String> wordsList = wordsString.split('\n');
-    stimuli = wordsList;
-  }
 
   /// Get the next stim from stimuli.
   void next() {
@@ -46,4 +30,14 @@ class Stimuli {
   void randomize() {
     stimuli.shuffle();
   }
+}
+
+/// Build [Stimuli] from a text file specified by
+/// the path filePath.
+Future<Stimuli> createStimFromFile(String filePath) async {
+  String stimString = await rootBundle.loadString(filePath);
+  List<String> stimList = stimString.split('\n');
+  Stimuli stim = Stimuli(stimuli: stimList);
+
+  return stim;
 }
