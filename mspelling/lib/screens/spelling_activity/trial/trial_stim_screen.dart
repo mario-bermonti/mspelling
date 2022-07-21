@@ -4,9 +4,9 @@ import 'package:mspelling/components/centeredbox.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class TrialStimScreen extends StatefulWidget {
-  final String word;
+  final String stim;
 
-  const TrialStimScreen({Key? key, required this.word}) : super(key: key);
+  const TrialStimScreen({Key? key, required this.stim}) : super(key: key);
 
   @override
   State<TrialStimScreen> createState() => _TrialStimScreenState();
@@ -33,8 +33,8 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   }
 
   void playStim() async {
-    String word = widget.word;
-    AssetSource source = AssetSource('audio/$word.wav');
+    String stim = widget.stim;
+    AssetSource source = AssetSource('audio/$stim.wav');
     await _audioplayer.setSource(source);
     await _audioplayer.play(source);
   }

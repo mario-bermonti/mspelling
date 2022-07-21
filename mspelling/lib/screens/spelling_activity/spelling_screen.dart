@@ -16,7 +16,7 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
-  late final Stimuli _words;
+  late final Stimuli _stimuli;
   final bool _restActive = false;
 
   @override
@@ -25,9 +25,8 @@ class _SpellingScreenState extends State<SpellingScreen> {
     getStimuli();
   }
 
-  /// TODO Rename words to stimuli
   void run(context) {
-    if (_words.stimCountRemaining == 0) {
+    if (_stimuli.stimCountRemaining == 0) {
       endSession();
       return;
     }
@@ -36,18 +35,18 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   getStimuli() async {
-    Stimuli stimuli = await createStimFromFile('assets/words/words.txt');
+    Stimuli stimuli = await createStimFromFile('assets/stimuli/stimuli.txt');
     stimuli.randomize();
-    _words = stimuli;
+    _stimuli = stimuli;
   }
 
   void presentTrial(context) async {
-    _words.next();
+    _stimuli.next();
 
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TrialStimScreen(word: _words.currentStim),
+        builder: (context) => TrialStimScreen(stim: _stimuli.currentStim),
       ),
     );
 
