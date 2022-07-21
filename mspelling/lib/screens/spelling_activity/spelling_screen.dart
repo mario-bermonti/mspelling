@@ -27,7 +27,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
 
   /// TODO Rename words to stimuli
   void run(context) {
-    if (_words.stimuli.isEmpty) {
+    if (_words.stimCountRemaining == 0) {
       endSession();
       return;
     }
