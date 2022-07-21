@@ -37,6 +37,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
 
   getStimuli() async {
     Stimuli stimuli = await createStimFromFile('assets/words/words.txt');
+    stimuli.randomize();
     _words = stimuli;
   }
 
