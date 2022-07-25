@@ -18,6 +18,8 @@ class SpellingScreen extends StatefulWidget {
 class _SpellingScreenState extends State<SpellingScreen> {
   late final Stimuli _stimuli;
   final bool _restActive = false;
+  final TimeOfDay timeStart = TimeOfDay.now();
+  late final TimeOfDay timeEnd;
 
   @override
   initState() {
@@ -70,6 +72,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void endSession() {
+    timeEnd = TimeOfDay.now();
     Navigator.push(
       context,
       MaterialPageRoute(
