@@ -5,7 +5,9 @@ import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
 
 class RestScreen extends StatefulWidget {
-  const RestScreen({Key? key}) : super(key: key);
+  final String participantId;
+
+  const RestScreen(this.participantId, {Key? key}) : super(key: key);
 
   @override
   State<RestScreen> createState() => _RestScreenState();
@@ -31,7 +33,7 @@ class _RestScreenState extends State<RestScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SpellingScreen(),
+                    builder: (context) => SpellingScreen(widget.participantId),
                   ),
                 );
               },

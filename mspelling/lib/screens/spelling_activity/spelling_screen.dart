@@ -9,7 +9,9 @@ import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart
 import 'package:mspelling/stim.dart';
 
 class SpellingScreen extends StatefulWidget {
-  const SpellingScreen({Key? key}) : super(key: key);
+  final String participantId;
+
+  const SpellingScreen(this.participantId, {Key? key}) : super(key: key);
 
   @override
   State<SpellingScreen> createState() => _SpellingScreenState();
@@ -65,7 +67,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const RestScreen(),
+          builder: (context) => RestScreen(widget.participantId),
         ),
       );
     }

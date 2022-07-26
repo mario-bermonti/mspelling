@@ -42,10 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
+                String participantId = _controller.text.toString();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BeginScreen(),
+                    builder: (context) => BeginScreen(participantId),
                   ),
                 );
               },
