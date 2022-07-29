@@ -18,12 +18,11 @@ class Session {
       required this.timeEnd});
 }
 
-class Trial {
-  String participantId;
-  String stim;
-  String resp;
-
-  Trial({required this.participantId, required this.stim, required this.resp});
+class Trials extends drift.Table {
+  drift.IntColumn get id => integer().autoIncrement()();
+  drift.TextColumn get participantId => text()();
+  drift.TextColumn get stim => text()();
+  drift.TextColumn get resp => text()();
 }
 
 class Device {
