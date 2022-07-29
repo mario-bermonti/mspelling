@@ -11,3 +11,11 @@ class Session {
       required this.timeStart,
       required this.timeEnd});
 }
+
+class Trial {
+  String participantId;
+  String stim;
+  String resp;
+
+  Trial({required this.participantId, required this.stim, required this.resp});
+}
