@@ -4,7 +4,6 @@ import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-part 'models.g.dart';
 
 class Session {
   String participantId;
