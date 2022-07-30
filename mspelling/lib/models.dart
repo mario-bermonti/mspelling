@@ -3,16 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:drift/drift.dart' as drift;
 
-class Session {
-  String participantId;
-  DateTime date = DateTime.now().toLocal();
-  TimeOfDay timeStart;
-  TimeOfDay timeEnd;
-
-  Session(
-      {required this.participantId,
-      required this.timeStart,
-      required this.timeEnd});
+class Session extends drift.Table {
+  drift.IntColumn get id => integer().autoIncrement()();
+  drift.TextColumn get participantId => text()();
+  drift.DateTimeColumn get timeStart => dateTime()();
+  drift.DateTimeColumn get timeEnd => dateTime()();
 }
 
 class Trials extends drift.Table {
