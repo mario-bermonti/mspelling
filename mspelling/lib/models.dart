@@ -1,9 +1,7 @@
 import 'dart:io';
-
-import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:drift/drift.dart' as drift;
 
 class Session {
   String participantId;
