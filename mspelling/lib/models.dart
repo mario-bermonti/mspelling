@@ -17,11 +17,17 @@ class Trials extends drift.Table {
   drift.TextColumn get resp => text()();
 }
 
-class Device {
-  Object platform = kIsWeb == true ? 'web' : Platform.operatingSystem;
-  double height = WidgetsBinding.instance.window.physicalSize.height;
-  double width = WidgetsBinding.instance.window.physicalSize.width;
-  double aspectRatio = WidgetsBinding.instance.window.physicalSize.aspectRatio;
+class Device extends drift.Table {
+  drift.IntColumn get id => integer().autoIncrement()();
+  drift.TextColumn get platform =>
+      text().withDefault(drift.Constant(getPlatform()))();
+  drift.RealColumn get height => real().withDefault(
+      drift.Constant(WidgetsBinding.instance.window.physicalSize.height))();
+  drift.RealColumn get weight => real().withDefault(
+      drift.Constant(WidgetsBinding.instance.window.physicalSize.width))();
+  drift.RealColumn get aspectRatio => real().withDefault(drift.Constant(
+      WidgetsBinding.instance.window.physicalSize.aspectRatio))();
+}
 
 /// Get the current platform
 /// Options are "web", "android", "fuchsia", "ios", "linux", "macos", "windows"
