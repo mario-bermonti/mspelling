@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:drift/drift.dart' as drift;
 
-class Session extends drift.Table {
+class Sessions extends drift.Table {
   drift.IntColumn get id => integer().autoIncrement()();
   drift.TextColumn get participantId => text()();
   drift.DateTimeColumn get timeStart => dateTime()();
@@ -17,7 +17,7 @@ class Trials extends drift.Table {
   drift.TextColumn get resp => text()();
 }
 
-class Device extends drift.Table {
+class Devices extends drift.Table {
   drift.IntColumn get id => integer().autoIncrement()();
   drift.TextColumn get platform =>
       text().withDefault(drift.Constant(getPlatform()))();
