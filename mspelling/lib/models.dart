@@ -15,6 +15,7 @@ class Trials extends drift.Table {
   drift.TextColumn get participantId => text()();
   drift.TextColumn get stim => text()();
   drift.TextColumn get resp => text()();
+  drift.IntColumn get session => integer().references(Sessions, #id)();
 }
 
 class Devices extends drift.Table {
@@ -27,6 +28,7 @@ class Devices extends drift.Table {
       drift.Constant(WidgetsBinding.instance.window.physicalSize.width))();
   drift.RealColumn get aspectRatio => real().withDefault(drift.Constant(
       WidgetsBinding.instance.window.physicalSize.aspectRatio))();
+  drift.IntColumn get session => integer().references(Sessions, #id)();
 }
 
 /// Get the current platform
