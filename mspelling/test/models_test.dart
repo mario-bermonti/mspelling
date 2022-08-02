@@ -22,7 +22,18 @@ void main() {
 
   //   expect(obs, exp);
   // });
+  getPlatformTest();
 }
 
+void getPlatformTest() {
+  testWidgets('models platform web', (tester) async {
+    String platform =
+        getPlatform(webChecker: true, otherPlatformChecker: 'macos');
+    expect(platform, 'web');
+  });
+  testWidgets('models platform not web', (tester) async {
+    String platform =
+        getPlatform(webChecker: false, otherPlatformChecker: 'macos');
+    expect(platform, 'macos');
   });
 }
