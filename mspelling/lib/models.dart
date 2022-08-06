@@ -5,6 +5,7 @@ import 'package:drift/drift.dart' as drift;
 
 class Sessions extends drift.Table {
   drift.IntColumn get id => integer().autoIncrement()();
+  drift.IntColumn get sessionNumberParticipant => integer()();
   drift.TextColumn get participantId => text()();
   drift.DateTimeColumn get timeStart => dateTime()();
   drift.DateTimeColumn get timeEnd => dateTime()();
@@ -15,7 +16,8 @@ class Trials extends drift.Table {
   drift.TextColumn get participantId => text()();
   drift.TextColumn get stim => text()();
   drift.TextColumn get resp => text()();
-  drift.IntColumn get session => integer().references(Sessions, #id)();
+  drift.IntColumn get session =>
+      integer().references(Sessions, #sessionNumberParticipant)();
 }
 
 class Devices extends drift.Table {
@@ -28,7 +30,8 @@ class Devices extends drift.Table {
       drift.Constant(WidgetsBinding.instance.window.physicalSize.width))();
   drift.RealColumn get aspectRatio => real().withDefault(drift.Constant(
       WidgetsBinding.instance.window.physicalSize.aspectRatio))();
-  drift.IntColumn get session => integer().references(Sessions, #id)();
+  drift.IntColumn get session =>
+      integer().references(Sessions, #sessionNumberParticipant)();
 }
 
 /// Get the current platform
