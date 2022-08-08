@@ -921,8 +921,8 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
   }
 }
 
-abstract class _$Data extends GeneratedDatabase {
-  _$Data(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
+abstract class _$MyDatabase extends GeneratedDatabase {
+  _$MyDatabase(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
   late final $SessionsTable sessions = $SessionsTable(this);
   late final $TrialsTable trials = $TrialsTable(this);
   late final $DevicesTable devices = $DevicesTable(this);
