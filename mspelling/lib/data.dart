@@ -22,3 +22,4 @@ class MyDatabase extends _$MyDatabase {
 
   @override
   int get schemaVersion => 1;
+}
