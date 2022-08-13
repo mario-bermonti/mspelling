@@ -600,14 +600,14 @@ class Device extends DataClass implements Insertable<Device> {
   final int id;
   final String platform;
   final double height;
-  final double weight;
+  final double width;
   final double aspectRatio;
   final int session;
   Device(
       {required this.id,
       required this.platform,
       required this.height,
-      required this.weight,
+      required this.width,
       required this.aspectRatio,
       required this.session});
   factory Device.fromData(Map<String, dynamic> data, {String? prefix}) {
@@ -619,8 +619,8 @@ class Device extends DataClass implements Insertable<Device> {
           .mapFromDatabaseResponse(data['${effectivePrefix}platform'])!,
       height: const RealType()
           .mapFromDatabaseResponse(data['${effectivePrefix}height'])!,
-      weight: const RealType()
-          .mapFromDatabaseResponse(data['${effectivePrefix}weight'])!,
+      width: const RealType()
+          .mapFromDatabaseResponse(data['${effectivePrefix}width'])!,
       aspectRatio: const RealType()
           .mapFromDatabaseResponse(data['${effectivePrefix}aspect_ratio'])!,
       session: const IntType()
@@ -633,7 +633,7 @@ class Device extends DataClass implements Insertable<Device> {
     map['id'] = Variable<int>(id);
     map['platform'] = Variable<String>(platform);
     map['height'] = Variable<double>(height);
-    map['weight'] = Variable<double>(weight);
+    map['width'] = Variable<double>(width);
     map['aspect_ratio'] = Variable<double>(aspectRatio);
     map['session'] = Variable<int>(session);
     return map;
@@ -644,7 +644,7 @@ class Device extends DataClass implements Insertable<Device> {
       id: Value(id),
       platform: Value(platform),
       height: Value(height),
-      weight: Value(weight),
+      width: Value(width),
       aspectRatio: Value(aspectRatio),
       session: Value(session),
     );
@@ -657,7 +657,7 @@ class Device extends DataClass implements Insertable<Device> {
       id: serializer.fromJson<int>(json['id']),
       platform: serializer.fromJson<String>(json['platform']),
       height: serializer.fromJson<double>(json['height']),
-      weight: serializer.fromJson<double>(json['weight']),
+      width: serializer.fromJson<double>(json['width']),
       aspectRatio: serializer.fromJson<double>(json['aspectRatio']),
       session: serializer.fromJson<int>(json['session']),
     );
@@ -669,7 +669,7 @@ class Device extends DataClass implements Insertable<Device> {
       'id': serializer.toJson<int>(id),
       'platform': serializer.toJson<String>(platform),
       'height': serializer.toJson<double>(height),
-      'weight': serializer.toJson<double>(weight),
+      'width': serializer.toJson<double>(width),
       'aspectRatio': serializer.toJson<double>(aspectRatio),
       'session': serializer.toJson<int>(session),
     };
@@ -679,14 +679,14 @@ class Device extends DataClass implements Insertable<Device> {
           {int? id,
           String? platform,
           double? height,
-          double? weight,
+          double? width,
           double? aspectRatio,
           int? session}) =>
       Device(
         id: id ?? this.id,
         platform: platform ?? this.platform,
         height: height ?? this.height,
-        weight: weight ?? this.weight,
+        width: width ?? this.width,
         aspectRatio: aspectRatio ?? this.aspectRatio,
         session: session ?? this.session,
       );
@@ -696,7 +696,7 @@ class Device extends DataClass implements Insertable<Device> {
           ..write('id: $id, ')
           ..write('platform: $platform, ')
           ..write('height: $height, ')
-          ..write('weight: $weight, ')
+          ..write('width: $width, ')
           ..write('aspectRatio: $aspectRatio, ')
           ..write('session: $session')
           ..write(')'))
@@ -705,7 +705,7 @@ class Device extends DataClass implements Insertable<Device> {
 
   @override
   int get hashCode =>
-      Object.hash(id, platform, height, weight, aspectRatio, session);
+      Object.hash(id, platform, height, width, aspectRatio, session);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -713,7 +713,7 @@ class Device extends DataClass implements Insertable<Device> {
           other.id == this.id &&
           other.platform == this.platform &&
           other.height == this.height &&
-          other.weight == this.weight &&
+          other.width == this.width &&
           other.aspectRatio == this.aspectRatio &&
           other.session == this.session);
 }
@@ -722,14 +722,14 @@ class DevicesCompanion extends UpdateCompanion<Device> {
   final Value<int> id;
   final Value<String> platform;
   final Value<double> height;
-  final Value<double> weight;
+  final Value<double> width;
   final Value<double> aspectRatio;
   final Value<int> session;
   const DevicesCompanion({
     this.id = const Value.absent(),
     this.platform = const Value.absent(),
     this.height = const Value.absent(),
-    this.weight = const Value.absent(),
+    this.width = const Value.absent(),
     this.aspectRatio = const Value.absent(),
     this.session = const Value.absent(),
   });
@@ -737,7 +737,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
     this.id = const Value.absent(),
     this.platform = const Value.absent(),
     this.height = const Value.absent(),
-    this.weight = const Value.absent(),
+    this.width = const Value.absent(),
     this.aspectRatio = const Value.absent(),
     required int session,
   }) : session = Value(session);
@@ -745,7 +745,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
     Expression<int>? id,
     Expression<String>? platform,
     Expression<double>? height,
-    Expression<double>? weight,
+    Expression<double>? width,
     Expression<double>? aspectRatio,
     Expression<int>? session,
   }) {
@@ -753,7 +753,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
       if (id != null) 'id': id,
       if (platform != null) 'platform': platform,
       if (height != null) 'height': height,
-      if (weight != null) 'weight': weight,
+      if (width != null) 'width': width,
       if (aspectRatio != null) 'aspect_ratio': aspectRatio,
       if (session != null) 'session': session,
     });
@@ -763,14 +763,14 @@ class DevicesCompanion extends UpdateCompanion<Device> {
       {Value<int>? id,
       Value<String>? platform,
       Value<double>? height,
-      Value<double>? weight,
+      Value<double>? width,
       Value<double>? aspectRatio,
       Value<int>? session}) {
     return DevicesCompanion(
       id: id ?? this.id,
       platform: platform ?? this.platform,
       height: height ?? this.height,
-      weight: weight ?? this.weight,
+      width: width ?? this.width,
       aspectRatio: aspectRatio ?? this.aspectRatio,
       session: session ?? this.session,
     );
@@ -788,8 +788,8 @@ class DevicesCompanion extends UpdateCompanion<Device> {
     if (height.present) {
       map['height'] = Variable<double>(height.value);
     }
-    if (weight.present) {
-      map['weight'] = Variable<double>(weight.value);
+    if (width.present) {
+      map['width'] = Variable<double>(width.value);
     }
     if (aspectRatio.present) {
       map['aspect_ratio'] = Variable<double>(aspectRatio.value);
@@ -806,7 +806,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
           ..write('id: $id, ')
           ..write('platform: $platform, ')
           ..write('height: $height, ')
-          ..write('weight: $weight, ')
+          ..write('width: $width, ')
           ..write('aspectRatio: $aspectRatio, ')
           ..write('session: $session')
           ..write(')'))
@@ -832,23 +832,21 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
       'platform', aliasedName, false,
       type: const StringType(),
       requiredDuringInsert: false,
-      defaultValue: drift.Constant(getPlatform()));
+      defaultValue: Constant(getPlatform()));
   final VerificationMeta _heightMeta = const VerificationMeta('height');
   @override
   late final GeneratedColumn<double?> height = GeneratedColumn<double?>(
       'height', aliasedName, false,
       type: const RealType(),
       requiredDuringInsert: false,
-      defaultValue:
-          drift.Constant(WidgetsBinding.instance.window.physicalSize.height));
-  final VerificationMeta _weightMeta = const VerificationMeta('weight');
+      defaultValue: Constant(getHeight));
+  final VerificationMeta _widthMeta = const VerificationMeta('width');
   @override
-  late final GeneratedColumn<double?> weight = GeneratedColumn<double?>(
-      'weight', aliasedName, false,
+  late final GeneratedColumn<double?> width = GeneratedColumn<double?>(
+      'width', aliasedName, false,
       type: const RealType(),
       requiredDuringInsert: false,
-      defaultValue:
-          drift.Constant(WidgetsBinding.instance.window.physicalSize.width));
+      defaultValue: Constant(getWidth));
   final VerificationMeta _aspectRatioMeta =
       const VerificationMeta('aspectRatio');
   @override
@@ -856,8 +854,7 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
       'aspect_ratio', aliasedName, false,
       type: const RealType(),
       requiredDuringInsert: false,
-      defaultValue: drift.Constant(
-          WidgetsBinding.instance.window.physicalSize.aspectRatio));
+      defaultValue: Constant(getAspectRatio));
   final VerificationMeta _sessionMeta = const VerificationMeta('session');
   @override
   late final GeneratedColumn<int?> session = GeneratedColumn<int?>(
@@ -867,7 +864,7 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
       defaultConstraints: 'REFERENCES sessions (session_number_participant)');
   @override
   List<GeneratedColumn> get $columns =>
-      [id, platform, height, weight, aspectRatio, session];
+      [id, platform, height, width, aspectRatio, session];
   @override
   String get aliasedName => _alias ?? 'devices';
   @override
@@ -888,9 +885,9 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
       context.handle(_heightMeta,
           height.isAcceptableOrUnknown(data['height']!, _heightMeta));
     }
-    if (data.containsKey('weight')) {
-      context.handle(_weightMeta,
-          weight.isAcceptableOrUnknown(data['weight']!, _weightMeta));
+    if (data.containsKey('width')) {
+      context.handle(
+          _widthMeta, width.isAcceptableOrUnknown(data['width']!, _widthMeta));
     }
     if (data.containsKey('aspect_ratio')) {
       context.handle(
