@@ -18,7 +18,8 @@ LazyDatabase _openConnection() {
 
 @DriftDatabase(tables: [Sessions, Trials, Devices])
 class MyDatabase extends _$MyDatabase {
-  MyDatabase() : super(_openConnection());
+  MyDatabase({Function connectionOpenner = _openConnection})
+      : super(connectionOpenner());
 
   @override
   int get schemaVersion => 1;
