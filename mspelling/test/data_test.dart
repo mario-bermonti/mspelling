@@ -37,6 +37,8 @@ void main() {
   });
 
   tearDown(() async {
+    /// Not following recommended practice (see official drift tutorials) to
+    /// await database closing because it caused the  test to hang
     database.close();
   });
 }
