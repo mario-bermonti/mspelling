@@ -23,15 +23,16 @@ class Trials extends Table {
 class Devices extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get platform => text().withDefault(Constant(getPlatform()))();
-  RealColumn get height => real().withDefault(
-      Constant(m.WidgetsBinding.instance.window.physicalSize.height))();
+  RealColumn get height => real().withDefault(Constant(getHeight))();
 
-  RealColumn get weight => real().withDefault(
-      Constant(m.WidgetsBinding.instance.window.physicalSize.width))();
+  double get getHeight => m.WidgetsBinding.instance.window.physicalSize.height;
+  RealColumn get weight => real().withDefault(Constant(getWidth))();
 
-  RealColumn get aspectRatio => real().withDefault(
-      Constant(m.WidgetsBinding.instance.window.physicalSize.aspectRatio))();
+  double get getWidth => m.WidgetsBinding.instance.window.physicalSize.width;
+  RealColumn get aspectRatio => real().withDefault(Constant(getAspectRatio))();
 
+  double get getAspectRatio =>
+      m.WidgetsBinding.instance.window.physicalSize.aspectRatio;
   IntColumn get session =>
       integer().references(Sessions, #sessionNumberParticipant)();
 }
