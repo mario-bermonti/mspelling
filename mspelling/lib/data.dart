@@ -28,4 +28,7 @@ class MyDatabase extends _$MyDatabase {
   Future insertSession(SessionsCompanion session) =>
       into(sessions).insert(session);
   Future insertDevice(DevicesCompanion device) => into(devices).insert(device);
+  Future<Trial> getTrial(int id) {
+    return (select(trials)..where((trial) => trial.id.equals(id))).getSingle();
+  }
 }
