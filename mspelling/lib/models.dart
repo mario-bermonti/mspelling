@@ -24,7 +24,7 @@ class Devices extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get platform => text().withDefault(Constant(getPlatform()))();
   RealColumn get height => real().withDefault(Constant(getHeight))();
-  RealColumn get weight => real().withDefault(Constant(getWidth))();
+  RealColumn get width => real().withDefault(Constant(getWidth))();
   RealColumn get aspectRatio => real().withDefault(Constant(getAspectRatio))();
   IntColumn get session =>
       integer().references(Sessions, #sessionNumberParticipant)();
