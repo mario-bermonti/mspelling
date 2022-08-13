@@ -11,6 +11,31 @@ void main() {
     database = MyDatabase(connectionOpenner: connectionOpenerTest);
   });
 
+  flutter_test.testWidgets('save single trial to database', (tester) async {
+    /// exp
+    var exp = const TrialsCompanion(
+      participantId: Value('001'),
+      session: Value(1),
+      stim: Value('gato'),
+      resp: Value('gato'),
+    );
+    final int expId = await database.insertTrial(exp);
+
+    /// obs
+    final trialDatabase = await database.getTrial(expId);
+    final TrialsCompanion obs = trialDatabase.toCompanion(true);
+
+    /// checks
+    /// TODO Check if there is a simpler way to compare them
+    /// They are of different type (Trial vs TrialsCompanion) and
+    /// the former users Value() so compare them.
+    flutter_test.expect(obs.id.value, expId);
+    flutter_test.expect(obs.participantId.value, exp.participantId.value);
+    flutter_test.expect(obs.session.value, exp.session.value);
+    flutter_test.expect(obs.stim.value, exp.stim.value);
+    flutter_test.expect(obs.resp.value, exp.resp.value);
+  });
+
   tearDown(() async {
     database.close();
   });
