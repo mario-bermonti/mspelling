@@ -1,36 +1,38 @@
 import 'dart:io';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as m;
 import 'package:flutter/foundation.dart';
-import 'package:drift/drift.dart' as drift;
+import 'package:drift/drift.dart';
 
-class Sessions extends drift.Table {
-  drift.IntColumn get id => integer().autoIncrement()();
-  drift.IntColumn get sessionNumberParticipant => integer()();
-  drift.TextColumn get participantId => text()();
-  drift.DateTimeColumn get timeStart => dateTime()();
-  drift.DateTimeColumn get timeEnd => dateTime()();
+class Sessions extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get sessionNumberParticipant => integer()();
+  TextColumn get participantId => text()();
+  DateTimeColumn get timeStart => dateTime()();
+  DateTimeColumn get timeEnd => dateTime()();
 }
 
-class Trials extends drift.Table {
-  drift.IntColumn get id => integer().autoIncrement()();
-  drift.TextColumn get participantId => text()();
-  drift.TextColumn get stim => text()();
-  drift.TextColumn get resp => text()();
-  drift.IntColumn get session =>
+class Trials extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get participantId => text()();
+  TextColumn get stim => text()();
+  TextColumn get resp => text()();
+  IntColumn get session =>
       integer().references(Sessions, #sessionNumberParticipant)();
 }
 
-class Devices extends drift.Table {
-  drift.IntColumn get id => integer().autoIncrement()();
-  drift.TextColumn get platform =>
-      text().withDefault(drift.Constant(getPlatform()))();
-  drift.RealColumn get height => real().withDefault(
-      drift.Constant(WidgetsBinding.instance.window.physicalSize.height))();
-  drift.RealColumn get weight => real().withDefault(
-      drift.Constant(WidgetsBinding.instance.window.physicalSize.width))();
-  drift.RealColumn get aspectRatio => real().withDefault(drift.Constant(
-      WidgetsBinding.instance.window.physicalSize.aspectRatio))();
-  drift.IntColumn get session =>
+class Devices extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get platform => text().withDefault(Constant(getPlatform()))();
+  RealColumn get height => real().withDefault(
+      Constant(m.WidgetsBinding.instance.window.physicalSize.height))();
+
+  RealColumn get weight => real().withDefault(
+      Constant(m.WidgetsBinding.instance.window.physicalSize.width))();
+
+  RealColumn get aspectRatio => real().withDefault(
+      Constant(m.WidgetsBinding.instance.window.physicalSize.aspectRatio))();
+
+  IntColumn get session =>
       integer().references(Sessions, #sessionNumberParticipant)();
 }
 
