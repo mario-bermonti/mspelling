@@ -24,7 +24,8 @@ class MyDatabase extends _$MyDatabase {
   @override
   int get schemaVersion => 1;
 
-  Future insertTrial(Trial trial) => into(trials).insert(trial);
-  Future insertSession(Session session) => into(sessions).insert(session);
-  Future insertDevice(Device device) => into(devices).insert(device);
+  Future<int> insertTrial(TrialsCompanion trial) => into(trials).insert(trial);
+  Future insertSession(SessionsCompanion session) =>
+      into(sessions).insert(session);
+  Future insertDevice(DevicesCompanion device) => into(devices).insert(device);
 }
