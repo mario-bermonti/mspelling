@@ -29,6 +29,28 @@ void main() {
     /// TODO Check if there is a simpler way to compare them
     /// They are of different type (Trial vs TrialsCompanion) and
     /// the former users Value() so compare them.
+    flutter_test.expect(
+      obs.id.value,
+      expId,
+    );
+    flutter_test.expect(
+      obs.participantId.value,
+      exp.participantId.value,
+    );
+    flutter_test.expect(
+      obs.session.value,
+      exp.session.value,
+    );
+    flutter_test.expect(
+      obs.stim.value,
+      exp.stim.value,
+    );
+    flutter_test.expect(
+      obs.resp.value,
+      exp.resp.value,
+    );
+  });
+
     flutter_test.expect(obs.id.value, expId);
     flutter_test.expect(obs.participantId.value, exp.participantId.value);
     flutter_test.expect(obs.session.value, exp.session.value);
