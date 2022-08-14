@@ -598,6 +598,7 @@ class $TrialsTable extends Trials with TableInfo<$TrialsTable, Trial> {
 
 class Device extends DataClass implements Insertable<Device> {
   final int id;
+  final String participantId;
   final String platform;
   final double height;
   final double width;
@@ -605,6 +606,7 @@ class Device extends DataClass implements Insertable<Device> {
   final int session;
   Device(
       {required this.id,
+      required this.participantId,
       required this.platform,
       required this.height,
       required this.width,
@@ -615,6 +617,8 @@ class Device extends DataClass implements Insertable<Device> {
     return Device(
       id: const IntType()
           .mapFromDatabaseResponse(data['${effectivePrefix}id'])!,
+      participantId: const StringType()
+          .mapFromDatabaseResponse(data['${effectivePrefix}participant_id'])!,
       platform: const StringType()
           .mapFromDatabaseResponse(data['${effectivePrefix}platform'])!,
       height: const RealType()
@@ -631,6 +635,7 @@ class Device extends DataClass implements Insertable<Device> {
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
+    map['participant_id'] = Variable<String>(participantId);
     map['platform'] = Variable<String>(platform);
     map['height'] = Variable<double>(height);
     map['width'] = Variable<double>(width);
@@ -642,6 +647,7 @@ class Device extends DataClass implements Insertable<Device> {
   DevicesCompanion toCompanion(bool nullToAbsent) {
     return DevicesCompanion(
       id: Value(id),
+      participantId: Value(participantId),
       platform: Value(platform),
       height: Value(height),
       width: Value(width),
@@ -655,6 +661,7 @@ class Device extends DataClass implements Insertable<Device> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Device(
       id: serializer.fromJson<int>(json['id']),
+      participantId: serializer.fromJson<String>(json['participantId']),
       platform: serializer.fromJson<String>(json['platform']),
       height: serializer.fromJson<double>(json['height']),
       width: serializer.fromJson<double>(json['width']),
@@ -667,6 +674,7 @@ class Device extends DataClass implements Insertable<Device> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
+      'participantId': serializer.toJson<String>(participantId),
       'platform': serializer.toJson<String>(platform),
       'height': serializer.toJson<double>(height),
       'width': serializer.toJson<double>(width),
@@ -677,6 +685,7 @@ class Device extends DataClass implements Insertable<Device> {
 
   Device copyWith(
           {int? id,
+          String? participantId,
           String? platform,
           double? height,
           double? width,
@@ -684,6 +693,7 @@ class Device extends DataClass implements Insertable<Device> {
           int? session}) =>
       Device(
         id: id ?? this.id,
+        participantId: participantId ?? this.participantId,
         platform: platform ?? this.platform,
         height: height ?? this.height,
         width: width ?? this.width,
@@ -694,6 +704,7 @@ class Device extends DataClass implements Insertable<Device> {
   String toString() {
     return (StringBuffer('Device(')
           ..write('id: $id, ')
+          ..write('participantId: $participantId, ')
           ..write('platform: $platform, ')
           ..write('height: $height, ')
           ..write('width: $width, ')
@@ -704,13 +715,14 @@ class Device extends DataClass implements Insertable<Device> {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(id, platform, height, width, aspectRatio, session);
+  int get hashCode => Object.hash(
+      id, participantId, platform, height, width, aspectRatio, session);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Device &&
           other.id == this.id &&
+          other.participantId == this.participantId &&
           other.platform == this.platform &&
           other.height == this.height &&
           other.width == this.width &&
@@ -720,6 +732,7 @@ class Device extends DataClass implements Insertable<Device> {
 
 class DevicesCompanion extends UpdateCompanion<Device> {
   final Value<int> id;
+  final Value<String> participantId;
   final Value<String> platform;
   final Value<double> height;
   final Value<double> width;
@@ -727,6 +740,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
   final Value<int> session;
   const DevicesCompanion({
     this.id = const Value.absent(),
+    this.participantId = const Value.absent(),
     this.platform = const Value.absent(),
     this.height = const Value.absent(),
     this.width = const Value.absent(),
@@ -735,14 +749,17 @@ class DevicesCompanion extends UpdateCompanion<Device> {
   });
   DevicesCompanion.insert({
     this.id = const Value.absent(),
+    required String participantId,
     this.platform = const Value.absent(),
     this.height = const Value.absent(),
     this.width = const Value.absent(),
     this.aspectRatio = const Value.absent(),
     required int session,
-  }) : session = Value(session);
+  })  : participantId = Value(participantId),
+        session = Value(session);
   static Insertable<Device> custom({
     Expression<int>? id,
+    Expression<String>? participantId,
     Expression<String>? platform,
     Expression<double>? height,
     Expression<double>? width,
@@ -751,6 +768,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
+      if (participantId != null) 'participant_id': participantId,
       if (platform != null) 'platform': platform,
       if (height != null) 'height': height,
       if (width != null) 'width': width,
@@ -761,6 +779,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
 
   DevicesCompanion copyWith(
       {Value<int>? id,
+      Value<String>? participantId,
       Value<String>? platform,
       Value<double>? height,
       Value<double>? width,
@@ -768,6 +787,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
       Value<int>? session}) {
     return DevicesCompanion(
       id: id ?? this.id,
+      participantId: participantId ?? this.participantId,
       platform: platform ?? this.platform,
       height: height ?? this.height,
       width: width ?? this.width,
@@ -781,6 +801,9 @@ class DevicesCompanion extends UpdateCompanion<Device> {
     final map = <String, Expression>{};
     if (id.present) {
       map['id'] = Variable<int>(id.value);
+    }
+    if (participantId.present) {
+      map['participant_id'] = Variable<String>(participantId.value);
     }
     if (platform.present) {
       map['platform'] = Variable<String>(platform.value);
@@ -804,6 +827,7 @@ class DevicesCompanion extends UpdateCompanion<Device> {
   String toString() {
     return (StringBuffer('DevicesCompanion(')
           ..write('id: $id, ')
+          ..write('participantId: $participantId, ')
           ..write('platform: $platform, ')
           ..write('height: $height, ')
           ..write('width: $width, ')
@@ -826,6 +850,12 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
       type: const IntType(),
       requiredDuringInsert: false,
       defaultConstraints: 'PRIMARY KEY AUTOINCREMENT');
+  final VerificationMeta _participantIdMeta =
+      const VerificationMeta('participantId');
+  @override
+  late final GeneratedColumn<String?> participantId = GeneratedColumn<String?>(
+      'participant_id', aliasedName, false,
+      type: const StringType(), requiredDuringInsert: true);
   final VerificationMeta _platformMeta = const VerificationMeta('platform');
   @override
   late final GeneratedColumn<String?> platform = GeneratedColumn<String?>(
@@ -864,7 +894,7 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
       defaultConstraints: 'REFERENCES sessions (session_number_participant)');
   @override
   List<GeneratedColumn> get $columns =>
-      [id, platform, height, width, aspectRatio, session];
+      [id, participantId, platform, height, width, aspectRatio, session];
   @override
   String get aliasedName => _alias ?? 'devices';
   @override
@@ -876,6 +906,14 @@ class $DevicesTable extends Devices with TableInfo<$DevicesTable, Device> {
     final data = instance.toColumns(true);
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('participant_id')) {
+      context.handle(
+          _participantIdMeta,
+          participantId.isAcceptableOrUnknown(
+              data['participant_id']!, _participantIdMeta));
+    } else if (isInserting) {
+      context.missing(_participantIdMeta);
     }
     if (data.containsKey('platform')) {
       context.handle(_platformMeta,
