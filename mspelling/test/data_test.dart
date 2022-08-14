@@ -119,6 +119,42 @@ void main() {
     /// await database closing because it caused the  test to hang
     database.close();
   });
+  flutter_test.testWidgets('save single device to database', (tester) async {
+    /// exp
+    var exp = const DevicesCompanion(
+      participantId: Value('001'),
+      session: Value(1),
+    );
+    final int expId = await database.insertDevice(exp);
+
+    /// obs
+    final deviceDatabase = await database.getDevice(expId);
+    final DevicesCompanion obs = deviceDatabase.toCompanion(true);
+
+    print(exp);
+    print(obs);
+
+    /// checks
+    /// TODO Check if there is a simpler way to compare them
+    /// They are of different type (Trial vs TrialsCompanion) and
+    /// the former users Value() so compare them.
+    ///
+    ///
+    /// Only 'static' attrs are tested, because dynamic attrs are absent at
+    /// creation
+    flutter_test.expect(
+      obs.id.value,
+      expId,
+    );
+    flutter_test.expect(
+      obs.participantId.value,
+      exp.participantId.value,
+    );
+    flutter_test.expect(
+      obs.session.value,
+      exp.session.value,
+    );
+  });
 }
 
 connectionOpenerTest() => NativeDatabase.memory();
