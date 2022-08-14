@@ -39,4 +39,9 @@ class MyDatabase extends _$MyDatabase {
     return (select(sessions)..where((session) => session.id.equals(id)))
         .getSingle();
   }
+
+  Future<Device> getDevice(int id) {
+    return (select(devices)..where((device) => device.id.equals(id)))
+        .getSingle();
+  }
 }
