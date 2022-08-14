@@ -22,6 +22,7 @@ class Trials extends Table {
 
 class Devices extends Table {
   IntColumn get id => integer().autoIncrement()();
+  TextColumn get participantId => text()();
   TextColumn get platform => text().withDefault(Constant(getPlatform()))();
   RealColumn get height => real().withDefault(Constant(getHeight))();
   RealColumn get width => real().withDefault(Constant(getWidth))();
