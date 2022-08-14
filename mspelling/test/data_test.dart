@@ -157,4 +157,4 @@ void main() {
   });
 }
 
-connectionOpenerTest() => NativeDatabase.memory();
+connectionOpenerTest() => NativeDatabase.memory(logStatements: true);
