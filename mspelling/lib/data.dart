@@ -44,4 +44,11 @@ class MyDatabase extends _$MyDatabase {
     return (select(devices)..where((device) => device.id.equals(id)))
         .getSingle();
   }
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+        beforeOpen: (OpeningDetails details) async {
+          await customStatement('PRAGMA foreign_keys = ON');
+        },
+      );
 }
