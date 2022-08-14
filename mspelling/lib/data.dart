@@ -24,10 +24,13 @@ class MyDatabase extends _$MyDatabase {
   @override
   int get schemaVersion => 1;
 
+  /// inserts
   Future<int> insertTrial(TrialsCompanion trial) => into(trials).insert(trial);
   Future insertSession(SessionsCompanion session) =>
       into(sessions).insert(session);
   Future insertDevice(DevicesCompanion device) => into(devices).insert(device);
+
+  /// get
   Future<Trial> getTrial(int id) {
     return (select(trials)..where((trial) => trial.id.equals(id))).getSingle();
   }
