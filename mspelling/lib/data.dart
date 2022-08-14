@@ -34,4 +34,9 @@ class MyDatabase extends _$MyDatabase {
   Future<Trial> getTrial(int id) {
     return (select(trials)..where((trial) => trial.id.equals(id))).getSingle();
   }
+
+  Future<Session> getSession(int id) {
+    return (select(sessions)..where((session) => session.id.equals(id)))
+        .getSingle();
+  }
 }
