@@ -114,11 +114,6 @@ void main() {
     );
   });
 
-  tearDown(() async {
-    /// Not following recommended practice (see official drift tutorials) to
-    /// await database closing because it caused the  test to hang
-    database.close();
-  });
   flutter_test.testWidgets('save single device to database', (tester) async {
     /// exp
     var exp = const DevicesCompanion(
@@ -154,6 +149,12 @@ void main() {
       obs.session.value,
       exp.session.value,
     );
+  });
+
+  tearDown(() async {
+    /// Not following recommended practice (see official drift tutorials) to
+    /// await database closing because it caused the  test to hang
+    database.close();
   });
 }
 
