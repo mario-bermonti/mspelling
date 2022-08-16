@@ -126,9 +126,6 @@ void main() {
     final deviceDatabase = await database.getDevice(expId);
     final DevicesCompanion obs = deviceDatabase.toCompanion(true);
 
-    print(exp);
-    print(obs);
-
     /// checks
     /// TODO Check if there is a simpler way to compare them
     /// They are of different type (Trial vs TrialsCompanion) and
