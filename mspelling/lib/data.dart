@@ -51,4 +51,16 @@ class MyDatabase extends _$MyDatabase {
           await customStatement('PRAGMA foreign_keys = ON');
         },
       );
+  /// Returns the appropriate current session number for the current participant
+  /// based on how many sessions the participant has completed before.
+  Future<int> getCurrentParticipantSessionNumber(String participantId) async {
+    final List<Session> result = await (select(sessions)
+          ..where((session) => session.participantId.equals(participantId))
+          ..orderBy([
+            (session) =>
+                OrderingTerm(expression: session.sessionNumberParticipant)
+          ]))
+        .get();
+    return result.length + 1;
+  }
 }
