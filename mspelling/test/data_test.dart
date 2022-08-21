@@ -234,6 +234,23 @@ void main() {
 
     flutter_test.expect(obs, exp);
   });
+  flutter_test.testWidgets('add data to data manager - device ',
+      (tester) async {
+    // set up
+    var exp = const DevicesCompanion(
+      participantId: Value('001'),
+      session: Value(1),
+    );
+
+    database.addDeviceData(
+      participantId: exp.participantId.value,
+      session: exp.session.value,
+    );
+
+    DevicesCompanion obs = database.deviceData;
+
+    flutter_test.expect(obs, exp);
+  });
 }
 
 connectionOpenerTest() => NativeDatabase.memory(logStatements: true);
