@@ -20,6 +20,7 @@ LazyDatabase _openConnection() {
 class MyDatabase extends _$MyDatabase {
   late SessionsCompanion sessionData;
   late DevicesCompanion deviceData;
+  List<TrialsCompanion> trialData = <TrialsCompanion>[];
 
   MyDatabase({Function connectionOpenner = _openConnection})
       : super(connectionOpenner());
@@ -96,5 +97,22 @@ class MyDatabase extends _$MyDatabase {
       participantId: Value(participantId),
       session: Value(session),
     );
+  }
+
+  /// Add data for the current device to later be saved to the db
+  void addTrialData({
+    required String participantId,
+    required String stim,
+    required String resp,
+    required int session,
+  }) {
+    TrialsCompanion trial = TrialsCompanion(
+      participantId: Value(participantId),
+      stim: Value(stim),
+      resp: Value(resp),
+      session: Value(session),
+    );
+
+    trialData.add(trial);
   }
 }

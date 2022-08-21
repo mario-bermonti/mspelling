@@ -251,6 +251,67 @@ void main() {
 
     flutter_test.expect(obs, exp);
   });
+
+  flutter_test.testWidgets('add data to data manager - single trial',
+      (tester) async {
+    // set up
+    var exp = const TrialsCompanion(
+      participantId: Value('001'),
+      stim: Value('gato'),
+      resp: Value('gato'),
+      session: Value(1),
+    );
+
+    database.addTrialData(
+      participantId: exp.participantId.value,
+      stim: exp.stim.value,
+      resp: exp.resp.value,
+      session: exp.session.value,
+    );
+
+    TrialsCompanion obs = database.trialData[0];
+
+    flutter_test.expect(obs, exp);
+  });
+  flutter_test.testWidgets('add data to data manager - many trials',
+      (tester) async {
+    // set up
+    // trial 1
+    var exp1 = const TrialsCompanion(
+      participantId: Value('001'),
+      stim: Value('gato'),
+      resp: Value('gato'),
+      session: Value(1),
+    );
+
+    database.addTrialData(
+      participantId: exp1.participantId.value,
+      stim: exp1.stim.value,
+      resp: exp1.resp.value,
+      session: exp1.session.value,
+    );
+
+    TrialsCompanion obs1 = database.trialData[0];
+    flutter_test.expect(obs1, exp1);
+
+    // trial 2
+    var exp2 = const TrialsCompanion(
+      participantId: Value('002'),
+      stim: Value('perro'),
+      resp: Value('perros'),
+      session: Value(2),
+    );
+
+    database.addTrialData(
+      participantId: exp2.participantId.value,
+      stim: exp2.stim.value,
+      resp: exp2.resp.value,
+      session: exp2.session.value,
+    );
+
+    TrialsCompanion obs2 = database.trialData[1];
+    flutter_test.expect(obs2, exp2);
+  });
 }
 
 connectionOpenerTest() => NativeDatabase.memory(logStatements: true);
