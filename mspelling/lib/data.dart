@@ -19,11 +19,8 @@ LazyDatabase _openConnection() {
 @DriftDatabase(tables: [Sessions, Trials, Devices])
 class MyDatabase extends _$MyDatabase {
   late SessionsCompanion sessionData;
-<<<<<<< HEAD
-=======
   late DevicesCompanion deviceData;
   List<TrialsCompanion> trialData = <TrialsCompanion>[];
->>>>>>> d29c3e9... Add function for adding trial data to manager
 
   MyDatabase({Function connectionOpenner = _openConnection})
       : super(connectionOpenner());
@@ -90,8 +87,6 @@ class MyDatabase extends _$MyDatabase {
       timeEnd: Value(timeEnd),
     );
   }
-<<<<<<< HEAD
-=======
 
   /// Add data for the current device to later be saved to the db
   void addDeviceData({
@@ -120,5 +115,4 @@ class MyDatabase extends _$MyDatabase {
 
     trialData.add(trial);
   }
->>>>>>> d29c3e9... Add function for adding trial data to manager
 }
