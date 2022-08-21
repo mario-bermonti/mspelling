@@ -148,6 +148,66 @@ void main() {
     );
   });
 
+  flutter_test.testWidgets('get current session id - first session',
+      (tester) async {
+    const int exp = 1;
+    final int obs = await database.getCurrentParticipantSessionNumber('001');
+    flutter_test.expect(obs, exp);
+  });
+
+  /// TODO use max value instead or rethink this
+  flutter_test.testWidgets('get current session id - second session',
+      (tester) async {
+    const int exp = 2;
+    const participantId = '001';
+
+    /// create previous sessions for user
+    var session = SessionsCompanion(
+      sessionNumberParticipant: const Value(1),
+      participantId: const Value(participantId),
+      timeStart: Value(DateTime.now()),
+      timeEnd: Value(DateTime.now()),
+    );
+    await database.insertSession(session);
+
+    /// obs
+    final int obs =
+        await database.getCurrentParticipantSessionNumber(participantId);
+
+    /// check
+    flutter_test.expect(obs, exp);
+  });
+
+  flutter_test.testWidgets('get current session id - 3+ session',
+      (tester) async {
+    const int exp = 3;
+    const participantId = '001';
+
+    /// create previous sessions for user
+    var session1 = SessionsCompanion(
+      sessionNumberParticipant: const Value(1),
+      participantId: const Value(participantId),
+      timeStart: Value(DateTime.now()),
+      timeEnd: Value(DateTime.now()),
+    );
+    await database.insertSession(session1);
+
+    var session2 = SessionsCompanion(
+      sessionNumberParticipant: const Value(2),
+      participantId: const Value(participantId),
+      timeStart: Value(DateTime.now()),
+      timeEnd: Value(DateTime.now()),
+    );
+    await database.insertSession(session2);
+
+    /// obs
+    final int obs =
+        await database.getCurrentParticipantSessionNumber(participantId);
+
+    /// check
+    flutter_test.expect(obs, exp);
+  });
+
   tearDown(() async {
     /// Not following recommended practice (see official drift tutorials) to
     /// await database closing because it caused the  test to hang
