@@ -45,12 +45,15 @@ class MyDatabase extends _$MyDatabase {
         .getSingle();
   }
 
-  @override
-  MigrationStrategy get migration => MigrationStrategy(
-        beforeOpen: (OpeningDetails details) async {
-          await customStatement('PRAGMA foreign_keys = ON');
-        },
-      );
+  /// TODO Fix in the future
+  /// It is currently causing problems with key mismatch
+  // @override
+  // MigrationStrategy get migration => MigrationStrategy(
+  //       beforeOpen: (OpeningDetails details) async {
+  //         await customStatement('PRAGMA foreign_keys = ON');
+  //       },
+  //     );
+
   /// Returns the appropriate current session number for the current participant
   /// based on how many sessions the participant has completed before.
   Future<int> getCurrentParticipantSessionNumber(String participantId) async {
