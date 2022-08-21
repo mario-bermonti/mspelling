@@ -213,6 +213,27 @@ void main() {
     /// await database closing because it caused the  test to hang
     database.close();
   });
+  flutter_test.testWidgets('add data to data manager - session ',
+      (tester) async {
+    // set up
+    var exp = SessionsCompanion(
+      sessionNumberParticipant: const Value(1),
+      participantId: const Value('001'),
+      timeStart: Value(DateTime.now()),
+      timeEnd: Value(DateTime.now()),
+    );
+
+    database.addSessionData(
+      sessionNumberParticipant: exp.sessionNumberParticipant.value,
+      participantId: exp.participantId.value,
+      timeStart: exp.timeStart.value,
+      timeEnd: exp.timeEnd.value,
+    );
+
+    SessionsCompanion obs = database.sessionData;
+
+    flutter_test.expect(obs, exp);
+  });
 }
 
 connectionOpenerTest() => NativeDatabase.memory(logStatements: true);
