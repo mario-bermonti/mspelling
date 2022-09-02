@@ -28,13 +28,19 @@ class MyDatabase extends _$MyDatabase {
   @override
   int get schemaVersion => 1;
 
-  /// inserts
+  ////////////////
+  // inserters //
+  //////////////
+
   Future<int> insertTrial(TrialsCompanion trial) => into(trials).insert(trial);
   Future insertSession(SessionsCompanion session) =>
       into(sessions).insert(session);
   Future insertDevice(DevicesCompanion device) => into(devices).insert(device);
 
-  /// get
+  //////////////
+  // getters //
+  ////////////
+
   Future<Trial> getTrial(int id) {
     return (select(trials)..where((trial) => trial.id.equals(id))).getSingle();
   }
@@ -70,8 +76,9 @@ class MyDatabase extends _$MyDatabase {
         .get();
     return result.length + 1;
   }
-
-  // Add
+  /////////////
+  // Adders //
+  ///////////
 
   /// Add data for the current session to later be saved to the db
   void addSessionData({
