@@ -269,7 +269,7 @@ void main() {
       session: exp.session.value,
     );
 
-    TrialsCompanion obs = database.trialData[0];
+    TrialsCompanion obs = database.trialsData[0];
 
     flutter_test.expect(obs, exp);
   });
@@ -291,7 +291,7 @@ void main() {
       session: exp1.session.value,
     );
 
-    TrialsCompanion obs1 = database.trialData[0];
+    TrialsCompanion obs1 = database.trialsData[0];
     flutter_test.expect(obs1, exp1);
 
     // trial 2
@@ -309,7 +309,7 @@ void main() {
       session: exp2.session.value,
     );
 
-    TrialsCompanion obs2 = database.trialData[1];
+    TrialsCompanion obs2 = database.trialsData[1];
     flutter_test.expect(obs2, exp2);
   });
 }

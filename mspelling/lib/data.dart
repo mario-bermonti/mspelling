@@ -20,7 +20,7 @@ LazyDatabase _openConnection() {
 class MyDatabase extends _$MyDatabase {
   late SessionsCompanion sessionData;
   late DevicesCompanion deviceData;
-  List<TrialsCompanion> trialData = <TrialsCompanion>[];
+  List<TrialsCompanion> trialsData = <TrialsCompanion>[];
 
   MyDatabase({Function connectionOpenner = _openConnection})
       : super(connectionOpenner());
@@ -120,6 +120,6 @@ class MyDatabase extends _$MyDatabase {
       session: Value(session),
     );
 
-    trialData.add(trial);
+    trialsData.add(trial);
   }
 }
