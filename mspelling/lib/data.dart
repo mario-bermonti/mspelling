@@ -48,6 +48,8 @@ class MyDatabase extends _$MyDatabase {
     return (select(trials)..where((trial) => trial.id.equals(id))).getSingle();
   }
 
+  Future<List<Trial>> getTrials() => select(trials).get();
+
   Future<Session> getSession(int id) {
     return (select(sessions)..where((session) => session.id.equals(id)))
         .getSingle();
