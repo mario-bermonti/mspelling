@@ -36,6 +36,9 @@ class MyDatabase extends _$MyDatabase {
   Future insertSession(SessionsCompanion session) =>
       into(sessions).insert(session);
   Future insertDevice(DevicesCompanion device) => into(devices).insert(device);
+  Future<void> insertTrials() async {
+    await batch((batch) => batch.insertAll(trials, trialsData));
+  }
 
   //////////////
   // getters //
