@@ -51,6 +51,68 @@ void main() {
     );
   });
 
+  flutter_test.testWidgets('save many trials to database', (tester) async {
+    // set up
+
+    // trial 1
+    var exp1 = const TrialsCompanion(
+      participantId: Value('001'),
+      stim: Value('gato'),
+      resp: Value('gato'),
+      session: Value(1),
+    );
+
+    // trial 2
+    var exp2 = const TrialsCompanion(
+      participantId: Value('002'),
+      stim: Value('perro'),
+      resp: Value('perros'),
+      session: Value(2),
+    );
+
+    database.trialsData.addAll([exp1, exp2]);
+    database.insertTrials();
+
+    // obs
+    List<Trial> obs = await database.getTrials();
+
+    // checks
+    // trial 1
+    flutter_test.expect(
+      obs[0].participantId,
+      exp1.participantId.value,
+    );
+    flutter_test.expect(
+      obs[0].session,
+      exp1.session.value,
+    );
+    flutter_test.expect(
+      obs[0].stim,
+      exp1.stim.value,
+    );
+    flutter_test.expect(
+      obs[0].resp,
+      exp1.resp.value,
+    );
+    // trial 2
+    flutter_test.expect(
+      obs[1].participantId,
+      exp2.participantId.value,
+    );
+    flutter_test.expect(
+      obs[1].session,
+      exp2.session.value,
+    );
+    flutter_test.expect(
+      obs[1].stim,
+      exp2.stim.value,
+    );
+    flutter_test.expect(
+      obs[1].resp,
+      exp2.resp.value,
+    );
+  });
+
   flutter_test.testWidgets('save session to database', (tester) async {
     /// exp
     var exp = SessionsCompanion(
