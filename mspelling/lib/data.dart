@@ -127,4 +127,11 @@ class MyDatabase extends _$MyDatabase {
 
     trialsData.add(trial);
   }
+
+  /// Save all collected data to db (disk)
+  void saveData() {
+    insertSession(sessionData);
+    insertDevice(deviceData);
+    insertTrials();
+  }
 }
