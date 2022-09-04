@@ -374,6 +374,44 @@ void main() {
     TrialsCompanion obs2 = database.trialsData[1];
     flutter_test.expect(obs2, exp2);
   });
+
+  flutter_test.testWidgets('save all data to db', (tester) async {
+    // create objects
+    var expDevice = const DevicesCompanion(
+      participantId: Value('001'),
+      session: Value(1),
+    );
+
+    var expSession = SessionsCompanion(
+      sessionNumberParticipant: const Value(1),
+      participantId: const Value('001'),
+      timeStart: Value(DateTime.now()),
+      timeEnd: Value(DateTime.now()),
+    );
+
+    var expTrials = const TrialsCompanion(
+      participantId: Value('001'),
+      session: Value(1),
+      stim: Value('gato'),
+      resp: Value('gato'),
+    );
+
+    // add to manager and db
+    database.trialsData.add(expTrials);
+    database.deviceData = expDevice;
+    database.sessionData = expSession;
+    database.saveData();
+
+    // obs
+    final sessionDatabase = await database.getSession(1);
+    final deviceDatabase = await database.getDevice(1);
+    final trialsDatabase = await database.getTrials();
+
+    // checks
+    flutter_test.expect(sessionDatabase.id, 1);
+    flutter_test.expect(deviceDatabase.id, 1);
+    flutter_test.expect(trialsDatabase.isEmpty, false);
+  });
 }
 
 connectionOpenerTest() => NativeDatabase.memory(logStatements: true);
