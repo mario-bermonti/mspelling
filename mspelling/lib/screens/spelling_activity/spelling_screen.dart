@@ -62,6 +62,13 @@ class _SpellingScreenState extends State<SpellingScreen> {
         builder: (context) => const TrialResponseScreen(),
       ),
     );
+
+    database.addTrialData(
+      participantId: widget.participantId,
+      stim: _stimuli.currentStim,
+      resp: result,
+      session: sessionNumberParticipant,
+    );
   }
 
   void presentRestCond() {
