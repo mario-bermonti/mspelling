@@ -24,11 +24,18 @@ class _SpellingScreenState extends State<SpellingScreen> {
   late final TimeOfDay timeEnd;
   final DateTime timeStart = DateTime.now();
   final MyDatabase database = MyDatabase();
+  late final int sessionNumberParticipant;
 
   @override
   initState() {
     super.initState();
     getStimuli();
+    getSessionNumberParticipant();
+  }
+
+  void getSessionNumberParticipant() async {
+    sessionNumberParticipant =
+        await database.getCurrentParticipantSessionNumber(widget.participantId);
   }
 
   void run(context) {
