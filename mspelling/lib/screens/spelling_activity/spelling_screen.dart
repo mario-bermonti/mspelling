@@ -21,8 +21,8 @@ class SpellingScreen extends StatefulWidget {
 class _SpellingScreenState extends State<SpellingScreen> {
   late final Stimuli _stimuli;
   final bool _restActive = false;
-  final TimeOfDay timeStart = TimeOfDay.now();
   late final TimeOfDay timeEnd;
+  final DateTime timeStart = DateTime.now();
   final MyDatabase database = MyDatabase();
 
   @override
