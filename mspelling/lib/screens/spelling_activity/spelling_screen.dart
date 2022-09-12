@@ -90,12 +90,28 @@ class _SpellingScreenState extends State<SpellingScreen> {
 
   void endSession() {
     final DateTime timeEnd = DateTime.now();
+    saveData(timeEnd: timeEnd);
+
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => const EndScreen(),
       ),
     );
+  }
+
+  void saveData({required DateTime timeEnd}) {
+    database.addSessionData(
+        sessionNumberParticipant: sessionNumberParticipant,
+        participantId: widget.participantId,
+        timeStart: timeStart,
+        timeEnd: timeEnd);
+    database.addDeviceData(
+      participantId: widget.participantId,
+      session: sessionNumberParticipant,
+    );
+
+    database.saveData();
   }
 
   @override
