@@ -8,10 +8,17 @@ import 'package:path/path.dart' as p;
 
 part 'data.g.dart';
 
+/// Return appropriate directory path for saving data depending on the OS
+Future<String> getPath() async {
+  Directory? dir = await getDownloadsDirectory();
+  // if (dir == null) throw Exception("Downloads folder not available");
+  return dir!.path;
+}
+
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
-    final dbFolder = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dbFolder.path, 'db.sqlite'));
+    String path = await getPath();
+    final file = File(p.join(path, 'mspelling_data.sqlite'));
     return NativeDatabase(file);
   });
 }
