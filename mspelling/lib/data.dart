@@ -10,9 +10,12 @@ part 'data.g.dart';
 
 /// Return appropriate directory path for saving data depending on the OS
 Future<String> getPath() async {
-  Directory? dir = await getDownloadsDirectory();
-  // if (dir == null) throw Exception("Downloads folder not available");
-  return dir!.path;
+  if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
+    Directory? dir = await getDownloadsDirectory();
+    if (dir == null) throw Exception("Downloads folder not available");
+    return dir.path;
+  }
+  throw Exception("No dir for saving db could be accessed");
 }
 
 LazyDatabase _openConnection() {
