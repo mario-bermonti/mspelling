@@ -17,9 +17,11 @@ Future<String> getPath() async {
     return dir.path;
   }
   if (Platform.isAndroid) {
-    Directory? dir = await getExternalStorageDirectory();
-    if (dir == null) throw Exception("External storage folder not available");
-    return dir.path;
+    if (await Permission.storage.request().isGranted) {
+      Directory? dir = await getExternalStorageDirectory();
+      if (dir == null) throw Exception("External storage folder not available");
+      return dir.path;
+    }
   }
   throw Exception("No dir for saving db could be accessed");
 }
