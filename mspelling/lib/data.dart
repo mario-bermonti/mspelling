@@ -15,12 +15,18 @@ Future<String> getPath() async {
     if (dir == null) throw Exception("Downloads folder not available");
     return dir.path;
   }
+  if (Platform.isAndroid) {
+    Directory? dir = await getExternalStorageDirectory();
+    if (dir == null) throw Exception("External storage folder not available");
+    return dir.path;
+  }
   throw Exception("No dir for saving db could be accessed");
 }
 
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     String path = await getPath();
+    print("current path $path");
     final file = File(p.join(path, 'mspelling_data.sqlite'));
     return NativeDatabase(file);
   });
