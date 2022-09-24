@@ -22,7 +22,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   late final Stimuli _stimuli;
   final bool _restActive = false;
   final DateTime timeStart = DateTime.now();
-  final MyDatabase database = MyDatabase();
+  final DataBase database = DataBase();
   late final int sessionNumber;
 
   @override

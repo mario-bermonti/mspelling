@@ -36,12 +36,12 @@ LazyDatabase _openConnection() {
 }
 
 @DriftDatabase(tables: [Sessions, Trials, Devices])
-class MyDatabase extends _$MyDatabase {
+class DataBase extends _$DataBase {
   late SessionsCompanion sessionData;
   late DevicesCompanion deviceData;
   List<TrialsCompanion> trialsData = <TrialsCompanion>[];
 
-  MyDatabase({Function connectionOpenner = _openConnection})
+  DataBase({Function connectionOpenner = _openConnection})
       : super(connectionOpenner());
 
   @override

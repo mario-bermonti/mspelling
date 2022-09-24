@@ -5,10 +5,10 @@ import 'package:test/test.dart';
 import 'package:mspelling/data.dart';
 
 void main() {
-  late MyDatabase database;
+  late DataBase database;
 
   setUp(() {
-    database = MyDatabase(connectionOpenner: connectionOpenerTest);
+    database = DataBase(connectionOpenner: connectionOpenerTest);
   });
 
   flutter_test.testWidgets('save single trial to database', (tester) async {
