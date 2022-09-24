@@ -53,7 +53,11 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
   void goBackReturnResponse(BuildContext context) {
     Navigator.pop(
       context,
-      _controller.text,
+
+      /// We assume leading or trailing whitespace do not impact response.
+      /// Just like when writing using paper-and-pencil and there
+      /// is trailling whitespace space
+      _controller.text.trim(),
     );
   }
 }
