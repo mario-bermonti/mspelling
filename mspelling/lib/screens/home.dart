@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                String participantId = _controller.text.toString().trim();
+                String participantId = _controller.text.trim();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
