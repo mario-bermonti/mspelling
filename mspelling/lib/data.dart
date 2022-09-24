@@ -18,9 +18,10 @@ Future<String> getPath() async {
   }
   if (Platform.isAndroid) {
     if (await Permission.storage.request().isGranted) {
-      Directory? dir = await getExternalStorageDirectory();
-      if (dir == null) throw Exception("External storage folder not available");
-      return dir.path;
+      return '/storage/emulated/0/Download/';
+    } else {
+      throw Exception(
+          "Permission required to save files to the Downloads folder.");
     }
   }
   throw Exception("No dir for saving db could be accessed");
@@ -29,7 +30,6 @@ Future<String> getPath() async {
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     String path = await getPath();
-    print("current path $path");
     final file = File(p.join(path, 'mspelling_data.sqlite'));
     return NativeDatabase(file);
   });
