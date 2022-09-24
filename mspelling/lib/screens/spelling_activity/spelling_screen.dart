@@ -23,7 +23,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   final bool _restActive = false;
   final DateTime timeStart = DateTime.now();
   final MyDatabase database = MyDatabase();
-  late final int sessionNumberParticipant;
+  late final int sessionNumber;
 
   @override
   initState() {
@@ -33,7 +33,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void getSessionNumberParticipant() async {
-    sessionNumberParticipant =
+    sessionNumber =
         await database.getCurrentParticipantSessionNumber(widget.participantId);
   }
 
@@ -75,7 +75,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       participantId: widget.participantId,
       stim: _stimuli.currentStim,
       resp: result,
-      session: sessionNumberParticipant,
+      sessionNumber: sessionNumber,
     );
   }
 
@@ -104,13 +104,13 @@ class _SpellingScreenState extends State<SpellingScreen> {
 
   void saveData({required DateTime timeEnd}) {
     database.addSessionData(
-        sessionNumberParticipant: sessionNumberParticipant,
+        sessionNumber: sessionNumber,
         participantId: widget.participantId,
         timeStart: timeStart,
         timeEnd: timeEnd);
     database.addDeviceData(
       participantId: widget.participantId,
-      session: sessionNumberParticipant,
+      sessionNumber: sessionNumber,
     );
 
     database.saveData();

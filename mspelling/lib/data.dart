@@ -93,10 +93,8 @@ class MyDatabase extends _$MyDatabase {
   Future<int> getCurrentParticipantSessionNumber(String participantId) async {
     final List<Session> result = await (select(sessions)
           ..where((session) => session.participantId.equals(participantId))
-          ..orderBy([
-            (session) =>
-                OrderingTerm(expression: session.sessionNumberParticipant)
-          ]))
+          ..orderBy(
+              [(session) => OrderingTerm(expression: session.sessionNumber)]))
         .get();
     return result.length + 1;
   }
@@ -106,13 +104,13 @@ class MyDatabase extends _$MyDatabase {
 
   /// Add data for the current session to later be saved to the db
   void addSessionData({
-    required int sessionNumberParticipant,
+    required int sessionNumber,
     required String participantId,
     required DateTime timeStart,
     required DateTime timeEnd,
   }) {
     sessionData = SessionsCompanion(
-      sessionNumberParticipant: Value(sessionNumberParticipant),
+      sessionNumber: Value(sessionNumber),
       participantId: Value(participantId),
       timeStart: Value(timeStart),
       timeEnd: Value(timeEnd),
@@ -122,11 +120,11 @@ class MyDatabase extends _$MyDatabase {
   /// Add data for the current device to later be saved to the db
   void addDeviceData({
     required String participantId,
-    required int session,
+    required int sessionNumber,
   }) {
     deviceData = DevicesCompanion(
       participantId: Value(participantId),
-      session: Value(session),
+      sessionNumber: Value(sessionNumber),
     );
   }
 
@@ -135,13 +133,13 @@ class MyDatabase extends _$MyDatabase {
     required String participantId,
     required String stim,
     required String resp,
-    required int session,
+    required int sessionNumber,
   }) {
     TrialsCompanion trial = TrialsCompanion(
       participantId: Value(participantId),
       stim: Value(stim),
       resp: Value(resp),
-      session: Value(session),
+      sessionNumber: Value(sessionNumber),
     );
 
     trialsData.add(trial);

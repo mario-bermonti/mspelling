@@ -7,13 +7,13 @@ import 'package:mspelling/models.dart';
 void main() {
   // testWidgets('models current date, time not included', (tester) async {
   //   // obs
-  //   Session session = Session(
+  //   sessionNumber sessionNumber = sessionNumber(
   //     participantId: '01',
   //     timeStart: TimeOfDay.now(),
   //     timeEnd: TimeOfDay.now(),
   //   );
 
-  //   DateTime obs = DateTime(session.date.month, session.date.day);
+  //   DateTime obs = DateTime(sessionNumber.date.month, sessionNumber.date.day);
 
   //   // exp
   //   DateTime currentDateTime = DateTime.now().toLocal();

@@ -15,7 +15,7 @@ void main() {
     /// exp
     var exp = const TrialsCompanion(
       participantId: Value('001'),
-      session: Value(1),
+      sessionNumber: Value(1),
       stim: Value('gato'),
       resp: Value('gato'),
     );
@@ -38,8 +38,8 @@ void main() {
       exp.participantId.value,
     );
     flutter_test.expect(
-      obs.session.value,
-      exp.session.value,
+      obs.sessionNumber.value,
+      exp.sessionNumber.value,
     );
     flutter_test.expect(
       obs.stim.value,
@@ -59,7 +59,7 @@ void main() {
       participantId: Value('001'),
       stim: Value('gato'),
       resp: Value('gato'),
-      session: Value(1),
+      sessionNumber: Value(1),
     );
 
     // trial 2
@@ -67,7 +67,7 @@ void main() {
       participantId: Value('002'),
       stim: Value('perro'),
       resp: Value('perros'),
-      session: Value(2),
+      sessionNumber: Value(2),
     );
 
     database.trialsData.addAll([exp1, exp2]);
@@ -83,8 +83,8 @@ void main() {
       exp1.participantId.value,
     );
     flutter_test.expect(
-      obs[0].session,
-      exp1.session.value,
+      obs[0].sessionNumber,
+      exp1.sessionNumber.value,
     );
     flutter_test.expect(
       obs[0].stim,
@@ -100,8 +100,8 @@ void main() {
       exp2.participantId.value,
     );
     flutter_test.expect(
-      obs[1].session,
-      exp2.session.value,
+      obs[1].sessionNumber,
+      exp2.sessionNumber.value,
     );
     flutter_test.expect(
       obs[1].stim,
@@ -113,10 +113,10 @@ void main() {
     );
   });
 
-  flutter_test.testWidgets('save session to database', (tester) async {
+  flutter_test.testWidgets('save sessionNumber to database', (tester) async {
     /// exp
     var exp = SessionsCompanion(
-      sessionNumberParticipant: const Value(1),
+      sessionNumber: const Value(1),
       participantId: const Value('001'),
       timeStart: Value(DateTime.now()),
       timeEnd: Value(DateTime.now()),
@@ -129,7 +129,7 @@ void main() {
 
     /// checks
     /// TODO Check if there is a simpler way to compare them
-    /// They are of different type (session vs SessionsCompanion) and
+    /// They are of different type (Session vs SessionsCompanion) and
     /// the former users Value() so compare them.
     flutter_test.expect(obs.id.value, expId);
     flutter_test.expect(
@@ -137,8 +137,8 @@ void main() {
       exp.participantId.value,
     );
     flutter_test.expect(
-      obs.sessionNumberParticipant.value,
-      exp.sessionNumberParticipant.value,
+      obs.sessionNumber.value,
+      exp.sessionNumber.value,
     );
 
     /// TimeStart
@@ -180,7 +180,7 @@ void main() {
     /// exp
     var exp = const DevicesCompanion(
       participantId: Value('001'),
-      session: Value(1),
+      sessionNumber: Value(1),
     );
     final int expId = await database.insertDevice(exp);
 
@@ -205,12 +205,12 @@ void main() {
       exp.participantId.value,
     );
     flutter_test.expect(
-      obs.session.value,
-      exp.session.value,
+      obs.sessionNumber.value,
+      exp.sessionNumber.value,
     );
   });
 
-  flutter_test.testWidgets('get current session id - first session',
+  flutter_test.testWidgets('get current sessionNumber id - first sessionNumber',
       (tester) async {
     const int exp = 1;
     final int obs = await database.getCurrentParticipantSessionNumber('001');
@@ -218,19 +218,19 @@ void main() {
   });
 
   /// TODO use max value instead or rethink this
-  flutter_test.testWidgets('get current session id - second session',
-      (tester) async {
+  flutter_test.testWidgets(
+      'get current sessionNumber id - second sessionNumber', (tester) async {
     const int exp = 2;
     const participantId = '001';
 
     /// create previous sessions for user
-    var session = SessionsCompanion(
-      sessionNumberParticipant: const Value(1),
+    var sessionNumber = SessionsCompanion(
+      sessionNumber: const Value(1),
       participantId: const Value(participantId),
       timeStart: Value(DateTime.now()),
       timeEnd: Value(DateTime.now()),
     );
-    await database.insertSession(session);
+    await database.insertSession(sessionNumber);
 
     /// obs
     final int obs =
@@ -240,14 +240,14 @@ void main() {
     flutter_test.expect(obs, exp);
   });
 
-  flutter_test.testWidgets('get current session id - 3+ session',
+  flutter_test.testWidgets('get current sessionNumber id - 3+ sessionNumber',
       (tester) async {
     const int exp = 3;
     const participantId = '001';
 
     /// create previous sessions for user
     var session1 = SessionsCompanion(
-      sessionNumberParticipant: const Value(1),
+      sessionNumber: const Value(1),
       participantId: const Value(participantId),
       timeStart: Value(DateTime.now()),
       timeEnd: Value(DateTime.now()),
@@ -255,7 +255,7 @@ void main() {
     await database.insertSession(session1);
 
     var session2 = SessionsCompanion(
-      sessionNumberParticipant: const Value(2),
+      sessionNumber: const Value(2),
       participantId: const Value(participantId),
       timeStart: Value(DateTime.now()),
       timeEnd: Value(DateTime.now()),
@@ -275,18 +275,18 @@ void main() {
     /// await database closing because it caused the  test to hang
     database.close();
   });
-  flutter_test.testWidgets('add data to data manager - session ',
+  flutter_test.testWidgets('add data to data manager - sessionNumber ',
       (tester) async {
     // set up
     var exp = SessionsCompanion(
-      sessionNumberParticipant: const Value(1),
+      sessionNumber: const Value(1),
       participantId: const Value('001'),
       timeStart: Value(DateTime.now()),
       timeEnd: Value(DateTime.now()),
     );
 
     database.addSessionData(
-      sessionNumberParticipant: exp.sessionNumberParticipant.value,
+      sessionNumber: exp.sessionNumber.value,
       participantId: exp.participantId.value,
       timeStart: exp.timeStart.value,
       timeEnd: exp.timeEnd.value,
@@ -301,12 +301,12 @@ void main() {
     // set up
     var exp = const DevicesCompanion(
       participantId: Value('001'),
-      session: Value(1),
+      sessionNumber: Value(1),
     );
 
     database.addDeviceData(
       participantId: exp.participantId.value,
-      session: exp.session.value,
+      sessionNumber: exp.sessionNumber.value,
     );
 
     DevicesCompanion obs = database.deviceData;
@@ -321,14 +321,14 @@ void main() {
       participantId: Value('001'),
       stim: Value('gato'),
       resp: Value('gato'),
-      session: Value(1),
+      sessionNumber: Value(1),
     );
 
     database.addTrialData(
       participantId: exp.participantId.value,
       stim: exp.stim.value,
       resp: exp.resp.value,
-      session: exp.session.value,
+      sessionNumber: exp.sessionNumber.value,
     );
 
     TrialsCompanion obs = database.trialsData[0];
@@ -343,14 +343,14 @@ void main() {
       participantId: Value('001'),
       stim: Value('gato'),
       resp: Value('gato'),
-      session: Value(1),
+      sessionNumber: Value(1),
     );
 
     database.addTrialData(
       participantId: exp1.participantId.value,
       stim: exp1.stim.value,
       resp: exp1.resp.value,
-      session: exp1.session.value,
+      sessionNumber: exp1.sessionNumber.value,
     );
 
     TrialsCompanion obs1 = database.trialsData[0];
@@ -361,14 +361,14 @@ void main() {
       participantId: Value('002'),
       stim: Value('perro'),
       resp: Value('perros'),
-      session: Value(2),
+      sessionNumber: Value(2),
     );
 
     database.addTrialData(
       participantId: exp2.participantId.value,
       stim: exp2.stim.value,
       resp: exp2.resp.value,
-      session: exp2.session.value,
+      sessionNumber: exp2.sessionNumber.value,
     );
 
     TrialsCompanion obs2 = database.trialsData[1];
@@ -379,11 +379,11 @@ void main() {
     // create objects
     var expDevice = const DevicesCompanion(
       participantId: Value('001'),
-      session: Value(1),
+      sessionNumber: Value(1),
     );
 
     var expSession = SessionsCompanion(
-      sessionNumberParticipant: const Value(1),
+      sessionNumber: const Value(1),
       participantId: const Value('001'),
       timeStart: Value(DateTime.now()),
       timeEnd: Value(DateTime.now()),
@@ -391,7 +391,7 @@ void main() {
 
     var expTrials = const TrialsCompanion(
       participantId: Value('001'),
-      session: Value(1),
+      sessionNumber: Value(1),
       stim: Value('gato'),
       resp: Value('gato'),
     );
