@@ -49,7 +49,7 @@ sphinxemoji = "^0.2.0"
 # testing
 pytest = "^6.2.4"
 pytest-cov = "^3.0.0"
-xdoctest = "^0.15.4"
+xdoctest = "^1.1.0"
 coverage = {version = "^6.3", extras = ["toml"]}
 
 # linting
