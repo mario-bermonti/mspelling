@@ -27,7 +27,7 @@ Future<String> getPath() async {
   throw Exception("No dir for saving db could be accessed");
 }
 
-LazyDatabase _openConnection() {
+LazyDatabase _dbProvider() {
   return LazyDatabase(() async {
     String path = await getPath();
     final file = File(p.join(path, 'mspelling_data.sqlite'));
@@ -41,7 +41,7 @@ class DataBase extends _$DataBase {
   late DevicesCompanion deviceData;
   List<TrialsCompanion> trialsData = <TrialsCompanion>[];
 
-  DataBase({Function connectionOpenner = _openConnection})
+  DataBase({Function connectionOpenner = _dbProvider})
       : super(connectionOpenner());
 
   @override
