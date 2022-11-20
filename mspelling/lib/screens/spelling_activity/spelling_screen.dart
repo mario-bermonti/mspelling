@@ -77,6 +77,9 @@ class _SpellingScreenState extends State<SpellingScreen> {
       resp: result,
       sessionNumber: sessionNumber,
     );
+    Future.delayed(const Duration(seconds: 1), () {
+      run(context);
+    });
   }
 
   void presentRestCond() {
