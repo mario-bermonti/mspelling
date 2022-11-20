@@ -30,6 +30,9 @@ class _SpellingScreenState extends State<SpellingScreen> {
     super.initState();
     getStimuli();
     getSessionNumberParticipant();
+    Future.delayed(const Duration(seconds: 1), () {
+      run(context);
+    });
   }
 
   void getSessionNumberParticipant() async {
