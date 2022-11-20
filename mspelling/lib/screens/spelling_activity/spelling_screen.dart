@@ -129,19 +129,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
         title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
-      body: CenteredBox(
-        column: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                run(context);
-              },
-              child: const DefaultText(text: 'Seguir'),
-            ),
-          ],
-        ),
-      ),
+      body: Container(),
     );
   }
 }
