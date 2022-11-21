@@ -30,12 +30,7 @@ class _RestScreenState extends State<RestScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SpellingScreen(widget.participantId),
-                  ),
-                );
+                Navigator.pop(context);
               },
               child: const DefaultText(text: 'Presionar para comenzar'),
             ),
