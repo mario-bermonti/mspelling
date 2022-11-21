@@ -46,7 +46,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       return;
     }
     presentTrial(context);
-    presentRestCond();
+    // presentRestCond();
   }
 
   getStimuli() async {
@@ -80,6 +80,14 @@ class _SpellingScreenState extends State<SpellingScreen> {
       resp: result,
       sessionNumber: sessionNumber,
     );
+
+    if (_stimuli.stimCountUsed % 5 == 0) {
+      setState(() {
+        _restActive = true;
+      });
+      await presentRestCond();
+    }
+
     Future.delayed(const Duration(seconds: 1), () {
       run(context);
     });
