@@ -85,9 +85,9 @@ class _SpellingScreenState extends State<SpellingScreen> {
     });
   }
 
-  void presentRestCond() {
+  Future<void> presentRestCond() async {
     if (_restActive) {
-      Navigator.push(
+      await Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => RestScreen(widget.participantId),
