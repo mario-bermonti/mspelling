@@ -46,7 +46,10 @@ class _SpellingScreenState extends State<SpellingScreen> {
     } else if (_stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0) {
       await presentRestCond();
     }
-    presentTrial(context);
+    await presentTrial(context);
+    Future.delayed(const Duration(seconds: 1), () {
+      run(context);
+    });
   }
 
   getStimuli() async {
@@ -57,7 +60,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
     _stimuli = stimuli;
   }
 
-  void presentTrial(context) async {
+  Future<void> presentTrial(context) async {
     _stimuli.next();
 
     await Navigator.push(
@@ -80,10 +83,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
       resp: result,
       sessionNumber: sessionNumber,
     );
-
-    Future.delayed(const Duration(seconds: 1), () {
-      run(context);
-    });
   }
 
   Future<void> presentRestCond() async {
