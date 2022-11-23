@@ -20,7 +20,6 @@ class SpellingScreen extends StatefulWidget {
 
 class _SpellingScreenState extends State<SpellingScreen> {
   late final Stimuli _stimuli;
-  bool _restActive = false;
   final DateTime timeStart = DateTime.now();
   final DataBase database = DataBase();
   late final int sessionNumber;
@@ -82,9 +81,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
     );
 
     if (_stimuli.stimCountUsed % 5 == 0) {
-      setState(() {
-        _restActive = true;
-      });
       await presentRestCond();
     }
 
@@ -94,14 +90,12 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   Future<void> presentRestCond() async {
-    if (_restActive) {
-      await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => RestScreen(widget.participantId),
-        ),
-      );
-    }
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RestScreen(widget.participantId),
+      ),
+    );
   }
 
   void endSession() {
