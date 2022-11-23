@@ -39,13 +39,14 @@ class _SpellingScreenState extends State<SpellingScreen> {
         await database.getCurrentParticipantSessionNumber(widget.participantId);
   }
 
-  void run(context) {
+  Future<void> run(context) async {
     if (_stimuli.stimCountRemaining == 0) {
       endSession();
       return;
+    } else if (_stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0) {
+      await presentRestCond();
     }
     presentTrial(context);
-    // presentRestCond();
   }
 
   getStimuli() async {
@@ -79,10 +80,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
       resp: result,
       sessionNumber: sessionNumber,
     );
-
-    if (_stimuli.stimCountUsed % 5 == 0) {
-      await presentRestCond();
-    }
 
     Future.delayed(const Duration(seconds: 1), () {
       run(context);
