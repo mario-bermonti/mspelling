@@ -40,16 +40,19 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   Future<void> run(context) async {
+    await presentTrial(context);
+
     if (_stimuli.stimCountRemaining == 0) {
       endSession();
       return;
     } else if (_stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0) {
       await presentRestCond();
-    }
-    await presentTrial(context);
-    Future.delayed(const Duration(seconds: 1), () {
       run(context);
-    });
+    } else {
+      Future.delayed(const Duration(seconds: 1), () {
+        run(context);
+      });
+    }
   }
 
   getStimuli() async {
