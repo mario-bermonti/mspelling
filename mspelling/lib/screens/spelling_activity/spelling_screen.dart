@@ -49,7 +49,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       await presentRestCond();
       run(context);
     } else {
-      Future.delayed(const Duration(seconds: 1), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         run(context);
       });
     }
