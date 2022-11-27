@@ -31,7 +31,9 @@ class _RestScreenState extends State<RestScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Future.delayed(const Duration(milliseconds: 500), () {
+                  Navigator.pop(context);
+                });
               },
               child: const DefaultText(text: 'Presionar para comenzar'),
             ),
