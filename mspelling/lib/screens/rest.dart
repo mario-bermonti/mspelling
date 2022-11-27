@@ -35,7 +35,7 @@ class _RestScreenState extends State<RestScreen> {
                   Navigator.pop(context);
                 });
               },
-              child: const DefaultText(text: 'Presionar para comenzar'),
+              child: const DefaultText(text: 'Comenzar'),
             ),
           ],
         ),
