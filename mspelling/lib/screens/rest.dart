@@ -19,6 +19,7 @@ class _RestScreenState extends State<RestScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(appBarTitle),
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Column(
