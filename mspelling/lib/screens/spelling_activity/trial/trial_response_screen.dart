@@ -6,6 +6,8 @@ import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 
 class TrialResponseScreen extends StatefulWidget {
+  /// Screen for collecting response from participant
+
   const TrialResponseScreen({Key? key}) : super(key: key);
 
   @override
