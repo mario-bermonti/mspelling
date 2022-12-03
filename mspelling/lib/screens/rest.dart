@@ -5,6 +5,8 @@ import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
 
 class RestScreen extends StatefulWidget {
+  // Rest screen for participants. They start again whenever they want.
+
   final String participantId;
 
   const RestScreen(this.participantId, {Key? key}) : super(key: key);
