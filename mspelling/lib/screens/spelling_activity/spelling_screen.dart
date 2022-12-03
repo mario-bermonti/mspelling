@@ -38,7 +38,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
     getStimuli();
     getSessionNumberParticipant();
     Future.delayed(const Duration(seconds: 1), () {
-      run(context);
+      run(context); // for it to access context
     });
   }
 
@@ -96,6 +96,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       ),
     );
 
+    // TODO move to run method (not part of trial)
     database.addTrialData(
       participantId: widget.participantId,
       stim: _stimuli.currentStim,
@@ -104,6 +105,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
     );
   }
 
+  // TODO Rename, not cond
   Future<void> presentRestCond() async {
     await Navigator.push(
       context,
@@ -129,6 +131,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   void saveData({required DateTime timeEnd}) {
     /// Save data to disk
 
+    // TODO move to endSession method (not really saving)
     database.addSessionData(
         sessionNumber: sessionNumber,
         participantId: widget.participantId,
