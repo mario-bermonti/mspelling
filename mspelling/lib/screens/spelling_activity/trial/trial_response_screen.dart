@@ -37,12 +37,12 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
             const DefaultText(
               text: 'Escribe la palabra:',
             ),
-            const SpacingHolder(),
+            const BetweenWidgetsSpace(),
             DefaultTextField(controller: _controller),
-            const SpacingHolder(),
+            const BetweenWidgetsSpace(),
             ElevatedButton(
               onPressed: () {
-                _goBackReturnResponse(context);
+                _goBack(context);
               },
               child: const DefaultText(text: 'Seguir'),
             ),
@@ -52,7 +52,7 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
     );
   }
 
-  void _goBackReturnResponse(BuildContext context) {
+  void _goBack(BuildContext context) {
     Navigator.pop(
       context,
 

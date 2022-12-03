@@ -9,19 +9,19 @@ import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
 import 'package:mspelling/stim.dart';
 
-class SpellingScreen extends StatefulWidget {
+class SpellingActivity extends StatefulWidget {
   // Controls the task's sequences
   // It has no ui representation
 
   final String participantId;
 
-  const SpellingScreen(this.participantId, {Key? key}) : super(key: key);
+  const SpellingActivity(this.participantId, {Key? key}) : super(key: key);
 
   @override
-  State<SpellingScreen> createState() => _SpellingScreenState();
+  State<SpellingActivity> createState() => _SpellingActivityState();
 }
 
-class _SpellingScreenState extends State<SpellingScreen> {
+class _SpellingActivityState extends State<SpellingActivity> {
   /// Stimuli used in the task
   late final Stimuli _stimuli;
 
@@ -35,7 +35,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   @override
   initState() {
     super.initState();
-    _getStimuli();
+    _prepareStimuli();
     _getSessionNumberParticipant();
     Future.delayed(const Duration(seconds: 1), () {
       _run(context); // for it to access context
@@ -60,7 +60,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       _endSession();
       return;
     } else if (_stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0) {
-      await _presentRestCond();
+      await _presentRest();
       _run(context);
     } else {
       /// ITI
@@ -71,7 +71,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   /// Prepare stim to be used
-  _getStimuli() async {
+  _prepareStimuli() async {
     Stimuli stimuli =
         await createStimFromFile('assets/stimuli/stimuli_tests.txt');
     // await createStimFromFile('assets/stimuli/stimuli.txt');
@@ -106,7 +106,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   // TODO Rename, not cond
-  Future<void> _presentRestCond() async {
+  Future<void> _presentRest() async {
     await Navigator.push(
       context,
       MaterialPageRoute(

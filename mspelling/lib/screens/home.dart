@@ -40,9 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
             const DefaultText(
               text: 'Id participante:',
             ),
-            const SpacingHolder(),
+            const BetweenWidgetsSpace(),
             DefaultTextField(controller: _controller),
-            const SpacingHolder(),
+            const BetweenWidgetsSpace(),
             ElevatedButton(
               onPressed: () {
                 String participantId =

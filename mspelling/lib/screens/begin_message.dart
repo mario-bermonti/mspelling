@@ -29,13 +29,14 @@ class _BeginScreenState extends State<BeginScreen> {
             const DefaultText(
               text: 'Comencemos',
             ),
-            const SpacingHolder(),
+            const BetweenWidgetsSpace(),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SpellingScreen(widget.participantId),
+                    builder: (context) =>
+                        SpellingActivity(widget.participantId),
                   ),
                 );
               },

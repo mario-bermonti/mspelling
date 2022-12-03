@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/screens/home.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MSpelling extends StatelessWidget {
+  const MSpelling({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

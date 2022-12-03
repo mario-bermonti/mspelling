@@ -30,7 +30,7 @@ class _RestScreenState extends State<RestScreen> {
             const DefaultText(
               text: 'Descansa',
             ),
-            const SpacingHolder(),
+            const BetweenWidgetsSpace(),
             ElevatedButton(
               onPressed: () {
                 Future.delayed(const Duration(milliseconds: 500), () {

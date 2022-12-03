@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SpacingHolder extends StatelessWidget {
-  const SpacingHolder({
+class BetweenWidgetsSpace extends StatelessWidget {
+  const BetweenWidgetsSpace({
     Key? key,
   }) : super(key: key);
 

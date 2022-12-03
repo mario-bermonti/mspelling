@@ -31,12 +31,12 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
 
   /// Controls the sequence of events.
   void run() {
-    _playStim();
+    _presentStim();
     _goBack();
   }
 
   /// Present the stim once to the participant
-  void _playStim() async {
+  void _presentStim() async {
     String stim = widget.stim;
     AssetSource source = AssetSource('audio/$stim.wav');
     await _audioplayer.setSource(source);
