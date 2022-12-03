@@ -1,3 +1,5 @@
+/// Data manager
+
 import 'dart:io';
 
 import 'package:drift/drift.dart';
@@ -9,7 +11,8 @@ import 'package:permission_handler/permission_handler.dart';
 
 part 'data.g.dart';
 
-/// Return appropriate directory path for saving data depending on the OS
+/// Return the path to the downloads folder
+/// It is aware of different OS
 Future<String> getPath() async {
   if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
     Directory? dir = await getDownloadsDirectory();
@@ -27,6 +30,8 @@ Future<String> getPath() async {
   throw Exception("No dir for saving db could be accessed");
 }
 
+/// Provide a database to be used
+/// The database is created or used from a location based on the OS.
 LazyDatabase _dbProvider() {
   return LazyDatabase(() async {
     String path = await getPath();
@@ -37,6 +42,8 @@ LazyDatabase _dbProvider() {
 
 @DriftDatabase(tables: [Sessions, Trials, Devices])
 class DataBase extends _$DataBase {
+  /// Data manager
+
   late SessionsCompanion sessionData;
   late DevicesCompanion deviceData;
   List<TrialsCompanion> trialsData = <TrialsCompanion>[];
