@@ -8,6 +8,9 @@ import 'package:mspelling/components/spacing_holder.dart';
 import 'begin_message.dart';
 
 class HomeScreen extends StatefulWidget {
+  // Home screen which requires users to login by using their
+  // participant ids.
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -42,7 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                String participantId = _controller.text.trim();
+                String participantId =
+                    _controller.text.trim(); // spaces are meaningless in ids.
                 Navigator.push(
                   context,
                   MaterialPageRoute(
