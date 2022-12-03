@@ -1,6 +1,8 @@
 import 'package:flutter/services.dart';
 
 class Stimuli {
+  /// Stimuli manager. Can be created from a file or iterable.
+
   /// A list of the stimuli
   late var stimuli = <String>[];
 
