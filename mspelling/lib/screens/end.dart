@@ -3,6 +3,10 @@ import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/default_text.dart';
 
 class EndScreen extends StatefulWidget {
+  /// Communicate the participant the task has ended.
+  /// Doesn't allow going back or restarting so the experimenter has control
+  /// over the session.
+
   const EndScreen({Key? key}) : super(key: key);
 
   @override
