@@ -10,6 +10,9 @@ import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart
 import 'package:mspelling/stim.dart';
 
 class SpellingScreen extends StatefulWidget {
+  // Controls the task's sequences
+  // It has no ui representation
+
   final String participantId;
 
   const SpellingScreen(this.participantId, {Key? key}) : super(key: key);
@@ -19,9 +22,14 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
+  /// Stimuli used in the task
   late final Stimuli _stimuli;
+
+  /// Global task start time
   final DateTime timeStart = DateTime.now();
   final DataBase database = DataBase();
+
+  /// Session  number for current participant
   late final int sessionNumber;
 
   @override
@@ -34,14 +42,20 @@ class _SpellingScreenState extends State<SpellingScreen> {
     });
   }
 
+  /// Helper method to get the session number for the current participant
+  /// from the db
   void getSessionNumberParticipant() async {
     sessionNumber =
         await database.getCurrentParticipantSessionNumber(widget.participantId);
   }
 
   Future<void> run(context) async {
+    /// Controls the sequence of the task, including presenting trials, rests,
+    /// ITI, ending the session.
+
     await presentTrial(context);
 
+    // No more trials
     if (_stimuli.stimCountRemaining == 0) {
       endSession();
       return;
@@ -49,12 +63,14 @@ class _SpellingScreenState extends State<SpellingScreen> {
       await presentRestCond();
       run(context);
     } else {
+      /// ITI
       Future.delayed(const Duration(milliseconds: 500), () {
         run(context);
       });
     }
   }
 
+  /// Prepare stim to be used
   getStimuli() async {
     Stimuli stimuli =
         await createStimFromFile('assets/stimuli/stimuli_tests.txt');
@@ -98,6 +114,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void endSession() {
+    /// Global session end time
     final DateTime timeEnd = DateTime.now();
     saveData(timeEnd: timeEnd);
 
@@ -110,6 +127,8 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void saveData({required DateTime timeEnd}) {
+    /// Save data to disk
+
     database.addSessionData(
         sessionNumber: sessionNumber,
         participantId: widget.participantId,
@@ -125,6 +144,8 @@ class _SpellingScreenState extends State<SpellingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Just a dummy function because we need(?) the Spelling screen to be a
+    // widget for it to access context
     return Scaffold(
       appBar: AppBar(
         title: const Text(appBarTitle),
