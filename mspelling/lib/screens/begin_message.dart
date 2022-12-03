@@ -5,6 +5,8 @@ import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
 
 class BeginScreen extends StatefulWidget {
+  // Allows the user to indicate when to start task.
+
   final String participantId;
 
   const BeginScreen(this.participantId, {Key? key}) : super(key: key);
