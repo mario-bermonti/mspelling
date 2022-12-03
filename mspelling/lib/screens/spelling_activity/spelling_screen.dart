@@ -26,52 +26,52 @@ class _SpellingScreenState extends State<SpellingScreen> {
   late final Stimuli _stimuli;
 
   /// Global task start time
-  final DateTime timeStart = DateTime.now();
-  final DataBase database = DataBase();
+  final DateTime _timeStart = DateTime.now();
+  final DataBase _database = DataBase();
 
   /// Session  number for current participant
-  late final int sessionNumber;
+  late final int _sessionNumber;
 
   @override
   initState() {
     super.initState();
-    getStimuli();
-    getSessionNumberParticipant();
+    _getStimuli();
+    _getSessionNumberParticipant();
     Future.delayed(const Duration(seconds: 1), () {
-      run(context); // for it to access context
+      _run(context); // for it to access context
     });
   }
 
   /// Helper method to get the session number for the current participant
   /// from the db
-  void getSessionNumberParticipant() async {
-    sessionNumber =
-        await database.getCurrentParticipantSessionNumber(widget.participantId);
+  void _getSessionNumberParticipant() async {
+    _sessionNumber = await _database
+        .getCurrentParticipantSessionNumber(widget.participantId);
   }
 
-  Future<void> run(context) async {
+  Future<void> _run(context) async {
     /// Controls the sequence of the task, including presenting trials, rests,
     /// ITI, ending the session.
 
-    await presentTrial(context);
+    await _presentTrial(context);
 
     // No more trials
     if (_stimuli.stimCountRemaining == 0) {
-      endSession();
+      _endSession();
       return;
     } else if (_stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0) {
-      await presentRestCond();
-      run(context);
+      await _presentRestCond();
+      _run(context);
     } else {
       /// ITI
       Future.delayed(const Duration(milliseconds: 500), () {
-        run(context);
+        _run(context);
       });
     }
   }
 
   /// Prepare stim to be used
-  getStimuli() async {
+  _getStimuli() async {
     Stimuli stimuli =
         await createStimFromFile('assets/stimuli/stimuli_tests.txt');
     // await createStimFromFile('assets/stimuli/stimuli.txt');
@@ -79,7 +79,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
     _stimuli = stimuli;
   }
 
-  Future<void> presentTrial(context) async {
+  Future<void> _presentTrial(context) async {
     _stimuli.next();
 
     await Navigator.push(
@@ -97,16 +97,16 @@ class _SpellingScreenState extends State<SpellingScreen> {
     );
 
     // TODO move to run method (not part of trial)
-    database.addTrialData(
+    _database.addTrialData(
       participantId: widget.participantId,
       stim: _stimuli.currentStim,
       resp: result,
-      sessionNumber: sessionNumber,
+      sessionNumber: _sessionNumber,
     );
   }
 
   // TODO Rename, not cond
-  Future<void> presentRestCond() async {
+  Future<void> _presentRestCond() async {
     await Navigator.push(
       context,
       MaterialPageRoute(
@@ -115,10 +115,10 @@ class _SpellingScreenState extends State<SpellingScreen> {
     );
   }
 
-  void endSession() {
+  void _endSession() {
     /// Global session end time
     final DateTime timeEnd = DateTime.now();
-    saveData(timeEnd: timeEnd);
+    _saveData(timeEnd: timeEnd);
 
     Navigator.push(
       context,
@@ -128,21 +128,21 @@ class _SpellingScreenState extends State<SpellingScreen> {
     );
   }
 
-  void saveData({required DateTime timeEnd}) {
+  void _saveData({required DateTime timeEnd}) {
     /// Save data to disk
 
     // TODO move to endSession method (not really saving)
-    database.addSessionData(
-        sessionNumber: sessionNumber,
+    _database.addSessionData(
+        sessionNumber: _sessionNumber,
         participantId: widget.participantId,
-        timeStart: timeStart,
+        timeStart: _timeStart,
         timeEnd: timeEnd);
-    database.addDeviceData(
+    _database.addDeviceData(
       participantId: widget.participantId,
-      sessionNumber: sessionNumber,
+      sessionNumber: _sessionNumber,
     );
 
-    database.saveData();
+    _database.saveData();
   }
 
   @override

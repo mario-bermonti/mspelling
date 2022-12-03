@@ -42,7 +42,7 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
             const SpacingHolder(),
             ElevatedButton(
               onPressed: () {
-                goBackReturnResponse(context);
+                _goBackReturnResponse(context);
               },
               child: const DefaultText(text: 'Seguir'),
             ),
@@ -52,7 +52,7 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
     );
   }
 
-  void goBackReturnResponse(BuildContext context) {
+  void _goBackReturnResponse(BuildContext context) {
     Navigator.pop(
       context,
 

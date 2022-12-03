@@ -31,12 +31,12 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
 
   /// Controls the sequence of events.
   void run() {
-    playStim();
-    goBack();
+    _playStim();
+    _goBack();
   }
 
   /// Present the stim once to the participant
-  void playStim() async {
+  void _playStim() async {
     String stim = widget.stim;
     AssetSource source = AssetSource('audio/$stim.wav');
     await _audioplayer.setSource(source);
@@ -44,7 +44,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   }
 
   /// Includes a ISI
-  void goBack() {
+  void _goBack() {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.pop(context);
     });

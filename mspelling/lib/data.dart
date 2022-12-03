@@ -13,7 +13,7 @@ part 'data.g.dart';
 
 /// Return the path to the downloads folder
 /// It is aware of different OS
-Future<String> getPath() async {
+Future<String> _getPath() async {
   if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
     Directory? dir = await getDownloadsDirectory();
     if (dir == null) throw Exception("Downloads folder not available");
@@ -34,7 +34,7 @@ Future<String> getPath() async {
 /// The database is created or used from a location based on the OS.
 LazyDatabase _dbProvider() {
   return LazyDatabase(() async {
-    String path = await getPath();
+    String path = await _getPath();
     final file = File(p.join(path, 'mspelling_data.sqlite'));
     return NativeDatabase(file);
   });
