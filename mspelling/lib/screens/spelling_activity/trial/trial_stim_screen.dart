@@ -4,6 +4,8 @@ import 'package:mspelling/components/centeredbox.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class TrialStimScreen extends StatefulWidget {
+  /// In this screen we present the stims to participants
+
   final String stim;
 
   const TrialStimScreen({Key? key, required this.stim}) : super(key: key);
@@ -27,11 +29,13 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
     super.dispose();
   }
 
+  /// Controls the sequence of events.
   void run() {
     playStim();
     goBack();
   }
 
+  /// Present the stim once to the participant
   void playStim() async {
     String stim = widget.stim;
     AssetSource source = AssetSource('audio/$stim.wav');
@@ -39,6 +43,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
     await _audioplayer.play(source);
   }
 
+  /// Includes a ISI
   void goBack() {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.pop(context);
