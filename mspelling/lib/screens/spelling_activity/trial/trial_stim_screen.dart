@@ -58,7 +58,6 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
         automaticallyImplyLeading: false,
       ),
       body: CenteredBox(
-        // TODO check if structure can be simplified
         column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
