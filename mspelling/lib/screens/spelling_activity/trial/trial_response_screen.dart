@@ -15,7 +15,7 @@ class TrialResponseScreen extends StatefulWidget {
 }
 
 class _TrialResponseScreenState extends State<TrialResponseScreen> {
-  final _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void dispose() {
