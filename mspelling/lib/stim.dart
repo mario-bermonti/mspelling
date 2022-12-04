@@ -4,7 +4,7 @@ class Stimuli {
   /// Stimuli manager. Can be created from a file or iterable.
 
   /// A list of the stimuli
-  late var stimuli = <String>[];
+  late List<String> stimuli = <String>[];
 
   /// Current stimuli after running the [next] method.
   late String currentStim;

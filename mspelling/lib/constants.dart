@@ -1,1 +1,1 @@
-const appBarTitle = "mSpelling";
+const String appBarTitle = "mSpelling";

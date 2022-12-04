@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-const textFieldStyle = InputDecoration(
+const InputDecoration textFieldStyle = InputDecoration(
   border: OutlineInputBorder(),
 );
 
-const textStyle = TextStyle(
+const TextStyle textStyle = TextStyle(
   fontSize: 18,
 );

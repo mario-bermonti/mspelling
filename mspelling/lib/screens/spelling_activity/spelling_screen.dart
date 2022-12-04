@@ -71,7 +71,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
   }
 
   /// Prepare stim to be used
-  _prepareStimuli() async {
+  Future<void> _prepareStimuli() async {
     Stimuli stimuli =
         await createStimFromFile('assets/stimuli/stimuli_tests.txt');
     // await createStimFromFile('assets/stimuli/stimuli.txt');

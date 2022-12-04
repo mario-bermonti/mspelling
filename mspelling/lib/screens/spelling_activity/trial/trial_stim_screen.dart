@@ -15,7 +15,7 @@ class TrialStimScreen extends StatefulWidget {
 }
 
 class _TrialStimScreenState extends State<TrialStimScreen> {
-  final _audioplayer = AudioPlayer();
+  final AudioPlayer _audioplayer = AudioPlayer();
 
   @override
   void initState() {

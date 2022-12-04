@@ -59,9 +59,10 @@ class DataBase extends _$DataBase {
   //////////////
 
   Future<int> insertTrial(TrialsCompanion trial) => into(trials).insert(trial);
-  Future insertSession(SessionsCompanion session) =>
+  Future<int> insertSession(SessionsCompanion session) =>
       into(sessions).insert(session);
-  Future insertDevice(DevicesCompanion device) => into(devices).insert(device);
+  Future<int> insertDevice(DevicesCompanion device) =>
+      into(devices).insert(device);
   Future<void> insertTrials() async {
     await batch((batch) => batch.insertAll(trials, trialsData));
   }
