@@ -103,7 +103,6 @@ class _SpellingActivityState extends State<SpellingActivity> {
     return result;
   }
 
-  // TODO Rename, not cond
   Future<void> _presentRest() async {
     await Navigator.push(
       context,
