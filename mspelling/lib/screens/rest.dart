@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
-import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
 
 class RestScreen extends StatefulWidget {
   // Rest screen for participants. They start again whenever they want.
