@@ -98,9 +98,7 @@ class DataBase extends _$DataBase {
   /// based on how many sessions the participant has completed before.
   Future<int> getCurrentParticipantSessionNumber(String participantId) async {
     final List<Session> result = await (select(sessions)
-          ..where((session) => session.participantId.equals(participantId))
-          ..orderBy(
-              [(session) => OrderingTerm(expression: session.sessionNumber)]))
+          ..where((session) => session.participantId.equals(participantId)))
         .get();
     return result.length + 1;
   }
