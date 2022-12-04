@@ -114,7 +114,18 @@ class _SpellingActivityState extends State<SpellingActivity> {
 
   void _endSession() {
     /// Global session end time
+
     final DateTime timeEnd = DateTime.now();
+
+    _database.addSessionData(
+        sessionNumber: _sessionNumber,
+        participantId: widget.participantId,
+        timeStart: _timeStart,
+        timeEnd: timeEnd);
+    _database.addDeviceData(
+      participantId: widget.participantId,
+      sessionNumber: _sessionNumber,
+    );
     _saveData(timeEnd: timeEnd);
 
     Navigator.push(
@@ -127,17 +138,6 @@ class _SpellingActivityState extends State<SpellingActivity> {
 
   void _saveData({required DateTime timeEnd}) {
     /// Save data to disk
-
-    // TODO move to endSession method (not really saving)
-    _database.addSessionData(
-        sessionNumber: _sessionNumber,
-        participantId: widget.participantId,
-        timeStart: _timeStart,
-        timeEnd: timeEnd);
-    _database.addDeviceData(
-      participantId: widget.participantId,
-      sessionNumber: _sessionNumber,
-    );
 
     _database.saveData();
   }
