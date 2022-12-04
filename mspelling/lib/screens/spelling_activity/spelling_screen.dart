@@ -51,7 +51,13 @@ class _SpellingActivityState extends State<SpellingActivity> {
     /// Controls the sequence of the task, including presenting trials, rests,
     /// ITI, ending the session.
 
-    await _presentTrial(context);
+    final String result = await _presentTrial(context);
+    _database.addTrialData(
+      participantId: widget.participantId,
+      stim: _stimuli.currentStim,
+      resp: result,
+      sessionNumber: _sessionNumber,
+    );
 
     // No more trials
     if (_stimuli.stimCountRemaining == 0) {
@@ -77,7 +83,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
     _stimuli = stimuli;
   }
 
-  Future<void> _presentTrial(context) async {
+  Future<String> _presentTrial(context) async {
     _stimuli.next();
 
     await Navigator.push(
@@ -87,20 +93,14 @@ class _SpellingActivityState extends State<SpellingActivity> {
       ),
     );
 
-    final result = await Navigator.push(
+    final String result = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => const TrialResponseScreen(),
       ),
     );
 
-    // TODO move to run method (not part of trial)
-    _database.addTrialData(
-      participantId: widget.participantId,
-      stim: _stimuli.currentStim,
-      resp: result,
-      sessionNumber: _sessionNumber,
-    );
+    return result;
   }
 
   // TODO Rename, not cond
