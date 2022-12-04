@@ -19,15 +19,13 @@ Future<String> _getPath() async {
     if (dir == null) throw Exception("Downloads folder not available");
     return dir.path;
   }
-  if (Platform.isAndroid) {
-    if (await Permission.storage.request().isGranted) {
-      return '/storage/emulated/0/Download/';
-    } else {
-      throw Exception(
-          "Permission required to save files to the Downloads folder.");
-    }
+
+  if (Platform.isAndroid && await Permission.storage.request().isGranted) {
+    return '/storage/emulated/0/Download/';
+  } else {
+    throw Exception(
+        "Permission required to save files to the Downloads folder.");
   }
-  throw Exception("No dir for saving db could be accessed");
 }
 
 /// Provide a database to be used
