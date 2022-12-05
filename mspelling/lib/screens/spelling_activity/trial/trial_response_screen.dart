@@ -33,23 +33,27 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
       body: CenteredBox(
         column: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const DefaultText(
-              text: 'Escribe la palabra:',
-            ),
-            const BetweenWidgetsSpace(),
-            DefaultTextField(controller: _controller),
-            const BetweenWidgetsSpace(),
-            ElevatedButton(
-              onPressed: () {
-                _goBack(context);
-              },
-              child: const DefaultText(text: 'Seguir'),
-            ),
-          ],
+          children: _buildUI(context),
         ),
       ),
     );
+  }
+
+  List<Widget> _buildUI(BuildContext context) {
+    return <Widget>[
+      const DefaultText(
+        text: 'Escribe la palabra:',
+      ),
+      const BetweenWidgetsSpace(),
+      DefaultTextField(controller: _controller),
+      const BetweenWidgetsSpace(),
+      ElevatedButton(
+        onPressed: () {
+          _goBack(context);
+        },
+        child: const DefaultText(text: 'Seguir'),
+      ),
+    ];
   }
 
   void _goBack(BuildContext context) {
