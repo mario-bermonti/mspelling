@@ -22,24 +22,28 @@ class _RestScreenState extends State<RestScreen> {
         title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const DefaultText(
-              text: 'Descansa',
-            ),
-            const BetweenWidgetsSpace(),
-            ElevatedButton(
-              onPressed: () {
-                Future.delayed(const Duration(milliseconds: 500), () {
-                  Navigator.pop(context);
-                });
-              },
-              child: const DefaultText(text: 'Comenzar'),
-            ),
-          ],
-        ),
+      body: _buildUI(context),
+    );
+  }
+
+  Center _buildUI(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const DefaultText(
+            text: 'Descansa',
+          ),
+          const BetweenWidgetsSpace(),
+          ElevatedButton(
+            onPressed: () {
+              Future.delayed(const Duration(milliseconds: 500), () {
+                Navigator.pop(context);
+              });
+            },
+            child: const DefaultText(text: 'Comenzar'),
+          ),
+        ],
       ),
     );
   }
