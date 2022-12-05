@@ -57,13 +57,17 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
         title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
-      body: CenteredBox(
-        column: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('assets/images/listen.jpeg'),
-          ],
-        ),
+      body: _buildUI(),
+    );
+  }
+
+  CenteredBox _buildUI() {
+    return CenteredBox(
+      column: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset('assets/images/listen.jpeg'),
+        ],
       ),
     );
   }
