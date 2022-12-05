@@ -33,31 +33,35 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text(appBarTitle),
       ),
-      body: CenteredBox(
-        column: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const DefaultText(
-              text: 'Id participante:',
-            ),
-            const BetweenWidgetsSpace(),
-            DefaultTextField(controller: _controller),
-            const BetweenWidgetsSpace(),
-            ElevatedButton(
-              onPressed: () {
-                String participantId =
-                    _controller.text.trim(); // spaces are meaningless in ids.
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BeginScreen(participantId),
-                  ),
-                );
-              },
-              child: const DefaultText(text: 'Seguir'),
-            ),
-          ],
-        ),
+      body: _buildUI(context),
+    );
+  }
+
+  CenteredBox _buildUI(BuildContext context) {
+    return CenteredBox(
+      column: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const DefaultText(
+            text: 'Id participante:',
+          ),
+          const BetweenWidgetsSpace(),
+          DefaultTextField(controller: _controller),
+          const BetweenWidgetsSpace(),
+          ElevatedButton(
+            onPressed: () {
+              String participantId =
+                  _controller.text.trim(); // spaces are meaningless in ids.
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BeginScreen(participantId),
+                ),
+              );
+            },
+            child: const DefaultText(text: 'Seguir'),
+          ),
+        ],
       ),
     );
   }
