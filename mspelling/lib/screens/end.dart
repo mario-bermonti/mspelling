@@ -21,15 +21,19 @@ class _EndScreenState extends State<EndScreen> {
         title: const Text(appBarTitle),
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            DefaultText(
-              text: '¡Terminamos!',
-            ),
-          ],
-        ),
+      body: _buildUI(),
+    );
+  }
+
+  Center _buildUI() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const <Widget>[
+          DefaultText(
+            text: '¡Terminamos!',
+          ),
+        ],
       ),
     );
   }
