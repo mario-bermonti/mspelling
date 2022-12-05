@@ -4,6 +4,10 @@ const InputDecoration textFieldStyle = InputDecoration(
   border: OutlineInputBorder(),
 );
 
-const TextStyle textStyle = TextStyle(
-  fontSize: 18,
+ThemeData themeData = ThemeData(
+  primarySwatch: Colors.blue,
+  brightness: Brightness.dark,
+  textTheme: const TextTheme(
+    button: TextStyle(fontSize: 20),
+  ),
 );

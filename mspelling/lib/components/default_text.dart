@@ -10,7 +10,7 @@ class DefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: textStyle,
+      style: Theme.of(context).textTheme.button,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/screens/home.dart';
+import 'package:mspelling/styles.dart';
 
 class MSpelling extends StatelessWidget {
   const MSpelling({Key? key}) : super(key: key);
@@ -8,9 +9,7 @@ class MSpelling extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'mSpelling',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: themeData,
       home: const HomeScreen(),
     );
   }
