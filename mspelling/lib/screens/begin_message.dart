@@ -22,28 +22,31 @@ class _BeginScreenState extends State<BeginScreen> {
       appBar: AppBar(
         title: const Text(appBarTitle),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const DefaultText(
-              text: 'Comencemos',
-            ),
-            const BetweenWidgetsSpace(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        SpellingActivity(widget.participantId),
-                  ),
-                );
-              },
-              child: const DefaultText(text: 'Seguir'),
-            ),
-          ],
-        ),
+      body: _buildUI(context),
+    );
+  }
+
+  Center _buildUI(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const DefaultText(
+            text: 'Comencemos',
+          ),
+          const BetweenWidgetsSpace(),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SpellingActivity(widget.participantId),
+                ),
+              );
+            },
+            child: const DefaultText(text: 'Seguir'),
+          ),
+        ],
       ),
     );
   }
