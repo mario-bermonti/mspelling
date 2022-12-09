@@ -3,18 +3,11 @@ import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 
-class RestScreen extends StatefulWidget {
-  // Rest screen for participants. They start again whenever they want.
-
+class RestScreen extends StatelessWidget {
   final String participantId;
 
   const RestScreen(this.participantId, {Key? key}) : super(key: key);
 
-  @override
-  State<RestScreen> createState() => _RestScreenState();
-}
-
-class _RestScreenState extends State<RestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
