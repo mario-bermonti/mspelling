@@ -4,18 +4,13 @@ import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
 
-class BeginScreen extends StatefulWidget {
+class BeginScreen extends StatelessWidget {
   // Allows the user to indicate when to start task.
 
   final String participantId;
 
   const BeginScreen(this.participantId, {Key? key}) : super(key: key);
 
-  @override
-  State<BeginScreen> createState() => _BeginScreenState();
-}
-
-class _BeginScreenState extends State<BeginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +35,7 @@ class _BeginScreenState extends State<BeginScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SpellingActivity(widget.participantId),
+                  builder: (context) => SpellingActivity(participantId),
                 ),
               );
             },
