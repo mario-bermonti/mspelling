@@ -1,5 +1,3 @@
-import 'package:flutter/services.dart';
-
 class Stimuli {
   /// Stimuli manager. Can be created from a file or iterable.
 
@@ -33,14 +31,4 @@ class Stimuli {
   void randomize() {
     stimuli.shuffle();
   }
-}
-
-/// Build [Stimuli] from a text file specified by
-/// the path filePath.
-Future<Stimuli> createStimFromFile(String filePath) async {
-  String stimString = await rootBundle.loadString(filePath);
-  List<String> stimList = stimString.split('\n');
-  Stimuli stim = Stimuli(stimuli: stimList);
-
-  return stim;
 }
