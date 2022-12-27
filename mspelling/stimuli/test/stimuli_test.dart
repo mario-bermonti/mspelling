@@ -13,7 +13,7 @@ void main() async {
 
 stimFromFileTest() async {
   testWidgets('Assets folder', (tester) async {
-    final s = await createStimFromFile('assets/stimuli/stimuli_tests.txt');
+    final s = await createStimFromFile('assets/stimuli_tests.txt');
     expect(s.stimuli, ['del', 'dos']);
   });
 }
