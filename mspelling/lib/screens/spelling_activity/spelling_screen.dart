@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
-import 'package:mspelling/data.dart';
+import 'package:data/db.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
