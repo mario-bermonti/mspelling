@@ -5,7 +5,7 @@ import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
-import 'package:mspelling/stimuli/lib/stimuli.dart';
+import 'package:stimuli/stimuli.dart';
 
 class SpellingActivity extends StatefulWidget {
   // Controls the task's sequences
