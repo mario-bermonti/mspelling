@@ -52,12 +52,17 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(appBarTitle),
-        automaticallyImplyLeading: false,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(appBarTitle),
+          automaticallyImplyLeading: false,
+        ),
+        body: _buildUI(),
       ),
-      body: _buildUI(),
     );
   }
 

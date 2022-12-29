@@ -144,12 +144,17 @@ class _SpellingActivityState extends State<SpellingActivity> {
   Widget build(BuildContext context) {
     // Just a dummy function because we need(?) the Spelling screen to be a
     // widget for it to access context
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(appBarTitle),
-        automaticallyImplyLeading: false,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(appBarTitle),
+          automaticallyImplyLeading: false,
+        ),
+        body: Container(),
       ),
-      body: Container(),
     );
   }
 }
