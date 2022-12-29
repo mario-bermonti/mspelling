@@ -25,15 +25,20 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(appBarTitle),
-        automaticallyImplyLeading: false,
-      ),
-      body: CenteredBox(
-        column: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: _buildUI(context),
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(appBarTitle),
+          automaticallyImplyLeading: false,
+        ),
+        body: CenteredBox(
+          column: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: _buildUI(context),
+          ),
         ),
       ),
     );
