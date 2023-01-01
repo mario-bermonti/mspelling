@@ -8,7 +8,7 @@ jobs:
   release_pypy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.0.0
+      - uses: actions/checkout@v3.2.0
 
       - name: Set up Python
         uses: actions/setup-python@v3.1.1
