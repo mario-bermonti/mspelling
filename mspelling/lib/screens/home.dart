@@ -36,6 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(appBarTitle),
+          actions: <Widget>[
+            IconButton(
+                icon: const Icon(Icons.settings),
+                tooltip: 'Directorio de trabajo',
+                onPressed: () {})
+          ],
         ),
         body: _buildUI(context),
       ),
