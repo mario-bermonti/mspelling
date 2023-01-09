@@ -53,10 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
   void setWorkspace() async {
     String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
 
-    if (selectedDirectory != null) {
-      SharedPreferences settings = await SharedPreferences.getInstance();
-      settings.setString('workspace', selectedDirectory);
+    if (selectedDirectory == null) {
+      return;
     }
+    SharedPreferences settings = await SharedPreferences.getInstance();
+    settings.setString('workspace', selectedDirectory);
   }
 
   CenteredBox _buildUI(BuildContext context) {
