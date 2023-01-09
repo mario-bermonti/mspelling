@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
@@ -40,12 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
                 icon: const Icon(Icons.settings),
                 tooltip: 'Directorio de trabajo',
-                onPressed: () {})
+                onPressed: setWorkspace)
           ],
         ),
         body: _buildUI(context),
       ),
     );
+  }
+
+  void setWorkspace() async {
+    String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
+
   }
 
   CenteredBox _buildUI(BuildContext context) {
