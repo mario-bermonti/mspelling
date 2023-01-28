@@ -5,6 +5,7 @@ import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
+import 'package:mspelling/screens/workspace.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'begin_message.dart';
@@ -38,26 +39,16 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(appBarTitle),
-          actions: <Widget>[
+          actions: const <Widget>[
             IconButton(
-                icon: const Icon(Icons.settings),
+                icon: Icon(Icons.settings),
                 tooltip: 'Directorio de trabajo',
-                onPressed: setWorkspace)
+                onPressed: setWorkspaceByUser)
           ],
         ),
         body: _buildUI(context),
       ),
     );
-  }
-
-  void setWorkspace() async {
-    String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
-
-    if (selectedDirectory == null) {
-      return;
-    }
-    SharedPreferences settings = await SharedPreferences.getInstance();
-    settings.setString('workspace', selectedDirectory);
   }
 
   CenteredBox _buildUI(BuildContext context) {
