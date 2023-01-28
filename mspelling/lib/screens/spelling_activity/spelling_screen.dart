@@ -5,6 +5,7 @@ import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
+import 'package:mspelling/screens/workspace.dart';
 import 'package:stimuli/stimuli.dart';
 
 class SpellingActivity extends StatefulWidget {
@@ -29,6 +30,8 @@ class _SpellingActivityState extends State<SpellingActivity> {
 
   /// Session  number for current participant
   late final int _sessionNumber;
+
+  late String _workspace;
 
   @override
   initState() {
@@ -76,9 +79,24 @@ class _SpellingActivityState extends State<SpellingActivity> {
 
   /// Prepare stim to be used
   Future<void> _prepareStimuli() async {
-    Stimuli stimuli = await createStimFromFile('assets/stimuli/stimuli2.txt');
+    await setWorkspace(); // it should be init in another place
+    String path = "$_workspace/stim/stim.txt";
+    Stimuli stimuli = await createStimFromFile(path);
     stimuli.randomize();
     _stimuli = stimuli;
+  }
+
+  /// Get workspace path for current session
+  /// Returns workspace for demo version if no workspace has been selected.
+  /// Otherwise returns the path selected by the user.
+  Future<void> setWorkspace() async {
+    String? workSpace = await getWorkspace();
+    if (workSpace == null) {
+      await setWorkspaceByUser();
+      workSpace = await getWorkspace();
+    } else {
+      _workspace = workSpace;
+    }
   }
 
   Future<String> _presentTrial(context) async {
