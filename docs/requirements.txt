@@ -1,6 +1,6 @@
 sphinx==4.5.0
 recommonmark==0.7.1
 sphinx-rtd-theme==1.0.0
-autodocsumm==0.2.7
+autodocsumm==0.2.10
 sphinx_markdown_tables==0.0.15
 sphinxemoji==0.2.0
