@@ -22,6 +22,8 @@ class _MSpellingState extends State<MSpelling> {
     super.initState();
   }
 
+  /// Presents the workspace screen if no workspace is available,
+  /// otherwise presents the login screen
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -30,17 +32,13 @@ class _MSpellingState extends State<MSpelling> {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
             return const Text("Error");
-          } else if (snapshot.data == null) {
-            return MaterialApp(
-              title: 'mSpelling',
-              theme: themeData,
-              home: const SetWorkspaceScreen(),
-            );
           } else {
             return MaterialApp(
               title: 'mSpelling',
               theme: themeData,
-              home: const LoginScreen(),
+              home: snapshot.data == null
+                  ? const SetWorkspaceScreen()
+                  : const LoginScreen(),
             );
           }
         } else {
