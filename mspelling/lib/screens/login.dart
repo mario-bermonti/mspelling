@@ -1,32 +1,30 @@
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
-import 'package:mspelling/screens/workspace.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mspelling/screens/workspace/utils.dart';
+import 'package:mspelling/screens/workspace/workspace.dart';
 
 import 'begin_message.dart';
 
-class HomeScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   // Home screen which requires users to login by using their
   // participant ids.
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _controller = TextEditingController();
 
   @override
   void dispose() {
     _controller.dispose();
-
     super.dispose();
   }
 
@@ -64,6 +62,16 @@ class _HomeScreenState extends State<HomeScreen> {
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
+              // String? workspace = await getWorkspace();
+              //   if (workspace == null) {
+              //     navigator.push(
+              //       MaterialPageRoute(
+              //           builder: (context) => const SetWorkspaceScreen()),
+              //     );
+              //   }
+              // selectWorkspaceIfNeeded(context);
+              // startSession(context);
+              // showDialogWorkspace(context: context);
               String participantId =
                   _controller.text.trim(); // spaces are meaningless in ids.
               Navigator.push(
@@ -76,6 +84,17 @@ class _HomeScreenState extends State<HomeScreen> {
             child: const DefaultText(text: 'Seguir'),
           ),
         ],
+      ),
+    );
+  }
+
+  void startSession(BuildContext context) {
+    String participantId =
+        _controller.text.trim(); // spaces are meaningless in ids.
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BeginScreen(participantId),
       ),
     );
   }
