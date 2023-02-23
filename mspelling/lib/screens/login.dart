@@ -5,7 +5,6 @@ import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
-import 'package:mspelling/screens/workspace/workspace.dart';
 
 import 'begin_message.dart';
 
@@ -62,16 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
-              // String? workspace = await getWorkspace();
-              //   if (workspace == null) {
-              //     navigator.push(
-              //       MaterialPageRoute(
-              //           builder: (context) => const SetWorkspaceScreen()),
-              //     );
-              //   }
-              // selectWorkspaceIfNeeded(context);
-              // startSession(context);
-              // showDialogWorkspace(context: context);
               String participantId =
                   _controller.text.trim(); // spaces are meaningless in ids.
               Navigator.push(
@@ -84,17 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: const DefaultText(text: 'Seguir'),
           ),
         ],
-      ),
-    );
-  }
-
-  void startSession(BuildContext context) {
-    String participantId =
-        _controller.text.trim(); // spaces are meaningless in ids.
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => BeginScreen(participantId),
       ),
     );
   }
