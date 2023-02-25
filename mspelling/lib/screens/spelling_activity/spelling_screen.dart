@@ -158,18 +158,32 @@ class _SpellingActivityState extends State<SpellingActivity> {
   Widget build(BuildContext context) {
     // Just a dummy function because we need(?) the Spelling screen to be a
     // widget for it to access context
-    return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(appBarTitle),
-          automaticallyImplyLeading: false,
-        ),
-        body: Container(),
-      ),
-    );
+    return FutureBuilder(
+        future: setupDone,
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return const Text("Error");
+            } else {
+              return WillPopScope(
+                onWillPop: () async {
+                  return false;
+                },
+                child: Scaffold(
+                  appBar: AppBar(
+                    title: const Text(appBarTitle),
+                    automaticallyImplyLeading: false,
+                  ),
+                  body: Container(),
+                ),
+              );
+            }
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        });
+  }
+
   Future<bool> setup() async {
     _workspace = await getWorkspace();
     await _prepareStimuli();
