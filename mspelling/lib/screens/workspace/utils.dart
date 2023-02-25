@@ -15,7 +15,6 @@ Future<void> setWorkspaceByUser() async {
 }
 
 Future<String?> getWorkspace() async {
-  await Future.delayed(const Duration(seconds: 2));
   SharedPreferences settings = await SharedPreferences.getInstance();
   String? workSpace = settings.getString('workspace');
   return workSpace;
