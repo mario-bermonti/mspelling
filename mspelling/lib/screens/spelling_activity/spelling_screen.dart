@@ -31,7 +31,10 @@ class _SpellingActivityState extends State<SpellingActivity> {
   /// Session  number for current participant
   late final int _sessionNumber;
 
+  /// Dir used to getting stim
   late String? _workspace;
+
+  /// Flag to indicate whether the ui can be displayed
   late Future<bool> setupDone;
 
   @override
