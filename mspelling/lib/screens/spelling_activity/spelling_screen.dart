@@ -5,7 +5,7 @@ import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
-import 'package:mspelling/screens/workspace.dart';
+import 'package:mspelling/screens/workspace/utils.dart';
 import 'package:stimuli/stimuli.dart';
 
 class SpellingActivity extends StatefulWidget {
@@ -31,21 +31,18 @@ class _SpellingActivityState extends State<SpellingActivity> {
   /// Session  number for current participant
   late final int _sessionNumber;
 
-  late String _workspace;
+  late String? _workspace;
+  late Future<bool> setupDone;
 
   @override
   initState() {
     super.initState();
-    _prepareStimuli();
-    _getSessionNumberParticipant();
-    Future.delayed(const Duration(seconds: 1), () {
-      _run(context); // for it to access context
-    });
+    setupDone = setup();
   }
 
   /// Helper method to get the session number for the current participant
   /// from the db
-  void _getSessionNumberParticipant() async {
+  Future<void> _getSessionNumberParticipant() async {
     _sessionNumber = await _database
         .getCurrentParticipantSessionNumber(widget.participantId);
   }
@@ -79,8 +76,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
 
   /// Prepare stim to be used
   Future<void> _prepareStimuli() async {
-    await setWorkspace(); // it should be init in another place
-    String path = "$_workspace/stim/stim.txt";
+    String path = '$_workspace/stim/stim.txt';
     Stimuli stimuli = await createStimFromFile(path);
     stimuli.randomize();
     _stimuli = stimuli;
@@ -89,15 +85,15 @@ class _SpellingActivityState extends State<SpellingActivity> {
   /// Get workspace path for current session
   /// Returns workspace for demo version if no workspace has been selected.
   /// Otherwise returns the path selected by the user.
-  Future<void> setWorkspace() async {
-    String? workSpace = await getWorkspace();
-    if (workSpace == null) {
-      await setWorkspaceByUser();
-      workSpace = await getWorkspace();
-    } else {
-      _workspace = workSpace;
-    }
-  }
+  // Future<void> setWorkspaceCurrentSession() async {
+  //   String? workSpace = await getWorkspace();
+  //   if (workSpace == null) {
+  //     await showDialogWorkspace(context: context);
+  //     // workSpace = await getWorkspace();
+  //     await setWorkspaceCurrentSession();
+  //   }
+  //   _workspace = workSpace!;
+  // }
 
   Future<String> _presentTrial(context) async {
     _stimuli.next();
