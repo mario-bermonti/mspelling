@@ -82,19 +82,6 @@ class _SpellingActivityState extends State<SpellingActivity> {
     _stimuli = stimuli;
   }
 
-  /// Get workspace path for current session
-  /// Returns workspace for demo version if no workspace has been selected.
-  /// Otherwise returns the path selected by the user.
-  // Future<void> setWorkspaceCurrentSession() async {
-  //   String? workSpace = await getWorkspace();
-  //   if (workSpace == null) {
-  //     await showDialogWorkspace(context: context);
-  //     // workSpace = await getWorkspace();
-  //     await setWorkspaceCurrentSession();
-  //   }
-  //   _workspace = workSpace!;
-  // }
-
   Future<String> _presentTrial(context) async {
     _stimuli.next();
 
