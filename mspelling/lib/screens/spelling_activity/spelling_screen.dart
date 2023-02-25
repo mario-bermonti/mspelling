@@ -174,5 +174,13 @@ class _SpellingActivityState extends State<SpellingActivity> {
         body: Container(),
       ),
     );
+  Future<bool> setup() async {
+    _workspace = await getWorkspace();
+    await _prepareStimuli();
+    await _getSessionNumberParticipant();
+    // TODO find a better way to handle navigation
+    // Don't pass context around
+    _run(context); // for it to access context
+    return true;
   }
 }
