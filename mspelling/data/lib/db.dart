@@ -46,8 +46,10 @@ class DataBase extends _$DataBase {
   late DevicesCompanion deviceData;
   List<TrialsCompanion> trialsData = <TrialsCompanion>[];
 
-  DataBase({Function connectionOpenner = _dbProvider})
-      : super(connectionOpenner());
+  DataBase({
+    Function connectionOpenner = _dbProvider,
+    required String path,
+  }) : super(connectionOpenner(path: path));
 
   @override
   int get schemaVersion => 1;
