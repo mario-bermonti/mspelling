@@ -11,20 +11,15 @@ import 'package:permission_handler/permission_handler.dart';
 
 part 'db.g.dart';
 
-/// Return the path to the downloads folder
-/// It is aware of different OS
-Future<String> _getPath() async {
-  if (Platform.isMacOS || Platform.isWindows || Platform.isLinux) {
-    Directory? dir = await getDownloadsDirectory();
-    if (dir == null) throw Exception("Downloads folder not available");
-    return dir.path;
-  }
-
-  if (Platform.isAndroid && await Permission.storage.request().isGranted) {
-    return '/storage/emulated/0/Download/';
-  } else {
-    throw Exception(
-        "Permission required to save files to the Downloads folder.");
+/// Get permission to use the path provided.
+/// Throws error if permission is needed and not granted
+Future<void> getPermissionIfNecessary({required String path}) async {
+  if (Platform.isAndroid) {
+    bool granted = await Permission.storage.request().isGranted;
+    if (!granted) {
+      throw Exception(
+          "Permission for saving data in the requested workspace not granted by the OS");
+    }
   }
 }
 
