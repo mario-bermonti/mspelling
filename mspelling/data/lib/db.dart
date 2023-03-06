@@ -153,3 +153,10 @@ class DataBase extends _$DataBase {
     insertTrials();
   }
 }
+
+// TODO Improve organization of code
+/// create a db and return it
+Future<DataBase> getDB({required String path}) async {
+  DataBase db = DataBase(path: path);
+  return db;
+}
