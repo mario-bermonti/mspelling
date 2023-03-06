@@ -21,21 +21,21 @@ class SpellingActivity extends StatefulWidget {
 }
 
 class _SpellingActivityState extends State<SpellingActivity> {
+  /// Flag to indicate whether the ui can be displayed
+  late Future<bool> setupDone;
+
+  /// Dir used to getting stim
+  late String? _workspace;
+
   /// Stimuli used in the task
   late final Stimuli _stimuli;
 
   /// Global task start time
   final DateTime _timeStart = DateTime.now();
-  final DataBase _database = DataBase();
+  late final DataBase _database;
 
   /// Session  number for current participant
   late final int _sessionNumber;
-
-  /// Dir used to getting stim
-  late String? _workspace;
-
-  /// Flag to indicate whether the ui can be displayed
-  late Future<bool> setupDone;
 
   @override
   initState() {
@@ -174,13 +174,20 @@ class _SpellingActivityState extends State<SpellingActivity> {
         });
   }
 
+  /// Get workspace, prepare stim, prepare db, and start spelling activity
+  /// Throws error if the workspace is null (hasn't been set)
   Future<bool> setup() async {
     _workspace = await getWorkspace();
-    await _prepareStimuli();
-    await _getSessionNumberParticipant();
-    // TODO find a better way to handle navigation
-    // Don't pass context around
-    _run(context); // for it to access context
-    return true;
+    if (_workspace == null) {
+      throw Exception("Could not access the workspace. It is probably not set");
+    } else {
+      await _prepareStimuli();
+      _database = await getDB(path: '$_workspace/mspelling_data.sqlite3');
+      await _getSessionNumberParticipant();
+      // TODO find a better way to handle navigation
+      // Don't pass context around
+      _run(context); // for it to access context
+      return true;
+    }
   }
 }
