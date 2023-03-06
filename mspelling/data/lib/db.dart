@@ -25,10 +25,10 @@ Future<void> getPermissionIfNecessary({required String path}) async {
 
 /// Provide a database to be used
 /// The database is created or used from a location based on the OS.
-LazyDatabase _dbProvider() {
+LazyDatabase _dbProvider({required String path}) {
   return LazyDatabase(() async {
-    String path = await _getPath();
-    final file = File(p.join(path, 'mspelling_data.sqlite'));
+    await getPermissionIfNecessary(path: path);
+    final file = File(path);
     return NativeDatabase(file);
   });
 }
