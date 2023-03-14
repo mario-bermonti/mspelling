@@ -9,8 +9,9 @@ import 'package:permission_handler/permission_handler.dart';
 
 part 'db.g.dart';
 
-/// Get permission to use the path provided.
+/// Get permission to use the path provided if necessary
 /// Throws error if permission is needed and not granted
+/// [path] Path where to create or get the db from
 Future<void> getPermissionIfNecessary({required String path}) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
@@ -22,7 +23,7 @@ Future<void> getPermissionIfNecessary({required String path}) async {
 }
 
 /// Provide a database to be used
-/// The database is created or used from a location based on the OS.
+/// [path] Path where to create or get the db from
 LazyDatabase _dbProvider({required String path}) {
   return LazyDatabase(() async {
     await getPermissionIfNecessary(path: path);
@@ -39,6 +40,9 @@ class DataBase extends _$DataBase {
   late DevicesCompanion deviceData;
   List<TrialsCompanion> trialsData = <TrialsCompanion>[];
 
+  /// Create db instance
+  /// [_dbProvider] Function that provides the db that will be used
+  /// [path] Path where to create or get the db
   DataBase({
     Function connectionOpenner = _dbProvider,
     required String path,
@@ -153,7 +157,8 @@ class DataBase extends _$DataBase {
 }
 
 // TODO Improve organization of code
-/// create a db and return it
+/// Create a db and return it
+/// [path] Path where to create or get the db from
 Future<DataBase> getDB({required String path}) async {
   DataBase db = DataBase(path: path);
   return db;
