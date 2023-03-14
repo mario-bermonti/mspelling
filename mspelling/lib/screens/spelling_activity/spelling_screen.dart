@@ -8,10 +8,9 @@ import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart
 import 'package:mspelling/screens/workspace/utils.dart';
 import 'package:stimuli/stimuli.dart';
 
+// Controls the task's sequences
+// It has no ui representation
 class SpellingActivity extends StatefulWidget {
-  // Controls the task's sequences
-  // It has no ui representation
-
   final String participantId;
 
   const SpellingActivity(this.participantId, {Key? key}) : super(key: key);
@@ -50,10 +49,10 @@ class _SpellingActivityState extends State<SpellingActivity> {
         .getCurrentParticipantSessionNumber(widget.participantId);
   }
 
+  /// Controls the sequence of the task, including presenting trials, rests,
+  /// ITI, ending the session.
+  /// [context] BuildContext: Needed to navigate
   Future<void> _run(context) async {
-    /// Controls the sequence of the task, including presenting trials, rests,
-    /// ITI, ending the session.
-
     final String result = await _presentTrial(context);
     _database.addTrialData(
       participantId: widget.participantId,
