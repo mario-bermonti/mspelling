@@ -127,7 +127,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
       participantId: widget.participantId,
       sessionNumber: _sessionNumber,
     );
-    _saveData(timeEnd: timeEnd);
+    _saveData();
 
     Navigator.push(
       context,
