@@ -84,6 +84,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
     _stimuli = stimuli;
   }
 
+  /// [context] BuildContext: Needed to navigate
   Future<String> _presentTrial(context) async {
     _stimuli.next();
 
@@ -115,7 +116,6 @@ class _SpellingActivityState extends State<SpellingActivity> {
 
   void _endSession() {
     /// Global session end time
-
     final DateTime timeEnd = DateTime.now();
 
     _database.addSessionData(
@@ -137,16 +137,13 @@ class _SpellingActivityState extends State<SpellingActivity> {
     );
   }
 
-  void _saveData({required DateTime timeEnd}) {
-    /// Save data to disk
-
+  /// Save data to disk
+  void _saveData() {
     _database.saveData();
   }
 
   @override
   Widget build(BuildContext context) {
-    // Just a dummy function because we need(?) the Spelling screen to be a
-    // widget for it to access context
     return FutureBuilder(
         future: setupDone,
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -163,6 +160,8 @@ class _SpellingActivityState extends State<SpellingActivity> {
                     title: const Text(appBarTitle),
                     automaticallyImplyLeading: false,
                   ),
+                  // Just a dummy function because we need(?) the Spelling
+                  // screen to be a widget
                   body: Container(),
                 ),
               );
