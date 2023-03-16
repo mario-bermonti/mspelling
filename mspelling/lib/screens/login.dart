@@ -36,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(appBarTitle),
+          automaticallyImplyLeading: false,
           actions: const <Widget>[
             IconButton(
                 icon: Icon(Icons.settings),

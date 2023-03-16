@@ -13,11 +13,17 @@ class BeginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(appBarTitle),
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(appBarTitle),
+          automaticallyImplyLeading: false,
+        ),
+        body: _buildUI(context),
       ),
-      body: _buildUI(context),
     );
   }
 

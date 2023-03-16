@@ -167,7 +167,14 @@ class _SpellingActivityState extends State<SpellingActivity> {
               );
             }
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return WillPopScope(
+              onWillPop: () async {
+                return false;
+              },
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
           }
         });
   }
