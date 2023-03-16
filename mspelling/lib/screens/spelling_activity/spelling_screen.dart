@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/constants.dart';
+import 'package:mspelling/components/default_appbar.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
@@ -156,10 +156,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
                   return false;
                 },
                 child: Scaffold(
-                  appBar: AppBar(
-                    title: const Text(appBarTitle),
-                    automaticallyImplyLeading: false,
-                  ),
+                  appBar: createAppBar(),
                   // Just a dummy function because we need(?) the Spelling
                   // screen to be a widget
                   body: Container(),

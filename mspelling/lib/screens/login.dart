@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/constants.dart';
+import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
-import 'package:mspelling/screens/workspace/utils.dart';
 
 import 'begin_message.dart';
 
@@ -34,16 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(appBarTitle),
-          automaticallyImplyLeading: false,
-          actions: const <Widget>[
-            IconButton(
-                icon: Icon(Icons.settings),
-                tooltip: 'Directorio de trabajo',
-                onPressed: setWorkspaceByUser)
-          ],
-        ),
+        appBar: createAppBar(showWorkspaceButton: true),
         body: _buildUI(context),
       ),
     );

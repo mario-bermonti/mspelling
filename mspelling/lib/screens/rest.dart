@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/constants.dart';
+import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 
@@ -15,10 +15,7 @@ class RestScreen extends StatelessWidget {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(appBarTitle),
-          automaticallyImplyLeading: false,
-        ),
+        appBar: createAppBar(),
         body: _buildUI(context),
       ),
     );

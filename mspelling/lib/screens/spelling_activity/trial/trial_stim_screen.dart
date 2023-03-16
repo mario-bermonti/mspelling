@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/constants.dart';
+import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -57,10 +57,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(appBarTitle),
-          automaticallyImplyLeading: false,
-        ),
+        appBar: createAppBar(),
         body: _buildUI(),
       ),
     );

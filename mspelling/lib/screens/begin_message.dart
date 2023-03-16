@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/constants.dart';
+import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
@@ -18,10 +18,7 @@ class BeginScreen extends StatelessWidget {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(appBarTitle),
-          automaticallyImplyLeading: false,
-        ),
+        appBar: createAppBar(showWorkspaceButton: true),
         body: _buildUI(context),
       ),
     );
