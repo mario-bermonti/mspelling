@@ -57,7 +57,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
         return false;
       },
       child: Scaffold(
-        appBar: createAppBar(),
+        appBar: createAppBar(context: context),
         body: _buildUI(),
       ),
     );

@@ -16,7 +16,7 @@ class EndScreen extends StatelessWidget {
         return false;
       },
       child: Scaffold(
-        appBar: createAppBar(),
+        appBar: createAppBar(context: context),
         body: _buildUI(),
       ),
     );

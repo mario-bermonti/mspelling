@@ -156,7 +156,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
                   return false;
                 },
                 child: Scaffold(
-                  appBar: createAppBar(),
+                  appBar: createAppBar(context: context),
                   // Just a dummy function because we need(?) the Spelling
                   // screen to be a widget
                   body: Container(),

@@ -30,7 +30,7 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
         return false;
       },
       child: Scaffold(
-        appBar: createAppBar(),
+        appBar: createAppBar(context: context),
         body: CenteredBox(
           column: Column(
             mainAxisAlignment: MainAxisAlignment.center,

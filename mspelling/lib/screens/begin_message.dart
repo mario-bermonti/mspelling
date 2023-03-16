@@ -18,7 +18,7 @@ class BeginScreen extends StatelessWidget {
         return false;
       },
       child: Scaffold(
-        appBar: createAppBar(showWorkspaceButton: true),
+        appBar: createAppBar(context: context, showActionButtons: true),
         body: _buildUI(context),
       ),
     );

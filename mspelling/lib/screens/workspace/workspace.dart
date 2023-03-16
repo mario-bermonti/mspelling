@@ -21,7 +21,7 @@ class _SetWorkspaceScreenState extends State<SetWorkspaceScreen> {
           return false;
         },
         child: Scaffold(
-          appBar: createAppBar(),
+          appBar: createAppBar(context: context),
           body: _buildUI(context),
         ));
   }
