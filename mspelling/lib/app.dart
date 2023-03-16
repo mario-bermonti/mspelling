@@ -1,50 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/screens/login.dart';
-import 'package:mspelling/screens/workspace/utils.dart';
-import 'package:mspelling/screens/workspace/workspace.dart';
+import 'package:mspelling/setup_manager.dart';
 import 'package:mspelling/styles.dart';
 
-class MSpelling extends StatefulWidget {
-  const MSpelling({Key? key}) : super(key: key);
+class MSpellingApp extends StatelessWidget {
+  const MSpellingApp({super.key});
 
-  @override
-  State<MSpelling> createState() => _MSpellingState();
-}
-
-class _MSpellingState extends State<MSpelling> {
-  late Future<String?> _workspaceSet;
-
-  @override
-  void initState() {
-    setState(() {
-      _workspaceSet = getWorkspace();
-    });
-    super.initState();
-  }
-
-  /// Presents the workspace screen if no workspace is available,
-  /// otherwise presents the login screen
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _workspaceSet,
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) {
-            return const Text("Error");
-          } else {
-            return MaterialApp(
-              title: 'mSpelling',
-              theme: themeData,
-              home: snapshot.data == null
-                  ? const SetWorkspaceScreen()
-                  : const LoginScreen(),
-            );
-          }
-        } else {
-          return const Center(child: CircularProgressIndicator());
-        }
-      },
+    return MaterialApp(
+      title: 'mSpelling',
+      theme: themeData,
+      home: const SetupManager(),
     );
   }
 }
