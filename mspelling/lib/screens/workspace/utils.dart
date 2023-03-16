@@ -9,9 +9,6 @@ Future<void> setWorkspaceByUser() async {
     /// TODO only call instance once
     SharedPreferences settings = await SharedPreferences.getInstance();
     settings.setString('workspace', selectedDirectory);
-  } else {
-    SharedPreferences settings = await SharedPreferences.getInstance();
-    settings.remove('workspace');
   }
 }
 
