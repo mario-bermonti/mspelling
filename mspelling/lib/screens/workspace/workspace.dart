@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/constants.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
-import 'package:mspelling/screens/login.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
+import 'package:mspelling/setup_manager.dart';
 
 class SetWorkspaceScreen extends StatefulWidget {
   const SetWorkspaceScreen({Key? key}) : super(key: key);
@@ -32,11 +32,14 @@ class _SetWorkspaceScreenState extends State<SetWorkspaceScreen> {
         children: <Widget>[
           ElevatedButton(
             onPressed: () {
-              setWorkspaceByUser().then((value) => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginScreen()),
-                  ));
+              setWorkspaceByUser().then(
+                (value) => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SetupManager(),
+                  ),
+                ),
+              );
             },
             child: const DefaultText(text: 'Selecciona área de trabajo'),
           ),
