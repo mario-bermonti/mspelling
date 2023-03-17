@@ -18,34 +18,3 @@ Future<String?> getWorkspace() async {
   String? workSpace = settings.getString('workspace');
   return workSpace;
 }
-
-// Future<void> showDialogWorkspace() async {
-//   await showDialog<void>(
-//       context: context,
-//       barrierDismissible: false,
-//       builder: (BuildContext context) {
-//         return AlertDialog(
-//           title: const Text('Área de trabajo'),
-//           content:
-//               const Text('Debes selecciona un área de trabajo para continuar'),
-//           actions: <Widget>[
-//             TextButton(
-//               child: const Text('Menú principal'),
-//               onPressed: () {
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(builder: (context) => const LoginScreen()),
-//                 );
-//               },
-//             ),
-//             TextButton(
-//               onPressed: () {
-//                 setWorkspaceByUser;
-//                 Navigator.of(context).pop();
-//               },
-//               child: const Text('Selecctionar área de trabajo'),
-//             )
-//           ],
-//         );
-//       }).then((value) => Navigator.pop(context));
-// }

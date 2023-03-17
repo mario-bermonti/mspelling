@@ -3,8 +3,7 @@ import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
 import 'package:mspelling/setup_manager.dart';
-
-import '../../components/default_appbar.dart';
+import 'package:mspelling/components/default_appbar.dart';
 
 class SetWorkspaceScreen extends StatefulWidget {
   const SetWorkspaceScreen({Key? key}) : super(key: key);
