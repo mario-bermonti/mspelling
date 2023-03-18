@@ -17,12 +17,19 @@ class EndScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: _buildUI(),
+        body: const EndScreenBody(),
       ),
     );
   }
+}
 
-  Center _buildUI() {
+class EndScreenBody extends StatelessWidget {
+  const EndScreenBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
