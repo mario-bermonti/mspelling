@@ -21,11 +21,18 @@ class _SetWorkspaceScreenState extends State<SetWorkspaceScreen> {
         },
         child: Scaffold(
           appBar: createAppBar(context: context),
-          body: _buildUI(context),
+          body: const WorkspaceBody(),
         ));
   }
+}
 
-  CenteredBox _buildUI(BuildContext context) {
+class WorkspaceBody extends StatelessWidget {
+  const WorkspaceBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return CenteredBox(
       column: Column(
         mainAxisAlignment: MainAxisAlignment.center,
