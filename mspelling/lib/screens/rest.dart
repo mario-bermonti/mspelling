@@ -16,12 +16,19 @@ class RestScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: _buildUI(context),
+        body: const RestScreenBody(),
       ),
     );
   }
+}
 
-  Center _buildUI(BuildContext context) {
+class RestScreenBody extends StatelessWidget {
+  const RestScreenBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,14 +39,18 @@ class RestScreen extends StatelessWidget {
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
-              Future.delayed(const Duration(milliseconds: 500), () {
-                Navigator.pop(context);
-              });
+              goBack(context);
             },
             child: const DefaultText(text: 'Comenzar'),
           ),
         ],
       ),
     );
+  }
+
+  void goBack(BuildContext context) {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      Navigator.pop(context);
+    });
   }
 }
