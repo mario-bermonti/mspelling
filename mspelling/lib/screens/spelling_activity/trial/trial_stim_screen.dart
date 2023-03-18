@@ -35,6 +35,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
     _goBack();
   }
 
+  /// TODO Check if awaiting it fixed bug where stim sound is not presented
   /// Present the stim once to the participant
   void _presentStim() async {
     String stim = widget.stim;
@@ -58,12 +59,19 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: _buildUI(),
+        body: const TrialStimBody(),
       ),
     );
   }
+}
 
-  CenteredBox _buildUI() {
+class TrialStimBody extends StatelessWidget {
+  const TrialStimBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return CenteredBox(
       column: Column(
         mainAxisAlignment: MainAxisAlignment.center,
