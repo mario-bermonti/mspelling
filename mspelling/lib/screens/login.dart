@@ -34,12 +34,23 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       child: Scaffold(
         appBar: createAppBar(context: context, showActionButtons: true),
-        body: _buildUI(context),
+        body: LoginBody(controller: _controller),
       ),
     );
   }
+}
 
-  CenteredBox _buildUI(BuildContext context) {
+class LoginBody extends StatelessWidget {
+  const LoginBody({
+    Key? key,
+    required TextEditingController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final TextEditingController _controller;
+
+  @override
+  Widget build(BuildContext context) {
     return CenteredBox(
       column: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,18 +63,22 @@ class _LoginScreenState extends State<LoginScreen> {
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
-              String participantId =
-                  _controller.text.trim(); // spaces are meaningless in ids.
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BeginScreen(participantId),
-                ),
-              );
+              gotoBeginScreen(context);
             },
             child: const DefaultText(text: 'Seguir'),
           ),
         ],
+      ),
+    );
+  }
+
+  void gotoBeginScreen(BuildContext context) {
+    String participantId =
+        _controller.text.trim(); // spaces are meaningless in ids.
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BeginScreen(participantId),
       ),
     );
   }
