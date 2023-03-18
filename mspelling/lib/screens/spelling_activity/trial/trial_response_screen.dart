@@ -31,34 +31,45 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: CenteredBox(
-          column: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: _buildUI(context),
+        body: TrialResponseBody(controller: _controller),
+      ),
+    );
+  }
+}
+
+class TrialResponseBody extends StatelessWidget {
+  const TrialResponseBody({
+    Key? key,
+    required TextEditingController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final TextEditingController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return CenteredBox(
+      column: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const DefaultText(
+            text: 'Escribe la palabra:',
           ),
-        ),
+          const BetweenWidgetsSpace(),
+          DefaultTextField(controller: _controller),
+          const BetweenWidgetsSpace(),
+          ElevatedButton(
+            onPressed: () {
+              goBack(context);
+            },
+            child: const DefaultText(text: 'Seguir'),
+          ),
+        ],
       ),
     );
   }
 
-  List<Widget> _buildUI(BuildContext context) {
-    return <Widget>[
-      const DefaultText(
-        text: 'Escribe la palabra:',
-      ),
-      const BetweenWidgetsSpace(),
-      DefaultTextField(controller: _controller),
-      const BetweenWidgetsSpace(),
-      ElevatedButton(
-        onPressed: () {
-          _goBack(context);
-        },
-        child: const DefaultText(text: 'Seguir'),
-      ),
-    ];
-  }
-
-  void _goBack(BuildContext context) {
+  void goBack(BuildContext context) {
     Navigator.pop(
       context,
 
