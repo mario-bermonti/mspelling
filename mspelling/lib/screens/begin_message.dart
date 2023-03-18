@@ -19,12 +19,22 @@ class BeginScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context, showActionButtons: true),
-        body: _buildUI(context),
+        body: BeginMessageBody(participantId: participantId),
       ),
     );
   }
+}
 
-  Center _buildUI(BuildContext context) {
+class BeginMessageBody extends StatelessWidget {
+  const BeginMessageBody({
+    Key? key,
+    required this.participantId,
+  }) : super(key: key);
+
+  final String participantId;
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,16 +45,20 @@ class BeginScreen extends StatelessWidget {
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SpellingActivity(participantId),
-                ),
-              );
+              gotoSpellingActivity(context);
             },
             child: const DefaultText(text: 'Seguir'),
           ),
         ],
+      ),
+    );
+  }
+
+  void gotoSpellingActivity(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SpellingActivity(participantId),
       ),
     );
   }
