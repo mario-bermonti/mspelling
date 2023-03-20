@@ -91,7 +91,8 @@ class _SpellingActivityState extends State<SpellingActivity> {
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TrialStimScreen(stim: _stimuli.currentStim),
+        builder: (context) =>
+            TrialStimScreen(workspace: _workspace!, stim: _stimuli.currentStim),
       ),
     );
 

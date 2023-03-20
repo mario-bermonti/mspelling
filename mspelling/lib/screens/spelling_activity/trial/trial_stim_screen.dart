@@ -7,8 +7,13 @@ class TrialStimScreen extends StatefulWidget {
   /// In this screen we present the stims to participants
 
   final String stim;
+  final String workspace;
 
-  const TrialStimScreen({Key? key, required this.stim}) : super(key: key);
+  const TrialStimScreen({
+    Key? key,
+    required this.workspace,
+    required this.stim,
+  }) : super(key: key);
 
   @override
   State<TrialStimScreen> createState() => _TrialStimScreenState();
@@ -38,10 +43,11 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   /// TODO Check if awaiting it fixed bug where stim sound is not presented
   /// Present the stim once to the participant
   void _presentStim() async {
-    String stim = widget.stim;
-    AssetSource source = AssetSource('audio/$stim.wav');
-    await _audioplayer.setSource(source);
-    await _audioplayer.play(source);
+    String path = '${widget.workspace}/stim/${widget.stim}.wav';
+
+    Source source = DeviceFileSource(path);
+    _audioplayer.play(source);
+  }
   }
 
   /// Includes a ISI
