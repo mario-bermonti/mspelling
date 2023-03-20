@@ -7,6 +7,7 @@ createAppBar({required BuildContext context, bool showActionButtons = false}) {
   return AppBar(
       title: const Text(appBarTitle),
       automaticallyImplyLeading: false,
+      centerTitle: true,
       actions:
           showActionButtons ? createActionButtons(context: context) : null);
 }
