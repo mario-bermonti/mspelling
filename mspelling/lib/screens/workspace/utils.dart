@@ -8,7 +8,7 @@ Future<void> setWorkspaceByUser() async {
   String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
 
   if (selectedDirectory != null) {
-    /// TODO only call instance once
+    await validate(selectedDirectory);
     SharedPreferences settings = await SharedPreferences.getInstance();
     settings.setString('workspace', selectedDirectory);
   }
