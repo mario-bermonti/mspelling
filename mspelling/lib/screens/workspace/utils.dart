@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Let the user set the workspace
+/// Let the user set the workspace and validate it
 Future<void> setWorkspaceByUser() async {
   String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
 
