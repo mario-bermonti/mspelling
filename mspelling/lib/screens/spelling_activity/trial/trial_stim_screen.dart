@@ -21,12 +21,7 @@ class TrialStimScreen extends StatefulWidget {
 
 class _TrialStimScreenState extends State<TrialStimScreen> {
   final AudioPlayer _audioplayer = AudioPlayer();
-
-  @override
-  void initState() {
-    super.initState();
-    run();
-  }
+  late final Source _source;
 
   @override
   void dispose() {
@@ -34,23 +29,26 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
     super.dispose();
   }
 
-  /// Controls the sequence of events.
-  void run() {
-    _presentStim();
+  /// Present the stim once to the participant and go to previous screen
+  Future<void> run() async {
+    await _presentStim();
     _goBack();
   }
 
-  /// TODO Check if awaiting it fixed bug where stim sound is not presented
   /// Present the stim once to the participant
-  void _presentStim() async {
+  Future<void> _presentStim() async {
+    await _audioplayer.play(_source);
+  }
+
+  /// Prepare the stim that will be presented
+  /// Expects the stim to be in a dir named 'stim' in the workspace
+  Future<void> prepareStim() async {
     String path = '${widget.workspace}/stim/${widget.stim}.wav';
-
-    Source source = DeviceFileSource(path);
-    _audioplayer.play(source);
-  }
+    _source = DeviceFileSource(path);
+    await _audioplayer.setSourceDeviceFile(path);
   }
 
-  /// Includes a ISI
+  /// Go to spelling widget after ISI
   void _goBack() {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.pop(context);
@@ -65,17 +63,53 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: const TrialStimBody(),
+        body: FutureBuilder(
+          future: setup(),
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return const Text("Error");
+              } else {
+                return WillPopScope(
+                  onWillPop: () async {
+                    return false;
+                  },
+                  child: const TrialStimBody(),
+                );
+              }
+            } else {
+              return WillPopScope(
+                onWillPop: () async {
+                  return false;
+                },
+                child: const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+          },
+        ),
       ),
     );
   }
+
+  /// Prepare stim and present it
+  Future<void> setup() async {
+    await prepareStim();
+    await run();
+  }
 }
 
-class TrialStimBody extends StatelessWidget {
+class TrialStimBody extends StatefulWidget {
   const TrialStimBody({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<TrialStimBody> createState() => _TrialStimBodyState();
+}
+
+class _TrialStimBodyState extends State<TrialStimBody> {
   @override
   Widget build(BuildContext context) {
     return CenteredBox(
@@ -88,3 +122,4 @@ class TrialStimBody extends StatelessWidget {
     );
   }
 }
+// 
