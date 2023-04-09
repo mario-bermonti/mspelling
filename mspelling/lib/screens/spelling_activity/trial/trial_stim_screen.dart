@@ -46,7 +46,15 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   /// Prepare the stim that will be presented
   /// Expects the stim to be in a dir named 'stim' in the workspace
   Future<void> prepareStim() async {
-    File file = File('${widget.workspace}/stim/${widget.stim}.wav');
+    String path = '${widget.workspace}/stim/${widget.stim}.wav';
+    await validateAudioStimFile(path);
+    _source = DeviceFileSource(path);
+    await _audioplayer.setSourceDeviceFile(path);
+  }
+
+  /// Validate the audio stim file exists
+  Future<void> validateAudioStimFile(String path) async {
+    File file = File(path);
     if (await file.exists() == false) {
       Navigator.push(
         context,
@@ -55,11 +63,7 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
               const ErrorScreen(message: 'Error playing the audio stim file'),
         ),
       );
-      return;
     }
-    String path = '${widget.workspace}/stim/${widget.stim}.wav';
-    _source = DeviceFileSource(path);
-    await _audioplayer.setSourceDeviceFile(path);
   }
 
   /// Go to spelling widget after ISI
