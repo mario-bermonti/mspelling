@@ -29,7 +29,8 @@ Future<void> validate(String workspace) async {
   bool result = await File(stimFile).exists();
 
   if (result == false) {
-    throw Exception('The stim file was not found in workspace/stim');
+    throw Exception(
+        'The stim file was not found within the workspoace in a directory named stim');
   }
 }
 
