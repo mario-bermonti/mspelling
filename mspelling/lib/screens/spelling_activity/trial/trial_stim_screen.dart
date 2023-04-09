@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:mspelling/screens/errors.dart';
 
 class TrialStimScreen extends StatefulWidget {
   /// In this screen we present the stims to participants
@@ -43,6 +46,17 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
   /// Prepare the stim that will be presented
   /// Expects the stim to be in a dir named 'stim' in the workspace
   Future<void> prepareStim() async {
+    File file = File('${widget.workspace}/stim/${widget.stim}.wav');
+    if (await file.exists() == false) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              const ErrorScreen(message: 'Error playing the audio stim file'),
+        ),
+      );
+      return;
+    }
     String path = '${widget.workspace}/stim/${widget.stim}.wav';
     _source = DeviceFileSource(path);
     await _audioplayer.setSourceDeviceFile(path);
