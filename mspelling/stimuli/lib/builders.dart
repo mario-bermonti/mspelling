@@ -6,14 +6,16 @@ import 'package:stimuli/stim.dart';
 /// Build [Stimuli] from a text file specified by
 /// the path filePath.
 Future<Stimuli> createStimFromFile(String filePath) async {
-  /// TODO fail if file doesn't exist
-  /// TODO refactor into 2 methods?
   File file = File(filePath);
-  if (await file.exists() == false) {
-    throw Exception('stim.txt file not found in $filePath');
-  }
+  await validateStimFileExists(file, filePath);
   List<String> stimList = await file.readAsLines();
   Stimuli stim = Stimuli(stimuli: stimList);
 
   return stim;
+}
+
+Future<void> validateStimFileExists(File file, String filePath) async {
+  if (await file.exists() == false) {
+    throw Exception('stim.txt file not found in $filePath');
+  }
 }
