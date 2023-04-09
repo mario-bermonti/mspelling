@@ -40,7 +40,7 @@ Future<void> validate(String workspace) async {
 Future<void> getPermissionIfNecessary(String path) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
-    if (!granted) {
+    if (granted) {
       throw Exception(
           'Permission for accessing the specified workspace was requested but not granted');
     }
