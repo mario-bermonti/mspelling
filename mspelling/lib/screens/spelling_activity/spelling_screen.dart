@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/screens/end.dart';
+import 'package:mspelling/screens/errors.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
@@ -150,7 +151,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {
-              return const Text("Error");
+              return ErrorScreen(message: snapshot.error.toString());
             } else {
               return WillPopScope(
                 onWillPop: () async {
