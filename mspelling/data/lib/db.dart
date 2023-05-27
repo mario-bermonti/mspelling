@@ -16,6 +16,7 @@ Future<void> getPermissionIfNecessary({required String path}) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
     if (!granted) {
+      /// TODO use custom exception
       throw Exception(
           "Permission for saving data in the requested workspace not granted by the OS");
     }
