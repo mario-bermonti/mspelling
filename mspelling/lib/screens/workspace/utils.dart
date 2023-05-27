@@ -40,6 +40,7 @@ Future<void> getPermissionIfNecessary(String path) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
     if (granted) {
+      /// TODO use custom exception
       throw Exception(
           'Permission for accessing the specified workspace was requested but not granted');
     }
