@@ -183,7 +183,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
   Future<bool> setup() async {
     _workspace = await getWorkspace();
     if (_workspace == null) {
-      throw Exception("Could not access the workspace. It is probably not set");
+      throw ErrorWorkspaceAccess();
     } else {
       await _prepareStimuli();
       _database = await getDB(path: '$_workspace/mspelling_data.sqlite3');
