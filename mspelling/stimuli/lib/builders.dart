@@ -16,6 +16,7 @@ Future<Stimuli> createStimFromFile(String filePath) async {
 
 Future<void> validateStimFileExists(File file, String filePath) async {
   if (await file.exists() == false) {
+    /// TODO use custom exception
     throw Exception('stim.txt file not found in $filePath');
   }
 }
