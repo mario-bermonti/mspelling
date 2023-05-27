@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:data/db.dart';
+import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/errors.dart';
 import 'package:mspelling/screens/rest.dart';
@@ -184,14 +185,18 @@ class _SpellingActivityState extends State<SpellingActivity> {
     _workspace = await getWorkspace();
     if (_workspace == null) {
       throw ErrorWorkspaceAccess();
+
+      /// TODO check if this else is necessary
     } else {
       await _prepareStimuli();
+
+      /// TODO handle errors
       _database = await getDB(path: '$_workspace/mspelling_data.sqlite3');
-      await _getSessionNumberParticipant();
-      // TODO find a better way to handle navigation
-      // Don't pass context around
-      _run(context); // for it to access context
-      return true;
     }
+    await _getSessionNumberParticipant();
+    // TODO find a better way to handle navigation
+    // Don't pass context around
+    _run(context); // for it to access context
+    return true;
   }
 }
