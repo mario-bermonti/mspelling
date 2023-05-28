@@ -13,7 +13,7 @@ Map<String, dynamic> errorPermissionNotGranted = <String, dynamic>{
   'exceptionMessage': 'Could not read or write data to file due to permission',
 };
 
-class ErrorWorkspaceAccess implements Exception {
+class WorkspaceAccessException implements Exception {
   String exceptionMessage =
       'Could not access the workspace. It is probably not set';
   String userMessage = 'El área de trabajo no fue encontrado';
@@ -22,7 +22,7 @@ class ErrorWorkspaceAccess implements Exception {
   String toString() => exceptionMessage;
 }
 
-class ErrorStimFileNotFound implements Exception {
+class StimFileNotFoundException implements Exception {
   String exceptionMessage = 'Stim file not found in workspace';
   String userMessage =
       'Los estímulos no fueron encontrados en el área de trabajo';
@@ -31,7 +31,7 @@ class ErrorStimFileNotFound implements Exception {
   String toString() => exceptionMessage;
 }
 
-class ErrorPermissionNotGranted implements Exception {
+class PermissionNotGrantedException implements Exception {
   String exceptionMessage =
       'Could not read or write data to file due to a permission error';
   String userMessage = 'No tienes acceso para leer o escribir datos';

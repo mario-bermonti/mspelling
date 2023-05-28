@@ -1,4 +1,4 @@
-class ErrorPermissionNotGranted implements Exception {
+class PermissionNotGrantedErrorException implements Exception {
   String message =
       'Could not read or write data to file due to a permission error';
 
