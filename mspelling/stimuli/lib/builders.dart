@@ -17,6 +17,6 @@ Future<Stimuli> createStimFromFile(String filePath) async {
 
 Future<void> validateStimFileExists(File file, String filePath) async {
   if (await file.exists() == false) {
-    throw ErrorStimFileAccess();
+    throw StimFileAccessException();
   }
 }

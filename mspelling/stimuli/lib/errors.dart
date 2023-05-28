@@ -1,4 +1,4 @@
-class ErrorStimFileAccess implements Exception {
+class StimFileAccessException implements Exception {
   String message = 'stim.txt file not found in the specified workspace';
 
   @override

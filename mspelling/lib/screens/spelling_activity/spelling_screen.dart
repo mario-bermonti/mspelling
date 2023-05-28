@@ -184,7 +184,7 @@ class _SpellingActivityState extends State<SpellingActivity> {
   Future<bool> setup() async {
     _workspace = await getWorkspace();
     if (_workspace == null) {
-      throw ErrorWorkspaceAccess();
+      throw WorkspaceAccessException();
 
       /// TODO check if this else is necessary
     } else {

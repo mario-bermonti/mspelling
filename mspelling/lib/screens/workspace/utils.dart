@@ -30,7 +30,7 @@ Future<void> getPermissionIfNecessary({required String path}) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
     if (!granted) {
-      throw ErrorPermissionNotGranted();
+      throw PermissionNotGrantedException();
     }
   }
 }
