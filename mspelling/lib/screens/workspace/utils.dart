@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:mspelling/errors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -28,10 +29,8 @@ Future<String?> getWorkspace() async {
 Future<void> getPermissionIfNecessary(String path) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
-    if (granted) {
-      /// TODO use custom exception
-      throw Exception(
-          'Permission for accessing the specified workspace was requested but not granted');
+    if (!granted) {
+      throw ErrorPermissionNotGranted();
     }
   }
 }
