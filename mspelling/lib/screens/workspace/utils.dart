@@ -10,7 +10,7 @@ Future<void> setWorkspaceByUser() async {
   String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
 
   if (selectedDirectory != null) {
-    await getPermissionIfNecessary(selectedDirectory);
+    await getPermissionIfNecessary(path: selectedDirectory);
     SharedPreferences settings = await SharedPreferences.getInstance();
     await settings.setString('workspace', selectedDirectory);
   }
@@ -26,7 +26,7 @@ Future<String?> getWorkspace() async {
 /// Get permission to use the path provided if necessary
 /// Throws error if permission is needed and not granted
 /// [path] String path where to access the workspace
-Future<void> getPermissionIfNecessary(String path) async {
+Future<void> getPermissionIfNecessary({required String path}) async {
   if (Platform.isAndroid) {
     bool granted = await Permission.storage.request().isGranted;
     if (!granted) {
