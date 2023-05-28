@@ -1,6 +1,7 @@
 /// Functions that help build a Stimuli object from a file listing the stimuli
 
 import 'dart:io';
+import 'package:stimuli/errors.dart';
 import 'package:stimuli/stim.dart';
 
 /// Build [Stimuli] from a text file specified by
@@ -16,7 +17,6 @@ Future<Stimuli> createStimFromFile(String filePath) async {
 
 Future<void> validateStimFileExists(File file, String filePath) async {
   if (await file.exists() == false) {
-    /// TODO use custom exception
-    throw Exception('stim.txt file not found in $filePath');
+    throw ErrorStimFileAccess();
   }
 }
