@@ -33,7 +33,7 @@ class ErrorStimFileNotFound implements Exception {
 
 class ErrorPermissionNotGranted implements Exception {
   String exceptionMessage =
-      'Could not read or write data to file due to permission';
+      'Could not read or write data to file due to a permission error';
   String userMessage = 'No tienes acceso para leer o escribir datos';
 
   @override
