@@ -15,24 +15,6 @@ Future<void> setWorkspaceByUser() async {
   }
 }
 
-/// Get the workspace that will be used for accessing stim and saving data
-Future<String?> getWorkspace() async {
-  SharedPreferences settings = await SharedPreferences.getInstance();
-  String? workSpace = settings.getString('workspace');
-  return workSpace;
-}
-
-/// Validate the workspace selected by the user
-// Future<void> validate(String workspace) async {
-//   String stimFile = '$workspace/stim/stim.txt';
-//   bool result = await File(stimFile).exists();
-
-//   if (result == false) {
-//     throw Exception(
-//         'The stim file was not found within the workspace in a directory named stim');
-//   }
-// }
-
 /// Get permission to use the path provided if necessary
 /// Throws error if permission is needed and not granted
 /// [path] String path where to access the workspace
