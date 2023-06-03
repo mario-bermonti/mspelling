@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
+import 'package:mspelling/errors.dart';
 
 /// Present error screen to participant
 /// Show specific error
 class ErrorScreen extends StatelessWidget {
-  final String message;
+  final MSpellingExeption message;
 
   const ErrorScreen({Key? key, required this.message}) : super(key: key);
 
@@ -17,7 +18,7 @@ class ErrorScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: ErrorScreenBody(message: message),
+        body: ErrorScreenBody(message: message.userMessage()),
       ),
     );
   }
