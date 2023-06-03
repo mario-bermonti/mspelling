@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/errors.dart';
 
 class TrialStimScreen extends StatefulWidget {
@@ -59,8 +60,9 @@ class _TrialStimScreenState extends State<TrialStimScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              const ErrorScreen(message: 'Error playing the audio stim file'),
+          builder: (context) => ErrorScreen(
+              message: GenericMSpellingException(
+                  'Error playing the audio stim file')),
         ),
       );
     }
