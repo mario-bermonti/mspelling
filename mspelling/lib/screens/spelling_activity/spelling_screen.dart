@@ -8,6 +8,7 @@ import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_stim_screen.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
+import 'package:stimuli/errors.dart';
 import 'package:stimuli/stimuli.dart';
 
 // Controls the task's sequences
@@ -81,9 +82,13 @@ class _SpellingActivityState extends State<SpellingActivity> {
   /// Prepare stim to be used
   Future<void> _prepareStimuli() async {
     String path = '$_workspace/stim/stim.txt';
-    Stimuli stimuli = await createStimFromFile(path);
-    stimuli.randomize();
-    _stimuli = stimuli;
+    try {
+      Stimuli stimuli = await createStimFromFile(path);
+      stimuli.randomize();
+      _stimuli = stimuli;
+    } on StimFileAccessException catch (e) {
+      throw GenericMSpellingException(e.toString());
+    }
   }
 
   /// [context] BuildContext: Needed to navigate
@@ -152,7 +157,8 @@ class _SpellingActivityState extends State<SpellingActivity> {
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {
-              return ErrorScreen(message: snapshot.error.toString());
+              /// TODO it's necessary to cast as mspelling error?
+              return ErrorScreen(message: snapshot.error as MSpellingExeption);
             } else {
               return WillPopScope(
                 onWillPop: () async {
