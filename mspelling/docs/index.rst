@@ -9,7 +9,6 @@ Welcome to mSpelling's documentation!
    usage
    changelog
    contributing
-   Code of Conduct <CODE_OF_CONDUCT>
 
 ..
    Indices and tables
