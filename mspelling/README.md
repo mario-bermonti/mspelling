@@ -3,6 +3,7 @@
 ![GitHub](https://img.shields.io/github/license/mario-bermonti/mspelling)
 [![Codecov](https://codecov.io/gh/mario-bermonti/mspelling/branch/master/graph/badge.svg?token=YOURTOKEN)](https://codecov.io/gh/mario-bermonti/mspelling)
 [![Read the Docs](https://readthedocs.org/projects/mspelling/badge/)](https://mspelling.readthedocs.io/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6468561.svg)](https://doi.org/10.5281/zenodo.6468561)
 
 Measure of spelling skills in Spanish
 
@@ -48,7 +49,11 @@ mSpelling.
 ## Author
 This project was developed by Mario E. Bermonti-Pérez as part of
 his academic research. Feel free to contact me at [mbermonti@psm.edu](mailto:mbermonti@psm.edu) or
+
 [mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com).
+## Citation
+If you use mSpelling in your research, please cite as
+Bermonti-Pérez, M. (2022). mario-bermonti/mspelling: V0.3.0. Zenodo. https://doi.org/10.5281/zenodo.6468561
 
 [project_docs]: https://mspelling.readthedocs.io/
 [code_conduct]: ./CODE_OF_CONDUCT.md
