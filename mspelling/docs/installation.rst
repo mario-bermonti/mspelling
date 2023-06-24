@@ -17,6 +17,7 @@ You will probably receive a message that the app cannot be verified and that you
 it. That is OK, is just Apple being very cautious. 
 
 To enable the app:
+
 1. Go to System Settings > Privacy & Security > Security
 2. Press Open Anyway
 3. That is it! You can now open the app again.
