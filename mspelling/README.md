@@ -24,12 +24,14 @@ Measure of spelling skills in Spanish
 Words are presented by the computer one at a time and the participant types the word
 using the keyboard. Participants have a rest period after every 5 trials.
 
-At the end of the session, mspelling saves the results to a sqlite database.
+mSpelling saves the results to a sqlite database at the end of the session.
 
-mSpelling is developed using the [Google's Flutter Framework](https://flutter.dev/).
+mSpelling is developed using the [Google's Flutter Framework](https://flutter.dev/) and has been 
+used in the DeMo and TEST studies [(more info)](https://mario-bermonti.github.io/research/).
 
 ## Getting Started
-Please see [mSpelling documentation][project_docs] for details about how to install and use mSpelling.
+Please see [mSpelling documentation][project_docs] for details about how to install and use 
+mSpelling.
 
 ## Contributing to this project
   All contributions are welcome!
