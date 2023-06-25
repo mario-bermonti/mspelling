@@ -8,7 +8,6 @@ Welcome to mSpelling's documentation!
    installation
    usage
    changelog
-   contributing
 
 ..
    Indices and tables
