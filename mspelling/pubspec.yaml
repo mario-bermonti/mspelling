@@ -1,0 +1,37 @@
+name: mspelling
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 0.4.0
+
+environment:
+  sdk: ">=2.17.3 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  stimuli:
+    path: stimuli
+  data:
+    path: data
+  file_picker: ^5.2.4
+  audioplayers: ^1.0.1
+  shared_preferences: ^2.0.15
+  permission_handler: ^10.2.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  test: ^1.21.1
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/listen.jpeg

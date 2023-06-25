@@ -25,15 +25,10 @@
 
 - [ ] I've read the [project's code of conduct][code_conduct].
 - [ ] I've read the [contributing guide][CONTRIBUTING].
-- [ ] I've formatted the code style according to the project's
-  standards using `poetry run invoke format`.
 - [ ] I've written tests for all new methods and classes that I created.
-- [ ] I've written the docstring in following [numpy's format][numpy_style]
-  for all the methods and classes that I used.
 
 [code_conduct]: ./CODE_OF_CONDUCT.md
 [contributing]: ./CONTRIBUTING.md
-[numpy_style]: https://numpydoc.readthedocs.io/en/latest/format.html
 
 
 <!-- Credits -->

@@ -4,35 +4,20 @@
 Installation
 ============
 
-The current method of installion requires installing mSpelling and its dependencies manually (sorry, this will be simplified soon).
+The current method of installion requires downloading mSpelling and allowing your computer to 
+open it (MacOS).
 
 To install mspelling:
 
-1.  Install poetry (`poetry's documentation`_)
-2.  Download `mspelling's latest version`_ or clone it into your computer using git
-3.  Open a terminal and change your working directory into mSpelling's directory (check this `cheatsheet`_ for more info)
-4.  To install mspelling and all its dependencies run:
+1. Download the most recent version of mspelling from the 
+   `release page <https://github.com/mario-bermonti/mspelling/releases>`_ 
+2. Open the app by double clicking on it
 
-   .. code-block:: console
+You will probably receive a message that the app cannot be verified and that you should not open
+it. That is OK, is just Apple being very cautious. 
 
-       $ poetry install
+To enable the app:
 
-.. _poetry's documentation: https://python-poetry.org/
-.. _mspelling's latest version: https://github.com/mario-bermonti/mspelling/archive/refs/tags/v0.3.0.zip
-.. _cheatsheet: https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/
-.. _pip: https://pip.pypa.io
-.. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
-..
-..
-
-..
-   To install mspelling, run this command in your terminal:
-
-   .. code-block:: console
-
-       $ pip install mspelling
-
-   This is the preferred method to install mspelling, as it will always install the most recent stable release.
-
-   If you don't have `pip`_ installed, this `Python installation guide`_ can guide
-   you through the process.
+1. Go to System Settings > Privacy & Security > Security
+2. Press Open Anyway
+3. That is it! You can now open the app again.

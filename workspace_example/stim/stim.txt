@@ -1,0 +1,5 @@
+del
+dos
+inicio
+hilo
+hogar

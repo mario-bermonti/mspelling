@@ -1,15 +1,11 @@
 # mSpelling
 
-[![PyPI - Version](https://img.shields.io/pypi/v/mspelling.svg)](https://pypi.python.org/pypi/mspelling)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mspelling.svg)](https://pypi.python.org/pypi/mspelling)
 ![GitHub](https://img.shields.io/github/license/mario-bermonti/mspelling)
-[![Tests](https://github.com/mario-bermonti/mspelling/workflows/tests/badge.svg)](https://github.com/mario-bermonti/mspelling/actions?workflow=tests)
 [![Codecov](https://codecov.io/gh/mario-bermonti/mspelling/branch/master/graph/badge.svg?token=YOURTOKEN)](https://codecov.io/gh/mario-bermonti/mspelling)
 [![Read the Docs](https://readthedocs.org/projects/mspelling/badge/)](https://mspelling.readthedocs.io/)
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6468561.svg)](https://doi.org/10.5281/zenodo.6468561)
 
-Measure of Spanish spelling skills
+Measure of spelling skills in Spanish
 
 * GitHub repo: <https://github.com/mario-bermonti/mspelling.git>
 * Documentation: <https://mspelling.readthedocs.io/>
@@ -19,8 +15,8 @@ Measure of Spanish spelling skills
 - Developed specifically for research on spelling skills
 - Easy to administer
 - Flexible and easy to extend
-- Supports multiple platforms: MacOS, Windows, Linux
-- Results are saved to a CSV file
+- Available for MacOS
+- Results are saved to a [sqlite database](https://www.sqlite.org/index.html)
 
 ## Description
 
@@ -29,19 +25,21 @@ Measure of Spanish spelling skills
 Words are presented by the computer one at a time and the participant types the word
 using the keyboard. Participants have a rest period after every 5 trials.
 
-At the end of the session, mspelling saves the results to a CSV file, which is supported
-by most popular spreadsheet software these days (e.g., Excel).
+mSpelling saves the results to a sqlite database at the end of the session.
 
-mSpelling is developed using the Python programming language v3.
+mSpelling is developed using the [Google's Flutter Framework](https://flutter.dev/) and has been 
+used in the DeMo and TEST studies [(more info)](https://mario-bermonti.github.io/research/).
 
 ## Getting Started
-Please see [mSpelling documentation][project_docs] for details about how to install and use mSpelling.
+Please see [mSpelling documentation][project_docs] for details about how to install and use 
+mSpelling.
 
 ## Contributing to this project
   All contributions are welcome!
 
-  Will find a detailed description of all the ways you can contribute to mspelling in
-  [the contributing guide][contributing_guide].
+  <!-- Will find a detailed description of all the ways you can contribute to mspelling in
+  [the contributing guide][contributing_guide]. -->
+  We will add instructions for contributing soon. 
 
   This is a beginner-friendly project so don't hesitate to ask any questions or get in touch
   with the project's maintainers.
@@ -52,14 +50,12 @@ Please see [mSpelling documentation][project_docs] for details about how to inst
 ## Author
 This project was developed by Mario E. Bermonti-Pérez as part of
 his academic research. Feel free to contact me at [mbermonti@psm.edu](mailto:mbermonti@psm.edu) or
-[mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com)
 
-## Credits
+[mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com).
+## Citation
+If you use mSpelling in your research, please cite as
+Bermonti-Pérez, M. (2022). mario-bermonti/mspelling: V0.4.0. Zenodo. https://doi.org/10.5281/zenodo.6468561
 
-This package was created with [Cookiecutter][cookiecutter] and the [mario-bermonti/cookiecutter-modern-pypackage][cookiecutter-modern-pypackage] project template.
-
-[cookiecutter]: https://github.com/cookiecutter/cookiecutter
-[cookiecutter-modern-pypackage]: https://github.com/mario-bermonti/cookiecutter-modern-pypackage
 [project_docs]: https://mspelling.readthedocs.io/
 [code_conduct]: ./CODE_OF_CONDUCT.md
 [contributing_guide]: ./contributing.md

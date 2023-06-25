@@ -11,7 +11,6 @@
 # relative to the documentation root, use os.path.abspath to make it
 # absolute, like shown here.
 #
-import mspelling
 
 # -- Project information -----------------------------------------------------
 
@@ -24,9 +23,9 @@ author = "Mario E. Bermonti Pérez"
 # the built documents.
 #
 # The short X.Y version.
-version = mspelling.__version__
+version = "0.4.0"
 # The full version, including alpha/beta/rc tags.
-release = mspelling.__version__
+release = "0.4.0"
 
 # -- General configuration ---------------------------------------------------
 
@@ -40,7 +39,7 @@ extensions = [
     "recommonmark",
     "sphinx_rtd_theme",
     "autodocsumm",  # generate summary of class attributes
-    "sphinxemoji.sphinxemoji"
+    "sphinxemoji.sphinxemoji",
 ]
 
 # Config for extensions
