@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2023-06-25
+- Complete rewrite of mspelling to Google's Flutter framework (dart language)
+- Simplified process of installation and running
+
 ## [0.3.0] - 2022-04-18
 Adds new functionality to mspelling and update dependencies.
 
