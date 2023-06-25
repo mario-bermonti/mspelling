@@ -3,8 +3,9 @@
 This guide describes how to release new versions of mspelling.
 
 1. Create new branch named `bump-mspelling-version-[new-version-number]`.
-2. Add a tag to the branch with the version number that will be bumped. 
-3. Document changes in the CHANGELOG.md (summary)
+2. Add a tag to the branch with the version number that will be bumped that follows the convention v[major].[minor].[patch] 
+3. Change all mentions of mspelling's versions to the new version.
+4. Document changes in the CHANGELOG.md (summary)
 5. Commit the changes
 
         $ git add .
