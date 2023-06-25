@@ -5,9 +5,7 @@ on:
     branches:
       - master
   pull_request:
-    branches:
-      - master
-      - integrate-docs
+
 jobs:
   docs:
     runs-on: ubuntu-latest
