@@ -1,7 +1,6 @@
 # mSpelling
 
 ![GitHub](https://img.shields.io/github/license/mario-bermonti/mspelling)
-[![Codecov](https://codecov.io/gh/mario-bermonti/mspelling/branch/master/graph/badge.svg?token=YOURTOKEN)](https://codecov.io/gh/mario-bermonti/mspelling)
 [![Read the Docs](https://readthedocs.org/projects/mspelling/badge/)](https://mspelling.readthedocs.io/)
 [![DOI](https://zenodo.org/badge/177338763.svg)](https://zenodo.org/badge/latestdoi/177338763)
 
