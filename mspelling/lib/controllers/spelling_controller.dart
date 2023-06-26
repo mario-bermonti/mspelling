@@ -21,6 +21,8 @@ class SpellingController extends GetxController {
   /// Stimuli used in the task
   late final Stimuli stimuli;
 
+  late String response;
+
   /// Global task start time
   final DateTime _timeStart = DateTime.now();
   late final DataBase _database;
