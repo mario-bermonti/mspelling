@@ -16,10 +16,10 @@ class SpellingController extends GetxController {
   late Future<bool> setupDone;
 
   /// Dir used to getting stim
-  late String? _workspace;
+  late String? workspace;
 
   /// Stimuli used in the task
-  late final Stimuli _stimuli;
+  late final Stimuli stimuli;
 
   /// Global task start time
   final DateTime _timeStart = DateTime.now();
@@ -49,14 +49,14 @@ class SpellingController extends GetxController {
   void addTrialData({required String result}) {
     _database.addTrialData(
       participantId: participantId,
-      stim: _stimuli.currentStim,
+      stim: stimuli.currentStim,
       resp: result,
       sessionNumber: _sessionNumber,
     );
   }
 
   void updateActivity() {
-    _stimuli.next();
+    stimuli.next();
     updateStatus();
   }
 
@@ -74,16 +74,16 @@ class SpellingController extends GetxController {
 
   bool responseStatusFollows() => status == Status.stim;
   bool restStatusFollows() =>
-      _stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0;
-  bool completedStatusFollows() => _stimuli.stimCountRemaining == 0;
+      stimuli.stimCountUsed != 0 && stimuli.stimCountUsed % 5 == 0;
+  bool completedStatusFollows() => stimuli.stimCountRemaining == 0;
 
   /// Prepare stim to be used
   Future<void> _prepareStimuli() async {
-    String path = '$_workspace/stim/stim.txt';
+    String path = '$workspace/stim/stim.txt';
     try {
       Stimuli stimuli = await createStimFromFile(path);
       stimuli.randomize();
-      _stimuli = stimuli;
+      stimuli = stimuli;
     } on StimFileAccessException catch (e) {
       throw GenericMSpellingException(e.toString());
     }
@@ -113,8 +113,8 @@ class SpellingController extends GetxController {
   /// Get workspace, prepare stim, prepare db, and start spelling activity
   /// Throws error if the workspace is null (hasn't been set)
   Future<bool> setup() async {
-    _workspace = await getWorkspace();
-    if (_workspace == null) {
+    workspace = await getWorkspace();
+    if (workspace == null) {
       throw WorkspaceAccessException();
 
       /// TODO check if this else is necessary
@@ -122,7 +122,7 @@ class SpellingController extends GetxController {
       await _prepareStimuli();
 
       /// TODO handle errors
-      _database = await getDB(path: '$_workspace/mspelling_data.sqlite3');
+      _database = await getDB(path: '$workspace/mspelling_data.sqlite3');
     }
     await _getSessionNumberParticipant();
     return true;
