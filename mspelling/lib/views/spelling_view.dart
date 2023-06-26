@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/instance_manager.dart';
+import 'package:mspelling/controllers/spelling_controller.dart';
 import 'package:mspelling/controllers/status.dart';
 import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/end.dart';
@@ -21,6 +24,13 @@ class SpellingView extends StatefulWidget {
 class _SpellingViewState extends State<SpellingView> {
   /// Flag to indicate whether the ui can be displayed
   late Future<bool> setupDone;
+  late final SpellingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.put(SpellingController(widget.participantId));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +42,11 @@ class _SpellingViewState extends State<SpellingView> {
               /// TODO it's necessary to cast as mspelling error?
               return ErrorScreen(message: snapshot.error as MSpellingExeption);
             } else {
-              switch (status) {
+              switch (controller.status) {
                 case Status.stim:
                   return TrialStimScreen(
-                    workspace: _workspace!,
-                    stim: _stimuli.currentStim,
+                    workspace: controller.workspace!,
+                    stim: controller.stimuli.currentStim,
                   );
                 case Status.response:
                   return const TrialResponseScreen();
