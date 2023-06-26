@@ -53,80 +53,78 @@ class SpellingController extends GetxController {
       resp: result,
       sessionNumber: _sessionNumber,
     );
+  }
 
-    bool responseStatusFollows() => status == Status.stim;
-    bool restStatusFollows() =>
-        _stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0;
-    bool completedStatusFollows() => _stimuli.stimCountRemaining == 0;
+  void updateActivity() {
+    _stimuli.next();
+    updateStatus();
+  }
 
-    void updateStatus() {
-      if (responseStatusFollows()) {
-        status = Status.response;
-      } else if (restStatusFollows()) {
-        status = Status.rest;
-      } else if (completedStatusFollows()) {
-        status = Status.completed;
-      } else {
-        status = Status.stim;
-      }
+  void updateStatus() {
+    if (responseStatusFollows()) {
+      status = Status.response;
+    } else if (restStatusFollows()) {
+      status = Status.rest;
+    } else if (completedStatusFollows()) {
+      status = Status.completed;
+    } else {
+      status = Status.stim;
     }
+  }
 
-    void updateActivity() {
-      _stimuli.next();
-      updateStatus();
+  bool responseStatusFollows() => status == Status.stim;
+  bool restStatusFollows() =>
+      _stimuli.stimCountUsed != 0 && _stimuli.stimCountUsed % 5 == 0;
+  bool completedStatusFollows() => _stimuli.stimCountRemaining == 0;
+
+  /// Prepare stim to be used
+  Future<void> _prepareStimuli() async {
+    String path = '$_workspace/stim/stim.txt';
+    try {
+      Stimuli stimuli = await createStimFromFile(path);
+      stimuli.randomize();
+      _stimuli = stimuli;
+    } on StimFileAccessException catch (e) {
+      throw GenericMSpellingException(e.toString());
     }
+  }
 
-    /// Prepare stim to be used
-    Future<void> _prepareStimuli() async {
-      String path = '$_workspace/stim/stim.txt';
-      try {
-        Stimuli stimuli = await createStimFromFile(path);
-        stimuli.randomize();
-        _stimuli = stimuli;
-      } on StimFileAccessException catch (e) {
-        throw GenericMSpellingException(e.toString());
-      }
-    }
+  void _endSession() {
+    /// Global session end time
+    final DateTime timeEnd = DateTime.now();
 
-    /// Save data to disk
-    void _saveData() {
-      _database.saveData();
-    }
-
-    void _endSession() {
-      /// Global session end time
-      final DateTime timeEnd = DateTime.now();
-
-      _database.addSessionData(
-          sessionNumber: _sessionNumber,
-          participantId: participantId,
-          timeStart: _timeStart,
-          timeEnd: timeEnd);
-      _database.addDeviceData(
-        participantId: participantId,
+    _database.addSessionData(
         sessionNumber: _sessionNumber,
-      );
-      _saveData();
+        participantId: participantId,
+        timeStart: _timeStart,
+        timeEnd: timeEnd);
+    _database.addDeviceData(
+      participantId: participantId,
+      sessionNumber: _sessionNumber,
+    );
+    _saveData();
+  }
+
+  /// Save data to disk
+  void _saveData() {
+    _database.saveData();
+  }
+
+  /// Get workspace, prepare stim, prepare db, and start spelling activity
+  /// Throws error if the workspace is null (hasn't been set)
+  Future<bool> setup() async {
+    _workspace = await getWorkspace();
+    if (_workspace == null) {
+      throw WorkspaceAccessException();
+
+      /// TODO check if this else is necessary
+    } else {
+      await _prepareStimuli();
+
+      /// TODO handle errors
+      _database = await getDB(path: '$_workspace/mspelling_data.sqlite3');
     }
-
-    /// Get workspace, prepare stim, prepare db, and start spelling activity
-    /// Throws error if the workspace is null (hasn't been set)
-    Future<bool> setup() async {
-      _workspace = await getWorkspace();
-      if (_workspace == null) {
-        throw WorkspaceAccessException();
-
-        /// TODO check if this else is necessary
-      } else {
-        await _prepareStimuli();
-
-        /// TODO handle errors
-        _database = await getDB(path: '$_workspace/mspelling_data.sqlite3');
-      }
-      await _getSessionNumberParticipant();
-      // TODO find a better way to handle navigation
-      // Don't pass context around
-      return true;
-    }
+    await _getSessionNumberParticipant();
+    return true;
   }
 }
