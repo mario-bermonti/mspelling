@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/default_textfield.dart';
 import 'package:mspelling/components/spacing_holder.dart';
+import 'package:mspelling/controllers/spelling_controller.dart';
 
 class TrialResponseScreen extends StatefulWidget {
   /// Screen for collecting response from participant
@@ -15,11 +17,11 @@ class TrialResponseScreen extends StatefulWidget {
 }
 
 class _TrialResponseScreenState extends State<TrialResponseScreen> {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   @override
   void dispose() {
-    _controller.dispose();
+    _textController.dispose();
     super.dispose();
   }
 
@@ -31,20 +33,19 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: TrialResponseBody(controller: _controller),
+        body: TrialResponseBody(textController: _textController),
       ),
     );
   }
 }
 
 class TrialResponseBody extends StatelessWidget {
+  final TextEditingController textController;
+
   const TrialResponseBody({
     Key? key,
-    required TextEditingController controller,
-  })  : _controller = controller,
-        super(key: key);
-
-  final TextEditingController _controller;
+    required this.textController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +57,11 @@ class TrialResponseBody extends StatelessWidget {
             text: 'Escribe la palabra:',
           ),
           const BetweenWidgetsSpace(),
-          DefaultTextField(controller: _controller),
+          DefaultTextField(controller: textController),
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
+              submitResponse();
               goBack(context);
             },
             child: const DefaultText(text: 'Seguir'),
@@ -69,14 +71,18 @@ class TrialResponseBody extends StatelessWidget {
     );
   }
 
+  void submitResponse() {
+    final SpellingController spellingController = Get.find();
+
+    /// We assume leading or trailing whitespace do not impact response.
+    /// Just like when writing using paper-and-pencil and there
+    /// is trailling whitespace space
+    spellingController.response = textController.text.trim();
+  }
+
   void goBack(BuildContext context) {
     Navigator.pop(
       context,
-
-      /// We assume leading or trailing whitespace do not impact response.
-      /// Just like when writing using paper-and-pencil and there
-      /// is trailling whitespace space
-      _controller.text.trim(),
     );
   }
 }
