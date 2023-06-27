@@ -43,15 +43,20 @@ class _SpellingViewState extends State<SpellingView> {
             } else {
               switch (controller.status) {
                 case Status.stim:
+                  controller.stimuli.next();
+                  controller.updateStatus();
                   return TrialStimScreen(
                     workspace: controller.workspace!,
                     stim: controller.stimuli.currentStim,
                   );
                 case Status.response:
+                  controller.updateStatus();
                   return const TrialResponseScreen();
                 case Status.rest:
+                  controller.updateStatus();
                   return RestScreen(widget.participantId);
                 case Status.completed:
+                  controller.updateStatus();
                   return const EndScreen();
               }
             }
