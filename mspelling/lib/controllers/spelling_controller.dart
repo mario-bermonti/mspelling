@@ -1,4 +1,4 @@
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/controllers/status.dart';
 import 'package:mspelling/errors.dart';
