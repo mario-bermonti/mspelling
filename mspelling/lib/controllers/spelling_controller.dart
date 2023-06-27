@@ -57,11 +57,6 @@ class SpellingController extends GetxController {
     );
   }
 
-  void updateActivity() {
-    stimuli.next();
-    updateStatus();
-  }
-
   void updateStatus() {
     if (responseStatusFollows()) {
       status = Status.response;
