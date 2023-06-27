@@ -83,9 +83,9 @@ class SpellingController extends GetxController {
   Future<void> _prepareStimuli() async {
     String path = '$workspace/stim/stim.txt';
     try {
-      Stimuli stimuli = await createStimFromFile(path);
-      stimuli.randomize();
-      stimuli = stimuli;
+      Stimuli _stimuli = await createStimFromFile(path);
+      _stimuli.randomize();
+      stimuli = _stimuli;
     } on StimFileAccessException catch (e) {
       throw GenericMSpellingException(e.toString());
     }
