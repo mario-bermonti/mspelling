@@ -3,6 +3,7 @@ import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
+import 'package:mspelling/views/spelling_view.dart';
 
 class BeginScreen extends StatelessWidget {
   // Allows the user to indicate when to start task.
@@ -58,7 +59,7 @@ class BeginMessageBody extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SpellingActivity(participantId),
+        builder: (context) => SpellingView(participantId),
       ),
     );
   }
