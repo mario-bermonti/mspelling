@@ -22,13 +22,12 @@ class SpellingView extends StatefulWidget {
 
 class _SpellingViewState extends State<SpellingView> {
   /// Flag to indicate whether the ui can be displayed
-  late Future<bool> setupDone;
   late final SpellingController controller;
 
   @override
   void initState() {
-    super.initState();
     controller = Get.put(SpellingController(widget.participantId));
+    super.initState();
   }
 
   @override
