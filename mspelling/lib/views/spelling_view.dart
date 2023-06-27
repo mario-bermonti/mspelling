@@ -33,7 +33,7 @@ class _SpellingViewState extends State<SpellingView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: setupDone,
+        future: controller.setupDone,
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {
