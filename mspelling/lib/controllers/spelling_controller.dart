@@ -2,7 +2,11 @@ import 'package:get/get.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/controllers/status.dart';
 import 'package:mspelling/errors.dart';
+import 'package:mspelling/screens/end.dart';
+import 'package:mspelling/screens/rest.dart';
+import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
+import 'package:mspelling/views/trial_stim_view.dart';
 import 'package:stimuli/errors.dart';
 import 'package:stimuli/stimuli.dart';
 
@@ -13,7 +17,7 @@ class SpellingController extends GetxController {
   SpellingController(this.participantId);
 
   /// Flag to indicate whether the ui can be displayed
-  late Future<bool> setupDone;
+  // late bool setupDone;
 
   /// Dir used to getting stim
   late String? workspace;
@@ -33,9 +37,14 @@ class SpellingController extends GetxController {
   Status status = Status.stim;
 
   @override
-  onInit() {
+  onInit() async {
+    await setup();
     super.onInit();
-    setupDone = setup();
+  }
+
+  @override
+  onReady() {
+    run();
   }
 
   /// Helper method to get the session number for the current participant
@@ -123,5 +132,31 @@ class SpellingController extends GetxController {
     }
     await _getSessionNumberParticipant();
     return true;
+  }
+
+  void run() {
+    switch (status) {
+      case Status.stim:
+        stimuli.next();
+        Get.to(() => TrialStimView());
+        updateStatus();
+        break;
+      case Status.response:
+        Get.to(const TrialResponseScreen());
+        updateStatus();
+        break;
+      case Status.rest:
+        Get.to(RestScreen(participantId));
+        updateStatus();
+        break;
+      case Status.completed:
+        _endSession();
+        updateStatus();
+        Get.to(const EndScreen());
+        break;
+      default:
+        updateStatus();
+        run();
+    }
   }
 }
