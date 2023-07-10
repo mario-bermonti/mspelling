@@ -66,19 +66,25 @@ class SpellingController extends GetxController {
     );
   }
 
+  // TODO improve name of conditions checks?
+  /// TODO can presenting stim next be improved? Current implementation seems
+  /// weird
   void updateStatus() {
     if (responseStatusFollows()) {
       status = Status.response;
-    } else if (restStatusFollows()) {
-      status = Status.rest;
     } else if (completedStatusFollows()) {
       status = Status.completed;
+    } else if (stimStatusFollows()) {
+      status = Status.stim;
+    } else if (restStatusFollows()) {
+      status = Status.rest;
     } else {
       status = Status.stim;
     }
   }
 
   bool responseStatusFollows() => status == Status.stim;
+  bool stimStatusFollows() => status == Status.rest;
   bool restStatusFollows() =>
       stimuli.stimCountUsed != 0 && stimuli.stimCountUsed % 5 == 0;
   bool completedStatusFollows() => stimuli.stimCountRemaining == 0;
