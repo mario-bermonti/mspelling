@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
+import 'package:mspelling/controllers/spelling_controller.dart';
 
 class RestScreen extends StatelessWidget {
   final String participantId;
@@ -16,14 +18,16 @@ class RestScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: const RestScreenBody(),
+        body: RestScreenBody(),
       ),
     );
   }
 }
 
 class RestScreenBody extends StatelessWidget {
-  const RestScreenBody({
+  final SpellingController spellingController = Get.find();
+
+  RestScreenBody({
     Key? key,
   }) : super(key: key);
 
@@ -39,7 +43,9 @@ class RestScreenBody extends StatelessWidget {
           const BetweenWidgetsSpace(),
           ElevatedButton(
             onPressed: () {
-              goBack(context);
+              Future.delayed(const Duration(milliseconds: 500), () {
+                spellingController.run();
+              });
             },
             child: const DefaultText(text: 'Comenzar'),
           ),
@@ -50,7 +56,7 @@ class RestScreenBody extends StatelessWidget {
 
   void goBack(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 500), () {
-      Navigator.pop(context);
+      spellingController.run();
     });
   }
 }
