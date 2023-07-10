@@ -157,9 +157,8 @@ class SpellingController extends GetxController {
         break;
       case Status.completed:
         _endSession();
-        updateStatus();
         Get.to(const EndScreen());
-        break;
+        return;
       default:
         updateStatus();
         run();
