@@ -40,9 +40,10 @@ class _TrialResponseScreenState extends State<TrialResponseScreen> {
 }
 
 class TrialResponseBody extends StatelessWidget {
+  final SpellingController spellingController = Get.find();
   final TextEditingController textController;
 
-  const TrialResponseBody({
+  TrialResponseBody({
     Key? key,
     required this.textController,
   }) : super(key: key);
@@ -81,8 +82,6 @@ class TrialResponseBody extends StatelessWidget {
   }
 
   void goBack(BuildContext context) {
-    Navigator.pop(
-      context,
-    );
+    spellingController.run();
   }
 }
