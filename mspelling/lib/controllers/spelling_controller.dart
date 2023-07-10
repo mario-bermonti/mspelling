@@ -25,14 +25,14 @@ class SpellingController extends GetxController {
   /// Stimuli used in the task
   late final Stimuli stimuli;
 
-  late String response;
+  // late String response;
 
   /// Global task start time
   final DateTime _timeStart = DateTime.now();
-  late final DataBase _database;
+  late final DataBase database;
 
   /// Session  number for current participant
-  late final int _sessionNumber;
+  late final int sessionNumber;
 
   Status status = Status.stim;
 
@@ -50,19 +50,19 @@ class SpellingController extends GetxController {
   /// Helper method to get the session number for the current participant
   /// from the db
   Future<void> _getSessionNumberParticipant() async {
-    _sessionNumber =
-        await _database.getCurrentParticipantSessionNumber(participantId);
+    sessionNumber =
+        await database.getCurrentParticipantSessionNumber(participantId);
   }
 
   /// Controls the sequence of the task, including presenting trials, rests,
   /// ITI, ending the session.
   /// [context] BuildContext: Needed to navigate
   void addTrialData({required String result}) {
-    _database.addTrialData(
+    database.addTrialData(
       participantId: participantId,
       stim: stimuli.currentStim,
       resp: result,
-      sessionNumber: _sessionNumber,
+      sessionNumber: sessionNumber,
     );
   }
 
@@ -105,21 +105,21 @@ class SpellingController extends GetxController {
     /// Global session end time
     final DateTime timeEnd = DateTime.now();
 
-    _database.addSessionData(
-        sessionNumber: _sessionNumber,
+    database.addSessionData(
+        sessionNumber: sessionNumber,
         participantId: participantId,
         timeStart: _timeStart,
         timeEnd: timeEnd);
-    _database.addDeviceData(
+    database.addDeviceData(
       participantId: participantId,
-      sessionNumber: _sessionNumber,
+      sessionNumber: sessionNumber,
     );
     _saveData();
   }
 
   /// Save data to disk
   void _saveData() {
-    _database.saveData();
+    database.saveData();
   }
 
   /// Get workspace, prepare stim, prepare db, and start spelling activity
@@ -134,7 +134,7 @@ class SpellingController extends GetxController {
       await _prepareStimuli();
 
       /// TODO handle errors
-      _database = await getDB(path: '$workspace/mspelling_data.sqlite3');
+      database = await getDB(path: '$workspace/mspelling_data.sqlite3');
     }
     await _getSessionNumberParticipant();
     return true;
