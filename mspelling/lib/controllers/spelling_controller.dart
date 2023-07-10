@@ -160,7 +160,6 @@ class SpellingController extends GetxController {
         Get.to(const EndScreen());
         return;
       default:
-        updateStatus();
         run();
     }
   }
