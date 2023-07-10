@@ -147,16 +147,17 @@ class SpellingController extends GetxController {
         updateStatus();
         break;
       case Status.response:
-        Get.to(const TrialResponseScreen());
+        Get.to(() => const TrialResponseScreen());
+
         updateStatus();
         break;
       case Status.rest:
-        Get.to(RestScreen(participantId));
+        Get.to(() => RestScreen(participantId));
         updateStatus();
         break;
       case Status.completed:
         _endSession();
-        Get.to(const EndScreen());
+        Get.to(() => const EndScreen());
         return;
       default:
         run();
