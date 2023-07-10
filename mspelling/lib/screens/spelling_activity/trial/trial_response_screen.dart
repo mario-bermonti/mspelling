@@ -73,12 +73,18 @@ class TrialResponseBody extends StatelessWidget {
   }
 
   void submitResponse() {
-    final SpellingController spellingController = Get.find();
-
     /// We assume leading or trailing whitespace do not impact response.
     /// Just like when writing using paper-and-pencil and there
     /// is trailling whitespace space
-    spellingController.response = textController.text.trim();
+    String response = textController.text.trim();
+
+    /// TODO Improve, very coupled
+    spellingController.database.addTrialData(
+      participantId: spellingController.participantId,
+      stim: spellingController.stimuli.currentStim,
+      resp: response,
+      sessionNumber: spellingController.sessionNumber,
+    );
   }
 
   void goBack(BuildContext context) {
