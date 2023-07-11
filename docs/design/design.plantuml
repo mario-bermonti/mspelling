@@ -1,97 +1,112 @@
 @startuml Entities and Responsibilities
 !theme spacelab
 
-entity MSpellingApp{
+entity MSpellingApp {
     Basic config
     Starting app
 }
 
-entity SetupController{
+entity SetupController {
     Choose appropriate screen
 }
 
-entity SetWorkspaceScreen{
+entity SetWorkspaceScreen {
     Present screen to choose dir 
     Go to appropriate screen
 }
 
-entity SetWorkspaceController{
+entity SetWorkspaceController {
 }
 
-entity LoginScreen{
+entity LoginScreen {
     Collect participant id
-    Store participant id appropriately
+    Pass participant id to handler
 }
 
-entity LoginController{}
+entity LoginController {
+    Store participant id
+}
 
-entity BeginScreen{
+entity BeginScreen {
     Present begin message
     Go to next screen
 }
 
-entity SpellingController{
+entity SpellingController {
     Setup everything
     Manage trial sequence 
-    Add data
-    Prepare stim 
-    Saves data
+    Provide access to data
+    Provide access to stim
+    Submit data
+    Save data
 }
 
-entity TrialStimView{
+entity TrialStimView {
     Presents stim cue
     Run present stim
 }
 
-entity TrialStimController{
+entity TrialStimController {
     Setup stim 
     Present stim
     Validate stim
 }
 
-entity TrialResponseScreen{
+entity TrialResponseScreen {
     Cue participant for response 
     Collect response
-    Add trial data with other data
-    ' Pass response
-    Continues trial sequence
+    Pass response to handler
 }
 
-entity ResponseController{}
+entity TrialResponseController {
+    Submit response
+    Continue trial sequence
+}
 
-entity RestScreen{
+entity RestScreen {
     Cue participant to rest 
-    Start again after an ISI
 }
 
-entity RestController{}
+entity RestController {
+    Resume activity after an ISI
+}
 
-entity EndScreen{
+entity EndScreen {
     Present end message
 }
 
-entity Stim{}
-entity Data{}
+entity Stim {   
+    Interact with the Stim package 
+    Prepare stim 
+    Present the stim
+}
+
+entity Data {
+    Interact with the data package 
+    Manage the data 
+    Add data
+}
 
 MSpellingApp --> SetupController
 SetupController --> SetWorkspaceScreen
 SetupController --> LoginScreen
 SetWorkspaceScreen --> SetWorkspaceController
-SetWorkspaceScreen --> SetupController 
+SetWorkspaceController --> LoginScreen
 LoginScreen --> LoginController
-LoginScreen --> BeginScreen
+LoginController --> BeginScreen
 BeginScreen --> SpellingController
-SpellingController --> Stimuli
 SpellingController --> Data
 SpellingController --> TrialStimView
 TrialStimView --> TrialStimController
 TrialStimController --> SpellingController
 TrialStimController --> Stim
 SpellingController --> TrialResponseScreen
-TrialResponseScreen --> ResponseController
-TrialResponseScreen --> SpellingController
+TrialResponseScreen --> TrialResponseController
+TrialResponseController --> SpellingController
 SpellingController --> RestScreen
-RestScreen --> SpellingController
 RestScreen --> RestController
+RestController --> SpellingController
 SpellingController --> EndScreen
+SpellingController --> LoginController
+SpellingController --> Stim
 @enduml
