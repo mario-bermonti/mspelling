@@ -87,7 +87,8 @@ entity Data {
     Add data
 }
 
-MSpellingApp --> SetupController
+MSpellingApp --> LoadingView
+LoadingView --> SetupController
 SetupController --> SetWorkspaceScreen
 SetupController --> LoginScreen
 SetWorkspaceScreen --> SetWorkspaceController
