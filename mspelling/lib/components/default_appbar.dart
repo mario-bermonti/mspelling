@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mspelling/constants.dart';
-import 'package:mspelling/screens/workspace/utils.dart';
 import 'package:mspelling/setup_manager.dart';
+import 'package:mspelling/views/workspace_view.dart';
 
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
   return AppBar(
@@ -26,10 +27,10 @@ List<Widget> createActionButtons({required BuildContext context}) {
         );
       },
     ),
-    const IconButton(
-      icon: Icon(Icons.settings),
+    IconButton(
+      icon: const Icon(Icons.settings),
       tooltip: 'Directorio de trabajo',
-      onPressed: setWorkspaceByUser,
+      onPressed: () => Get.to(() => WorkspaceView()),
     ),
   ];
   return actionButtons;
