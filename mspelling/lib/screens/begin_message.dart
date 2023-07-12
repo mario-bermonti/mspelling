@@ -4,9 +4,6 @@ import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
 import 'package:mspelling/components/spacing_holder.dart';
 import 'package:mspelling/controllers/spelling_controller.dart';
-import 'package:mspelling/controllers/trial_stim_controller.dart';
-import 'package:mspelling/screens/spelling_activity/spelling_screen.dart';
-import 'package:mspelling/views/spelling_view.dart';
 
 class BeginScreen extends StatelessWidget {
   // Allows the user to indicate when to start task.

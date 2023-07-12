@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/setup_manager.dart';
+import 'package:mspelling/controllers/setup_controller.dart';
 import 'package:mspelling/views/loading_view.dart';
 
 class SetupView extends StatelessWidget {
