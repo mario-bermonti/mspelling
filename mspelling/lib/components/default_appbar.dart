@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/constants.dart';
-import 'package:mspelling/controllers/setup_controller.dart';
-import 'package:mspelling/views/setup_view.dart';
+import 'package:mspelling/setup_manager.dart';
 import 'package:mspelling/views/workspace_view.dart';
 
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
@@ -23,7 +22,7 @@ List<Widget> createActionButtons({required BuildContext context}) {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SetupView(),
+            builder: (context) => const SetupManager(),
           ),
         );
       },
