@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
+import 'package:mspelling/screens/login.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
-import 'package:mspelling/setup_manager.dart';
 import 'package:mspelling/components/default_appbar.dart';
 
 class SetWorkspaceScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class WorkspaceBody extends StatelessWidget {
                 (value) => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SetupManager(),
+                    builder: (context) => const LoginScreen(),
                   ),
                 ),
               );
