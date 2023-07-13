@@ -2,11 +2,11 @@ import 'package:get/get.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/controllers/login_controller.dart';
 import 'package:mspelling/controllers/status.dart';
+import 'package:mspelling/controllers/workspace_controller.dart';
 import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
-import 'package:mspelling/screens/workspace/utils.dart';
 import 'package:mspelling/views/trial_stim_view.dart';
 import 'package:stimuli/errors.dart';
 import 'package:stimuli/stimuli.dart';
@@ -37,6 +37,8 @@ class SpellingController extends GetxController {
 
   LoginController loginController = Get.find();
   late final String participantId;
+
+  final WorkspaceController workspaceController = Get.find();
 
   @override
   onInit() async {
@@ -127,7 +129,7 @@ class SpellingController extends GetxController {
   /// Get workspace, prepare stim, prepare db, and start spelling activity
   /// Throws error if the workspace is null (hasn't been set)
   Future<void> setup() async {
-    workspace = await getWorkspace();
+    workspace = await workspaceController.getWorkspace();
     if (workspace == null) {
       throw WorkspaceAccessException();
 
