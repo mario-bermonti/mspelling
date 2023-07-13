@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
-import 'package:mspelling/screens/workspace/utils.dart';
-import 'package:mspelling/screens/workspace/workspace.dart';
 import 'package:mspelling/views/login_view.dart';
+import 'package:mspelling/controllers/workspace_controller.dart';
 
 /// Presents the workspace screen if no workspace is available,
 /// otherwise presents the login screen
 class SetupController extends GetxController {
+  WorkspaceController workspaceController = Get.put(WorkspaceController());
   late String? _workspace;
 
   @override
   Future<void> onInit() async {
-    _workspace = await getWorkspace();
+    _workspace = await workspaceController.getWorkspace();
     super.onInit();
   }
 
