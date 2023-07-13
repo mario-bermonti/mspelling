@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:mspelling/screens/login.dart';
 import 'package:mspelling/screens/workspace/utils.dart';
 import 'package:mspelling/screens/workspace/workspace.dart';
+import 'package:mspelling/views/login_view.dart';
 
 /// Presents the workspace screen if no workspace is available,
 /// otherwise presents the login screen
@@ -22,7 +22,7 @@ class SetupController extends GetxController {
 
   void toNextScreen() {
     if (_workspace != null) {
-      Get.to(const LoginScreen());
+      Get.to(LoginView());
     } else {
       Get.to(const SetWorkspaceScreen());
     }

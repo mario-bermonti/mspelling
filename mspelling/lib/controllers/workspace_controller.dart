@@ -1,6 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/screens/login.dart';
+import 'package:mspelling/views/login_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WorkspaceController extends GetxController {
@@ -22,6 +22,6 @@ class WorkspaceController extends GetxController {
   }
 
   void nextScreen() {
-    Get.to(const LoginScreen());
+    Get.to(LoginView());
   }
 }
