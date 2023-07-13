@@ -129,6 +129,7 @@ class SpellingController extends GetxController {
   /// Get workspace, prepare stim, prepare db, and start spelling activity
   /// Throws error if the workspace is null (hasn't been set)
   Future<void> setup() async {
+    participantId = loginController.participantID;
     workspace = await workspaceController.getWorkspace();
     if (workspace == null) {
       throw WorkspaceAccessException();
@@ -141,7 +142,6 @@ class SpellingController extends GetxController {
       database = await getDB(path: '$workspace/mspelling_data.sqlite3');
     }
     await _getSessionNumberParticipant();
-    participantId = loginController.participantID;
   }
 
   void run() {
