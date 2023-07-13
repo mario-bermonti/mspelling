@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:data/db.dart';
+import 'package:mspelling/controllers/login_controller.dart';
 import 'package:mspelling/controllers/status.dart';
 import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/end.dart';
@@ -12,9 +13,7 @@ import 'package:stimuli/stimuli.dart';
 
 // Controls the task's sequences
 class SpellingController extends GetxController {
-  final String participantId;
-
-  SpellingController(this.participantId);
+  SpellingController();
 
   /// Flag to indicate whether the ui can be displayed
   // late bool setupDone;
@@ -35,6 +34,9 @@ class SpellingController extends GetxController {
   late final int sessionNumber;
 
   Status status = Status.stim;
+
+  LoginController loginController = Get.find();
+  late final String participantId;
 
   @override
   onInit() async {
@@ -137,6 +139,7 @@ class SpellingController extends GetxController {
       database = await getDB(path: '$workspace/mspelling_data.sqlite3');
     }
     await _getSessionNumberParticipant();
+    participantId = loginController.participantID;
   }
 
   void run() {

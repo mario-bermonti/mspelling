@@ -18,6 +18,6 @@ class LoginController extends GetxController {
   }
 
   void toNextScreen() {
-    Get.to(BeginScreen(participantID));
+    Get.to(const BeginScreen());
   }
 }
