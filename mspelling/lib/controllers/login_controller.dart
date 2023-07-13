@@ -3,17 +3,21 @@ import 'package:get/get.dart';
 import 'package:mspelling/screens/begin_message.dart';
 
 class LoginController extends GetxController {
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController textController = TextEditingController();
   late final String participantID;
 
   @override
   void onClose() {
-    controller.dispose();
+    textController.dispose();
     super.dispose();
   }
 
-  void gotoBeginScreen(participantID) {
-    participantID = controller.text.trim(); // spaces are meaningless in ids.
-    Get.to(BeginScreen(participantID));
+  void submitParticipantID() {
+    participantID =
+        textController.text.trim(); // spaces are meaningless in ids.
+  }
+
+  void toNextScreen() {
+    Get.to(const BeginScreen());
   }
 }
