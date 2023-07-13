@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/constants.dart';
-import 'package:mspelling/screens/login.dart';
+import 'package:mspelling/views/login_view.dart';
 import 'package:mspelling/views/workspace_view.dart';
 
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
@@ -22,7 +22,7 @@ List<Widget> createActionButtons({required BuildContext context}) {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
+            builder: (context) => LoginView(),
           ),
         );
       },
