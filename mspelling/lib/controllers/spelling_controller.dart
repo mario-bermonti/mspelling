@@ -35,7 +35,7 @@ class SpellingController extends GetxController {
 
   Status status = Status.stim;
 
-  LoginController loginController = Get.find();
+  final LoginController loginController = Get.find();
   late final String participantId;
 
   final WorkspaceController workspaceController = Get.find();
