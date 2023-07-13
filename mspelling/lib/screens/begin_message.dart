@@ -8,9 +8,7 @@ import 'package:mspelling/controllers/spelling_controller.dart';
 class BeginScreen extends StatelessWidget {
   // Allows the user to indicate when to start task.
 
-  final String participantId;
-
-  const BeginScreen(this.participantId, {Key? key}) : super(key: key);
+  const BeginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class BeginScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context, showActionButtons: true),
-        body: BeginMessageBody(participantId: participantId),
+        body: const BeginMessageBody(),
       ),
     );
   }
@@ -29,10 +27,7 @@ class BeginScreen extends StatelessWidget {
 class BeginMessageBody extends StatelessWidget {
   const BeginMessageBody({
     Key? key,
-    required this.participantId,
   }) : super(key: key);
-
-  final String participantId;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +51,6 @@ class BeginMessageBody extends StatelessWidget {
   }
 
   void gotoSpellingActivity(BuildContext context) {
-    Get.put(SpellingController(participantId));
+    Get.put(SpellingController());
   }
 }
