@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/controllers/trial_stim_controller.dart';
