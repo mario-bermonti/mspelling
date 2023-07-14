@@ -93,18 +93,6 @@ class SpellingController extends GetxController {
       stimuli.stimCountUsed != 0 && stimuli.stimCountUsed % 5 == 0;
   bool completedStatusFollows() => stimuli.stimCountRemaining == 0;
 
-  /// Prepare stim to be used
-  Future<void> _prepareStimuli() async {
-    String path = '$workspace/stim/stim.txt';
-    try {
-      Stimuli _stimuli = await createStimFromFile(path);
-      _stimuli.randomize();
-      stimuli = _stimuli;
-    } on StimFileAccessException catch (e) {
-      throw GenericMSpellingException(e.toString());
-    }
-  }
-
   void _endSession() {
     /// Global session end time
     final DateTime timeEnd = DateTime.now();
@@ -136,8 +124,6 @@ class SpellingController extends GetxController {
 
       /// TODO check if this else is necessary
     } else {
-      await _prepareStimuli();
-
       /// TODO handle errors
       database = await getDB(path: '$workspace/mspelling_data.sqlite3');
     }
