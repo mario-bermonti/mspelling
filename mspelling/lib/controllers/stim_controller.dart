@@ -4,32 +4,30 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:mspelling/controllers/spelling_controller.dart';
 import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/errors.dart';
+import 'package:stimuli/errors.dart';
+import 'package:stimuli/stim.dart';
+import 'package:stimuli/stimuli.dart';
 
 class StimController extends GetxController {
-  final SpellingController spellingController = Get.find();
+  String path;
+  late Stimuli stim;
 
-  RxBool ready = RxBool(false);
-  final AudioPlayer _audioplayer = AudioPlayer();
+  StimController(this.path);
 
-  /// Present the stim once to the participant and go back
-  Future<void> presentStim() async {
-    String path =
-        '${spellingController.workspace}/stim/${spellingController.stimuli.currentStim}.wav';
-    await validateAudioStimFile(path);
-    await _audioplayer.play(DeviceFileSource(path));
-    Future.delayed(const Duration(seconds: 1), () => spellingController.run());
+  @override
+  void onInit() async {
+    await prepareStimuli();
+    super.onInit();
   }
 
-  /// Validate the audio stim file exists
-  Future<void> validateAudioStimFile(String path) async {
-    File file = File(path);
-    if (await file.exists() == false) {
-      Get.to(
-        ErrorScreen(
-          message:
-              GenericMSpellingException('Error playing the audio stim file'),
-        ),
-      );
+  /// Prepare stim to be used
+  Future<void> prepareStimuli() async {
+    try {
+      Stimuli stimuli = await createStimFromFile(path);
+      stimuli.randomize();
+      stim = stimuli;
+    } on StimFileAccessException catch (e) {
+      throw GenericMSpellingException(e.toString());
     }
   }
 }
