@@ -75,10 +75,17 @@ entity EndScreen {
     Present end message
 }
 
-entity Stim {   
-    Interact with the Stim package 
+entity StimController {   
+    Interact with the AudioController 
+    Interact with the stimuli package
     Prepare stim 
     Present the stim
+}
+
+entity AudioController {
+    Play audio
+    Setup audio device
+    Validate audio file
 }
 
 entity Data {
@@ -100,7 +107,7 @@ SpellingController --> Data
 SpellingController --> TrialStimView
 TrialStimView --> TrialStimController
 TrialStimController --> SpellingController
-TrialStimController --> Stim
+TrialStimController --> StimController
 SpellingController --> TrialResponseScreen
 TrialResponseScreen --> TrialResponseController
 TrialResponseController --> SpellingController
@@ -109,5 +116,6 @@ RestScreen --> RestController
 RestController --> SpellingController
 SpellingController --> EndScreen
 SpellingController --> LoginController
-SpellingController --> Stim
+SpellingController --> StimController
+StimController --> AudioController
 @enduml
