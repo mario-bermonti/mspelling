@@ -13,6 +13,7 @@ class StimController extends GetxController {
   late Stimuli stim;
 
   StimController(this.path);
+  AudioController audioController = AudioController();
 
   @override
   void onInit() async {
