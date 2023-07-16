@@ -88,12 +88,6 @@ entity AudioController {
     Validate audio file
 }
 
-entity Data {
-    Interact with the data package 
-    Manage the data 
-    Add data
-}
-
 MSpellingApp --> LoadingView
 LoadingView --> SetupController
 SetupController --> SetWorkspaceScreen
@@ -103,7 +97,6 @@ SetWorkspaceController --> LoginScreen
 LoginScreen --> LoginController
 LoginController --> BeginScreen
 BeginScreen --> SpellingController
-SpellingController --> Data
 SpellingController --> TrialStimView
 TrialStimView --> TrialStimController
 TrialStimController --> SpellingController
