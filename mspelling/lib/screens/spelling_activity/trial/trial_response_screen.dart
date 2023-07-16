@@ -81,7 +81,7 @@ class TrialResponseBody extends StatelessWidget {
     /// TODO Improve, very coupled
     spellingController.database.addTrialData(
       participantId: spellingController.participantId,
-      stim: spellingController.stimuli.currentStim,
+      stim: spellingController.stimuli.stim.currentStim,
       resp: response,
       sessionNumber: spellingController.sessionNumber,
     );
