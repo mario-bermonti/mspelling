@@ -36,5 +36,11 @@ class StimController extends GetxController {
     String path = '$stimPath/stim/${stim.currentStim}.wav';
     await audioController.validateAudioStimFile(path);
     await audioController.playAudio(path);
+    SpellingController spellingController = Get.find();
+    // TODO move to a better place
+    Future.delayed(
+      const Duration(seconds: 1),
+      () => spellingController.run(),
+    );
   }
 }
