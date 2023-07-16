@@ -17,6 +17,7 @@ class TrialResponseController extends GetxController {
     /// Just like when writing using paper-and-pencil and there
     /// is trailling whitespace space
     String response = textController.text.trim();
+    textController.clear();
     spellingController.addTrialData(result: response);
   }
 
