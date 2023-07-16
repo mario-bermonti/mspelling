@@ -2,29 +2,21 @@ import 'package:get/get.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/controllers/login_controller.dart';
 import 'package:mspelling/controllers/status.dart';
+import 'package:mspelling/controllers/stim_controller.dart';
 import 'package:mspelling/controllers/workspace_controller.dart';
 import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
 import 'package:mspelling/views/trial_stim_view.dart';
-import 'package:stimuli/errors.dart';
-import 'package:stimuli/stimuli.dart';
 
 // Controls the task's sequences
 class SpellingController extends GetxController {
-  SpellingController();
-
-  /// Flag to indicate whether the ui can be displayed
-  // late bool setupDone;
-
   /// Dir used to getting stim
   late String? workspace;
 
   /// Stimuli used in the task
-  late final Stimuli stimuli;
-
-  // late String response;
+  late final StimController stimuli;
 
   /// Global task start time
   final DateTime _timeStart = DateTime.now();
@@ -64,7 +56,7 @@ class SpellingController extends GetxController {
   void addTrialData({required String result}) {
     database.addTrialData(
       participantId: participantId,
-      stim: stimuli.currentStim,
+      stim: stimuli.stim.currentStim,
       resp: result,
       sessionNumber: sessionNumber,
     );
@@ -90,8 +82,8 @@ class SpellingController extends GetxController {
   bool responseStatusFollows() => status == Status.stim;
   bool stimStatusFollows() => status == Status.rest;
   bool restStatusFollows() =>
-      stimuli.stimCountUsed != 0 && stimuli.stimCountUsed % 5 == 0;
-  bool completedStatusFollows() => stimuli.stimCountRemaining == 0;
+      stimuli.stim.stimCountUsed != 0 && stimuli.stim.stimCountUsed % 5 == 0;
+  bool completedStatusFollows() => stimuli.stim.stimCountRemaining == 0;
 
   void _endSession() {
     /// Global session end time
@@ -125,6 +117,8 @@ class SpellingController extends GetxController {
       /// TODO check if this else is necessary
     } else {
       /// TODO handle errors
+      stimuli = Get.put(StimController(stimPath: workspace!));
+      await stimuli.prepareStim();
       database = await getDB(path: '$workspace/mspelling_data.sqlite3');
     }
     await _getSessionNumberParticipant();
@@ -133,7 +127,7 @@ class SpellingController extends GetxController {
   void run() {
     switch (status) {
       case Status.stim:
-        stimuli.next();
+        stimuli.stim.next();
         Get.to(() => TrialStimView());
         updateStatus();
         break;
