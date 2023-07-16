@@ -32,4 +32,11 @@ class StimController extends GetxController {
       throw GenericMSpellingException(e.toString());
     }
   }
+
+  /// Present the stim once to the participant and go back
+  Future<void> presentStimuli() async {
+    String path = '$pathStim/${stim.currentStim}.wav';
+    await audioController.validateAudioStimFile(path);
+    await audioController.playAudio(path);
+  }
 }
