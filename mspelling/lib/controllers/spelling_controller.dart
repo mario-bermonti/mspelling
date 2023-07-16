@@ -8,6 +8,7 @@ import 'package:mspelling/errors.dart';
 import 'package:mspelling/screens/end.dart';
 import 'package:mspelling/screens/rest.dart';
 import 'package:mspelling/screens/spelling_activity/trial/trial_response_screen.dart';
+import 'package:mspelling/views/trial_response_view.dart';
 import 'package:mspelling/views/trial_stim_view.dart';
 
 // Controls the task's sequences
@@ -132,8 +133,7 @@ class SpellingController extends GetxController {
         updateStatus();
         break;
       case Status.response:
-        Get.to(() => const TrialResponseScreen());
-
+        Get.to(() => TrialResponseView());
         updateStatus();
         break;
       case Status.rest:
