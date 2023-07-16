@@ -1,11 +1,8 @@
-import 'dart:io';
 import 'package:get/get.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:mspelling/controllers/audio_controller.dart';
 import 'package:mspelling/controllers/spelling_controller.dart';
 import 'package:mspelling/errors.dart';
-import 'package:mspelling/screens/errors.dart';
 import 'package:stimuli/errors.dart';
-import 'package:stimuli/stim.dart';
 import 'package:stimuli/stimuli.dart';
 
 class StimController extends GetxController {
