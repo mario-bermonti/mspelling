@@ -8,21 +8,22 @@ import 'package:stimuli/stimuli.dart';
 class StimController extends GetxController {
   late Stimuli stim;
   AudioController audioController = AudioController();
-  SpellingController spellingController = Get.find();
-  late String pathStim;
+  String stimPath;
+
+  StimController({required this.stimPath});
 
   @override
   void onInit() async {
-    pathStim = spellingController.workspace!;
-    await prepareStimuli();
     // TODO remove null operator when the workspace is fixed and can't be null
+    await prepareStim();
     super.onInit();
   }
 
   /// Prepare stim to be used
-  Future<void> prepareStimuli() async {
+  Future<void> prepareStim() async {
+    String path = '$stimPath/stim/stim.txt';
     try {
-      Stimuli stimuli = await createStimFromFile(pathStim);
+      Stimuli stimuli = await createStimFromFile(path);
       stimuli.randomize();
       stim = stimuli;
     } on StimFileAccessException catch (e) {
@@ -31,8 +32,8 @@ class StimController extends GetxController {
   }
 
   /// Present the stim once to the participant and go back
-  Future<void> presentStimuli() async {
-    String path = '$pathStim/${stim.currentStim}.wav';
+  Future<void> presentStim() async {
+    String path = '$stimPath/stim/${stim.currentStim}.wav';
     await audioController.validateAudioStimFile(path);
     await audioController.playAudio(path);
   }
