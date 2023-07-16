@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_appbar.dart';
 import 'package:mspelling/components/default_text.dart';
 
-class EndScreen extends StatelessWidget {
+class EndView extends StatelessWidget {
   /// Communicate the participant the task has ended.
   /// Doesn't allow going back or restarting so the experimenter has control
   /// over the session.
 
-  const EndScreen({Key? key}) : super(key: key);
+  const EndView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,27 +18,16 @@ class EndScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: createAppBar(context: context),
-        body: const EndScreenBody(),
-      ),
-    );
-  }
-}
-
-class EndScreenBody extends StatelessWidget {
-  const EndScreenBody({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
-          DefaultText(
-            text: '¡Terminamos!',
+        body: CenteredBox(
+          column: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              DefaultText(
+                text: '¡Terminamos!',
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
