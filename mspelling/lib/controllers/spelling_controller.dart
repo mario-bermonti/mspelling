@@ -5,7 +5,7 @@ import 'package:mspelling/controllers/status.dart';
 import 'package:mspelling/controllers/stim_controller.dart';
 import 'package:mspelling/controllers/workspace_controller.dart';
 import 'package:mspelling/errors.dart';
-import 'package:mspelling/screens/end.dart';
+import 'package:mspelling/views/end_view.dart';
 import 'package:mspelling/views/rest_view.dart';
 import 'package:mspelling/views/trial_response_view.dart';
 import 'package:mspelling/views/trial_stim_view.dart';
@@ -141,7 +141,7 @@ class SpellingController extends GetxController {
         break;
       case Status.completed:
         _endSession();
-        Get.to(() => const EndScreen());
+        Get.to(() => const EndView());
         return;
       default:
         run();
