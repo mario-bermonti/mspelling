@@ -9,22 +9,23 @@ import 'package:stimuli/stim.dart';
 import 'package:stimuli/stimuli.dart';
 
 class StimController extends GetxController {
-  String path;
   late Stimuli stim;
-
-  StimController(this.path);
   AudioController audioController = AudioController();
+  SpellingController spellingController = Get.find();
+  late String pathStim;
 
   @override
   void onInit() async {
+    pathStim = spellingController.workspace!;
     await prepareStimuli();
+    // TODO remove null operator when the workspace is fixed and can't be null
     super.onInit();
   }
 
   /// Prepare stim to be used
   Future<void> prepareStimuli() async {
     try {
-      Stimuli stimuli = await createStimFromFile(path);
+      Stimuli stimuli = await createStimFromFile(pathStim);
       stimuli.randomize();
       stim = stimuli;
     } on StimFileAccessException catch (e) {
