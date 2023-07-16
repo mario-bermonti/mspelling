@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/screens/begin_message.dart';
+import 'package:mspelling/views/begin_view.dart';
 
 class LoginController extends GetxController {
   final TextEditingController textController = TextEditingController();
@@ -18,6 +18,6 @@ class LoginController extends GetxController {
   }
 
   void toNextScreen() {
-    Get.to(const BeginScreen());
+    Get.to(const BeginView());
   }
 }

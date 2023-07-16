@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:mspelling/errors.dart';
-import 'package:mspelling/screens/errors.dart';
+import 'package:mspelling/views/error_view.dart';
 
 class AudioController extends GetxController {
   final AudioPlayer _audioplayer = AudioPlayer();
@@ -19,7 +19,7 @@ class AudioController extends GetxController {
       /// TODO should not know about the UI
       /// Should throw audio or other general exception
       Get.to(
-        ErrorScreen(
+        ErrorView(
           message:
               GenericMSpellingException('Error playing the audio stim file'),
         ),
