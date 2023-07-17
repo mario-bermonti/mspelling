@@ -7,22 +7,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Presents the workspace screen if no workspace is available,
 /// otherwise presents the login screen
 class SetupController extends GetxController {
-  late String? workspace;
-
-  @override
-  Future<void> onInit() async {
-    workspace = await getWorkspace();
-    super.onInit();
-  }
-
   @override
   void onReady() {
     toNextScreen();
     super.onReady();
   }
 
-  void toNextScreen() {
-    if (workspace != null) {
+  Future<String?> get workspace async {
+    SharedPreferences settings = await SharedPreferences.getInstance();
+    String? workSpace = settings.getString('workspace');
+    return workSpace;
+  }
+
+  Future<void> toNextScreen() async {
+    if (await workspace != null) {
       Get.to(LoginView());
     } else {
       Get.to(WorkspaceView());
