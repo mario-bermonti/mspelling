@@ -13,10 +13,9 @@ class TrialResponseController extends GetxController {
   }
 
   void submit() {
-    /// We assume leading or trailing whitespace do not impact response.
-    /// Just like when writing using paper-and-pencil and there
-    /// is trailling whitespace space
+    // spaces are meaningless as in paper and pencil measures
     String response = textController.text.trim();
+
     textController.clear();
     spellingController.addTrialData(result: response);
   }
