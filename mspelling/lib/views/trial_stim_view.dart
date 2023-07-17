@@ -23,11 +23,7 @@ class TrialStimView extends StatelessWidget {
         },
         child: Scaffold(
             appBar: createAppBar(context: context),
-            body: //Obx(
-                //   () {
-                // if (trialstimController.ready.value) {
-                // return CenteredBox(
-                CenteredBox(
+            body: CenteredBox(
               column: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -35,14 +31,5 @@ class TrialStimView extends StatelessWidget {
                 ],
               ),
             )));
-    // } else {
-    //   return const Center(
-    //     child: CircularProgressIndicator(),
-    //   );
-    // }
-    // },
-    //     ),
-    //   ),
-    // );
   }
 }
