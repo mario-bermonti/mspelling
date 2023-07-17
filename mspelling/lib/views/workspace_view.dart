@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/components/centeredbox.dart';
 import 'package:mspelling/components/default_text.dart';
-import 'package:mspelling/controllers/workspace_controller.dart';
 import 'package:mspelling/components/default_appbar.dart';
+import 'package:mspelling/controllers/setup_controller.dart';
 
 class WorkspaceView extends StatelessWidget {
   WorkspaceView({super.key});
 
-  final WorkspaceController workspaceController =
-      Get.put(WorkspaceController());
+  final SetupController setupController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,8 @@ class WorkspaceView extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 onPressed: () async {
-                  await workspaceController.setWorkspaceByUser();
-                  workspaceController.nextScreen();
+                  await setupController.setWorkspaceByUser();
+                  setupController.toNextScreen();
                 },
                 child: const DefaultText(text: 'Selecciona área de trabajo'),
               ),
