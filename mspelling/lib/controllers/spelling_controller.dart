@@ -22,7 +22,7 @@ class SpellingController extends GetxController {
   /// Session  number for current participant
   late final int sessionNumber;
 
-  Status status = Status.stim;
+  Step status = Step.stim;
 
   final LoginController loginController = Get.find();
   late final String participantId;
@@ -64,20 +64,20 @@ class SpellingController extends GetxController {
   /// weird
   void updateStatus() {
     if (responseStatusFollows()) {
-      status = Status.response;
+      status = Step.response;
     } else if (completedStatusFollows()) {
-      status = Status.completed;
+      status = Step.completed;
     } else if (stimStatusFollows()) {
-      status = Status.stim;
+      status = Step.stim;
     } else if (restStatusFollows()) {
-      status = Status.rest;
+      status = Step.rest;
     } else {
-      status = Status.stim;
+      status = Step.stim;
     }
   }
 
-  bool responseStatusFollows() => status == Status.stim;
-  bool stimStatusFollows() => status == Status.rest;
+  bool responseStatusFollows() => status == Step.stim;
+  bool stimStatusFollows() => status == Step.rest;
   bool restStatusFollows() =>
       stimuli.stim.stimCountUsed != 0 && stimuli.stim.stimCountUsed % 5 == 0;
   bool completedStatusFollows() => stimuli.stim.stimCountRemaining == 0;
@@ -117,19 +117,19 @@ class SpellingController extends GetxController {
 
   void run() {
     switch (status) {
-      case Status.stim:
+      case Step.stim:
         Get.to(() => TrialStimView());
         updateStatus();
         break;
-      case Status.response:
+      case Step.response:
         Get.to(() => TrialResponseView());
         updateStatus();
         break;
-      case Status.rest:
+      case Step.rest:
         Get.to(() => RestView());
         updateStatus();
         break;
-      case Status.completed:
+      case Step.completed:
         _endSession();
         Get.to(() => const EndView());
         return;

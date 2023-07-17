@@ -1,1 +1,1 @@
-enum Status { stim, response, rest, completed }
+enum Step { stim, response, rest, completed }
