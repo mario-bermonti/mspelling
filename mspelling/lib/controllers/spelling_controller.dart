@@ -95,11 +95,6 @@ class SpellingController extends GetxController {
       participantId: participantId,
       sessionNumber: sessionNumber,
     );
-    _saveData();
-  }
-
-  /// Save data to disk
-  void _saveData() {
     database.saveData();
   }
 
@@ -113,7 +108,6 @@ class SpellingController extends GetxController {
 
       /// TODO check if this else is necessary
     } else {
-      /// TODO handle errors
       stimuli = Get.put(StimController(stimPath: workspace));
       await stimuli.prepareStim();
       database = await getDB(path: '$workspace/mspelling_data.sqlite3');
