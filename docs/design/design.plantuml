@@ -3,22 +3,26 @@
 
 entity MSpellingApp {
     Basic config
-    Starting app
+    Start app
 }
 
 entity SetupController {
     Choose appropriate screen
 }
 
-entity SetWorkspaceScreen {
+entity SetupView {
+    Show loading screen while setup completes
+}
+
+entity WorkspaceView {
     Present screen to choose dir 
     Go to appropriate screen
 }
 
-entity SetWorkspaceController {
+entity WorkspaceController {
 }
 
-entity LoginScreen {
+entity LoginView {
     Collect participant id
     Pass participant id to handler
 }
@@ -27,7 +31,7 @@ entity LoginController {
     Store participant id
 }
 
-entity BeginScreen {
+entity BeginView {
     Present begin message
     Go to next screen
 }
@@ -46,13 +50,7 @@ entity TrialStimView {
     Run present stim
 }
 
-entity TrialStimController {
-    Setup stim 
-    Present stim
-    Validate stim
-}
-
-entity TrialResponseScreen {
+entity TrialResponseView {
     Cue participant for response 
     Collect response
     Pass response to handler
@@ -63,7 +61,7 @@ entity TrialResponseController {
     Continue trial sequence
 }
 
-entity RestScreen {
+entity RestView {
     Cue participant to rest 
 }
 
@@ -71,7 +69,7 @@ entity RestController {
     Resume activity after an ISI
 }
 
-entity EndScreen {
+entity EndView {
     Present end message
 }
 
@@ -88,27 +86,30 @@ entity AudioController {
     Validate audio file
 }
 
-MSpellingApp --> LoadingView
-LoadingView --> SetupController
-SetupController --> SetWorkspaceScreen
-SetupController --> LoginScreen
-SetWorkspaceScreen --> SetWorkspaceController
-SetWorkspaceController --> LoginScreen
-LoginScreen --> LoginController
-LoginController --> BeginScreen
-BeginScreen --> SpellingController
+MSpellingApp --> SetupView
+SetupView --> SetupController
+SetupView --> LoadingView
+SetupController --> WorkspaceController
+SetupController --> WorkspaceView
+SetupController --> LoginView
+WorkspaceView --> WorkspaceController
+WorkspaceController --> LoginView
+LoginView --> LoginController
+LoginController --> BeginView
+BeginView --> SpellingController
 SpellingController --> TrialStimView
-TrialStimView --> TrialStimController
-TrialStimController --> SpellingController
-TrialStimController --> StimController
-SpellingController --> TrialResponseScreen
-TrialResponseScreen --> TrialResponseController
+TrialStimView --> StimController
+SpellingController --> TrialResponseView
+TrialResponseView --> TrialResponseController
 TrialResponseController --> SpellingController
-SpellingController --> RestScreen
-RestScreen --> RestController
+SpellingController --> RestView
+RestView --> RestController
 RestController --> SpellingController
-SpellingController --> EndScreen
+SpellingController --> EndView
 SpellingController --> LoginController
 SpellingController --> StimController
+SpellingController --> WorkspaceController
+SpellingController --> DataBase
 StimController --> AudioController
+StimController --> SpellingController
 @enduml
