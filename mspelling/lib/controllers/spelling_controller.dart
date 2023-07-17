@@ -124,7 +124,6 @@ class SpellingController extends GetxController {
   void run() {
     switch (status) {
       case Status.stim:
-        stimuli.stim.next();
         Get.to(() => TrialStimView());
         updateStatus();
         break;
