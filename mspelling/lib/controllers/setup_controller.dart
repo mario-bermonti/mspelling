@@ -13,6 +13,7 @@ class SetupController extends GetxController {
     super.onReady();
   }
 
+  /// Get the workspace that will be used for accessing stim and saving data
   Future<String?> get workspace async {
     SharedPreferences settings = await SharedPreferences.getInstance();
     String? workSpace = settings.getString('workspace');
@@ -35,12 +36,5 @@ class SetupController extends GetxController {
       SharedPreferences settings = await SharedPreferences.getInstance();
       await settings.setString('workspace', selectedDirectory);
     }
-  }
-
-  /// Get the workspace that will be used for accessing stim and saving data
-  Future<String?> getWorkspace() async {
-    SharedPreferences settings = await SharedPreferences.getInstance();
-    String? workSpace = settings.getString('workspace');
-    return workSpace;
   }
 }
