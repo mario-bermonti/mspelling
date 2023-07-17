@@ -1,17 +1,17 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/views/login_view.dart';
-import 'package:mspelling/controllers/workspace_controller.dart';
 import 'package:mspelling/views/workspace_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Presents the workspace screen if no workspace is available,
 /// otherwise presents the login screen
 class SetupController extends GetxController {
-  WorkspaceController workspaceController = Get.put(WorkspaceController());
-  late String? _workspace;
+  late String? workspace;
 
   @override
   Future<void> onInit() async {
-    _workspace = await workspaceController.getWorkspace();
+    workspace = await getWorkspace();
     super.onInit();
   }
 
@@ -22,10 +22,27 @@ class SetupController extends GetxController {
   }
 
   void toNextScreen() {
-    if (_workspace != null) {
+    if (workspace != null) {
       Get.to(LoginView());
     } else {
       Get.to(WorkspaceView());
     }
+  }
+
+  /// Let the user set the workspace and validate it
+  Future<void> setWorkspaceByUser() async {
+    String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
+
+    if (selectedDirectory != null) {
+      SharedPreferences settings = await SharedPreferences.getInstance();
+      await settings.setString('workspace', selectedDirectory);
+    }
+  }
+
+  /// Get the workspace that will be used for accessing stim and saving data
+  Future<String?> getWorkspace() async {
+    SharedPreferences settings = await SharedPreferences.getInstance();
+    String? workSpace = settings.getString('workspace');
+    return workSpace;
   }
 }
