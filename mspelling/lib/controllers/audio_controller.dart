@@ -16,7 +16,6 @@ class AudioController extends GetxController {
   Future<void> validateAudioStimFile(String path) async {
     File file = File(path);
     if (await file.exists() == false) {
-      /// TODO should not know about the UI
       /// Should throw audio or other general exception
       Get.to(
         () => ErrorView(

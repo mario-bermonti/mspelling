@@ -14,7 +14,6 @@ class StimController extends GetxController {
 
   @override
   void onInit() async {
-    // TODO remove null operator when the workspace is fixed and can't be null
     await prepareStim();
     super.onInit();
   }
