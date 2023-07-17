@@ -19,9 +19,6 @@ entity WorkspaceView {
     Go to appropriate screen
 }
 
-entity WorkspaceController {
-}
-
 entity LoginView {
     Collect participant id
     Pass participant id to handler
@@ -89,11 +86,9 @@ entity AudioController {
 MSpellingApp --> SetupView
 SetupView --> SetupController
 SetupView --> LoadingView
-SetupController --> WorkspaceController
 SetupController --> WorkspaceView
 SetupController --> LoginView
-WorkspaceView --> WorkspaceController
-WorkspaceController --> LoginView
+WorkspaceView --> SetupController
 LoginView --> LoginController
 LoginController --> BeginView
 BeginView --> SpellingController
@@ -108,7 +103,7 @@ RestController --> SpellingController
 SpellingController --> EndView
 SpellingController --> LoginController
 SpellingController --> StimController
-SpellingController --> WorkspaceController
+SpellingController --> SetupController
 SpellingController --> DataBase
 StimController --> AudioController
 StimController --> SpellingController
