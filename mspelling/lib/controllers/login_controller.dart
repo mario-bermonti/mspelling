@@ -18,6 +18,6 @@ class LoginController extends GetxController {
   }
 
   void toNextScreen() {
-    Get.to(const BeginView());
+    Get.to(() => const BeginView());
   }
 }

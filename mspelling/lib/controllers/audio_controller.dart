@@ -19,7 +19,7 @@ class AudioController extends GetxController {
       /// TODO should not know about the UI
       /// Should throw audio or other general exception
       Get.to(
-        ErrorView(
+        () => ErrorView(
           message:
               GenericMSpellingException('Error playing the audio stim file'),
         ),

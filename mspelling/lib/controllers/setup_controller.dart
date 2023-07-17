@@ -22,9 +22,9 @@ class SetupController extends GetxController {
 
   Future<void> toNextScreen() async {
     if (await workspace != null) {
-      Get.to(LoginView());
+      Get.to(() => LoginView());
     } else {
-      Get.to(WorkspaceView());
+      Get.to(() => WorkspaceView());
     }
   }
 
