@@ -110,7 +110,7 @@ class SpellingController extends GetxController {
   /// Throws error if the workspace is null (hasn't been set)
   Future<void> setup() async {
     participantId = loginController.participantID;
-    workspace = await setupController.getWorkspace();
+    workspace = await setupController.workspace;
     if (workspace == null) {
       throw WorkspaceAccessException();
 
