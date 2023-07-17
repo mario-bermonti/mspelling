@@ -12,10 +12,7 @@ import 'package:mspelling/views/trial_stim_view.dart';
 
 // Controls the task's sequences
 class SpellingController extends GetxController {
-  /// Dir used to getting stim
-  late String? workspace;
-
-  /// Stimuli used in the task
+  // Stimuli used in the task
   late final StimController stimuli;
 
   /// Global task start time
@@ -110,7 +107,7 @@ class SpellingController extends GetxController {
   /// Throws error if the workspace is null (hasn't been set)
   Future<void> setup() async {
     participantId = loginController.participantID;
-    workspace = await setupController.workspace;
+    String? workspace = await setupController.workspace;
     if (workspace == null) {
       throw WorkspaceAccessException();
 
