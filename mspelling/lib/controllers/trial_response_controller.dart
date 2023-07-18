@@ -4,7 +4,7 @@ import 'package:mspelling/controllers/spelling_controller.dart';
 
 class TrialResponseController extends GetxController {
   TextEditingController textController = TextEditingController();
-  final SpellingController spellingController = Get.find();
+  final SpellingController _spellingController = Get.find();
 
   @override
   void dispose() {
@@ -17,10 +17,10 @@ class TrialResponseController extends GetxController {
     String response = textController.text.trim();
 
     textController.clear();
-    spellingController.addTrialData(result: response);
+    _spellingController.addTrialData(result: response);
   }
 
   void toNextScreen() {
-    spellingController.run();
+    _spellingController.run();
   }
 }
