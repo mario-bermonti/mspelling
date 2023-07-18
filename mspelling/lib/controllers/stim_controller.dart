@@ -7,7 +7,7 @@ import 'package:stimuli/stimuli.dart';
 
 class StimController extends GetxController {
   late Stimuli stim;
-  AudioController audioController = AudioController();
+  final AudioController _audioController = AudioController();
   String stimPath;
 
   StimController({required this.stimPath});
@@ -33,8 +33,8 @@ class StimController extends GetxController {
   /// Present the stim once to the participant and go back
   Future<void> presentStim() async {
     String path = '$stimPath/stim/${stim.currentStim}.wav';
-    await audioController.validateAudioStimFile(path);
-    await audioController.playAudio(path);
+    await _audioController.validateAudioStimFile(path);
+    await _audioController.playAudio(path);
     SpellingController spellingController = Get.find();
     // TODO move to a better place
     Future.delayed(
