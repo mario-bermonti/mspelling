@@ -10,7 +10,7 @@ import 'package:mspelling/controllers/login_controller.dart';
 // Home screen which requires users to login by using their
 // participant ids.
 class LoginView extends StatelessWidget {
-  final LoginController loginController = Get.put(LoginController());
+  final LoginController _loginController = Get.put(LoginController());
 
   LoginView({super.key});
 
@@ -30,12 +30,12 @@ class LoginView extends StatelessWidget {
                 text: 'Id participante:',
               ),
               const BetweenWidgetsSpace(),
-              DefaultTextField(controller: loginController.textController),
+              DefaultTextField(controller: _loginController.textController),
               const BetweenWidgetsSpace(),
               ElevatedButton(
                 onPressed: () {
-                  loginController.submitParticipantID();
-                  loginController.toNextScreen();
+                  _loginController.submitParticipantID();
+                  _loginController.toNextScreen();
                 },
                 child: const DefaultText(text: 'Seguir'),
               ),
