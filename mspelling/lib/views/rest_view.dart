@@ -9,7 +9,7 @@ import 'package:mspelling/controllers/rest_controller.dart';
 class RestView extends StatelessWidget {
   RestView({super.key});
 
-  final RestController restController = Get.put(RestController());
+  final RestController _restController = Get.put(RestController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class RestView extends StatelessWidget {
               ),
               const BetweenWidgetsSpace(),
               ElevatedButton(
-                onPressed: () => restController.toNextScreen(),
+                onPressed: () => _restController.toNextScreen(),
                 child: const DefaultText(text: 'Comenzar'),
               ),
             ],
