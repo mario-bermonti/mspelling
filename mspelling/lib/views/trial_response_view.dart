@@ -10,7 +10,7 @@ import 'package:mspelling/controllers/trial_response_controller.dart';
 class TrialResponseView extends StatelessWidget {
   /// Screen for collecting response from participant
 
-  final TrialResponseController trialResponseController =
+  final TrialResponseController _trialResponseController =
       Get.put(TrialResponseController());
 
   TrialResponseView({super.key});
@@ -32,12 +32,12 @@ class TrialResponseView extends StatelessWidget {
               ),
               const BetweenWidgetsSpace(),
               DefaultTextField(
-                  controller: trialResponseController.textController),
+                  controller: _trialResponseController.textController),
               const BetweenWidgetsSpace(),
               ElevatedButton(
                 onPressed: () {
-                  trialResponseController.submit();
-                  trialResponseController.toNextScreen();
+                  _trialResponseController.submit();
+                  _trialResponseController.toNextScreen();
                 },
                 child: const DefaultText(text: 'Seguir'),
               ),
