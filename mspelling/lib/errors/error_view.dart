@@ -5,7 +5,7 @@ import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/errors/errors.dart';
 
 /// Present error screen to participant
-/// Show specific error
+/// Show specific error message
 class ErrorView extends StatelessWidget {
   final MSpellingExeption message;
 
