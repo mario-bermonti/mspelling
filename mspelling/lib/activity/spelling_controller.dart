@@ -6,23 +6,27 @@ import 'package:mspelling/activity/status.dart';
 import 'package:mspelling/activity/stim_controller.dart';
 import 'package:mspelling/errors/errors.dart';
 
-// Controls the task's sequences
+/// Controls the task sequence
 class SpellingController extends GetxController {
-  // Stimuli used in the task
+  /// Provides access and manages the stimuli
   late final StimController _stimuli;
 
   /// Global task start time
   final DateTime _timeStart = DateTime.now();
+
   late final DataBase _database;
 
   /// Session  number for current participant
   late final int _sessionNumber;
 
+  /// Identifies the step the task currently is in
   Step _status = Step.stim;
 
+  /// Provides access to the participant ID
   final LoginController _loginController = Get.find();
   late final String _participantId;
 
+  /// Provides access to the workspace
   final SetupController _setupController = Get.find();
 
   @override
@@ -36,16 +40,13 @@ class SpellingController extends GetxController {
     run();
   }
 
-  /// Helper method to get the session number for the current participant
-  /// from the db
+  /// Helper method to get the participant's session number from the db
   Future<void> _getSessionNumberParticipant() async {
     _sessionNumber =
         await _database.getCurrentParticipantSessionNumber(_participantId);
   }
 
-  /// Controls the sequence of the task, including presenting trials, rests,
-  /// ITI, ending the session.
-  /// [context] BuildContext: Needed to navigate
+  /// Add trial data to the db
   void addTrialData({required String result}) {
     _database.addTrialData(
       participantId: _participantId,
@@ -59,6 +60,7 @@ class SpellingController extends GetxController {
   /// TODO can presenting stim next be improved? Current implementation seems
   /// weird
   void _updateStatus() {
+  /// Update the current task step so the [run()] can continue the sequence
     if (_responseStatusFollows()) {
       _status = Step.response;
     } else if (_completedStatusFollows()) {
@@ -94,8 +96,7 @@ class SpellingController extends GetxController {
     _database.saveData();
   }
 
-  /// Get workspace, prepare stim, prepare db, and start spelling activity
-  /// Throws error if the workspace is null (hasn't been set)
+  /// Setup everything needed to start the task sequence
   Future<void> _setup() async {
     _participantId = _loginController.participantID;
     String? workspace = await _setupController.workspace;
@@ -111,6 +112,7 @@ class SpellingController extends GetxController {
     await _getSessionNumberParticipant();
   }
 
+  /// Controls the task sequence based on the curren step
   void run() {
     switch (_status) {
       case Step.stim:
