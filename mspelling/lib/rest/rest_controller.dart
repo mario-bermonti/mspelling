@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:mspelling/controllers/spelling_controller.dart';
+import 'package:mspelling/activity/spelling_controller.dart';
 
 class RestController extends GetxController {
   SpellingController spellingController = Get.find();

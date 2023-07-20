@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:mspelling/controllers/audio_controller.dart';
-import 'package:mspelling/controllers/spelling_controller.dart';
-import 'package:mspelling/errors.dart';
+import 'package:mspelling/activity/audio_controller.dart';
+import 'package:mspelling/activity/spelling_controller.dart';
+import 'package:mspelling/errors/errors.dart';
 import 'package:stimuli/errors.dart';
 import 'package:stimuli/stimuli.dart';
 

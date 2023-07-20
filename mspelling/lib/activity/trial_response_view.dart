@@ -5,7 +5,7 @@ import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/common/default_textfield.dart';
 import 'package:mspelling/common/spacing_holder.dart';
-import 'package:mspelling/controllers/trial_response_controller.dart';
+import 'package:mspelling/activity/trial_response_controller.dart';
 
 class TrialResponseView extends StatelessWidget {
   /// Screen for collecting response from participant

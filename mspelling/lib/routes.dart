@@ -1,12 +1,12 @@
 import 'package:get/route_manager.dart';
-import 'package:mspelling/views/begin_view.dart';
-import 'package:mspelling/views/end_view.dart';
-import 'package:mspelling/views/login_view.dart';
-import 'package:mspelling/views/rest_view.dart';
-import 'package:mspelling/views/setup_view.dart';
-import 'package:mspelling/views/trial_response_view.dart';
-import 'package:mspelling/views/trial_stim_view.dart';
-import 'package:mspelling/views/workspace_view.dart';
+import 'package:mspelling/activity/begin_view.dart';
+import 'package:mspelling/end/end_view.dart';
+import 'package:mspelling/login/login_view.dart';
+import 'package:mspelling/rest/rest_view.dart';
+import 'package:mspelling/setup/setup_view.dart';
+import 'package:mspelling/activity/trial_response_view.dart';
+import 'package:mspelling/activity/trial_stim_view.dart';
+import 'package:mspelling/setup/workspace_view.dart';
 
 List<GetPage> routes = <GetPage>[
   GetPage(name: '/setup', page: () => SetupView()),

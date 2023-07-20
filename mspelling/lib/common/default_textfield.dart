@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/styles.dart';
+import 'package:mspelling/common/styles.dart';
 
 class DefaultTextField extends StatelessWidget {
   final TextEditingController controller;

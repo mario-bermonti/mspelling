@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/controllers/spelling_controller.dart';
+import 'package:mspelling/activity/spelling_controller.dart';
 
 class TrialResponseController extends GetxController {
   TextEditingController textController = TextEditingController();

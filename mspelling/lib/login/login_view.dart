@@ -5,7 +5,7 @@ import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/common/default_textfield.dart';
 import 'package:mspelling/common/spacing_holder.dart';
-import 'package:mspelling/controllers/login_controller.dart';
+import 'package:mspelling/login/login_controller.dart';
 
 // Home screen which requires users to login by using their
 // participant ids.

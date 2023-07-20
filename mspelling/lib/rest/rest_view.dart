@@ -4,7 +4,7 @@ import 'package:mspelling/common/centeredbox.dart';
 import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/common/spacing_holder.dart';
-import 'package:mspelling/controllers/rest_controller.dart';
+import 'package:mspelling/rest/rest_controller.dart';
 
 class RestView extends StatelessWidget {
   RestView({super.key});

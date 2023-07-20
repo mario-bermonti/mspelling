@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/routes.dart';
-import 'package:mspelling/styles.dart';
+import 'package:mspelling/common/styles.dart';
 
 class MSpellingApp extends StatelessWidget {
   const MSpellingApp({super.key});

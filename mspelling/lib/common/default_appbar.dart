@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/constants.dart';
+import 'package:mspelling/common/constants.dart';
 
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
   return AppBar(

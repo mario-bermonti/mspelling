@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mspelling/common/centeredbox.dart';
 import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/common/default_text.dart';
-import 'package:mspelling/errors.dart';
+import 'package:mspelling/errors/errors.dart';
 
 /// Present error screen to participant
 /// Show specific error

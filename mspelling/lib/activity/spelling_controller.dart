@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:data/db.dart';
-import 'package:mspelling/controllers/login_controller.dart';
-import 'package:mspelling/controllers/setup_controller.dart';
-import 'package:mspelling/controllers/status.dart';
-import 'package:mspelling/controllers/stim_controller.dart';
-import 'package:mspelling/errors.dart';
+import 'package:mspelling/login/login_controller.dart';
+import 'package:mspelling/setup/setup_controller.dart';
+import 'package:mspelling/activity/status.dart';
+import 'package:mspelling/activity/stim_controller.dart';
+import 'package:mspelling/errors/errors.dart';
 
 // Controls the task's sequences
 class SpellingController extends GetxController {

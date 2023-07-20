@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:mspelling/errors.dart';
-import 'package:mspelling/views/error_view.dart';
+import 'package:mspelling/errors/errors.dart';
+import 'package:mspelling/errors/error_view.dart';
 
 class AudioController extends GetxController {
   final AudioPlayer _audioplayer = AudioPlayer();
