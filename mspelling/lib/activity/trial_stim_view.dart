@@ -4,9 +4,8 @@ import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/common/centeredbox.dart';
 import 'package:mspelling/activity/stim_controller.dart';
 
+/// Screen to present stim to participants
 class TrialStimView extends StatelessWidget {
-  /// In this screen we present the stims to participants
-
   TrialStimView({
     Key? key,
   }) : super(key: key);
