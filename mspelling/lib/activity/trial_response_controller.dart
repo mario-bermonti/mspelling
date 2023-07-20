@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/activity/spelling_controller.dart';
 
+/// Manage responses
 class TrialResponseController extends GetxController {
   TextEditingController textController = TextEditingController();
   final SpellingController _spellingController = Get.find();
