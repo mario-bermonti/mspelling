@@ -6,9 +6,8 @@ import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/common/spacing_holder.dart';
 import 'package:mspelling/activity/spelling_controller.dart';
 
+/// Screen that allows participants to indicate when to start task.
 class BeginView extends StatelessWidget {
-  // Allows the user to indicate when to start task.
-
   const BeginView({Key? key}) : super(key: key);
 
   @override
