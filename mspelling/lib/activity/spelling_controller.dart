@@ -60,8 +60,8 @@ class SpellingController extends GetxController {
   // TODO improve name of conditions checks?
   /// TODO can presenting stim next be improved? Current implementation seems
   /// weird
-  void _updateStatus() {
-    /// Update the current task step so the [run()] can continue the sequence
+  /// Update the current task step so the [run()] can continue the sequence
+  void _updateStep() {
     if (_responseStatusFollows()) {
       _status = Step.response;
     } else if (_completedStatusFollows()) {
@@ -118,15 +118,15 @@ class SpellingController extends GetxController {
     switch (_status) {
       case Step.stim:
         Get.toNamed('trialstim');
-        _updateStatus();
+        _updateStep();
         break;
       case Step.response:
         Get.toNamed('trialresponse');
-        _updateStatus();
+        _updateStep();
         break;
       case Step.rest:
         Get.toNamed('/rest');
-        _updateStatus();
+        _updateStep();
         break;
       case Step.completed:
         _endSession();
