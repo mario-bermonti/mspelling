@@ -2,8 +2,10 @@ import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Presents the workspace screen if no workspace is available,
-/// otherwise presents the login screen
+/// Setsup everything needed to start the app
+/// Automatically presents the workspace screen if no workspace is available,
+/// Otherwise presents the login screen
+/// Manages the workspace
 class SetupController extends GetxController {
   @override
   void onReady() {
