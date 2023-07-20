@@ -5,6 +5,9 @@ import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/setup/setup_controller.dart';
 
+/// Screen where the user selects the workspace that will be used
+/// The workspace where the stimuli is read from
+/// and where the data is saved to
 class WorkspaceView extends StatelessWidget {
   WorkspaceView({super.key});
 
