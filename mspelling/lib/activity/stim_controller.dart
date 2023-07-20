@@ -5,6 +5,7 @@ import 'package:mspelling/errors/errors.dart';
 import 'package:stimuli/errors.dart';
 import 'package:stimuli/stimuli.dart';
 
+/// Manage the stim
 class StimController extends GetxController {
   late Stimuli stim;
   final AudioController _audioController = AudioController();
@@ -19,6 +20,7 @@ class StimController extends GetxController {
   }
 
   /// Prepare stim to be used
+  /// Includes building from file, create object, and randomize stim
   Future<void> prepareStim() async {
     String path = '$stimPath/stim/stim.txt';
     try {
@@ -30,7 +32,7 @@ class StimController extends GetxController {
     }
   }
 
-  /// Present the stim once to the participant and go back
+  /// Present the stim once to the participant and go back after 1s ISI
   Future<void> presentStim() async {
     String path = '$stimPath/stim/${stim.currentStim}.wav';
     await _audioController.validateAudioStimFile(path);
