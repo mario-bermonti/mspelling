@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mspelling/routes.dart';
 import 'package:mspelling/styles.dart';
-import 'package:mspelling/views/setup_view.dart';
 
 class MSpellingApp extends StatelessWidget {
   const MSpellingApp({super.key});
@@ -11,7 +11,8 @@ class MSpellingApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'mSpelling',
       theme: themeData,
-      home: SetupView(),
+      initialRoute: 'setup',
+      getPages: routes,
     );
   }
 }
