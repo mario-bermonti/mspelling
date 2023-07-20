@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Custom widget to present widgets centered
 class CenteredBox extends StatelessWidget {
   final Column column;
 

@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1701.0417px" preserveAspectRatio="none" style="width:1120px;height:1701px;background:#00000000;" version="1.1" viewBox="0 0 1120 1701" width="1120.8333px" zoomAndPan="magnify"><defs><linearGradient id="gwempx7x32y6t0" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#7C9AB9"/><stop offset="100%" stop-color="#304D6D"/></linearGradient><linearGradient id="gwempx7x32y6t1" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#7C9AB9"/><stop offset="100%" stop-color="#446E9B"/></linearGradient></defs><g><!--MD5=[758a5c14831c00f1cb3a47857b09e52f]
+class MSpellingApp--><g id="elem_MSpellingApp"><rect codeLine="3" fill="url(#gwempx7x32y6t0)" height="98.818" id="MSpellingApp" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="117.7083" x="332.8125" y="17.7083"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="117.7083" x="332.8125" y="17.7083"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="117.7083" x="332.8125" y="47.8699"/><rect codeLine="3" fill="none" height="98.818" id="MSpellingApp" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="117.7083" x="332.8125" y="17.7083"/><ellipse cx="347.3958" cy="34.8724" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M350.4517,39.5599 L344.7754,39.5599 L344.7754,30.4474 L350.4517,30.4474 L350.4517,32.0343 L346.5759,32.0343 L346.5759,33.9996 L350.0854,33.9996 L350.0854,35.5865 L346.5759,35.5865 L346.5759,37.973 L350.4517,37.973 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="76.0417" x="366.1458" y="39.2029">MSpellingApp</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="333.8542" x2="449.4792" y1="52.0365" y2="52.0365"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="66.6667" x="344.2708" y="72.4894">Basic config</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="50" x="344.2708" y="96.401">Start app</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="333.8542" x2="449.4792" y1="108.193" y2="108.193"/></g><!--MD5=[16147241cb1c1b9bbf07b7e41724a4e1]
+class SetupController--><g id="elem_SetupController"><rect codeLine="8" fill="url(#gwempx7x32y6t0)" height="74.9064" id="SetupController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="175" x="214.5833" y="316.6667"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="175" x="214.5833" y="316.6667"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="175" x="214.5833" y="346.8282"/><rect codeLine="8" fill="none" height="74.9064" id="SetupController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="175" x="214.5833" y="316.6667"/><ellipse cx="249.3229" cy="333.8308" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M252.3787,338.5183 L246.7025,338.5183 L246.7025,329.4057 L252.3787,329.4057 L252.3787,330.9926 L248.503,330.9926 L248.503,332.958 L252.0125,332.958 L252.0125,334.5449 L248.503,334.5449 L248.503,336.9314 L252.3787,336.9314 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="88.5417" x="272.5521" y="338.1612">SetupController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="215.625" x2="388.5417" y1="350.9949" y2="350.9949"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="152.0833" x="226.0417" y="371.4478">Choose appropriate screen</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="215.625" x2="388.5417" y1="383.2397" y2="383.2397"/></g><!--MD5=[d00a72cfabf1332dd86485cf24f579e6]
+class SetupView--><g id="elem_SetupView"><rect codeLine="12" fill="url(#gwempx7x32y6t0)" height="74.9064" id="SetupView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="263.5417" x="259.8958" y="179.1667"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="263.5417" x="259.8958" y="179.1667"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="263.5417" x="259.8958" y="209.3282"/><rect codeLine="12" fill="none" height="74.9064" id="SetupView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="263.5417" x="259.8958" y="179.1667"/><ellipse cx="354.1667" cy="196.3308" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M357.2225,201.0183 L351.5462,201.0183 L351.5462,191.9057 L357.2225,191.9057 L357.2225,193.4926 L353.3468,193.4926 L353.3468,195.458 L356.8563,195.458 L356.8563,197.0449 L353.3468,197.0449 L353.3468,199.4314 L357.2225,199.4314 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="56.25" x="379.1667" y="200.6612">SetupView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="260.9375" x2="522.3958" y1="213.4949" y2="213.4949"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="240.625" x="271.3542" y="233.9478">Show loading screen while setup completes</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="260.9375" x2="522.3958" y1="245.7397" y2="245.7397"/></g><!--MD5=[2cee6d530078a3bbc862604e4eee3828]
+class WorkspaceView--><g id="elem_WorkspaceView"><rect codeLine="16" fill="url(#gwempx7x32y6t0)" height="98.818" id="WorkspaceView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="182.2917" x="100.5208" y="454.1667"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="182.2917" x="100.5208" y="454.1667"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="182.2917" x="100.5208" y="484.3282"/><rect codeLine="16" fill="none" height="98.818" id="WorkspaceView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="182.2917" x="100.5208" y="454.1667"/><ellipse cx="139.9479" cy="471.3308" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M143.0037,476.0183 L137.3275,476.0183 L137.3275,466.9057 L143.0037,466.9057 L143.0037,468.4926 L139.128,468.4926 L139.128,470.458 L142.6375,470.458 L142.6375,472.0449 L139.128,472.0449 L139.128,474.4314 L143.0037,474.4314 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="85.4167" x="164.2188" y="475.6612">WorkspaceView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="101.5625" x2="281.7708" y1="488.4949" y2="488.4949"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="159.375" x="111.9792" y="508.9478">Present screen to choose dir</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="139.5833" x="111.9792" y="532.8593">Go to appropriate screen</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="101.5625" x2="281.7708" y1="544.6513" y2="544.6513"/></g><!--MD5=[8309b17d830045003489ce4c308a9814]
+class LoginView--><g id="elem_LoginView"><rect codeLine="21" fill="url(#gwempx7x32y6t0)" height="98.818" id="LoginView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="185.4167" x="319.7917" y="454.1667"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="185.4167" x="319.7917" y="454.1667"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="185.4167" x="319.7917" y="484.3282"/><rect codeLine="21" fill="none" height="98.818" id="LoginView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="185.4167" x="319.7917" y="454.1667"/><ellipse cx="375" cy="471.3308" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M378.0558,476.0183 L372.3796,476.0183 L372.3796,466.9057 L378.0558,466.9057 L378.0558,468.4926 L374.1801,468.4926 L374.1801,470.458 L377.6896,470.458 L377.6896,472.0449 L374.1801,472.0449 L374.1801,474.4314 L378.0558,474.4314 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="56.25" x="400" y="475.6612">LoginView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="320.8333" x2="504.1667" y1="488.4949" y2="488.4949"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="115.625" x="331.25" y="508.9478">Collect participant id</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="162.5" x="331.25" y="532.8593">Pass participant id to handler</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="320.8333" x2="504.1667" y1="544.6513" y2="544.6513"/></g><!--MD5=[5103e3471bf31fadd75905833dcba617]
+class LoginController--><g id="elem_LoginController"><rect codeLine="26" fill="url(#gwempx7x32y6t0)" height="74.9064" id="LoginController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="130.2083" x="347.3958" y="615.625"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="130.2083" x="347.3958" y="615.625"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="130.2083" x="347.3958" y="645.7865"/><rect codeLine="26" fill="none" height="74.9064" id="LoginController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="130.2083" x="347.3958" y="615.625"/><ellipse cx="361.9792" cy="632.7891" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M365.035,637.4766 L359.3587,637.4766 L359.3587,628.3641 L365.035,628.3641 L365.035,629.951 L361.1593,629.951 L361.1593,631.9163 L364.6688,631.9163 L364.6688,633.5032 L361.1593,633.5032 L361.1593,635.8897 L365.035,635.8897 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="88.5417" x="380.7292" y="637.1195">LoginController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="348.4375" x2="476.5625" y1="649.9532" y2="649.9532"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="106.25" x="358.8542" y="670.4061">Store participant id</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="348.4375" x2="476.5625" y1="682.1981" y2="682.1981"/></g><!--MD5=[a01f1f1af67351fad3621321e6fc6dec]
+class BeginView--><g id="elem_BeginView"><rect codeLine="30" fill="url(#gwempx7x32y6t0)" height="98.818" id="BeginView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="151.0417" x="353.6458" y="753.125"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="151.0417" x="353.6458" y="753.125"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="151.0417" x="353.6458" y="783.2865"/><rect codeLine="30" fill="none" height="98.818" id="BeginView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="151.0417" x="353.6458" y="753.125"/><ellipse cx="392.6042" cy="770.2891" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M395.66,774.9766 L389.9837,774.9766 L389.9837,765.8641 L395.66,765.8641 L395.66,767.451 L391.7843,767.451 L391.7843,769.4163 L395.2938,769.4163 L395.2938,771.0032 L391.7843,771.0032 L391.7843,773.3897 L395.66,773.3897 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="55.2083" x="416.7708" y="774.6195">BeginView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="354.6875" x2="503.6458" y1="787.4532" y2="787.4532"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="128.125" x="365.1042" y="807.9061">Present begin message</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="98.9583" x="365.1042" y="831.8176">Go to next screen</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="354.6875" x2="503.6458" y1="843.6096" y2="843.6096"/></g><!--MD5=[571e04c2bb81fa9836facb64b8c8f752]
+class SpellingController--><g id="elem_SpellingController"><rect codeLine="35" fill="url(#gwempx7x32y6t0)" height="194.4641" id="SpellingController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="146.875" x="355.7292" y="914.5833"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="146.875" x="355.7292" y="914.5833"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="146.875" x="355.7292" y="944.7449"/><rect codeLine="35" fill="none" height="194.4641" id="SpellingController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="146.875" x="355.7292" y="914.5833"/><ellipse cx="372.1875" cy="931.7474" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M375.2433,936.4349 L369.5671,936.4349 L369.5671,927.3224 L375.2433,927.3224 L375.2433,928.9093 L371.3676,928.9093 L371.3676,930.8746 L374.8771,930.8746 L374.8771,932.4615 L371.3676,932.4615 L371.3676,934.848 L375.2433,934.848 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="101.0417" x="391.3542" y="936.0779">SpellingController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="356.7708" x2="501.5625" y1="948.9115" y2="948.9115"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="93.75" x="367.1875" y="969.3644">Setup everything</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="123.9583" x="367.1875" y="993.276">Manage trial sequence</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="123.9583" x="367.1875" y="1017.1875">Provide access to data</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="123.9583" x="367.1875" y="1041.099">Provide access to stim</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="65.625" x="367.1875" y="1065.0106">Submit data</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="52.0833" x="367.1875" y="1088.9221">Save data</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="356.7708" x2="501.5625" y1="1100.7141" y2="1100.7141"/></g><!--MD5=[1999725e57544bb73177b975809ef24a]
+class TrialStimView--><g id="elem_TrialStimView"><rect codeLine="44" fill="url(#gwempx7x32y6t0)" height="98.818" id="TrialStimView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="120.8333" x="17.7083" y="1183.8542"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="120.8333" x="17.7083" y="1183.8542"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="120.8333" x="17.7083" y="1214.0157"/><rect codeLine="44" fill="none" height="98.818" id="TrialStimView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="120.8333" x="17.7083" y="1183.8542"/><ellipse cx="34.6354" cy="1201.0183" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M37.6912,1205.7058 L32.015,1205.7058 L32.015,1196.5932 L37.6912,1196.5932 L37.6912,1198.1801 L33.8155,1198.1801 L33.8155,1200.1455 L37.325,1200.1455 L37.325,1201.7324 L33.8155,1201.7324 L33.8155,1204.1189 L37.6912,1204.1189 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="73.9583" x="53.9063" y="1205.3487">TrialStimView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="18.75" x2="137.5" y1="1218.1824" y2="1218.1824"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="97.9167" x="29.1667" y="1238.6353">Presents stim cue</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="94.7917" x="29.1667" y="1262.5468">Run present stim</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="18.75" x2="137.5" y1="1274.3388" y2="1274.3388"/></g><!--MD5=[a61c4720c79941399c13e59e6633d685]
+class TrialResponseView--><g id="elem_TrialResponseView"><rect codeLine="49" fill="url(#gwempx7x32y6t0)" height="122.7295" id="TrialResponseView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="183.3333" x="536.4583" y="1171.875"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="183.3333" x="536.4583" y="1171.875"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="183.3333" x="536.4583" y="1202.0365"/><rect codeLine="49" fill="none" height="122.7295" id="TrialResponseView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="183.3333" x="536.4583" y="1171.875"/><ellipse cx="567.9167" cy="1189.0391" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M570.9725,1193.7266 L565.2962,1193.7266 L565.2962,1184.6141 L570.9725,1184.6141 L570.9725,1186.201 L567.0968,1186.201 L567.0968,1188.1663 L570.6063,1188.1663 L570.6063,1189.7532 L567.0968,1189.7532 L567.0968,1192.1397 L570.9725,1192.1397 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="104.1667" x="590.4167" y="1193.3695">TrialResponseView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="537.5" x2="718.75" y1="1206.2032" y2="1206.2032"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="160.4167" x="547.9167" y="1226.6561">Cue participant for response</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="93.75" x="547.9167" y="1250.5676">Collect response</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="140.625" x="547.9167" y="1274.4792">Pass response to handler</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="537.5" x2="718.75" y1="1286.2712" y2="1286.2712"/></g><!--MD5=[bca2a897280133127af28103270f88fd]
+class TrialResponseController--><g id="elem_TrialResponseController"><rect codeLine="55" fill="url(#gwempx7x32y6t0)" height="98.818" id="TrialResponseController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="178.125" x="445.3125" y="1381.25"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="178.125" x="445.3125" y="1381.25"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="178.125" x="445.3125" y="1411.4115"/><rect codeLine="55" fill="none" height="98.818" id="TrialResponseController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="178.125" x="445.3125" y="1381.25"/><ellipse cx="459.8958" cy="1398.4141" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M462.9517,1403.1016 L457.2754,1403.1016 L457.2754,1393.9891 L462.9517,1393.9891 L462.9517,1395.576 L459.0759,1395.576 L459.0759,1397.5413 L462.5854,1397.5413 L462.5854,1399.1282 L459.0759,1399.1282 L459.0759,1401.5147 L462.9517,1401.5147 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="136.4583" x="478.6458" y="1402.7445">TrialResponseController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="446.3542" x2="622.3958" y1="1415.5782" y2="1415.5782"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="93.75" x="456.7708" y="1436.0311">Submit response</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="132.2917" x="456.7708" y="1459.9426">Continue trial sequence</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="446.3542" x2="622.3958" y1="1471.7346" y2="1471.7346"/></g><!--MD5=[faa9112fbe49a7f022affe976f921563]
+class RestView--><g id="elem_RestView"><rect codeLine="60" fill="url(#gwempx7x32y6t0)" height="74.9064" id="RestView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="147.9167" x="884.375" y="1195.8333"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="147.9167" x="884.375" y="1195.8333"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="147.9167" x="884.375" y="1225.9949"/><rect codeLine="60" fill="none" height="74.9064" id="RestView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="147.9167" x="884.375" y="1195.8333"/><ellipse cx="924.7396" cy="1212.9974" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M927.7954,1217.6849 L922.1191,1217.6849 L922.1191,1208.5724 L927.7954,1208.5724 L927.7954,1210.1593 L923.9197,1210.1593 L923.9197,1212.1246 L927.4292,1212.1246 L927.4292,1213.7115 L923.9197,1213.7115 L923.9197,1216.098 L927.7954,1216.098 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="48.9583" x="949.2188" y="1217.3279">RestView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="885.4167" x2="1031.25" y1="1230.1615" y2="1230.1615"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="125" x="895.8333" y="1250.6144">Cue participant to rest</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="885.4167" x2="1031.25" y1="1262.4064" y2="1262.4064"/></g><!--MD5=[fc7365cf6f77a1581fd125086398369c]
+class RestController--><g id="elem_RestController"><rect codeLine="64" fill="url(#gwempx7x32y6t0)" height="74.9064" id="RestController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="170.8333" x="937.5" y="1393.2292"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="170.8333" x="937.5" y="1393.2292"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="170.8333" x="937.5" y="1423.3907"/><rect codeLine="64" fill="none" height="74.9064" id="RestController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="170.8333" x="937.5" y="1393.2292"/><ellipse cx="973.6458" cy="1410.3933" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M976.7017,1415.0808 L971.0254,1415.0808 L971.0254,1405.9682 L976.7017,1405.9682 L976.7017,1407.5551 L972.8259,1407.5551 L972.8259,1409.5205 L976.3354,1409.5205 L976.3354,1411.1074 L972.8259,1411.1074 L972.8259,1413.4939 L976.7017,1413.4939 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="81.25" x="997.1875" y="1414.7237">RestController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="938.5417" x2="1107.2917" y1="1427.5574" y2="1427.5574"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="147.9167" x="948.9583" y="1448.0103">Resume activity after an ISI</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="938.5417" x2="1107.2917" y1="1459.8022" y2="1459.8022"/></g><!--MD5=[22f81e878065e9b621fb901e2a9897ae]
+class EndView--><g id="elem_EndView"><rect codeLine="68" fill="url(#gwempx7x32y6t0)" height="74.9064" id="EndView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="140.625" x="358.8542" y="1195.8333"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="140.625" x="358.8542" y="1195.8333"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="140.625" x="358.8542" y="1225.9949"/><rect codeLine="68" fill="none" height="74.9064" id="EndView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="140.625" x="358.8542" y="1195.8333"/><ellipse cx="397.3438" cy="1212.9974" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M400.3996,1217.6849 L394.7233,1217.6849 L394.7233,1208.5724 L400.3996,1208.5724 L400.3996,1210.1593 L396.5238,1210.1593 L396.5238,1212.1246 L400.0334,1212.1246 L400.0334,1213.7115 L396.5238,1213.7115 L396.5238,1216.098 L400.3996,1216.098 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="45.8333" x="421.4063" y="1217.3279">EndView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="359.8958" x2="498.4375" y1="1230.1615" y2="1230.1615"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="117.7083" x="370.3125" y="1250.6144">Present end message</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="359.8958" x2="498.4375" y1="1262.4064" y2="1262.4064"/></g><!--MD5=[3d5f4f440bf2091daf1f39415db54ff4]
+class StimController--><g id="elem_StimController"><rect codeLine="72" fill="url(#gwempx7x32y6t0)" height="146.641" id="StimController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="206.25" x="108.3333" y="1357.2917"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="206.25" x="108.3333" y="1357.2917"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="206.25" x="108.3333" y="1387.4532"/><rect codeLine="72" fill="none" height="146.641" id="StimController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="206.25" x="108.3333" y="1357.2917"/><ellipse cx="161.4583" cy="1374.4558" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M164.5142,1379.1433 L158.8379,1379.1433 L158.8379,1370.0307 L164.5142,1370.0307 L164.5142,1371.6176 L160.6384,1371.6176 L160.6384,1373.583 L164.1479,1373.583 L164.1479,1375.1699 L160.6384,1375.1699 L160.6384,1377.5564 L164.5142,1377.5564 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="81.25" x="186.4583" y="1378.7862">StimController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="109.375" x2="313.5417" y1="1391.6199" y2="1391.6199"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="183.3333" x="119.7917" y="1412.0728">Interact with the AudioController</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="179.1667" x="119.7917" y="1435.9843">Interact with the stimuli package</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="69.7917" x="119.7917" y="1459.8958">Prepare stim</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="89.5833" x="119.7917" y="1483.8074">Present the stim</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="109.375" x2="313.5417" y1="1495.5994" y2="1495.5994"/></g><!--MD5=[0129eb6939fd228296a8d2732d2e39e8]
+class AudioController--><g id="elem_AudioController"><rect codeLine="79" fill="url(#gwempx7x32y6t0)" height="122.7295" id="AudioController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="132.2917" x="145.3125" y="1566.6667"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="132.2917" x="145.3125" y="1566.6667"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="132.2917" x="145.3125" y="1596.8282"/><rect codeLine="79" fill="none" height="122.7295" id="AudioController" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="132.2917" x="145.3125" y="1566.6667"/><ellipse cx="159.8958" cy="1583.8308" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M162.9517,1588.5183 L157.2754,1588.5183 L157.2754,1579.4057 L162.9517,1579.4057 L162.9517,1580.9926 L159.0759,1580.9926 L159.0759,1582.958 L162.5854,1582.958 L162.5854,1584.5449 L159.0759,1584.5449 L159.0759,1586.9314 L162.9517,1586.9314 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="90.625" x="178.6458" y="1588.1612">AudioController</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="146.3542" x2="276.5625" y1="1600.9949" y2="1600.9949"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="56.25" x="156.7708" y="1621.4478">Play audio</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="104.1667" x="156.7708" y="1645.3593">Setup audio device</text><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="97.9167" x="156.7708" y="1669.2708">Validate audio file</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="146.3542" x2="276.5625" y1="1681.0628" y2="1681.0628"/></g><!--MD5=[e6d8bd6e333620d1772ea8735c5b8025]
+class LoadingView--><g id="elem_LoadingView"><rect fill="url(#gwempx7x32y6t0)" height="50.9949" id="LoadingView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="111.4583" x="426.5625" y="328.6458"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="111.4583" x="426.5625" y="328.6458"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="111.4583" x="426.5625" y="358.8074"/><rect fill="none" height="50.9949" id="LoadingView" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="111.4583" x="426.5625" y="328.6458"/><ellipse cx="441.1458" cy="345.8099" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M443.0562,350.235 Q442.629,350.4547 442.159,350.5646 Q441.689,350.6744 441.1702,350.6744 Q439.327,350.6744 438.3565,349.4598 Q437.3861,348.2452 437.3861,345.9503 Q437.3861,343.6493 438.3565,342.4347 Q439.327,341.2201 441.1702,341.2201 Q441.689,341.2201 442.1651,341.33 Q442.6412,341.4398 443.0562,341.6595 L443.0562,343.6615 Q442.5924,343.2343 442.156,343.0359 Q441.7196,342.8375 441.2557,342.8375 Q440.2669,342.8375 439.7634,343.6218 Q439.2598,344.4061 439.2598,345.9503 Q439.2598,347.4884 439.7634,348.2727 Q440.2669,349.057 441.2557,349.057 Q441.7196,349.057 442.156,348.8586 Q442.5924,348.6603 443.0562,348.233 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="69.7917" x="459.8958" y="350.1404">LoadingView</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="427.6042" x2="536.9792" y1="362.974" y2="362.974"/><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="427.6042" x2="536.9792" y1="371.3074" y2="371.3074"/></g><!--MD5=[837d3612090b426002fd1342fcbe6b88]
+class DataBase--><g id="elem_DataBase"><rect fill="url(#gwempx7x32y6t0)" height="50.9949" id="DataBase" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="91.6667" x="756.25" y="1207.8125"/><rect fill="url(#gwempx7x32y6t1)" height="34.3282" rx="4.1667" ry="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="91.6667" x="756.25" y="1207.8125"/><rect fill="url(#gwempx7x32y6t1)" height="4.1667" style="stroke:url(#gwempx7x32y6t1);stroke-width:1.0416666666666667;" width="91.6667" x="756.25" y="1237.974"/><rect fill="none" height="50.9949" id="DataBase" rx="4.1667" ry="4.1667" style="stroke:#304D6D;stroke-width:1.0416666666666667;" width="91.6667" x="756.25" y="1207.8125"/><ellipse cx="770.8333" cy="1224.9766" fill="none" rx="10.4167" ry="10.4167" style="stroke:#304D6D;stroke-width:1.0416666666666667;"/><path d="M772.7437,1229.4017 Q772.3165,1229.6214 771.8465,1229.7312 Q771.3765,1229.8411 770.8577,1229.8411 Q769.0145,1229.8411 768.044,1228.6265 Q767.0736,1227.4119 767.0736,1225.117 Q767.0736,1222.816 768.044,1221.6014 Q769.0145,1220.3868 770.8577,1220.3868 Q771.3765,1220.3868 771.8526,1220.4966 Q772.3287,1220.6065 772.7437,1220.8262 L772.7437,1222.8282 Q772.2799,1222.4009 771.8435,1222.2026 Q771.4071,1222.0042 770.9432,1222.0042 Q769.9544,1222.0042 769.4509,1222.7885 Q768.9473,1223.5728 768.9473,1225.117 Q768.9473,1226.6551 769.4509,1227.4394 Q769.9544,1228.2237 770.9432,1228.2237 Q771.4071,1228.2237 771.8435,1228.0253 Q772.2799,1227.8269 772.7437,1227.3997 Z " fill="#FFFFFF"/><text fill="#EEEEEE" font-family="&quot;Verdana&quot;" font-size="11.4583" lengthAdjust="spacing" textLength="50" x="789.5833" y="1229.307">DataBase</text><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="757.2917" x2="846.875" y1="1242.1407" y2="1242.1407"/><line style="stroke:#304D6D;stroke-width:1.0416666666666667;" x1="757.2917" x2="846.875" y1="1250.474" y2="1250.474"/></g><!--MD5=[8ee3f7f72dce6711e141ec062ce9653c]
+link MSpellingApp to SetupView--><g id="link_MSpellingApp_SetupView"><path codeLine="85" d="M391.6667,116.8958 C391.6667,135.2917 391.6667,156.0417 391.6667,173.75 " fill="none" id="MSpellingApp-to-SetupView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="391.6667,179.1458,395.8333,169.7708,391.6667,173.9375,387.5,169.7708,391.6667,179.1458" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[bc23138f166299c9240fd96e0901970f]
+link SetupView to SetupController--><g id="link_SetupView_SetupController"><path codeLine="86" d="M367.4271,254.3542 C355.6771,272.1146 341.5104,293.5208 329.3854,311.8542 " fill="none" id="SetupView-to-SetupController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="326.3438,316.4479,334.9891,310.9244,329.2156,312.1029,328.0371,306.3294,326.3438,316.4479" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[2d7a2a2cea3f1f135cc96af6054d2bcd]
+link SetupView to LoadingView--><g id="link_SetupView_LoadingView"><path codeLine="87" d="M416.1875,254.3542 C430.8125,276.1979 449.1146,303.5521 462.7604,323.9375 " fill="none" id="SetupView-to-LoadingView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="465.7708,328.4375,464.0374,318.3258,462.8818,324.1039,457.1036,322.9483,465.7708,328.4375" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[868f80f3013d1426eff958d15ad3c45f]
+link SetupController to WorkspaceView--><g id="link_SetupController_WorkspaceView"><path codeLine="88" d="M262.8333,392.0208 C248.1042,409.4583 231.8854,430.6146 218.4792,449.7292 " fill="none" id="SetupController-to-WorkspaceView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="215.4792,454.0312,224.249,448.7076,218.45,449.7533,217.4043,443.9543,215.4792,454.0312" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[b3cec144a6c9cbd834aeefe12a34a1dc]
+link WorkspaceView to SetupController--><g id="link_WorkspaceView_SetupController"><path codeLine="90" d="M241.3646,454.0312 C256.4688,435.4167 272.0521,414.3646 283.9271,396.4896 " fill="none" id="WorkspaceView-to-SetupController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="286.8646,392.0208,278.2324,397.565,284.0031,396.3727,285.1954,402.1434,286.8646,392.0208" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[e9e147900e1fc265dbba00e3ce174dcd]
+link SetupController to LoginView--><g id="link_SetupController_LoginView"><path codeLine="89" d="M329.6563,392.0208 C342.7292,409.4583 358.5729,430.6146 372.8958,449.7292 " fill="none" id="SetupController-to-LoginView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="376.1146,454.0312,373.8229,444.0313,372.9896,449.8646,367.1562,449.0313,376.1146,454.0312" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[00612bbf082436bfb3978d0560ce9303]
+link LoginView to LoginController--><g id="link_LoginView_LoginController"><path codeLine="91" d="M412.5,553.3542 C412.5,571.75 412.5,592.5 412.5,610.2083 " fill="none" id="LoginView-to-LoginController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="412.5,615.6042,416.6667,606.2292,412.5,610.3958,408.3333,606.2292,412.5,615.6042" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[d783f1cde7fb7a036682fc67c57e6ffe]
+link LoginController to BeginView--><g id="link_LoginController_BeginView"><path codeLine="92" d="M416.6667,690.9792 C418.6042,708.125 420.9479,728.8646 423.0833,747.7292 " fill="none" id="LoginController-to-BeginView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="423.6771,752.9896,426.7706,743.2079,423.0954,747.8138,418.4894,744.1386,423.6771,752.9896" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[9394ed9d5913d2af37596e9608eca9c9]
+link BeginView to SpellingController--><g id="link_BeginView_SpellingController"><path codeLine="93" d="M429.1667,852.25 C429.1667,869.3125 429.1667,889.1771 429.1667,908.9688 " fill="none" id="BeginView-to-SpellingController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="429.1667,914.5417,433.3333,905.1667,429.1667,909.3333,425,905.1667,429.1667,914.5417" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[0db6b04478d98246c7218dc64fa8b843]
+link SpellingController to TrialStimView--><g id="link_SpellingController_TrialStimView"><path codeLine="94" d="M355.5208,1056.125 C302.5313,1087.5 229.6146,1131.3958 166.6667,1171.875 C159.0104,1176.8021 151.0417,1182.0521 143.1667,1187.3229 " fill="none" id="SpellingController-to-TrialStimView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="138.8021,1190.25,148.9097,1188.4925,143.1288,1187.3507,144.2707,1181.5698,138.8021,1190.25" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[09e87c76ccf4726340269aa9e690cbe7]
+link TrialStimView to StimController--><g id="link_TrialStimView_StimController"><path codeLine="95" d="M111.4271,1283.1563 C125.8021,1304.2188 142.9688,1329.3646 158.9896,1352.8333 " fill="none" id="TrialStimView-to-StimController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="161.9688,1357.1875,160.1312,1347.0942,159.0352,1352.8839,153.2454,1351.7879,161.9688,1357.1875" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[8801ed53d0928247034a4cb6e4f8fedd]
+link SpellingController to TrialResponseView--><g id="link_SpellingController_TrialResponseView"><path codeLine="96" d="M502.6875,1094.0417 C524.7604,1118.375 548.6771,1144.7396 569.6458,1167.8438 " fill="none" id="SpellingController-to-TrialResponseView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="573.2604,1171.8229,570.0466,1162.0801,569.7606,1167.9657,563.875,1167.6798,573.2604,1171.8229" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[f64619a699c65b5aef6eebb4756db27d]
+link TrialResponseView to TrialResponseController--><g id="link_TrialResponseView_TrialResponseController"><path codeLine="97" d="M599.1042,1294.8333 C586.6563,1320.7813 572.2188,1350.8438 560.1563,1375.9896 " fill="none" id="TrialResponseView-to-TrialResponseController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="557.7708,1380.9479,565.5977,1374.3153,560.0343,1376.2571,558.0925,1370.6937,557.7708,1380.9479" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[a12378a2f88b9a64acfcd42eebb31840]
+link TrialResponseController to SpellingController--><g id="link_TrialResponseController_SpellingController"><path codeLine="98" d="M445.1875,1391.4479 C405.5625,1369.3958 362.9167,1337.4792 340.625,1294.7917 C310.9583,1237.9792 331.3646,1169.4792 360.0208,1114.25 " fill="none" id="TrialResponseController-to-SpellingController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="362.4583,1109.6146,354.4073,1115.9733,360.0344,1114.2245,361.7832,1119.8516,362.4583,1109.6146" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[0fd22375676644e8dbc77a0f0cd8a14f]
+link SpellingController to RestView--><g id="link_SpellingController_RestView"><path codeLine="99" d="M502.9479,1034 C591.7083,1060.5417 744.0938,1110.3021 866.6667,1171.875 C878.6979,1177.9167 891.0625,1185.2292 902.6667,1192.6354 " fill="none" id="SpellingController-to-RestView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="907.25,1195.5938,901.6377,1187.0057,902.8756,1192.7668,897.1146,1194.0047,907.25,1195.5938" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[5085ff843a44d2243e9d4647182d02f7]
+link RestView to RestController--><g id="link_RestView_RestController"><path codeLine="100" d="M970.4792,1271.1146 C981.4896,1304.3958 997.6875,1353.3958 1009.1667,1388.1042 " fill="none" id="RestView-to-RestController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="1010.8229,1393.1146,1011.8296,1382.9049,1009.1848,1388.1706,1003.9191,1385.5258,1010.8229,1393.1146" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[0831dc93a5803e409de114ff3f413882]
+link RestController to SpellingController--><g id="link_RestController_SpellingController"><path codeLine="101" d="M1041.6146,1392.8438 C1066.2708,1338.4688 1101.0313,1236.2396 1051.0417,1171.875 C984.5938,1086.3125 660.3125,1039.0833 508.2188,1021.3125 " fill="none" id="RestController-to-SpellingController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="502.875,1020.6979,511.7112,1025.9108,508.0491,1021.2944,512.6655,1017.6322,502.875,1020.6979" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[dd90662b7782c508553d7567c33c38d0]
+link SpellingController to EndView--><g id="link_SpellingController_EndView"><path codeLine="102" d="M429.1667,1109.5104 C429.1667,1137.8125 429.1667,1167.2917 429.1667,1190.2708 " fill="none" id="SpellingController-to-EndView" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="429.1667,1195.6667,433.3333,1186.2917,429.1667,1190.4583,425,1186.2917,429.1667,1195.6667" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[7118052c03fe68606d18ccbf7bdddf77]
+link SpellingController to LoginController--><g id="link_SpellingController_LoginController"><path codeLine="103" d="M361.2604,914.1771 C350.5938,894.4583 341.1979,873.2396 335.4167,852.0833 C323.8333,809.6563 321.125,794.7188 335.4167,753.125 C342.7188,731.8646 356.6771,711.6458 370.7188,695.1042 " fill="none" id="SpellingController-to-LoginController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="374.2917,690.9792,365.0093,695.3482,370.8862,694.9199,371.3145,700.7969,374.2917,690.9792" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[d05ac9b4be7451f203957517849d1d03]
+link SpellingController to StimController--><g id="link_SpellingController_StimController"><path codeLine="104" d="M355.6563,1087.6667 C336.3229,1113.5729 316.6875,1143.3021 301.0417,1171.875 C269.125,1230.1667 240.625,1299.9479 223.7604,1352.2083 " fill="none" id="SpellingController-to-StimController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="222.1563,1357.2083,228.9703,1349.5388,223.7361,1352.2454,221.0295,1347.0112,222.1563,1357.2083" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[8cf7a52ec0644efe24094084b7b72580]
+link StimController to SpellingController--><g id="link_StimController_SpellingController"><path codeLine="108" d="M252.4583,1357.2083 C275.25,1304.4688 304.5625,1232.0521 337.5,1171.875 C347.9792,1152.7292 360.2604,1133.0625 372.4375,1114.375 " fill="none" id="StimController-to-SpellingController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="375.5313,1109.6563,366.9078,1115.2139,372.6766,1114.0126,373.8779,1119.7814,375.5313,1109.6563" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[1f416d05db362be7a0248d37d9186189]
+link SpellingController to SetupController--><g id="link_SpellingController_SetupController"><path codeLine="105" d="M497.0104,914.1563 C507.6875,894.4375 517.1042,873.2396 522.9167,852.0833 C591.4896,602.6875 547.1667,489.9271 523.9583,454.1667 C516.0313,441.9479 452.1042,414.125 394.8958,391.0833 " fill="none" id="SpellingController-to-SetupController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="389.7396,389.0104,396.8692,396.3874,394.5682,390.9627,399.9929,388.6617,389.7396,389.0104" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[e5fa4b419566b644b523e3095143f37f]
+link SpellingController to DataBase--><g id="link_SpellingController_DataBase"><path codeLine="106" d="M502.8438,1043.6458 C567.7292,1072.2604 663.3333,1118.4896 738.5417,1171.875 C751.5833,1181.1354 764.625,1192.9688 775.4792,1203.7188 " fill="none" id="SpellingController-to-DataBase" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="779.3646,1207.6146,775.6817,1198.0392,775.6817,1203.9317,769.7892,1203.9317,779.3646,1207.6146" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[3e775e361b9f1db890980afc8161f4d6]
+link StimController to AudioController--><g id="link_StimController_AudioController"><path codeLine="107" d="M211.4583,1504.2188 C211.4583,1522.8125 211.4583,1542.7188 211.4583,1560.9792 " fill="none" id="StimController-to-AudioController" style="stroke:#446E9B;stroke-width:3.125;"/><polygon fill="#446E9B" points="211.4583,1566.5833,215.625,1557.2083,211.4583,1561.375,207.2917,1557.2083,211.4583,1566.5833" style="stroke:#446E9B;stroke-width:3.125;"/></g><!--MD5=[5ec358f6c1708370e5a0ce93a3b38a4b]
+@startuml entities_responsibilities
+!theme spacelab
+
+entity MSpellingApp {
+    Basic config
+    Start app
+}
+
+entity SetupController {
+    Choose appropriate screen
+}
+
+entity SetupView {
+    Show loading screen while setup completes
+}
+
+entity WorkspaceView {
+    Present screen to choose dir 
+    Go to appropriate screen
+}
+
+entity LoginView {
+    Collect participant id
+    Pass participant id to handler
+}
+
+entity LoginController {
+    Store participant id
+}
+
+entity BeginView {
+    Present begin message
+    Go to next screen
+}
+
+entity SpellingController {
+    Setup everything
+    Manage trial sequence 
+    Provide access to data
+    Provide access to stim
+    Submit data
+    Save data
+}
+
+entity TrialStimView {
+    Presents stim cue
+    Run present stim
+}
+
+entity TrialResponseView {
+    Cue participant for response 
+    Collect response
+    Pass response to handler
+}
+
+entity TrialResponseController {
+    Submit response
+    Continue trial sequence
+}
+
+entity RestView {
+    Cue participant to rest 
+}
+
+entity RestController {
+    Resume activity after an ISI
+}
+
+entity EndView {
+    Present end message
+}
+
+entity StimController {   
+    Interact with the AudioController 
+    Interact with the stimuli package
+    Prepare stim 
+    Present the stim
+}
+
+entity AudioController {
+    Play audio
+    Setup audio device
+    Validate audio file
+}
+
+MSpellingApp - -> SetupView
+SetupView - -> SetupController
+SetupView - -> LoadingView
+SetupController - -> WorkspaceView
+SetupController - -> LoginView
+WorkspaceView - -> SetupController
+LoginView - -> LoginController
+LoginController - -> BeginView
+BeginView - -> SpellingController
+SpellingController - -> TrialStimView
+TrialStimView - -> StimController
+SpellingController - -> TrialResponseView
+TrialResponseView - -> TrialResponseController
+TrialResponseController - -> SpellingController
+SpellingController - -> RestView
+RestView - -> RestController
+RestController - -> SpellingController
+SpellingController - -> EndView
+SpellingController - -> LoginController
+SpellingController - -> StimController
+SpellingController - -> SetupController
+SpellingController - -> DataBase
+StimController - -> AudioController
+StimController - -> SpellingController
+@enduml
+
+@startuml entities_responsibilities
+
+
+
+skinparam backgroundColor transparent
+skinparam useBetaStyle false
+
+
+
+
+
+
+<style>
+  root {
+    BackgroundColor transparent
+    FontColor #ffffff
+    HyperLinkColor #fd7e14
+    LineColor #304d6d
+    LineThickness 1
+    Margin 10
+    Padding 6
+    Shadowing 0.0
+  }
+  node {
+   Padding 15
+   roundcorner 20
+   BackgroundColor #446e9b-#304d6d
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  groupHeader {
+    BackgroundColor #999999
+    FontColor #3399f3
+    FontStyle bold
+  }
+  header {
+    LineThickness 0
+  }
+  referenceHeader {
+    BackgroundColor transparent
+    FontColor #333333
+    FontStyle bold
+  }
+  separator {
+    BackgroundColor #ffffff
+    FontColor transparent
+    FontStyle bold
+  }
+  title {
+	FontSize 20
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor  #b8b8b8-#999999
+	FontColor #446e9b
+	BorderColor #999999
+  }
+  nwdiagDiagram {
+	network {
+			FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d    
+		LineColor #446e9b
+		LineThickness 1.0
+		FontColor #304d6d
+	}
+	server {
+			FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	}
+	arrow {
+		FontColor #304d6d
+		LineColor #304d6d
+	}
+	group {
+		BackGroundColor #eeeeee
+		LineColor #a7a7a7
+		LineThickness 2.0
+		Margin 5
+		Padding 5
+	}
+  }
+  ganttDiagram {
+	task {
+			FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+		LineColor #446e9b
+		Margin 10
+		Padding 6
+	}
+	note {
+		FontColor #ffffff
+		LineColor #246baa
+		BackGroundColor #3399f3
+	}
+	separator {
+		LineColor #999999
+		BackGroundColor #999999-#6b6b6b
+		FontColor #ffffff
+	}
+	milestone {
+		FontColor #3399f3
+		FontSize 16
+		FontStyle italic
+		BackGroundColor #999999
+		LineColor #6b6b6b
+	}
+	timeline {
+		BackgroundColor #999999
+		FontColor #ffffff
+	}
+	closed {
+		BackgroundColor #945200
+		FontColor #ffffff
+	}
+  }
+</style>
+skinparam defaultFontName       "Verdana"
+skinparam defaultFontSize       12
+skinparam dpi                   100
+skinparam shadowing             false
+skinparam roundcorner           8
+skinparam ParticipantPadding    40
+skinparam BoxPadding            40
+skinparam Padding               5
+skinparam ArrowColor            #333333
+skinparam stereotype {
+    CBackgroundColor #b8b8b8
+    CBorderColor #6b6b6b
+    ABackgroundColor #4cbc5c
+    ABorderColor #32a243
+    IBackgroundColor #dc4e4d
+    IBorderColor #900100
+    EBackgroundColor #e19e4d
+    EBorderColor #945200
+    NBackgroundColor #70b8f7
+    NBorderColor #246baa
+}
+skinparam title {
+	FontColor	                 #304d6d
+	BorderColor	                 #6b6b6b
+	FontSize	    	         20
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor              #b8b8b8-#999999
+}
+
+skinparam legend {
+	BackgroundColor #999999
+	BorderColor #6b6b6b
+	FontColor #eeeeee
+}
+
+skinparam swimlane {
+	BorderColor #3399f3
+	BorderThickness 2
+	TitleBackgroundColor  #b8b8b8-#999999
+	TitleFontColor #304d6d
+}
+
+
+skinparam activity {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	BarColor #3cb521
+	StartColor #3399f3
+	EndColor #3399f3
+	DiamondBackgroundColor #b8b8b8-#6b6b6b
+  	DiamondBorderColor #6b6b6b
+  	DiamondFontColor #ffffff
+}
+
+
+skinparam participant {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	ParticipantBorderThickness 2
+}
+
+
+skinparam actor {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam arrow {
+	Thickness 3
+	Color #446e9b
+	FontColor #ffffff
+}
+
+
+skinparam sequence {
+	BorderColor #446e9b
+	TitleFontColor #446e9b
+	BackgroundColor transparent
+	StartColor #446e9b
+	EndColor #446e9b
+	BoxBackgroundColor transparent
+	BoxBorderColor #333333
+	BoxFontColor #333333
+	DelayFontColor #333333
+	LifeLineBorderColor #999999
+	LifeLineBorderThickness 2
+	LifeLineBackgroundColor #6b6b6b-#6b6b6b
+	GroupBorderColor #333333
+	GroupFontColor #333333
+	GroupHeaderFontColor #3399f3
+	GroupBackgroundColor #6b6b6b-#6b6b6b
+	GroupHeaderBackgroundColor transparent
+	DividerBackgroundColor #707070-#242424
+    DividerBorderColor #333333
+    DividerBorderThickness 2
+    DividerFontColor #eeeeee
+	ReferenceBackgroundColor transparent
+	ReferenceBorderColor #333333
+	ReferenceFontColor #333333
+	ReferenceHeaderFontColor #3399f3
+	ReferenceHeaderBackgroundColor #6b6b6b-#6b6b6b
+	StereotypeFontColor #ffffff
+}
+
+
+skinparam partition {
+	BorderColor #446e9b
+	FontColor #446e9b
+	BackgroundColor transparent
+}
+
+
+skinparam collections {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam control {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam entity {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam boundary {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam agent {
+	BackgroundColor #d47500
+	BorderColor #e19e4d
+	FontColor #333333
+}
+
+
+skinparam note {
+	BorderThickness 1
+	BackgroundColor #70b8f7-#246baa
+	BorderColor #246baa
+	FontColor #ffffff
+}
+
+
+skinparam artifact {
+	BackgroundColor #333333
+	BorderColor #242424
+	FontColor #eeeeee
+}
+
+
+skinparam component {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam interface {
+	BackgroundColor  #900100
+	BorderColor  #cd0200
+	FontColor #333333
+}
+
+
+skinparam storage {
+	BackgroundColor #d47500
+  	BorderColor #945200
+	FontColor #ffffff
+}
+
+
+skinparam node {
+	BackgroundColor  #999999
+	BorderColor #eeeeee
+	FontColor #eeeeee
+}
+
+
+skinparam cloud {
+	BackgroundColor #F2FCFE-#eeeeee
+	BorderColor #F2FCFE
+	FontColor #333333
+}
+
+
+skinparam database {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam class {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	FontColor #ffffff
+	HeaderBackgroundColor #7c9ab9-#446e9b
+	StereotypeFontColor #eeeeee
+	BorderThickness 1
+	AttributeFontColor #eeeeee
+	AttributeFontSize 11
+}
+
+
+skinparam object {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	StereotypeFontColor #333333
+	BorderThickness 1
+	AttributeFontColor #ffffff
+	AttributeFontSize 11
+}
+
+
+skinparam usecase {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	BorderThickness 2
+	StereotypeFontColor #446e9b
+}
+
+
+skinparam rectangle {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	BackgroundColor #b8b8b8-#6b6b6b
+	BorderThickness 2
+	StereotypeFontColor #446e9b
+}
+
+
+skinparam package {
+	BackgroundColor #b8b8b8-#6b6b6b
+  	BorderColor #446e9b
+	FontColor #446e9b
+	BorderThickness 2
+}
+
+
+skinparam folder {
+	BackgroundColor #b8b8b8-#6b6b6b
+  	BorderColor #d47500
+	FontColor #d47500
+	BorderThickness 2
+}
+
+
+skinparam frame {
+	BackgroundColor #b8b8b8-#6b6b6b
+  	BorderColor #3399f3
+	FontColor #3399f3
+	BorderThickness 2
+}
+
+
+skinparam state {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+	StartColor #3399f3
+	EndColor #3399f3
+	AttributeFontColor #ffffff
+	AttributeFontSize 11
+}
+
+
+skinparam queue {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+
+skinparam card {
+	BackgroundColor #70b8f7-#246baa
+	BorderColor #246baa
+	FontColor #ffffff
+}
+
+
+skinparam file {
+	BackgroundColor #6b6b6b-#6b6b6b
+	BorderColor #eeeeee
+	FontColor #eeeeee
+}
+
+
+skinparam stack {
+		FontColor #ffffff
+	BorderColor #304d6d
+	BackgroundColor #7c9ab9-#304d6d
+}
+
+entity MSpellingApp {
+    Basic config
+    Start app
+}
+
+entity SetupController {
+    Choose appropriate screen
+}
+
+entity SetupView {
+    Show loading screen while setup completes
+}
+
+entity WorkspaceView {
+    Present screen to choose dir 
+    Go to appropriate screen
+}
+
+entity LoginView {
+    Collect participant id
+    Pass participant id to handler
+}
+
+entity LoginController {
+    Store participant id
+}
+
+entity BeginView {
+    Present begin message
+    Go to next screen
+}
+
+entity SpellingController {
+    Setup everything
+    Manage trial sequence 
+    Provide access to data
+    Provide access to stim
+    Submit data
+    Save data
+}
+
+entity TrialStimView {
+    Presents stim cue
+    Run present stim
+}
+
+entity TrialResponseView {
+    Cue participant for response 
+    Collect response
+    Pass response to handler
+}
+
+entity TrialResponseController {
+    Submit response
+    Continue trial sequence
+}
+
+entity RestView {
+    Cue participant to rest 
+}
+
+entity RestController {
+    Resume activity after an ISI
+}
+
+entity EndView {
+    Present end message
+}
+
+entity StimController {   
+    Interact with the AudioController 
+    Interact with the stimuli package
+    Prepare stim 
+    Present the stim
+}
+
+entity AudioController {
+    Play audio
+    Setup audio device
+    Validate audio file
+}
+
+MSpellingApp - -> SetupView
+SetupView - -> SetupController
+SetupView - -> LoadingView
+SetupController - -> WorkspaceView
+SetupController - -> LoginView
+WorkspaceView - -> SetupController
+LoginView - -> LoginController
+LoginController - -> BeginView
+BeginView - -> SpellingController
+SpellingController - -> TrialStimView
+TrialStimView - -> StimController
+SpellingController - -> TrialResponseView
+TrialResponseView - -> TrialResponseController
+TrialResponseController - -> SpellingController
+SpellingController - -> RestView
+RestView - -> RestController
+RestController - -> SpellingController
+SpellingController - -> EndView
+SpellingController - -> LoginController
+SpellingController - -> StimController
+SpellingController - -> SetupController
+SpellingController - -> DataBase
+StimController - -> AudioController
+StimController - -> SpellingController
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 13:01:30 AST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -31,10 +31,6 @@ Data
 - Integrate all data into a single table 
 - Save data to disk as CSV file
 
-Components' responsibilities
-============================
-.. image:: Responsibilities.svg
-
-Components' entities and attributies
+Components and responsibilities
 ====================================
-.. image:: Attributes.svg
+.. image:: entities_responsibilities.svg

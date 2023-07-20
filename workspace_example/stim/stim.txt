@@ -1,4 +1,5 @@
 del
+del
 dos
 inicio
 hilo

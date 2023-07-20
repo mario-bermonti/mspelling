@@ -1,7 +1,9 @@
+/// Base exception on which to baes all other exceptions
 abstract class MSpellingExeption implements Exception {
   String userMessage();
 }
 
+/// Generic exception for handling unknown errors
 class GenericMSpellingException implements MSpellingExeption {
   String exceptionMessage;
 

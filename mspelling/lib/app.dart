@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/setup_manager.dart';
-import 'package:mspelling/styles.dart';
+import 'package:get/get.dart';
+import 'package:mspelling/routes.dart';
+import 'package:mspelling/common/styles.dart';
 
 class MSpellingApp extends StatelessWidget {
   const MSpellingApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'mSpelling',
       theme: themeData,
-      home: const SetupManager(),
+      initialRoute: 'setup',
+      getPages: routes,
     );
   }
 }

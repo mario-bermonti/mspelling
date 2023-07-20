@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/constants.dart';
-import 'package:mspelling/screens/workspace/utils.dart';
-import 'package:mspelling/setup_manager.dart';
+import 'package:get/get.dart';
+import 'package:mspelling/common/constants.dart';
 
+/// Custom app bar that shows that can show predefined action buttons
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
   return AppBar(
       title: const Text(appBarTitle),
@@ -17,19 +17,12 @@ List<Widget> createActionButtons({required BuildContext context}) {
     IconButton(
       icon: const Icon(Icons.home),
       tooltip: 'Inicio',
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const SetupManager(),
-          ),
-        );
-      },
+      onPressed: (() => Get.toNamed('/login')),
     ),
-    const IconButton(
-      icon: Icon(Icons.settings),
+    IconButton(
+      icon: const Icon(Icons.settings),
       tooltip: 'Directorio de trabajo',
-      onPressed: setWorkspaceByUser,
+      onPressed: () => Get.toNamed('workspace'),
     ),
   ];
   return actionButtons;

@@ -20,6 +20,7 @@ dependencies:
   audioplayers: ^1.0.1
   shared_preferences: ^2.0.15
   permission_handler: ^10.2.0
+  get: ^4.6.5
 
 
 dev_dependencies:
