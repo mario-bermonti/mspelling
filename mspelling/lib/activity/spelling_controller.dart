@@ -7,6 +7,7 @@ import 'package:mspelling/activity/stim_controller.dart';
 import 'package:mspelling/errors/errors.dart';
 
 /// Controls the task sequence
+/// The sequence includes stim presentation, response, rest, end
 class SpellingController extends GetxController {
   /// Provides access and manages the stimuli
   late final StimController _stimuli;
@@ -60,7 +61,7 @@ class SpellingController extends GetxController {
   /// TODO can presenting stim next be improved? Current implementation seems
   /// weird
   void _updateStatus() {
-  /// Update the current task step so the [run()] can continue the sequence
+    /// Update the current task step so the [run()] can continue the sequence
     if (_responseStatusFollows()) {
       _status = Step.response;
     } else if (_completedStatusFollows()) {
