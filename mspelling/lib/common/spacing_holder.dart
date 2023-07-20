@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Custom widget for including standardized space between widgets
 class BetweenWidgetsSpace extends StatelessWidget {
   const BetweenWidgetsSpace({
     Key? key,
