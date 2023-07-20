@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:data/db.dart';
 import 'package:mspelling/login/login_controller.dart';
 import 'package:mspelling/setup/setup_controller.dart';
-import 'package:mspelling/activity/status.dart';
+import 'package:mspelling/activity/step.dart';
 import 'package:mspelling/activity/stim_controller.dart';
 import 'package:mspelling/errors/errors.dart';
 
@@ -60,8 +60,8 @@ class SpellingController extends GetxController {
   // TODO improve name of conditions checks?
   /// TODO can presenting stim next be improved? Current implementation seems
   /// weird
-  void _updateStatus() {
-    /// Update the current task step so the [run()] can continue the sequence
+  /// Update the current task step so the [run()] can continue the sequence
+  void _updateStep() {
     if (_responseStatusFollows()) {
       _status = Step.response;
     } else if (_completedStatusFollows()) {
@@ -81,7 +81,8 @@ class SpellingController extends GetxController {
       _stimuli.stim.stimCountUsed != 0 && _stimuli.stim.stimCountUsed % 5 == 0;
   bool _completedStatusFollows() => _stimuli.stim.stimCountRemaining == 0;
 
-  void _endSession() {
+  /// Save session and device data
+  void _saveData() {
     /// Global session end time
     final DateTime timeEnd = DateTime.now();
 
@@ -118,18 +119,18 @@ class SpellingController extends GetxController {
     switch (_status) {
       case Step.stim:
         Get.toNamed('trialstim');
-        _updateStatus();
+        _updateStep();
         break;
       case Step.response:
         Get.toNamed('trialresponse');
-        _updateStatus();
+        _updateStep();
         break;
       case Step.rest:
         Get.toNamed('/rest');
-        _updateStatus();
+        _updateStep();
         break;
       case Step.completed:
-        _endSession();
+        _saveData();
         Get.toNamed('end');
         return;
       default:
