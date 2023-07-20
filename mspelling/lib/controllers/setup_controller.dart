@@ -1,7 +1,5 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/views/login_view.dart';
-import 'package:mspelling/views/workspace_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Presents the workspace screen if no workspace is available,
@@ -22,9 +20,9 @@ class SetupController extends GetxController {
 
   Future<void> toNextScreen() async {
     if (await workspace != null) {
-      Get.to(() => LoginView());
+      Get.toNamed('login');
     } else {
-      Get.to(() => WorkspaceView());
+      Get.toNamed('workspace');
     }
   }
 

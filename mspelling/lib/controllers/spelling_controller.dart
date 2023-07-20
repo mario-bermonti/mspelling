@@ -5,10 +5,6 @@ import 'package:mspelling/controllers/setup_controller.dart';
 import 'package:mspelling/controllers/status.dart';
 import 'package:mspelling/controllers/stim_controller.dart';
 import 'package:mspelling/errors.dart';
-import 'package:mspelling/views/end_view.dart';
-import 'package:mspelling/views/rest_view.dart';
-import 'package:mspelling/views/trial_response_view.dart';
-import 'package:mspelling/views/trial_stim_view.dart';
 
 // Controls the task's sequences
 class SpellingController extends GetxController {
@@ -118,20 +114,20 @@ class SpellingController extends GetxController {
   void run() {
     switch (_status) {
       case Step.stim:
-        Get.to(() => TrialStimView());
+        Get.toNamed('trialstim');
         _updateStatus();
         break;
       case Step.response:
-        Get.to(() => TrialResponseView());
+        Get.toNamed('trialresponse');
         _updateStatus();
         break;
       case Step.rest:
-        Get.to(() => RestView());
+        Get.toNamed('/rest');
         _updateStatus();
         break;
       case Step.completed:
         _endSession();
-        Get.to(() => const EndView());
+        Get.toNamed('end');
         return;
       default:
         run();

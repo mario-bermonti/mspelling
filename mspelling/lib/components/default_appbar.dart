@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/constants.dart';
-import 'package:mspelling/views/login_view.dart';
-import 'package:mspelling/views/workspace_view.dart';
 
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
   return AppBar(
@@ -18,19 +16,12 @@ List<Widget> createActionButtons({required BuildContext context}) {
     IconButton(
       icon: const Icon(Icons.home),
       tooltip: 'Inicio',
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => LoginView(),
-          ),
-        );
-      },
+      onPressed: (() => Get.toNamed('/login')),
     ),
     IconButton(
       icon: const Icon(Icons.settings),
       tooltip: 'Directorio de trabajo',
-      onPressed: () => Get.to(() => WorkspaceView()),
+      onPressed: () => Get.toNamed('workspace'),
     ),
   ];
   return actionButtons;
