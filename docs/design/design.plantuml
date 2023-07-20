@@ -1,4 +1,4 @@
-@startuml Entities and Responsibilities
+@startuml entities_responsibilities
 !theme spacelab
 
 entity MSpellingApp {
