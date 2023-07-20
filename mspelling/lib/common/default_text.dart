@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Custom text widget with predefined style
 class DefaultText extends StatelessWidget {
   final String text;
 
