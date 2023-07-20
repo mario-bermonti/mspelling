@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mspelling/common/constants.dart';
 
+/// Custom app bar that shows that can show predefined action buttons
 createAppBar({required BuildContext context, bool showActionButtons = false}) {
   return AppBar(
       title: const Text(appBarTitle),
