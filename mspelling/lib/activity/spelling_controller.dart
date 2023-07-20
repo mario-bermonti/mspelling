@@ -81,7 +81,8 @@ class SpellingController extends GetxController {
       _stimuli.stim.stimCountUsed != 0 && _stimuli.stim.stimCountUsed % 5 == 0;
   bool _completedStatusFollows() => _stimuli.stim.stimCountRemaining == 0;
 
-  void _endSession() {
+  /// Save session and device data
+  void _saveData() {
     /// Global session end time
     final DateTime timeEnd = DateTime.now();
 
@@ -129,7 +130,7 @@ class SpellingController extends GetxController {
         _updateStep();
         break;
       case Step.completed:
-        _endSession();
+        _saveData();
         Get.toNamed('end');
         return;
       default:
