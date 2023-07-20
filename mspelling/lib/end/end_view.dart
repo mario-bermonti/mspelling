@@ -3,11 +3,10 @@ import 'package:mspelling/common/centeredbox.dart';
 import 'package:mspelling/common/default_appbar.dart';
 import 'package:mspelling/common/default_text.dart';
 
+/// Screen for instructing the participant the task has ended.
+/// Doesn't allow going back or restarting so the experimenter has control
+/// over the session.
 class EndView extends StatelessWidget {
-  /// Communicate the participant the task has ended.
-  /// Doesn't allow going back or restarting so the experimenter has control
-  /// over the session.
-
   const EndView({Key? key}) : super(key: key);
 
   @override
