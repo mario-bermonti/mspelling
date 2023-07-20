@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/components/centeredbox.dart';
-import 'package:mspelling/components/default_appbar.dart';
-import 'package:mspelling/components/default_text.dart';
+import 'package:mspelling/common/centeredbox.dart';
+import 'package:mspelling/common/default_appbar.dart';
+import 'package:mspelling/common/default_text.dart';
 import 'package:mspelling/errors.dart';
 
 /// Present error screen to participant

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mspelling/components/default_appbar.dart';
+import 'package:mspelling/common/default_appbar.dart';
 
 class LoadingView extends StatelessWidget {
   const LoadingView({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mspelling/components/centeredbox.dart';
-import 'package:mspelling/components/default_appbar.dart';
-import 'package:mspelling/components/default_text.dart';
-import 'package:mspelling/components/spacing_holder.dart';
+import 'package:mspelling/common/centeredbox.dart';
+import 'package:mspelling/common/default_appbar.dart';
+import 'package:mspelling/common/default_text.dart';
+import 'package:mspelling/common/spacing_holder.dart';
 import 'package:mspelling/controllers/rest_controller.dart';
 
 class RestView extends StatelessWidget {
