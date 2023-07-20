@@ -6,7 +6,7 @@ const InputDecoration textFieldStyle = InputDecoration(
 
 ThemeData themeData = ThemeData(
   primarySwatch: Colors.blue,
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   textTheme: const TextTheme(
     button: TextStyle(fontSize: 20),
   ),
