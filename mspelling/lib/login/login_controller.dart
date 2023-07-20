@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/// Manager that holds the participant ID
 class LoginController extends GetxController {
   final TextEditingController textController = TextEditingController();
   late final String participantID;
