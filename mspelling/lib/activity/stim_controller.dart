@@ -15,7 +15,6 @@ class StimController extends GetxController {
 
   @override
   void onInit() async {
-    await prepareStim();
     super.onInit();
   }
 
