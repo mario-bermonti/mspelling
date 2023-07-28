@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 /// Manager that holds the participant ID
 class LoginController extends GetxController {
   final TextEditingController textController = TextEditingController();
-  late final String participantID;
+  late String participantID;
 
   @override
   void onClose() {
