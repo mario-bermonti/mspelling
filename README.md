@@ -53,7 +53,7 @@ his academic research. Feel free to contact me at [mbermonti@psm.edu](mailto:mbe
 [mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com).
 ## Citation
 If you use mSpelling in your research, please cite as
-Bermonti-Pérez, M. (2022). mario-bermonti/mspelling: V0.4.0. Zenodo. https://doi.org/10.5281/zenodo.6468561
+Bermonti-Pérez, M. (2022). mario-bermonti/mspelling: V0.5.0. Zenodo. https://doi.org/10.5281/zenodo.6468561
 
 [project_docs]: https://mspelling.readthedocs.io/
 [code_conduct]: ./CODE_OF_CONDUCT.md
