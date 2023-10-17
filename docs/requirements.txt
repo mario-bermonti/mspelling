@@ -51,7 +51,7 @@ sphinxemoji==0.2.0
 toml==0.10.2; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
 tomli==2.0.1; python_full_version <= "3.11.0a6" and python_version >= "3.7"
 typing-extensions==4.6.3; python_version < "3.8" and python_version >= "3.7"
-urllib3==2.0.3; python_version >= "3.7"
+urllib3==2.0.7; python_version >= "3.7"
 virtualenv==20.23.1; python_version >= "3.7"
 watchdog==2.3.1; python_version >= "3.6"
 xdoctest==0.15.10
